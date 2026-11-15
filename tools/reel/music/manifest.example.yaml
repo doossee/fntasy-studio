@@ -1,0 +1,15 @@
+# One entry per audio file used in reels. tools/reel refuses a music file without an entry
+# that has source, license, url and commercialUse: true.
+# Copy to manifest.yaml (next to your tracks, or pass music.manifest in the scenario).
+tracks:
+  example-track.mp3:
+    title: Example Track
+    author: Example Artist
+    source: Incompetech                 # library name
+    url: https://incompetech.com/music/royalty-free/music.html   # page you downloaded it from
+    license: CC BY 4.0
+    licenseUrl: https://creativecommons.org/licenses/by/4.0/
+    commercialUse: true                 # you read the licence and it allows business use on social media
+    attribution: '"Example Track" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0'
+    redistribution: true                # false → never commit the file
+    checkedOn: 2026-11-15               # date you read the licence page

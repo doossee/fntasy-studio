@@ -1,0 +1,9 @@
+{
+  "name": "@growth-studio/publish",
+  "version": "0.1.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "dependencies": { "yaml": "^2.5.0" }
+}

@@ -1,0 +1,14 @@
+type: post
+name: post-trial
+size: portrait
+layout: cover
+theme: light
+kicker: { uz-Latn: Ochiq dars · 6-dekabr, ru: Открытый урок · 6 декабря }
+title:
+  uz-Latn: "Birinchi dars — *bepul*"
+  ru: "Первое занятие — *бесплатно*"
+text:
+  uz-Latn: "60 daqiqa, 8 kishilik guruh. Darajangizni aniqlaymiz va oʻquv rejasini beramiz."
+  ru: "60 минут, группа до 8 человек. Определим уровень и дадим план занятий."
+button: { uz-Latn: Yozilish, ru: Записаться }
+link: https://qaldirgoch.example/trial

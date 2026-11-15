@@ -1,0 +1,64 @@
+{
+  "name": "growth-studio",
+  "description": "Two Claude Code plugins in one catalog: growth research with content production tools, and measurable screen design and clarity rules",
+  "owner": {
+    "name": "doossee",
+    "url": "https://github.com/doossee"
+  },
+  "plugins": [
+    {
+      "name": "growth-studio",
+      "source": "./skills/growth",
+      "description": "Step-by-step growth research from open data: competitors, markets, Telegram channels, Central Asia, event kits. The content tools (posts, carousels, stories, reels) run from a clone of the repository",
+      "version": "0.1.0",
+      "author": {
+        "name": "doossee",
+        "url": "https://github.com/doossee"
+      },
+      "homepage": "https://github.com/doossee/growth-studio",
+      "repository": "https://github.com/doossee/growth-studio",
+      "license": "Apache-2.0",
+      "keywords": [
+        "growth",
+        "marketing",
+        "research",
+        "telegram",
+        "central-asia",
+        "content"
+      ],
+      "category": "marketing"
+    },
+    {
+      "name": "design-skills",
+      "source": "./",
+      "description": "ui-craft and ux-clarity: measurable screen design and clarity rules, audits of any URL, design variants, a blind rubric judge",
+      "version": "0.1.0",
+      "author": {
+        "name": "doossee",
+        "url": "https://github.com/doossee"
+      },
+      "homepage": "https://github.com/doossee/growth-studio",
+      "repository": "https://github.com/doossee/growth-studio",
+      "license": "Apache-2.0",
+      "keywords": [
+        "design",
+        "ui",
+        "ux",
+        "audit",
+        "playwright",
+        "skills"
+      ],
+      "category": "design",
+      "skills": [
+        "./skills/ui-craft",
+        "./skills/ux-clarity",
+        "./skills/ui-audit",
+        "./skills/ux-audit",
+        "./skills/design-variants"
+      ],
+      "agents": [
+        "./agents/design-judge.md"
+      ]
+    }
+  ]
+}

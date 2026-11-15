@@ -1,0 +1,6 @@
+# One row per utm_source. reach/clicks: platform statistics; leads/sales: CRM, filtered by utm_source; spend: money paid this week.
+source,posts,reach,clicks,leads,sales,spend
+telegram,3,0,0,0,0,0
+instagram,3,0,0,0,0,0
+offline,1,0,0,0,0,0
+telegram_ads,0,0,0,0,0,0

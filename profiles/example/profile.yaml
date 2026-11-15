@@ -1,0 +1,76 @@
+# Example profile. The product is FICTIONAL: "Qaldirgʻoch School", a small language
+# school in Samarkand. Any resemblance to a real business is accidental.
+# Copy this folder anywhere (it does not have to live in this repository),
+# edit it, and pass the path:  --profile /path/to/your-profile
+name: qaldirgoch-example
+
+product:
+  name: Qaldirgʻoch School
+  category: language school        # used by the growth skill to find competitors
+  oneLiner:
+    uz-Latn: Samarqandda ingliz tili — 8 kishilik guruhlarda
+    ru: Английский в Самарканде — группы до 8 человек
+  offer:
+    uz-Latn: Birinchi dars bepul
+    ru: Первое занятие бесплатно
+  price:
+    uz-Latn: oyiga 450 000 soʻm
+    ru: 450 000 сум в месяц
+
+audience:
+  - who: school students 14–17 and their parents
+    need: IELTS 6.0+ for university admission
+  - who: working adults 22–35
+    need: spoken English for work, evening classes
+
+market:
+  country: UZ
+  city: Samarqand
+  currency: UZS
+  timezone: Asia/Samarkand
+
+# First language is the default. BCP 47 tags: uz-Latn, uz-Cyrl, ru, kk, ky, tg, en…
+languages: [uz-Latn, ru]
+
+channels:
+  telegram:
+    handle: "@qaldirgoch_example"
+    url: https://t.me/qaldirgoch_example
+    perWeek: 3
+  instagram:
+    handle: "@qaldirgoch.example"
+    perWeek: 3
+  offline:
+    note: flyers with QR at two partner schools, open day once a month
+    perWeek: 1
+
+brand:
+  handle: "@qaldirgoch_example"
+  logo: assets/logo.svg
+  colors:
+    bg: "#FBF7F0"          # page background
+    surface: "#F1E9DC"     # cards, frames
+    text: "#16233B"
+    muted: "#5E6B80"
+    accent: "#E4572E"
+    accentText: "#FFFFFF"
+    dark: "#16233B"        # background of dark slides
+  fonts:
+    heading: { family: Inter, weight: 800 }
+    body: { family: Inter, weight: 450 }
+    files:                 # open fonts only; keep the licence file next to them
+      - { family: Inter, src: fonts/InterVariable.woff2, weight: "100 900" }
+
+links:
+  landing: https://qaldirgoch.example/trial     # .example is a reserved test domain
+  telegramBot: https://t.me/qaldirgoch_example_bot
+
+utm:
+  campaign: open_day_dec
+  medium:
+    telegram: social
+    instagram: social
+    offline: qr
+    telegram_ads: cpc
+
+competitors: []            # filled by the growth skill, mode (b)

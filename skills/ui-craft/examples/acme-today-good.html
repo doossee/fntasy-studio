@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Today · Acme Orders (clean example)</title>
+<style>
+  :root {
+    --primary: #1f5fbf;
+    --ink: #1b2430;
+    --muted: #5b6675;
+    --line: #dfe3e8;
+    --page: #f7f8fa;
+    --panel: #ffffff;
+    --danger: #b3261e;
+    --danger-bg: #fdecea;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { font: 14px/20px system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--ink); background: var(--page); font-variant-numeric: tabular-nums; }
+  .shell { display: grid; grid-template-columns: 248px minmax(0, 1fr); min-height: 100vh; }
+  nav { background: var(--panel); border-right: 1px solid var(--line); padding: 24px 16px; }
+  .brand { font-size: 16px; line-height: 24px; font-weight: 600; padding: 0 8px; margin-bottom: 24px; }
+  nav ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+  nav a { display: flex; align-items: center; height: 36px; padding: 0 8px; border-radius: 8px; color: var(--ink); text-decoration: none; }
+  nav a:hover { background: #eef1f5; }
+  nav a[aria-current="page"] { background: #e7effb; color: #123f85; font-weight: 500; }
+  main { padding: 32px; min-width: 0; }
+  .page-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 24px; }
+  h1 { font-size: 28px; line-height: 36px; font-weight: 600; margin: 0; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 16px; border-radius: 8px; border: 1px solid transparent; font: inherit; font-weight: 500; cursor: pointer; text-decoration: none; }
+  .btn-primary { background: var(--primary); color: #fff; }
+  .btn-primary:hover { background: #1a51a3; }
+  .btn-quiet { height: 36px; padding: 0 12px; background: var(--panel); border-color: #b9c0ca; color: var(--ink); }
+  .btn-quiet:hover { background: #f1f3f6; }
+  .btn:focus-visible, nav a:focus-visible { outline: 3px solid rgba(31, 95, 191, .5); outline-offset: 2px; }
+  .columns { display: grid; grid-template-columns: minmax(0, 2fr) minmax(320px, 1fr); gap: 24px; align-items: start; }
+  .stack { display: grid; gap: 24px; }
+  .lead { display: flex; align-items: center; gap: 24px; }
+  .lead-number { font-size: 48px; line-height: 56px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .lead-meta { color: var(--muted); }
+  .spark { width: 272px; height: 48px; margin-left: auto; flex: none; }
+  .lead-meta strong { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+  h2 { font-size: 16px; line-height: 24px; font-weight: 600; margin: 0 0 12px; }
+  .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; }
+  /* the heading lives inside its panel: a short heading alone on the canvas next to a filled right column leaves an empty centre in its row */
+  .panel-title { margin: 0; padding: 16px 16px 8px; }
+  table { width: 100%; border-collapse: collapse; }
+  th { text-align: left; font-size: 12px; line-height: 16px; font-weight: 500; color: var(--muted); height: 40px; padding: 0 12px; border-bottom: 1px solid var(--line); }
+  td { height: 48px; padding: 0 12px; border-bottom: 1px solid var(--line); }
+  tr:last-child td { border-bottom: 0; }
+  th:first-child, td:first-child { padding-left: 16px; }
+  th:last-child, td:last-child { padding-right: 16px; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  tbody tr:hover { background: #f5f7fa; }
+  .badge { display: inline-flex; align-items: center; height: 24px; padding: 0 8px; border-radius: 12px; font-size: 12px; line-height: 16px; font-weight: 500; background: var(--danger-bg); color: var(--danger); }
+  .quiet { color: var(--muted); }
+  .side h2 { margin-bottom: 8px; }
+  .side ul { list-style: none; margin: 0; padding: 0; }
+  .side li { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 48px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+  .side li:last-child { border-bottom: 0; }
+  .side .who { min-width: 0; }
+  .side .who small { display: block; font-size: 12px; line-height: 16px; color: var(--muted); }
+  @media (max-width: 1100px) { .columns { gap: 16px; } }
+  @media (max-width: 640px) {
+    .shell { display: block; }
+    nav { display: none; }
+    main { padding: 16px; }
+    .columns { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+    .page-head { flex-direction: column; align-items: stretch; }
+    .lead { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .lead-number { font-size: 40px; line-height: 48px; }
+    .spark { margin-left: 0; align-self: flex-start; margin-top: 12px; }
+    .hide-phone { display: none; }
+    .btn-quiet { height: 44px; }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav aria-label="Sections">
+    <div class="brand">Acme Orders</div>
+    <ul>
+      <li><a href="#" aria-current="page">Today</a></li>
+      <li><a href="#">Orders</a></li>
+      <li><a href="#">Customers</a></li>
+      <li><a href="#">Deals</a></li>
+      <li><a href="#">Reports</a></li>
+    </ul>
+  </nav>
+  <main>
+    <div class="page-head">
+      <h1>Today</h1>
+      <a class="btn btn-primary" href="#">Record payment</a>
+    </div>
+    <div class="columns">
+      <div class="stack">
+        <div class="lead">
+          <div class="lead-number">$12,480</div>
+          <div class="lead-meta">received today · <strong>$3,150</strong> more than on a usual Tuesday</div>
+          <!-- the leading block fills its column: the last 14 days next to the number, today in the primary colour (DATA-5) -->
+          <svg class="spark" viewBox="0 0 272 48" role="img" aria-label="Money received per day, last 14 days"><rect x="0" y="30" width="12" height="18" rx="2" fill="#c9d0d9"/><rect x="20" y="22" width="12" height="26" rx="2" fill="#c9d0d9"/><rect x="40" y="26" width="12" height="22" rx="2" fill="#c9d0d9"/><rect x="60" y="18" width="12" height="30" rx="2" fill="#c9d0d9"/><rect x="80" y="24" width="12" height="24" rx="2" fill="#c9d0d9"/><rect x="100" y="36" width="12" height="12" rx="2" fill="#c9d0d9"/><rect x="120" y="38" width="12" height="10" rx="2" fill="#c9d0d9"/><rect x="140" y="20" width="12" height="28" rx="2" fill="#c9d0d9"/><rect x="160" y="14" width="12" height="34" rx="2" fill="#c9d0d9"/><rect x="180" y="22" width="12" height="26" rx="2" fill="#c9d0d9"/><rect x="200" y="17" width="12" height="31" rx="2" fill="#c9d0d9"/><rect x="220" y="19" width="12" height="29" rx="2" fill="#c9d0d9"/><rect x="240" y="34" width="12" height="14" rx="2" fill="#c9d0d9"/><rect x="260" y="4" width="12" height="44" rx="2" fill="var(--primary)"/></svg>
+        </div>
+        <section class="panel">
+          <h2 class="panel-title">7 orders to ship today</h2>
+            <table>
+              <thead>
+                <tr><th>Order</th><th>Customer</th><th class="hide-phone">Due</th><th class="num">Total</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>#4821</td><td>Harbor Cafe</td><td class="hide-phone">10:00</td><td class="num">$1,240.00</td></tr>
+                <tr><td>#4822</td><td>Brightside Deli</td><td class="hide-phone">11:30</td><td class="num">$386.50</td></tr>
+                <tr><td>#4825</td><td>Oak Street Bakery</td><td class="hide-phone">12:00</td><td class="num">$2,075.00</td></tr>
+                <tr><td>#4827</td><td>Marlow &amp; Sons</td><td class="hide-phone">14:00</td><td class="num">$914.20</td></tr>
+                <tr><td>#4830</td><td>Juniper Kitchen</td><td class="hide-phone">15:30</td><td class="num">$1,658.00</td></tr>
+                <tr><td>#4831</td><td>Corner Market</td><td class="hide-phone">16:00</td><td class="num">$420.00</td></tr>
+                <tr><td>#4833</td><td>Harbor Cafe</td><td class="hide-phone">17:00</td><td class="num">$760.80</td></tr>
+              </tbody>
+            </table>
+        </section>
+      </div>
+      <section class="side">
+        <h2>3 invoices overdue</h2>
+        <ul>
+          <li>
+            <div class="who">Oak Street Bakery<small>12 days · $2,300.00</small></div>
+            <a class="btn btn-quiet" href="#">Remind</a>
+          </li>
+          <li>
+            <div class="who">Corner Market<small>5 days · $640.00</small></div>
+            <a class="btn btn-quiet" href="#">Remind</a>
+          </li>
+          <li>
+            <div class="who">Juniper Kitchen<small>2 days · $1,125.00</small></div>
+            <a class="btn btn-quiet" href="#">Remind</a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+</div>
+</body>
+</html>
