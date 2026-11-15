@@ -6,7 +6,7 @@ No quality ranking is given: none was measured here — listen to a sample befor
 
 ## How `tools/reel` takes voice
 
-- `voice.files` — your own recordings (a phone recording of a teacher often beats any model).
+- `voice.files` — your own recordings, for example a teacher recorded on a phone.
 - `voice.command` — any command that reads text on stdin and writes an audio file.
   This is how open models and paid APIs plug in; keys come from environment variables only.
 
@@ -34,7 +34,7 @@ See `tools/reel/README.md`.
 | [OpenAI TTS](https://developers.openai.com/api/docs/guides/text-to-speech) | not in the supported list | yes | yes | $15 per 1M characters (`tts-1`); models are scheduled for shutdown on 2027-01-06 | `OPENAI_API_KEY` |
 
 A 30-second reel is about 350–450 characters, so even paid voice costs under one cent per video.
-The cost is in checking the result: have a native speaker listen before publishing —
-synthetic Uzbek still mispronounces loanwords, numbers and names.
+The cost is in checking the result: have a native speaker listen before publishing, and pay
+attention to loanwords, numbers and names.
 
 Platforms may require a label on synthetic voice; check the current rules of the platform you post to.

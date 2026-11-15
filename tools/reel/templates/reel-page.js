@@ -12,6 +12,7 @@
   const clamp = (x) => Math.max(0, Math.min(1, x));
   const easeOut = (p) => 1 - (1 - p) ** 3;
   const easeInOut = (p) => (p < 0.5 ? 4 * p * p * p : 1 - (-2 * p + 2) ** 3 / 2);
+  const fmt = (c, n) => (c.dataset.prefix || '') + (c.dataset.group ? String(n).replace(/\B(?=(\d{3})+$)/g, '\u00a0') : String(n)) + (c.dataset.suffix || '');
   const FADE = 0.28;
 
   window.__seek = async (t) => {
@@ -34,7 +35,7 @@
       for (const c of s.counts) {
         const target = +c.dataset.count;
         const p = easeOut(clamp((local - +(c.dataset.countAt || 0.2)) / 0.9));
-        c.textContent = (c.dataset.prefix || '') + Math.round(target * p).toLocaleString(c.dataset.locale || 'ru').replace(/ | /g, ' ') + (c.dataset.suffix || '');
+        c.textContent = fmt(c, Math.round(target * p));
       }
       s.blobs.forEach((b, k) => {
         b.style.transform = `translate(${Math.sin(t * 0.5 + k * 2) * 46}px, ${Math.cos(t * 0.4 + k) * 46}px)`;
@@ -66,6 +67,7 @@
     const content = s.el.querySelector('.content');
     const media = s.el.classList.contains('media');
     let k = 1;
+    for (const c of s.counts) c.textContent = fmt(c, +c.dataset.count);
     const over = () => (media ? content.offsetHeight > 560 : content.scrollHeight > content.clientHeight + 1) || content.scrollWidth > content.clientWidth + 1;
     while (over() && k > minScale) { k = Math.round((k - 0.03) * 100) / 100; s.el.style.setProperty('--s', k); }
     const sizes = [...content.querySelectorAll('h1,h2,p,li,.kicker,.link,.button,.unit')].map((e) => parseFloat(getComputedStyle(e).fontSize));

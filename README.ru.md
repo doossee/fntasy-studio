@@ -64,7 +64,7 @@ npm run reel     -- examples/scenarios/reel-open-day.yaml          # → out/ree
 | `npm run handout -- <сценарий>` | раздаточный листок A4 с QR, PNG + PDF | [tools/cards](tools/cards/README.md) |
 | `npm run reel -- <сценарий>` | рилс 1080×1920 с музыкой, голос по желанию | [tools/reel](tools/reel/README.md) |
 | `npm run utm -- --source telegram --content post_1` | UTM-ссылка и ссылка на Telegram-бота | [tools/utm](tools/utm/README.md) |
-| `npm run plan -- init` / `render <plan.yaml>` | контент-план на 4 недели → Markdown + CSV | [tools/plan](tools/plan/README.md) |
+| `npm run plan -- init --out plan.yaml` / `render plan.yaml` | контент-план на 4 недели → Markdown + CSV | [tools/plan](tools/plan/README.md) |
 | `npm run report -- <week.csv>` | отчёт за неделю: охват, заявки по UTM, стоимость заявки | [tools/metrics](tools/metrics/README.md) |
 | `npm run tg:channel -- <канал>` | цифры публичного Telegram-канала | [telegram.md](skills/growth/references/telegram.md) |
 | `npm run tg:post -- --chat @канал …` | пост в свой канал через бота (без `--send` ничего не отправляет) | [tools/publish](tools/publish/README.md) |
@@ -74,7 +74,8 @@ npm run reel     -- examples/scenarios/reel-open-day.yaml          # → out/ree
 ## Навык роста
 
 `skills/growth/` работает по шагам. После каждого шага навык показывает находку и источник, ставит
-пометку **«видели»** (есть ссылка или снимок) или **«предполагаем»** (вывод), говорит, что с этим
+пометку **«видели»** (есть ссылка или снимок), **«предполагаем»** (вывод) или **«не увидели»**
+(источник не открылся — навык просит снимок экрана, а не додумывает), говорит, что с этим
 делать, и ждёт «дальше / пропустить / стоп».
 
 | Режим | Результат |
@@ -135,7 +136,7 @@ mkdir -p ~/.claude/skills && ln -s /путь/к/growth-studio/skills/growth ~/.c
 npm run post -- my-post.yaml --profile ~/work/my-product/growth-profile
 ```
 
-Без профиля инструменты берут нейтральные настройки, а навык задаёт четыре коротких вопроса и работает.
+Внутри этого репозитория инструменты без указания профиля берут `profiles/example` и сообщают об этом; в другом месте — нейтральные настройки. Навык без профиля задаёт четыре коротких вопроса и работает.
 
 ## Что где лежит
 

@@ -4,15 +4,21 @@
 //   node tg-channel.mjs <channel> [--posts 60] [--tz Asia/Tashkent] [--json] [--out file]
 // Be polite: one channel at a time, a pause between pages is built in.
 
-const args = process.argv.slice(2);
-const flag = (k, d) => { const i = args.indexOf(`--${k}`); return i >= 0 ? (args[i + 1] && !args[i + 1].startsWith('--') ? args[i + 1] : true) : d; };
-const channel = (args.find((a) => !a.startsWith('--') && args[args.indexOf(a) - 1]?.startsWith('--') !== true) || args[0] || '')
-  .replace(/^https?:\/\/t\.me\/(s\/)?/, '').replace(/^@/, '').replace(/[/?].*$/, '');
+const BOOL = new Set(['json', 'help']);
+const opts = {}; const positional = [];
+for (let i = 2; i < process.argv.length; i++) {
+  const a = process.argv[i];
+  if (!a.startsWith('--')) { positional.push(a); continue; }
+  const k = a.slice(2);
+  if (BOOL.has(k)) opts[k] = true; else opts[k] = process.argv[++i];
+}
+const flag = (k, d) => (opts[k] === undefined ? d : opts[k]);
+const channel = (positional[0] || '').replace(/^https?:\/\/t\.me\/(s\/)?/, '').replace(/^@/, '').replace(/[/?].*$/, '');
 if (!channel || flag('help')) {
   console.log('Usage: node tg-channel.mjs <channel|@handle|t.me link> [--posts 60] [--tz Asia/Tashkent] [--json] [--out <file>]');
   process.exit(channel ? 0 : 1);
 }
-const WANT = Math.min(400, Number(flag('posts', 60)) || 60);
+const WANT = Math.max(1, Math.min(400, Number(flag('posts', 60)) || 60));
 const TZ = flag('tz', 'Asia/Tashkent');
 
 const decode = (s) => s.replace(/<br\s*\/?>/g, '\n').replace(/<[^>]+>/g, '')
@@ -43,19 +49,22 @@ function parse(html) {
     const textHtml = (chunk.match(/class="tgme_widget_message_text[^"]*"[^>]*>([\s\S]*?)<\/div>\s*(?:<div class="tgme_widget_message_(?:footer|reactions|link_preview)|<a class="tgme_widget_message_link_preview)/) || [])[1] || '';
     const text = decode(textHtml);
     const reactions = [...chunk.matchAll(/class="tgme_reaction[^"]*"[^>]*>(?:<[^>]+>|[^<])*?<\/i>([\d.KM]+)/g)].reduce((a, m) => a + (num(m[1]) || 0), 0);
-    const kind = /message_media_not_supported/.test(chunk) ? 'hidden'
-      : /tgme_widget_message_video_player|tgme_widget_message_roundvideo/.test(chunk) ? 'video'
+    // The web preview replaces some attachments with "not supported in your browser".
+    const partial = /message_media_not_supported/.test(chunk);
+    const kind = /tgme_widget_message_video_player|tgme_widget_message_roundvideo|tgme_widget_message_video_wrap/.test(chunk) ? 'video'
       : /tgme_widget_message_grouped_wrap/.test(chunk) ? 'album'
       : /tgme_widget_message_photo_wrap/.test(chunk) ? 'photo'
       : /tgme_widget_message_poll/.test(chunk) ? 'poll'
       : /tgme_widget_message_document/.test(chunk) ? 'file'
-      : /tgme_widget_message_voice/.test(chunk) ? 'voice' : 'text';
+      : /tgme_widget_message_voice/.test(chunk) ? 'voice'
+      : partial ? (text ? 'text + attachment not shown' : 'not shown') : 'text';
     return {
       id: id ? Number(id) : null,
       date: times.length ? times[times.length - 1][1] : null,
       views: num((chunk.match(/class="tgme_widget_message_views">([^<]+)</) || [])[1]),
       reactions: reactions || null,
       kind,
+      attachmentNotShown: partial,
       forwarded: /tgme_widget_message_forwarded_from/.test(chunk),
       links: [...textHtml.matchAll(/href="(https?:\/\/[^"]+)"/g)].map((m) => m[1]).slice(0, 5),
       hashtags: (text.match(/#[\p{L}\d_]+/gu) || []),
@@ -97,7 +106,8 @@ for (const p of posts) for (const h of p.hashtags) tags[h] = (tags[h] || 0) + 1;
 const stats = {
   postsAnalysed: posts.length,
   period: posts.length ? { from: posts[0].date, to: posts[posts.length - 1].date, days: Math.round(days * 10) / 10 } : null,
-  postsPerDay: days > 0 ? Math.round((posts.length / days) * 10) / 10 : null,
+  postsPerDay: days >= 1 ? Math.round((posts.length / days) * 10) / 10 : null, // null: the sample spans less than a day
+  attachmentsNotShown: posts.filter((p) => p.attachmentNotShown).length,
   medianViews: median(views),
   viewsToSubscribers: info.subscribers && views.length ? Math.round((median(views) / info.subscribers) * 1000) / 10 : null, // percent
   formats: kinds,
@@ -125,12 +135,12 @@ else {
     `| Median views ÷ subscribers | ${stats.viewsToSubscribers === null ? '—' : `${stats.viewsToSubscribers}%`} |`,
     `| Formats | ${Object.entries(kinds).map(([k, v]) => `${k} ${v}`).join(', ')} |`,
     `| Median views by format | ${Object.entries(byKind).map(([k, v]) => `${k} ${n(v)}`).join(', ')} |`,
-    kinds.hidden ? `| Hidden in the web preview | ${kinds.hidden} of ${posts.length} posts show "not supported in your browser": views are counted, content must be opened in Telegram |` : null,
+    stats.attachmentsNotShown ? `| Attachment not shown in the web preview | ${stats.attachmentsNotShown} of ${posts.length} posts: views and text are read; the attachment itself opens only in Telegram |` : null,
     `| Forwarded posts | ${n(stats.forwardedShare)}% |`,
     `| Busiest hours (${TZ}) | ${stats.busiestHours.map((h) => `${h.hour}:00 (${h.posts})`).join(', ')} |`,
     stats.topHashtags.length ? `| Hashtags | ${stats.topHashtags.map((h) => `${h.tag} ×${h.n}`).join(', ')} |` : null,
     '', '## Most viewed posts', '', '| Views | Format | Date | Post | Start of text |', '|---|---|---|---|---|',
-    ...stats.top.map((p) => `| ${n(p.views)} | ${p.kind} | ${p.date.slice(0, 10)} | ${p.url} | ${one(p.text) || (p.kind === 'hidden' ? '(hidden in web preview — open in Telegram)' : '(no text)')} |`),
+    ...stats.top.map((p) => `| ${n(p.views)} | ${p.kind} | ${p.date.slice(0, 10)} | ${p.url} | ${one(p.text) || (p.attachmentNotShown ? '(not shown in the web preview — open in Telegram)' : '(no text)')} |`),
     '', `_Views on posts younger than 24 h are still growing; medians use ${base === settled ? 'older posts only' : 'all posts (too few older ones)'}._`,
   ].filter((l) => l !== null).join('\n');
 }

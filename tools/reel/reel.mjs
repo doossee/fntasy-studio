@@ -55,11 +55,12 @@ function sceneHtml(s, i, ctx) {
   if (has('kicker')) parts.push(`<div class="kicker" data-at="${next()}">${T(s.kicker)}</div>`);
   if (s.type === 'stat') {
     const raw = t(s.value, lang, langs);
-    const m = raw.match(/^(\D*?)(\d[\d\s.,]*)(.*)$/);
-    const num = m ? Number(m[2].replace(/[\s,]/g, '')) : NaN;
-    const value = m && Number.isFinite(num) && Number.isInteger(num)
-      ? `<span class="value" data-count="${num}" data-prefix="${esc(m[1])}" data-suffix="${esc(m[3])}" data-locale="${lang.startsWith('en') ? 'en' : 'ru'}">${esc(raw)}</span>`
-      : `<span class="value">${esc(raw)}</span>`;
+    // Count up only plain integers ("90", "12 500"); anything else ("1,5", "4.8", "24/7") is shown as written.
+    const m = raw.match(/^(\D*?)(\d{1,3}(?:[ \u00a0]\d{3})+|\d+)(\D*)$/);
+    const nb = (x) => esc(x).replace(/ /g, '&nbsp;');
+    const value = m
+      ? `<span class="value" style="--v:${Math.min(1, 3.2 / raw.length).toFixed(2)}" data-count="${m[2].replace(/[ \u00a0]/g, '')}" data-prefix="${esc(m[1])}" data-suffix="${esc(m[3])}"${/[ \u00a0]/.test(m[2]) ? ' data-group="1"' : ''}>${nb(raw)}</span>`
+      : `<span class="value" style="--v:${Math.min(1, 3.2 / raw.length).toFixed(2)}">${nb(raw)}</span>`;
     parts.push(`<div class="stat" data-at="${next(0.5)}">${value}${has('unit') ? `<span class="unit">${T(s.unit)}</span>` : ''}</div>`);
     if (has('title')) parts.push(`<h2 data-at="${next()}">${T(s.title)}</h2>`);
   } else if (has('title')) {
@@ -324,6 +325,7 @@ async function main() {
   const outDir = path.resolve(typeof args.out === 'string' ? args.out : path.join('out', name));
   fs.mkdirSync(outDir, { recursive: true });
   const langs = args.lang ? [String(args.lang)] : scenario.langs || profile.languages;
+  for (const l of langs) if (!profile.languages.includes(l)) console.warn(`! language "${l}" is not in the profile (${profile.languages.join(', ')}): texts without a "${l}" version fall back to another language.`);
   const browser = await launchBrowser();
   try {
     for (const lang of langs) await buildLang({ lang, scenario, scenarioDir, profile, outDir, name, args, browser });

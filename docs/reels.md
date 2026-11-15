@@ -34,3 +34,4 @@ the scenario format here is plain YAML and would be easy to feed into it.
 - Text stays out of the zones that apps cover: top 250 px, bottom 430 px, right 100 px.
 - Text shrinks to fit, but the tool warns when any caption is under 44 px (about 16 px on a 390 px screen).
 - 15–60 seconds; a warning outside that range.
+- Numbers in `stat` scenes are never split across lines; only whole numbers count up.

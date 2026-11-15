@@ -9,13 +9,33 @@ import { parseArgs, loadProfile } from './profile.mjs';
 const USAGE = `Usage: node tools/metrics/report.mjs <week.csv> [--prev <last-week.csv>] [--out <report.md>] [--title "Week 49"] [--currency UZS]
 Template: tools/metrics/week.template.csv`;
 
+const NUM = ['posts', 'reach', 'clicks', 'leads', 'sales', 'spend'];
+function splitLine(line, d) {
+  const out = []; let cur = ''; let q = false;
+  for (let i = 0; i < line.length; i++) {
+    const ch = line[i];
+    if (q) { if (ch === '"' && line[i + 1] === '"') { cur += '"'; i++; } else if (ch === '"') q = false; else cur += ch; }
+    else if (ch === '"') q = true;
+    else if (ch === d) { out.push(cur); cur = ''; } else cur += ch;
+  }
+  out.push(cur);
+  return out.map((c) => c.trim());
+}
+// Accepts comma, semicolon or tab (spreadsheets in ru/uz locales export semicolons), quoted cells, "4 200" and "600 000".
 function readCsv(file) {
-  const [head, ...lines] = fs.readFileSync(file, 'utf8').trim().split(/\r?\n/).filter((l) => l && !l.startsWith('#'));
-  const cols = head.split(',').map((c) => c.trim());
-  return lines.map((l) => {
-    const v = l.split(',').map((c) => c.trim());
-    const row = Object.fromEntries(cols.map((c, i) => [c, v[i] ?? '']));
-    for (const k of ['posts', 'reach', 'clicks', 'leads', 'sales', 'spend']) row[k] = Number(row[k]) || 0;
+  const [head, ...lines] = fs.readFileSync(file, 'utf8').replace(/^﻿/, '').trim().split(/\r?\n/).filter((l) => l.trim() && !l.startsWith('#'));
+  const d = [';', '\t', ','].find((x) => head.includes(x)) || ',';
+  const cols = splitLine(head, d).map((c) => c.toLowerCase());
+  if (!cols.includes('source')) throw new Error(`${file}: no "source" column. Expected header: source,${NUM.join(',')}`);
+  return lines.map((l, i) => {
+    const v = splitLine(l, d);
+    const row = Object.fromEntries(cols.map((c, k) => [c, v[k] ?? '']));
+    for (const k of NUM) {
+      const raw = String(row[k] ?? '').replace(/[\s  ]/g, '');
+      const n = raw === '' ? 0 : Number(d === ',' ? raw : raw.replace(',', '.'));
+      if (!Number.isFinite(n)) throw new Error(`${file}, row ${i + 1} (${row.source}): "${row[k]}" in column "${k}" is not a number. Write numbers without thousands separators, or quote the cell.`);
+      row[k] = n;
+    }
     return row;
   });
 }
@@ -37,16 +57,19 @@ function main() {
   const best = [...rows].filter((r) => r.leads).sort((a, b) => b.leads - a.leads)[0];
   const paid = rows.filter((r) => r.spend && r.leads).sort((a, b) => cpl(a) - cpl(b));
   const dead = rows.filter((r) => r.spend && !r.leads);
+  const paidLeads = rows.filter((r) => r.spend).reduce((a, r) => a + r.leads, 0);
+  const paidSpend = total.spend;
   const lines = [
     `# ${typeof args.title === 'string' ? args.title : 'Weekly report'}`, '',
     '## Three numbers', '',
     `- **Reach:** ${fmt(total.reach)}${delta(total.reach, prevTotal.reach)}`,
     `- **Leads with UTM:** ${fmt(total.leads)}${delta(total.leads, prevTotal.leads)}`,
-    `- **Cost per lead:** ${total.leads && total.spend ? `${fmt(total.spend / total.leads)} ${cur}` : '—'} (spend ${fmt(total.spend)} ${cur})`, '',
+    `- **Cost per lead, paid sources:** ${paidLeads ? `${fmt(paidSpend / paidLeads)} ${cur}` : '—'} (spend ${fmt(total.spend)} ${cur}, ${paidLeads} leads from sources with spend)`,
+    `- Blended (all spend ÷ all leads, free sources included): ${total.leads && total.spend ? `${fmt(total.spend / total.leads)} ${cur}` : '—'}`, '',
     '## By source', '',
     `| Source | Posts | Reach | Clicks | Leads | Click → lead | Sales | Spend, ${cur || 'money'} | Cost per lead |`, '|---|---|---|---|---|---|---|---|---|',
     ...rows.map((r) => `| ${r.source} | ${r.posts} | ${fmt(r.reach)}${delta(r.reach, prev?.[r.source]?.reach)} | ${fmt(r.clicks)} | ${r.leads}${delta(r.leads, prev?.[r.source]?.leads)} | ${pct(r.leads, r.clicks)} | ${r.sales} | ${fmt(r.spend)} | ${fmt(cpl(r))} |`),
-    `| **Total** | ${total.posts} | ${fmt(total.reach)} | ${fmt(total.clicks)} | ${total.leads} | ${pct(total.leads, total.clicks)} | ${total.sales} | ${fmt(total.spend)} | ${fmt(total.spend / (total.leads || NaN))} |`, '',
+    `| **Total** | ${total.posts} | ${fmt(total.reach)} | ${fmt(total.clicks)} | ${total.leads} | ${pct(total.leads, total.clicks)} | ${total.sales} | ${fmt(total.spend)} | ${fmt(paidLeads ? paidSpend / paidLeads : NaN)} |`, '',
     '## What the numbers say', '',
     best ? `- Most leads: **${best.source}** — ${best.leads} of ${total.leads}.` : '- No leads with UTM this week. Check that links in posts carry UTM tags and the form saves them.',
     paid.length ? `- Cheapest paid lead: **${paid[0].source}** — ${fmt(cpl(paid[0]))} ${cur}.` : '- No paid source produced a lead.',

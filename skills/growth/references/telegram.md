@@ -19,7 +19,7 @@ How to read the numbers:
 
 | Number | Meaning | Caution |
 |---|---|---|
-| Views ÷ subscribers | share of the audience a post reaches | 10–40% is common for live channels; under 5% often means bought or dead subscribers — **assumed** until other signs agree |
+| Views ÷ subscribers | share of the audience a post reaches | there is no universal norm: compare the channel with 2–3 others of similar size in the same niche. A share far below theirs can mean inactive or bought subscribers — **assumed** until other signs agree |
 | Posts per day | rhythm you would have to match | news channels post 20+, a business channel 3–7 a week |
 | Most viewed | topics and formats that travel | a spike may come from a repost by a big channel or from ads, not from the post itself |
 | Hours | when they post | not when the audience reads |
@@ -27,8 +27,9 @@ How to read the numbers:
 
 Limits to state honestly:
 
-- Some posts appear as "not supported in your browser" in the preview: the view counter is there,
-  the media is not. The script counts them as `hidden`. To see them, open the post in Telegram.
+- For some posts the preview shows "not supported in your browser" instead of the attachment:
+  views, text and usually the attachment type are still read. The script reports how many posts
+  are affected. To see the attachment, open the post in Telegram.
 - Private channels, channels with the preview disabled, and groups do not open this way.
 - Subscriber count is rounded (`11.3K`). Reactions and comments are partial.
 - The preview shows no history of subscriber growth. That needs a catalogue (below) or a paid API.

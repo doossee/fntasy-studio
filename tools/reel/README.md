@@ -50,7 +50,11 @@ scenes:
     link: https://example.org/…
 ```
 
+Scene types: `title`, `text` (heading + paragraph), `stat`, `list`, `screenshot`, `screen`, `video`, `cta`.
 Scene options: `duration` (seconds), `theme` (`light`, `dark`, `accent`), `say` (voice text).
+Default durations when `duration` is omitted: title 3 s, text 3.5, stat 3.2, list 1.4 + 0.9 per item,
+screenshot 4, screen 5, video — the clip length, cta 3.6. The whole reel should be 15–60 s.
+`stat` values: whole numbers ("90", "12 500") count up; anything else ("1,5", "24/7") is shown as written.
 Captions are the scene texts themselves: keep each under about 8 words.
 
 ## Music
@@ -79,5 +83,7 @@ A scene is stretched to fit its voice clip; music is lowered under the voice. AP
 services are read by your command from environment variables — never write them into the scenario.
 Models, licences and prices for Uzbek, Russian and Kazakh: `docs/voice.md`.
 Without `voice`, the reel is built with music and captions.
+
+`voice.command` is run through the shell. Treat a scenario like a script: do not build scenarios you did not write or read.
 
 Standalone use: copy this folder, `npm install`, `npx playwright install chromium`.

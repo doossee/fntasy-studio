@@ -4,6 +4,7 @@
 //   node tools/utm/utm.mjs --batch links.yaml [--csv out/utm.csv]
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { loadProfile, parseArgs, readData } from './profile.mjs';
 
 const USAGE = `Usage:
@@ -20,7 +21,7 @@ const CYR = { а: 'a', б: 'b', в: 'v', г: 'g', д: 'd', е: 'e', ё: 'yo', ж
 /** lower-case latin, digits and underscores only: one spelling per value keeps CRM reports clean */
 export function slug(v) {
   return String(v ?? '').toLowerCase()
-    .replace(/[ʻʼ’'`]/g, '')
+    .replace(/[ʻʼ’'`]/g, '').replace(/№/g, 'no')
     .replace(/[Ѐ-ӿ]/g, (ch) => CYR[ch] ?? '')
     .normalize('NFKD').replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
@@ -34,6 +35,7 @@ export function buildLink(row, profile) {
   const mediumMap = profile.utm?.medium || {};
   const medium = slug(row.medium || mediumMap[source] || (typeof profile.utm?.medium === 'string' ? profile.utm.medium : '') || 'social');
   const campaign = slug(row.campaign || profile.utm?.campaign || '');
+  if (!/^https?:\/\//.test(base)) throw new Error(`Base URL must start with https:// — got "${base}".`);
   const u = new URL(base);
   u.searchParams.set('utm_source', source);
   u.searchParams.set('utm_medium', medium);
@@ -43,7 +45,8 @@ export function buildLink(row, profile) {
   const out = { source, medium, campaign, content: slug(row.content || ''), url: u.toString(), note: row.note || '' };
   // Telegram bots do not see UTM tags; the source travels in the /start payload (≤ 64 chars of A-Z a-z 0-9 _ -)
   if (profile.links?.telegramBot) {
-    const payload = [source, campaign, out.content].filter(Boolean).join('-').slice(0, 64);
+    const payload = [source, campaign, out.content].filter(Boolean).join('-');
+    if (payload.length > 64) { console.warn(`! bot payload "${payload}" is ${payload.length} characters; Telegram allows 64. Shorten campaign or content — no bot link written.`); return out; }
     out.bot = `${profile.links.telegramBot.replace(/\/$/, '')}?start=${payload}`;
   }
   return out;
@@ -77,6 +80,6 @@ function main() {
   if (typeof args.md !== 'string' && typeof args.csv !== 'string') console.log(md);
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(new URL(import.meta.url).pathname)) {
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   try { main(); } catch (e) { console.error('Error: ' + e.message); process.exit(1); }
 }

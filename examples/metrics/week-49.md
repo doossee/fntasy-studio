@@ -4,7 +4,8 @@
 
 - **Reach:** 24 800
 - **Leads with UTM:** 38
-- **Cost per lead:** 55 263 UZS (spend 2 100 000 UZS)
+- **Cost per lead, paid sources:** 190 909 UZS (spend 2 100 000 UZS, 11 leads from sources with spend)
+- Blended (all spend ÷ all leads, free sources included): 55 263 UZS
 
 ## By source
 
@@ -15,7 +16,7 @@
 | offline | 1 | 400 | 37 | 6 | 16.2% | 2 | 600 000 | 100 000 |
 | telegram_ads | 2 | 12 500 | 260 | 5 | 1.9% | 1 | 1 500 000 | 300 000 |
 | yandex_maps | 0 | 900 | 48 | 4 | 8.3% | 1 | 0 | — |
-| **Total** | 9 | 24 800 | 845 | 38 | 4.5% | 9 | 2 100 000 | 55 263 |
+| **Total** | 9 | 24 800 | 845 | 38 | 4.5% | 9 | 2 100 000 | 190 909 |
 
 ## What the numbers say
 

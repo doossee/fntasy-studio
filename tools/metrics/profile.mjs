@@ -72,6 +72,7 @@ export function loadProfile(explicit) {
     const profile = merge(DEFAULTS, readData(p) || {});
     profile._file = p;
     profile._dir = path.dirname(p);
+    if (c === 'profiles/example/profile.yaml') console.warn('! No profile given: using profiles/example (a fictional product). Pass --profile <path> or set GROWTH_PROFILE.');
     return profile;
   }
   const profile = merge(DEFAULTS, {});

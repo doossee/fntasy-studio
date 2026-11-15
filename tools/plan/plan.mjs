@@ -10,7 +10,7 @@ import YAML from 'yaml';
 import { loadProfile, parseArgs, readData, t } from './profile.mjs';
 
 const USAGE = `Usage:
-  node tools/plan/plan.mjs init [--start YYYY-MM-DD] [--weeks 4] [--out plan.yaml] [--profile <path>]
+  node tools/plan/plan.mjs init [--start YYYY-MM-DD] [--weeks 4] [--out out/plan.yaml] [--profile <path>]
   node tools/plan/plan.mjs render <plan.yaml> [--md <file>] [--csv <file>] [--profile <path>]
 
 Statuses: idea → draft → ready → published (or skipped).`;
@@ -45,7 +45,7 @@ function init(args, profile) {
   rows.sort((a, b) => a.date.localeCompare(b.date) || a.channel.localeCompare(b.channel));
   const doc = `# Content plan. Edit this file; render with: node tools/plan/plan.mjs render <this file>\n# status: idea → draft → ready → published (or skipped). "content" becomes utm_content.\n` +
     YAML.stringify({ campaign: profile.utm?.campaign || '', rows }, { lineWidth: 0 });
-  const out = path.resolve(typeof args.out === 'string' ? args.out : 'plan.yaml');
+  const out = path.resolve(typeof args.out === 'string' ? args.out : 'out/plan.yaml');
   if (fs.existsSync(out) && !args.force) throw new Error(`${out} exists; pass --force to overwrite.`);
   fs.mkdirSync(path.dirname(out), { recursive: true });
   fs.writeFileSync(out, doc);
@@ -74,7 +74,7 @@ async function render(args, profile) {
   for (const r of rows) {
     const w = Math.floor((new Date(`${r.date}T12:00:00Z`) - first) / 6048e5);
     if (w !== week) { week = w; md.push(`| **Week ${w + 1}** |${head.slice(1).map(() => ' ').join('|')}|`); }
-    md.push(`| ${[r.date, weekday(r.date, 'en'), r.channel, r.format, cell(t(r.topic, langs[0], langs)), ...langs.map((l) => cell(t(r.text, l, []) && typeof r.text === 'object' ? r.text[l] ?? '' : r.text)), r.link ? `[utm](${r.link})` : '', r.status || 'idea'].join(' | ')} |`);
+    md.push(`| ${[r.date, weekday(r.date, 'en'), r.channel, r.format, cell(t(r.topic, langs[0], langs)), ...langs.map((l) => cell(typeof r.text === 'object' && r.text ? r.text[l] ?? '' : r.text)), r.link ? `[utm](${r.link})` : '', r.status || 'idea'].join(' | ')} |`);
   }
   const counts = rows.reduce((a, r) => { a[r.status || 'idea'] = (a[r.status || 'idea'] || 0) + 1; return a; }, {});
   const summary = `${rows.length} items · ` + Object.entries(counts).map(([k, v]) => `${k}: ${v}`).join(' · ');

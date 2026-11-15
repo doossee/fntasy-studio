@@ -18,7 +18,7 @@ const USAGE = `Usage: node tools/publish/telegram.mjs --chat <@channel|chat id> 
   --send                 actually send. Without it the request is only printed.
 
 Token: environment variable TELEGRAM_BOT_TOKEN (create the bot with @BotFather).
-Limits: caption ≤ 1024 characters, text ≤ 4096, album 2–10 items, upload ≤ 50 MB.`;
+Limits: caption ≤ 1024 characters, text ≤ 4096, album 2–10 items, photo ≤ 10 MB, video ≤ 50 MB.`;
 
 function collect(argv, flag) {
   const out = [];
@@ -30,13 +30,20 @@ async function main() {
   const argv = process.argv.slice(2);
   const args = parseArgs(argv);
   if (args.help || !args.chat) { console.log(USAGE); process.exit(args.help ? 0 : 1); }
+  const KNOWN = ['chat', 'text', 'text-file', 'photo', 'video', 'button', 'silent', 'send', 'help'];
+  const unknown = Object.keys(args).filter((k) => k !== '_' && !KNOWN.includes(k));
+  if (unknown.length) throw new Error(`Unknown option: --${unknown.join(', --')}. The caption is passed with --text or --text-file.`);
   const photos = collect(argv, 'photo');
   const text = args['text-file'] ? fs.readFileSync(args['text-file'], 'utf8').trim() : typeof args.text === 'string' ? args.text : '';
   const video = typeof args.video === 'string' ? args.video : null;
   for (const f of [...photos, ...(video ? [video] : [])]) {
     if (!fs.existsSync(f)) throw new Error(`File not found: ${f}`);
-    if (fs.statSync(f).size > 50 * 1024 * 1024) throw new Error(`${f} is larger than 50 MB (Bot API upload limit).`);
+    const limit = photos.includes(f) ? 10 : 50;
+    if (fs.statSync(f).size > limit * 1024 * 1024) throw new Error(`${f} is larger than ${limit} MB (Bot API limit for ${limit === 10 ? 'photos' : 'files'}).`);
   }
+  if (photos.length && video) throw new Error('Pass either --photo or --video, not both: one message carries one kind of media here.');
+  const stray = text.replace(/<\/?(b|i|u|s|code|pre|strong|em|blockquote|tg-spoiler)>|<a href="[^"<>]*">|<\/a>/g, '').match(/[<>]|&(?!(amp|lt|gt|quot);)/);
+  if (stray) throw new Error(`Text is sent as Telegram HTML: "${stray[0]}" must be written as ${{ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[stray[0]]} (allowed tags: b, i, u, s, code, pre, a href).`);
   if (photos.length > 10) throw new Error('An album holds at most 10 items.');
   const media = photos.length || video;
   if (!media && !text) throw new Error('Nothing to send: pass --text, --photo or --video.');

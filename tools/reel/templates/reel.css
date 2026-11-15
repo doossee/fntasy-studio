@@ -28,12 +28,12 @@ em { font-style: normal; color: var(--hl); }
 p.text { font-size: calc(60px * var(--s)); line-height: 1.25; font-weight: 500; color: var(--dim); text-wrap: pretty; }
 
 .stat { display: flex; align-items: baseline; gap: 26px; flex-wrap: wrap; }
-.stat .value { font-family: var(--font-heading); font-weight: var(--weight-heading); font-size: calc(420px * var(--s)); line-height: .86; letter-spacing: -.045em; color: var(--hl); font-variant-numeric: tabular-nums; }
+.stat .value { white-space: nowrap; font-family: var(--font-heading); font-weight: var(--weight-heading); font-size: calc(420px * var(--s) * var(--v, 1)); line-height: .86; letter-spacing: -.045em; color: var(--hl); font-variant-numeric: tabular-nums; }
 .stat .unit { font-family: var(--font-heading); font-weight: 800; font-size: calc(84px * var(--s)); }
 
 ul.list { list-style: none; display: flex; flex-direction: column; gap: calc(40px * var(--s)); }
 ul.list li { display: flex; gap: 30px; align-items: flex-start; font-size: calc(62px * var(--s)); line-height: 1.18; font-weight: 600; }
-ul.list li .n { flex: none; width: calc(84px * var(--s)); height: calc(84px * var(--s)); border-radius: 50%; background: var(--hl); color: var(--paper);
+ul.list li .n { flex: none; width: calc(84px * var(--s)); height: calc(84px * var(--s)); border-radius: 50%; background: var(--hl); color: var(--accent-text);
   display: grid; place-items: center; font-family: var(--font-heading); font-weight: 800; font-size: calc(42px * var(--s)); margin-top: calc(-6px * var(--s)); }
 .scene.accent ul.list li .n { color: var(--accent); }
 
@@ -46,7 +46,7 @@ ul.list li .n { flex: none; width: calc(84px * var(--s)); height: calc(84px * va
 .phone img { display: block; width: 100%; height: auto; transform-origin: top center; will-change: transform; }
 
 .button { align-self: flex-start; display: inline-flex; align-items: center; gap: 22px; padding: calc(38px * var(--s)) calc(60px * var(--s)); border-radius: 999px;
-  background: var(--hl); color: var(--paper); font-family: var(--font-heading); font-weight: 800; font-size: calc(64px * var(--s)); }
+  background: var(--hl); color: var(--accent-text); font-family: var(--font-heading); font-weight: 800; font-size: calc(64px * var(--s)); }
 .scene.accent .button { color: var(--accent); }
 .link { font-size: calc(52px * var(--s)); font-weight: 700; color: var(--fg); word-break: break-word; }
 

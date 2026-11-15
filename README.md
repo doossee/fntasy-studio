@@ -64,7 +64,7 @@ Everything is written to `out/`, which is not tracked by git. `npm run examples`
 | `npm run handout -- <scenario>` | A4 handout with QR, PNG + PDF | [tools/cards](tools/cards/README.md) |
 | `npm run reel -- <scenario>` | reel 1080×1920 with music, optional voice | [tools/reel](tools/reel/README.md) |
 | `npm run utm -- --source telegram --content post_1` | UTM link and Telegram bot link | [tools/utm](tools/utm/README.md) |
-| `npm run plan -- init` / `render <plan.yaml>` | 4-week content plan → Markdown + CSV | [tools/plan](tools/plan/README.md) |
+| `npm run plan -- init --out plan.yaml` / `render plan.yaml` | 4-week content plan → Markdown + CSV | [tools/plan](tools/plan/README.md) |
 | `npm run report -- <week.csv>` | weekly report: reach, leads by UTM, cost per lead | [tools/metrics](tools/metrics/README.md) |
 | `npm run tg:channel -- <channel>` | numbers of a public Telegram channel | [telegram.md](skills/growth/references/telegram.md) |
 | `npm run tg:post -- --chat @channel …` | post to your channel through a bot (dry run unless `--send`) | [tools/publish](tools/publish/README.md) |
@@ -74,7 +74,8 @@ All commands accept `--profile <path>`.
 ## The growth skill
 
 `skills/growth/` works in steps. After each step it shows the finding and its source, marks it
-**seen** (there is a link or a screenshot) or **assumed** (an inference), says what to do with it,
+**seen** (there is a link or a screenshot), **assumed** (an inference) or **not seen** (the source
+did not open — the skill asks for a screenshot instead of guessing), says what to do with it,
 and waits for *next / skip / stop*.
 
 | Mode | Result |
@@ -136,7 +137,7 @@ The core has no product built in.
 npm run post -- my-post.yaml --profile ~/work/my-product/growth-profile
 ```
 
-Without a profile the tools use neutral defaults, and the skill asks four short questions and works.
+Inside this repository the tools fall back to `profiles/example` and say so; anywhere else, without a profile, they use neutral defaults. The skill without a profile asks four short questions and works.
 
 ## Repository layout
 

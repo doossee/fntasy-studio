@@ -36,7 +36,7 @@ async function slideHtml(slide, ctx) {
   if (has('kicker')) parts.push(`<div class="kicker">${T(slide.kicker)}</div>`);
 
   if (layout === 'stat') {
-    parts.push(`<div class="stat"><span class="value">${T(slide.value)}</span>${has('unit') ? `<span class="unit">${T(slide.unit)}</span>` : ''}</div>`);
+    parts.push(`<div class="stat"><span class="value" style="--v:${Math.min(1, 4.6 / t(slide.value, lang, langs).length).toFixed(2)}">${T(slide.value).replace(/ /g, '&nbsp;')}</span>${has('unit') ? `<span class="unit">${T(slide.unit)}</span>` : ''}</div>`);
     if (has('title')) parts.push(`<h2>${T(slide.title)}</h2>`);
   } else if (has('title')) {
     parts.push(layout === 'cover' || layout === 'cta' ? `<h1>${T(slide.title)}</h1>` : `<h2>${T(slide.title)}</h2>`);
@@ -106,6 +106,7 @@ async function main() {
     console.warn(`! Carousel has ${slides.length} slides; Instagram accepts 2–10, 5–10 reads best.`);
   }
   const langs = args.lang ? [String(args.lang)] : scenario.langs || profile.languages;
+  for (const l of langs) if (!profile.languages.includes(l)) console.warn(`! language "${l}" is not in the profile (${profile.languages.join(', ')}): texts without a "${l}" version fall back to another language.`);
   const name = scenario.name || path.basename(scenarioPath).replace(/\.(ya?ml|json)$/, '');
   const outRoot = path.resolve(typeof args.out === 'string' ? args.out : path.join('out', name));
   const css = fs.readFileSync(path.join(HERE, 'templates', 'card.css'), 'utf8');
@@ -131,7 +132,7 @@ async function main() {
         const base = slides.length > 1 ? String(i + 1).padStart(2, '0') : name;
         const out = path.join(dir, `${base}.png`);
         await page.screenshot({ path: out, type: 'png' });
-        if (type === 'handout') await page.pdf({ path: out.replace(/\.png$/, '.pdf'), width: `${w}px`, height: `${h}px`, printBackground: true, pageRanges: '1' });
+        if (type === 'handout') await page.pdf({ path: out.replace(/\.png$/, '.pdf'), format: 'A4', scale: 793.7 / w, printBackground: true, pageRanges: '1', margin: { top: 0, right: 0, bottom: 0, left: 0 } });
         written.push(out);
         if (fit.overflow) console.warn(`! ${lang} slide ${i + 1}: text does not fit even at ${fit.scale}× — shorten it.`);
         else if (fit.minFont < 30) console.warn(`! ${lang} slide ${i + 1}: smallest text is ${Math.round(fit.minFont)}px — hard to read on a phone, shorten it.`);

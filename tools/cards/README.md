@@ -11,7 +11,7 @@ node tools/cards/cards.mjs <scenario.yaml> [--profile <path>] [--out <dir>] [--l
 | `post` | `size: portrait` 1080×1350 (default) or `square` 1080×1080 | one PNG per language |
 | `carousel` | same sizes, 2–10 slides (5–10 reads best) | `01.png`, `02.png`, … per language |
 | `story` | 1080×1920, text kept out of the zones the app covers | one PNG per language |
-| `handout` | A4, 1240×1754 | PNG + PDF per language |
+| `handout` | A4 | PNG 1240×1754 + A4 PDF per language |
 
 Output goes to `out/<name>/<lang>/`. With one language the `<lang>` folder is omitted.
 
@@ -45,6 +45,10 @@ slides:
     link: https://example.org/?utm_source=…   # shown without the query string
     qr: true                               # QR code of the link
 ```
+
+Any slide may combine the fields: `kicker`, `title`, `text`, `items`, `image`, `button`, `link`, `qr`,
+`contacts`; `layout` only sets the emphasis. A post or story takes `layout` and `theme` at the top level.
+A pair of asterisks marks accent words (`*free*`), so write a literal asterisk only once per text.
 
 Any text is a string (same in every language) or a map by language. Languages default to
 `languages` in the profile; `langs: [ru]` in the scenario or `--lang ru` narrows it.
