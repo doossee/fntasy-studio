@@ -1,0 +1,14 @@
+# Heavy and local outputs never go to git
+out/
+node_modules/
+.venv/
+__pycache__/
+*.mp4
+*.mov
+*.wav
+*.mp3
+*.m4a
+!examples/**/*.mp4
+.env
+.env.*
+.DS_Store
