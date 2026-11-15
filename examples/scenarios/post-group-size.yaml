@@ -1,0 +1,15 @@
+# Square post with one number.
+type: post
+name: post-group-size
+size: square
+layout: stat
+theme: dark
+kicker: { uz-Latn: Guruh hajmi, ru: Размер группы }
+value: "8"
+unit: { uz-Latn: kishi, ru: человек }
+title:
+  uz-Latn: "Har bir darsda har kim *gapiradi*"
+  ru: "На каждом занятии *говорит* каждый"
+text:
+  uz-Latn: "90 daqiqalik darsda har bir oʻquvchiga 10 daqiqadan ortiq nutq vaqti."
+  ru: "За 90 минут у каждого ученика больше 10 минут разговора."

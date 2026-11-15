@@ -1,0 +1,13 @@
+# Story 1080×1920. Text stays out of the top and bottom zones covered by the app.
+type: story
+name: story-reminder
+layout: cover
+theme: accent
+kicker: { uz-Latn: Ertaga · 11:00, ru: Завтра · 11:00 }
+title:
+  uz-Latn: "Ochiq dars. Kirish bepul"
+  ru: "Открытый урок. Вход свободный"
+text:
+  uz-Latn: "60 daqiqa. Darajangizni aniqlaymiz va guruh tanlaymiz."
+  ru: "60 минут. Определим уровень и подберём группу."
+button: { uz-Latn: Yozilish, ru: Записаться }

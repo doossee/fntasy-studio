@@ -1,0 +1,14 @@
+{
+  "name": "growth-studio",
+  "description": "Growth research skill and content production tools with Telegram and Central Asia coverage",
+  "owner": {
+    "name": "growth-studio contributors"
+  },
+  "plugins": [
+    {
+      "name": "growth-studio",
+      "source": "./",
+      "description": "Growth research skill (competitors, markets, Telegram, Central Asia, events) and tools for posts, carousels, stories and reels"
+    }
+  ]
+}

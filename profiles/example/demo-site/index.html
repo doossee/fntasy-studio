@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Qaldirgʻoch School — demo</title>
+<!-- Stand-in for a product page of the fictional school. Language: ?lang=ru or ?lang=uz-Latn -->
+<style>
+@font-face{font-family:Inter;src:url(../fonts/InterVariable.woff2) format("woff2");font-weight:100 900}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;background:#FBF7F0;color:#16233B;-webkit-font-smoothing:antialiased}
+header{display:flex;align-items:center;gap:10px;padding:14px 18px;position:sticky;top:0;background:#FBF7F0;z-index:2;border-bottom:1px solid #EADFCD}
+header b{font-size:16px}
+header .dot{width:30px;height:30px;border-radius:8px;background:#E4572E}
+header .tg{margin-left:auto;font-size:13px;font-weight:600;color:#E4572E}
+.hero{padding:26px 18px 20px}
+.hero h1{font-size:32px;line-height:1.08;letter-spacing:-.02em;font-weight:800}
+.hero h1 i{font-style:normal;color:#E4572E}
+.hero p{margin-top:10px;font-size:16px;line-height:1.4;color:#5E6B80}
+.btn{display:block;margin-top:16px;padding:15px;border-radius:14px;background:#E4572E;color:#fff;text-align:center;font-weight:700;font-size:17px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:0 18px}
+.facts div{background:#F1E9DC;border-radius:14px;padding:12px 10px}
+.facts b{display:block;font-size:24px;font-weight:800;color:#E4572E}
+.facts span{font-size:12px;line-height:1.25;color:#5E6B80;display:block;margin-top:2px}
+h2{font-size:22px;font-weight:800;padding:26px 18px 12px}
+.card{margin:0 18px 10px;background:#fff;border-radius:16px;padding:14px 16px;display:flex;align-items:center;gap:14px;box-shadow:0 1px 0 #EADFCD}
+.card .lvl{flex:none;width:52px;height:52px;border-radius:14px;background:#16233B;color:#fff;display:grid;place-items:center;font-weight:800;font-size:17px}
+.card b{display:block;font-size:16px}
+.card span{font-size:13px;color:#5E6B80}
+.card .seats{margin-left:auto;font-size:12px;font-weight:700;color:#1F8A4C;background:#E3F4EA;border-radius:999px;padding:5px 10px;white-space:nowrap}
+.card .seats.low{color:#B54708;background:#FDEFD8}
+form{margin:0 18px 40px;background:#16233B;border-radius:20px;padding:18px;color:#fff}
+form label{display:block;font-size:13px;opacity:.7;margin:10px 0 6px}
+form .in{background:rgba(255,255,255,.12);border-radius:12px;padding:13px 14px;font-size:16px}
+form .btn{margin-top:16px}
+</style>
+</head>
+<body>
+<header><span class="dot"></span><b>Qaldirgʻoch School</b><span class="tg">Telegram</span></header>
+<section class="hero">
+  <h1 data-ru="Английский в Самарканде. Первое занятие — <i>бесплатно</i>" data-uz="Samarqandda ingliz tili. Birinchi dars — <i>bepul</i>"></h1>
+  <p data-ru="Группы до 8 человек, занятия 3 раза в неделю, подготовка к IELTS." data-uz="8 kishilik guruhlar, haftasiga 3 marta dars, IELTSga tayyorlov."></p>
+  <a class="btn" data-ru="Записаться на пробный урок" data-uz="Sinov darsiga yozilish"></a>
+</section>
+<section class="facts">
+  <div><b>8</b><span data-ru="человек в группе" data-uz="kishilik guruh"></span></div>
+  <div><b>3×</b><span data-ru="в неделю по 90 минут" data-uz="haftasiga, 90 daqiqadan"></span></div>
+  <div><b>450k</b><span data-ru="сум в месяц" data-uz="soʻm oyiga"></span></div>
+</section>
+<h2 data-ru="Расписание на декабрь" data-uz="Dekabr jadvali"></h2>
+<div class="card"><span class="lvl">A2</span><div><b data-ru="Пн · Ср · Пт, 18:30" data-uz="Du · Chor · Juma, 18:30"></b><span data-ru="Вечерняя группа для взрослых" data-uz="Kattalar uchun kechki guruh"></span></div><span class="seats low" data-ru="2 места" data-uz="2 joy"></span></div>
+<div class="card"><span class="lvl">B1</span><div><b data-ru="Вт · Чт · Сб, 16:00" data-uz="Se · Pay · Shan, 16:00"></b><span data-ru="Школьники 14–17 лет" data-uz="14–17 yoshli oʻquvchilar"></span></div><span class="seats" data-ru="5 мест" data-uz="5 joy"></span></div>
+<div class="card"><span class="lvl">B2</span><div><b data-ru="Пн · Ср · Пт, 16:30" data-uz="Du · Chor · Juma, 16:30"></b><span data-ru="IELTS 6.0+, пробный тест раз в месяц" data-uz="IELTS 6.0+, oyda bir marta sinov testi"></span></div><span class="seats" data-ru="4 места" data-uz="4 joy"></span></div>
+<div class="card"><span class="lvl">A1</span><div><b data-ru="Вт · Чт · Сб, 19:00" data-uz="Se · Pay · Shan, 19:00"></b><span data-ru="С нуля, взрослые" data-uz="Noldan, kattalar uchun"></span></div><span class="seats" data-ru="6 мест" data-uz="6 joy"></span></div>
+<div class="card"><span class="lvl">SC</span><div><b data-ru="Суббота, 11:00" data-uz="Shanba, 11:00"></b><span data-ru="Разговорный клуб, вход свободный" data-uz="Suhbat klubi, kirish bepul"></span></div><span class="seats" data-ru="открыт" data-uz="ochiq"></span></div>
+<h2 data-ru="Запись на пробный урок" data-uz="Sinov darsiga yozilish"></h2>
+<form>
+  <label data-ru="Имя" data-uz="Ism"></label><div class="in">Dilnoza</div>
+  <label data-ru="Телефон" data-uz="Telefon"></label><div class="in">+998 00 000 00 00</div>
+  <label data-ru="Группа" data-uz="Guruh"></label><div class="in" data-ru="B1 · Вт Чт Сб, 16:00" data-uz="B1 · Se Pay Shan, 16:00"></div>
+  <a class="btn" data-ru="Отправить заявку" data-uz="Ariza yuborish"></a>
+</form>
+<script>
+const lang = new URLSearchParams(location.search).get('lang') || 'ru';
+document.documentElement.lang = lang;
+const key = lang.startsWith('uz') ? 'uz' : 'ru';
+document.querySelectorAll('[data-ru]').forEach(el => { el.innerHTML = el.dataset[key]; });
+</script>
+</body>
+</html>

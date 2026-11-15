@@ -1,0 +1,19 @@
+# A4 handout with QR for an event or a partner school (growth skill, mode "event").
+type: handout
+name: handout-open-day
+layout: cta
+theme: light
+kicker: { uz-Latn: Samarqand · ingliz tili, ru: Самарканд · английский }
+title:
+  uz-Latn: "Birinchi dars — *bepul*"
+  ru: "Первое занятие — *бесплатно*"
+items:
+  - { uz-Latn: "8 kishilik guruhlar", ru: "Группы до 8 человек" }
+  - { uz-Latn: "Haftasiga 3 marta, 90 daqiqadan", ru: "3 раза в неделю по 90 минут" }
+  - { uz-Latn: "Oyiga 450 000 soʻm", ru: "450 000 сум в месяц" }
+button: { uz-Latn: "Skanerlang", ru: "Сканируйте" }
+link: "https://qaldirgoch.example/trial?utm_source=offline&utm_medium=qr&utm_campaign=open_day_dec&utm_content=flyer_school_12"
+qr: true
+contacts:
+  uz-Latn: "Telegram: @qaldirgoch_example\nOchiq dars: 6-dekabr, 11:00"
+  ru: "Telegram: @qaldirgoch_example\nОткрытый урок: 6 декабря, 11:00"

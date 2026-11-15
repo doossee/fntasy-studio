@@ -1,0 +1,67 @@
+# 4-week content plan of the FICTIONAL school from profiles/example.
+# Source of truth is this file. Render:
+#   npm run plan -- render examples/plan/plan.yaml --md examples/plan/plan.md --csv examples/plan/plan.csv
+# [N] and [Ism]/[Имя] are placeholders: fill them with real numbers and names only after the event.
+title: "Content plan · 30 Nov – 27 Dec 2026 · Qaldirgʻoch School (fictional)"
+campaign: open_day_dec
+rows:
+  # ── Week 1: open day on 6 December ─────────────────────────────────────────
+  - { date: 2026-11-30, channel: telegram, format: post, topic: "Open day announcement", content: post_trial_3011, status: ready,
+      text: { uz-Latn: "6-dekabr, soat 11:00 — ochiq dars. 60 daqiqa, bepul. Darajangizni aniqlaymiz. Yozilish: havola pastda.", ru: "6 декабря в 11:00 — открытый урок. 60 минут, бесплатно. Определим ваш уровень. Запись по ссылке ниже." } }
+  - { date: 2026-12-01, channel: instagram, format: carousel, topic: "What happens at the first lesson", content: carousel_first_lesson_0112, status: ready,
+      text: { uz-Latn: "Birinchi darsda nima boʻladi: 6 ta slayd. Havola — profilda.", ru: "Что будет на первом занятии: 6 слайдов. Ссылка — в профиле." } }
+  - { date: 2026-12-02, channel: telegram, format: carousel, topic: "What happens at the first lesson", content: carousel_first_lesson_0212, status: ready,
+      text: { uz-Latn: "Birinchi dars qanday oʻtadi — rasmlarda. 6-dekabrga 14 ta joy qoldi.", ru: "Как проходит первое занятие — в картинках. На 6 декабря осталось 14 мест." } }
+  - { date: 2026-12-03, channel: offline, format: flyer, topic: "Flyers with QR at two partner schools", content: flyer_school_12, status: ready,
+      text: { uz-Latn: "200 ta varaqa, QR-kod bilan. 12- va 37-maktablar.", ru: "200 листовок с QR-кодом. Школы № 12 и № 37." } }
+  - { date: 2026-12-03, channel: instagram, format: reel, topic: "Open day in 23 seconds", content: reel_open_day, status: ready,
+      text: { uz-Latn: "8 kishilik guruh, haftasiga 3 marta, birinchi dars bepul. 6-dekabr, 11:00.", ru: "Группа до 8 человек, 3 раза в неделю, первое занятие бесплатно. 6 декабря, 11:00." } }
+  - { date: 2026-12-04, channel: telegram, format: reel, topic: "Open day in 23 seconds", content: reel_open_day_0412, status: ready,
+      text: { uz-Latn: "Ochiq darsga 2 kun qoldi. Jadval va boʻsh joylar — saytda.", ru: "До открытого урока 2 дня. Расписание и свободные места — на сайте." } }
+  - { date: 2026-12-05, channel: instagram, format: story, topic: "Reminder: tomorrow 11:00", content: story_open_day_0512, status: ready,
+      text: { uz-Latn: "Ertaga 11:00. Manzil va yozilish — havolada.", ru: "Завтра в 11:00. Адрес и запись — по ссылке." } }
+  # ── Week 2: after the open day, enrolment ──────────────────────────────────
+  - { date: 2026-12-07, channel: telegram, format: post, topic: "Open day in numbers", content: post_results_0712, status: draft,
+      text: { uz-Latn: "Ochiq darsga [N] kishi keldi, [N] kishi guruhga yozildi. Keyingi guruhlar jadvali — pastda.", ru: "На открытый урок пришли [N] человек, [N] записались в группы. Расписание следующих групп — ниже." } }
+  - { date: 2026-12-08, channel: instagram, format: carousel, topic: "Which level are you: A1–B2 in 6 questions", content: carousel_levels_0812, status: draft,
+      text: { uz-Latn: "Darajangiz qanday? 6 ta savol, 2 daqiqa.", ru: "Какой у вас уровень? 6 вопросов, 2 минуты." } }
+  - { date: 2026-12-09, channel: telegram, format: post, topic: "Evening group A2: 2 seats left", content: post_a2_seats_0912, status: draft,
+      text: { uz-Latn: "Kechki A2 guruhida 2 ta joy qoldi. Du–Chor–Juma, 18:30.", ru: "В вечерней группе A2 осталось 2 места. Пн–Ср–Пт, 18:30." } }
+  - { date: 2026-12-10, channel: instagram, format: reel, topic: "Phrase of the day: 'I'm up for it'", content: reel_phrase_1012, status: idea,
+      text: { uz-Latn: "Kun iborasi: «I'm up for it». 20 soniya.", ru: "Фраза дня: «I'm up for it». 20 секунд." } }
+  - { date: 2026-12-11, channel: telegram, format: post, topic: "Price and what is included", content: post_price_1112, status: draft,
+      text: { uz-Latn: "Oyiga 450 000 soʻm: 12 ta dars, darslik, oyda bir marta sinov testi.", ru: "450 000 сум в месяц: 12 занятий, учебник, пробный тест раз в месяц." } }
+  - { date: 2026-12-12, channel: offline, format: speaking club, topic: "Saturday speaking club, free entry; QR on the door", content: speaking_club_1212, status: draft,
+      text: { uz-Latn: "Shanba, 11:00 — suhbat klubi. Kirish bepul.", ru: "Суббота, 11:00 — разговорный клуб. Вход свободный." } }
+  - { date: 2026-12-12, channel: instagram, format: story, topic: "Speaking club today: 3 photos", content: story_club_1212, status: idea,
+      text: { uz-Latn: "Bugun suhbat klubida. Keyingisi — 19-dekabr.", ru: "Сегодня в разговорном клубе. Следующий — 19 декабря." } }
+  # ── Week 3: proof ──────────────────────────────────────────────────────────
+  - { date: 2026-12-14, channel: telegram, format: post, topic: "Student result with numbers (written consent first)", content: post_result_1412, status: idea,
+      text: { uz-Latn: "[Ism], 16 yosh: 4 oyda sinov testida 5.0 dan 6.0 ga. Haftasiga 3 dars va uy vazifasi.", ru: "[Имя], 16 лет: за 4 месяца с 5.0 до 6.0 на пробном тесте. 3 занятия в неделю и домашние задания." } }
+  - { date: 2026-12-15, channel: instagram, format: carousel, topic: "IELTS 6.0: plan for 6 months", content: carousel_ielts_plan_1512, status: idea,
+      text: { uz-Latn: "IELTS 6.0 ga 6 oylik reja: oyma-oy.", ru: "План на IELTS 6.0 за 6 месяцев: по месяцам." } }
+  - { date: 2026-12-16, channel: telegram, format: carousel, topic: "IELTS 6.0: plan for 6 months", content: carousel_ielts_plan_1612, status: idea,
+      text: { uz-Latn: "IELTS 6.0 ga 6 oyda: har oyda nima qilamiz.", ru: "IELTS 6.0 за 6 месяцев: что делаем каждый месяц." } }
+  - { date: 2026-12-17, channel: instagram, format: reel, topic: "Phrase of the day: 'It slipped my mind'", content: reel_phrase_1712, status: idea,
+      text: { uz-Latn: "Kun iborasi: «It slipped my mind».", ru: "Фраза дня: «It slipped my mind»." } }
+  - { date: 2026-12-18, channel: telegram, format: post, topic: "Ask for map reviews after the 4th lesson", content: post_reviews_1812, status: idea,
+      text: { uz-Latn: "Bizda oʻqiysizmi? Xaritada 2 qator sharh yozing — yangi oʻquvchilarga tanlashda yordam beradi.", ru: "Учитесь у нас? Напишите две строки в отзыве на карте — это помогает новым ученикам выбрать." } }
+  - { date: 2026-12-19, channel: offline, format: speaking club, topic: "Speaking club; hand out January schedule with QR", content: speaking_club_1912, status: idea,
+      text: { uz-Latn: "Suhbat klubi + yanvar jadvali QR-kod bilan.", ru: "Разговорный клуб + расписание на январь с QR-кодом." } }
+  - { date: 2026-12-19, channel: instagram, format: story, topic: "Poll: morning or evening group in January", content: story_poll_1912, status: idea,
+      text: { uz-Latn: "Yanvarda qaysi vaqt qulay: ertalabmi yoki kechqurun?", ru: "Когда удобнее в январе: утром или вечером?" } }
+  # ── Week 4: January groups ─────────────────────────────────────────────────
+  - { date: 2026-12-21, channel: telegram, format: post, topic: "January groups: schedule and seats", content: post_january_2112, status: idea,
+      text: { uz-Latn: "Yangi guruhlar 11-yanvardan. 4 ta guruh, har birida 8 ta joy. Jadval — saytda.", ru: "Новые группы с 11 января. 4 группы по 8 мест. Расписание — на сайте." } }
+  - { date: 2026-12-22, channel: instagram, format: carousel, topic: "January groups: schedule and seats", content: carousel_january_2212, status: idea,
+      text: { uz-Latn: "11-yanvardan yangi guruhlar: vaqtlar va darajalar.", ru: "Новые группы с 11 января: время и уровни." } }
+  - { date: 2026-12-23, channel: telegram, format: reel, topic: "Teacher answers 3 frequent questions", content: reel_faq_2312, status: idea,
+      text: { uz-Latn: "3 ta savol: narx, jadval, darsni qoldirsam nima boʻladi.", ru: "3 вопроса: цена, расписание, что если пропущу занятие." } }
+  - { date: 2026-12-24, channel: instagram, format: reel, topic: "Teacher answers 3 frequent questions", content: reel_faq_2412, status: idea,
+      text: { uz-Latn: "Koʻp soʻraladigan 3 ta savolga javob.", ru: "Ответы на 3 частых вопроса." } }
+  - { date: 2026-12-25, channel: telegram, format: post, topic: "Month in numbers", content: post_month_2512, status: idea,
+      text: { uz-Latn: "Dekabr yakuni: [N] ta ariza, [N] ta yangi oʻquvchi. Rahmat.", ru: "Итоги декабря: [N] заявок, [N] новых учеников. Спасибо." } }
+  - { date: 2026-12-26, channel: offline, format: flyer, topic: "January flyers at partner schools before the holidays", content: flyer_january, status: idea,
+      text: { uz-Latn: "Yanvar guruhlari varaqasi, 200 dona.", ru: "Листовка о январских группах, 200 штук." } }
+  - { date: 2026-12-26, channel: instagram, format: story, topic: "Last seats for January", content: story_seats_2612, status: idea,
+      text: { uz-Latn: "Yanvar guruhlarida [N] ta joy qoldi.", ru: "В январских группах осталось [N] мест." } }

@@ -1,0 +1,43 @@
+# Carousel, 6 slides, 1080×1350.
+type: carousel
+name: carousel-first-lesson
+size: portrait
+slides:
+  - layout: cover
+    kicker: { uz-Latn: Ochiq dars · 6-dekabr, ru: Открытый урок · 6 декабря }
+    title:
+      uz-Latn: "Birinchi darsda *nima boʻladi*"
+      ru: "Что будет на *первом занятии*"
+    text: { uz-Latn: "60 daqiqa, bepul", ru: "60 минут, бесплатно" }
+  - layout: stat
+    value: "15"
+    unit: { uz-Latn: daqiqa, ru: минут }
+    title: { uz-Latn: "Darajangizni aniqlaymiz", ru: "Определяем ваш уровень" }
+    text:
+      uz-Latn: "Ogʻzaki suhbat va 20 ta savoldan iborat test. Natija — A1 dan B2 gacha."
+      ru: "Устная беседа и тест из 20 вопросов. Результат — от A1 до B2."
+  - layout: list
+    title: { uz-Latn: "Keyin — 45 daqiqa dars", ru: "Затем — 45 минут урока" }
+    items:
+      - { uz-Latn: "Yangi mavzu: 10 daqiqa", ru: "Новая тема: 10 минут" }
+      - { uz-Latn: "Juftlikda suhbat: 20 daqiqa", ru: "Разговор в парах: 20 минут" }
+      - { uz-Latn: "Oʻqituvchi xatolarni tahlil qiladi: 15 daqiqa", ru: "Разбор ошибок с преподавателем: 15 минут" }
+  - layout: text
+    theme: dark
+    kicker: { uz-Latn: Dars oxirida, ru: В конце занятия }
+    title:
+      uz-Latn: "Qoʻlingizda *oʻquv rejasi*"
+      ru: "У вас на руках *план занятий*"
+    text:
+      uz-Latn: "Qaysi guruh, haftaning qaysi kunlari va 3 oyda qaysi darajaga yetasiz."
+      ru: "Какая группа, по каким дням и до какого уровня дойдёте за 3 месяца."
+  - layout: screenshot
+    title: { uz-Latn: "Jadval va boʻsh joylar", ru: "Расписание и свободные места" }
+    image:
+      uz-Latn: "profile:assets/screen-schedule.uz.png"
+      ru: "profile:assets/screen-schedule.ru.png"
+  - layout: cta
+    kicker: { uz-Latn: 6-dekabr · 11:00, ru: 6 декабря · 11:00 }
+    title: { uz-Latn: "Birinchi dars — bepul", ru: "Первое занятие — бесплатно" }
+    button: { uz-Latn: Yozilish, ru: Записаться }
+    link: https://qaldirgoch.example/trial
