@@ -1,0 +1,42 @@
+# 1080×1920 reel, about 24 s, music generated from code (no licence needed).
+type: reel
+name: reel-open-day
+fps: 30
+music: { mood: bright, bpm: 100, volume: 0.7 }
+scenes:
+  - type: title
+    duration: 3.2
+    kicker: { uz-Latn: Samarqand · ingliz tili, ru: Самарканд · английский }
+    title:
+      uz-Latn: "Ingliz tilini *8 kishilik* guruhda oʻrganing"
+      ru: "Английский в группе *до 8 человек*"
+  - type: stat
+    duration: 3.2
+    value: "90"
+    unit: { uz-Latn: daqiqa, ru: минут }
+    title:
+      uz-Latn: "Haftasiga 3 marta dars"
+      ru: "Занятия 3 раза в неделю"
+  - type: list
+    duration: 5.4
+    title: { uz-Latn: "Birinchi darsda", ru: "На первом занятии" }
+    items:
+      - { uz-Latn: "Darajangizni aniqlaymiz", ru: "Определим ваш уровень" }
+      - { uz-Latn: "Guruh tanlaymiz", ru: "Подберём группу" }
+      - { uz-Latn: "Oʻquv rejasini beramiz", ru: "Дадим план занятий" }
+  - type: screen
+    duration: 6.5
+    theme: dark
+    title: { uz-Latn: "Jadval va boʻsh joylar — saytda", ru: "Расписание и места — на сайте" }
+    url:
+      uz-Latn: "profile:demo-site/index.html?lang=uz-Latn"
+      ru: "profile:demo-site/index.html?lang=ru"
+    scrollTo: end
+  - type: cta
+    duration: 4.5
+    kicker: { uz-Latn: Ochiq dars · 6-dekabr, ru: Открытый урок · 6 декабря }
+    title:
+      uz-Latn: "Birinchi dars — bepul"
+      ru: "Первое занятие — бесплатно"
+    button: { uz-Latn: Yozilish, ru: Записаться }
+    link: https://qaldirgoch.example/trial

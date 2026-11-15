@@ -1,0 +1,15 @@
+# Links for the December open day of the fictional school.
+campaign: open_day_dec
+links:
+  - { source: telegram, content: post_trial_0112, note: "TG post, 1 Dec" }
+  - { source: telegram, content: carousel_first_lesson_0312, note: "TG carousel, 3 Dec" }
+  - { source: telegram, content: pinned, note: "pinned message in the channel" }
+  - { source: instagram, content: bio, note: "link in bio" }
+  - { source: instagram, content: story_open_day_0512, note: "story with link sticker" }
+  - { source: instagram, content: reel_open_day, note: "reel caption → bio" }
+  - { source: offline, content: flyer_school_12, note: "QR on flyer, partner school No. 12" }
+  - { source: offline, content: open_day_stand, note: "QR on the stand" }
+  - { source: telegram_ads, content: ad_v1_free_lesson, note: "Telegram Ads test" }
+  - { source: 2gis, medium: maps, content: card, note: "2GIS card website button" }
+  - { source: yandex_maps, medium: maps, content: card, note: "Yandex Maps card" }
+  - { source: google_maps, medium: maps, content: card, note: "Google Business Profile" }

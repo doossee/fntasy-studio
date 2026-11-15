@@ -1,0 +1,25 @@
+{
+  "name": "growth-studio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Open skills and tools for AI agents: growth research and content production with first-class Telegram and Central Asia support",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "workspaces": ["tools/*"],
+  "scripts": {
+    "post": "node tools/cards/cards.mjs",
+    "carousel": "node tools/cards/cards.mjs",
+    "story": "node tools/cards/cards.mjs",
+    "handout": "node tools/cards/cards.mjs",
+    "reel": "node tools/reel/reel.mjs",
+    "music": "node tools/reel/music-gen.mjs",
+    "utm": "node tools/utm/utm.mjs",
+    "plan": "node tools/plan/plan.mjs",
+    "report": "node tools/metrics/report.mjs",
+    "tg:post": "node tools/publish/telegram.mjs",
+    "tg:channel": "node skills/growth/scripts/tg-channel.mjs",
+    "examples": "node scripts/build-examples.mjs",
+    "check": "node scripts/check.mjs",
+    "sync-shared": "node scripts/sync-shared.mjs"
+  }
+}
