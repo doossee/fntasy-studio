@@ -1,7 +1,13 @@
 # Instructions for agents working in this repository
 
-growth-studio is a **public** repository: a growth research skill (`skills/growth/`) and content
-production tools (`tools/`). Every push is a publication.
+growth-studio is a **public** repository with two sets, published as two Claude Code plugins from one
+catalog (`.claude-plugin/marketplace.json`):
+
+- `growth-studio`: the growth research skill (`skills/growth/`) and content production tools (`tools/`);
+- `design-skills`: `skills/ui-craft/`, `skills/ux-clarity/`, the commands `skills/ui-audit/`, `skills/ux-audit/`,
+  `skills/design-variants/` and the agent `agents/design-judge.md`.
+
+Every push is a publication. Licence: Apache-2.0 (`LICENSE`, `NOTICE`).
 
 ## Always
 
@@ -19,10 +25,14 @@ production tools (`tools/`). Every push is a publication.
 - Heavy files: video, audio, sources, renders. They go to `out/` (ignored). `examples/` holds small previews, under about 5 MB in total.
 - Names of commercial look-alike services in the README. If a comparison is unavoidable, keep it neutral and factual.
 
-## Do not touch
+## Plugins
 
-- `skills/ui-craft/` and `skills/ux-clarity/` are reserved for another task. Do not create or edit them.
-- Do not add a `LICENSE` file; the owner decides.
+- The `growth-studio` entry has `./skills/growth` as its source, so only that folder loads with it.
+- The `design-skills` entry has the repository root as its source and lists its components: a new design
+  skill or agent loads only after it is added to the entry's `skills` or `agents` list.
+- There is no `.claude-plugin/plugin.json` on purpose: both entries would share it and get one name.
+- After changing the catalog: `claude plugin validate .`.
+- Keep `license` in the catalog entries and in every `package.json` as `Apache-2.0`.
 
 ## Do not act outside the repository
 
@@ -44,6 +54,9 @@ npm run report   -- week.csv --out report.md
 npm run tg:channel -- <channel> --posts 60
 npm run examples                             # rebuild all examples and previews (about 2 minutes)
 npm run check                                # shared copies in sync, YAML parses, no secrets, examples size
+
+node skills/ui-craft/scripts/measure.mjs <url-or-file.html> [--widths 1440,1280,1024,390] [--profile file] [--out dir]
+node skills/ux-clarity/scripts/measure.mjs <url-or-file.html>
 ```
 
 - Output goes to `out/<name>/`. Scenario formats: `tools/cards/README.md`, `tools/reel/README.md`; working examples: `examples/scenarios/`.
