@@ -2,6 +2,7 @@
   "name": "growth-studio",
   "version": "0.1.0",
   "private": true,
+  "license": "Apache-2.0",
   "description": "Open skills and tools for AI agents: growth research and content production with first-class Telegram and Central Asia support",
   "type": "module",
   "engines": { "node": ">=20" },
