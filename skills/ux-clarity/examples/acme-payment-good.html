@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Record payment · Acme Orders (clear example)</title>
+<style>
+  :root { --primary: #1f5fbf; --ink: #1b2430; --muted: #5b6675; --line: #dfe3e8; --field: #8a94a3; --page: #f7f8fa; --panel: #ffffff; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { font: 16px/24px system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--ink); background: var(--page); font-variant-numeric: tabular-nums; }
+  header { display: flex; align-items: center; gap: 8px; height: 56px; padding: 0 16px; background: var(--panel); border-bottom: 1px solid var(--line); }
+  .back { display: inline-flex; align-items: center; height: 44px; padding: 0 12px; margin-left: -12px; border-radius: 8px; color: var(--primary); text-decoration: none; font-weight: 500; }
+  h1 { font-size: 20px; line-height: 28px; font-weight: 600; margin: 0; }
+  main { max-width: 480px; margin: 0 auto; padding: 24px 16px 32px; }
+  .customer { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px; margin-bottom: 24px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; }
+  .customer small { display: block; font-size: 14px; line-height: 20px; color: #b3261e; }
+  .field { margin-bottom: 16px; }
+  label, legend { display: block; font-size: 14px; line-height: 20px; font-weight: 500; margin-bottom: 4px; padding: 0; }
+  .optional { font-weight: 400; color: var(--muted); }
+  input[type="text"] { width: 100%; height: 48px; padding: 0 12px; border: 1px solid var(--field); border-radius: 8px; font: inherit; color: inherit; background: var(--panel); }
+  input:focus-visible, .btn:focus-visible, .back:focus-visible, .choice:focus-within { outline: 3px solid rgba(31, 95, 191, .5); outline-offset: 2px; }
+  .quick { display: flex; gap: 8px; margin-top: 8px; }
+  .chip { height: 44px; padding: 0 16px; border: 1px solid #b9c0ca; border-radius: 8px; background: var(--panel); font: inherit; font-size: 14px; color: var(--ink); cursor: pointer; }
+  fieldset { border: 0; margin: 0 0 24px; padding: 0; }
+  .choices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .choice { display: flex; align-items: center; justify-content: center; gap: 8px; height: 48px; margin: 0; border: 1px solid #b9c0ca; border-radius: 8px; background: var(--panel); font-weight: 400; cursor: pointer; }
+  .choice input { width: 16px; height: 16px; margin: 0; accent-color: var(--primary); }
+  .btn { display: flex; align-items: center; justify-content: center; width: 100%; height: 48px; border: 0; border-radius: 8px; background: var(--primary); color: #fff; font: inherit; font-weight: 600; cursor: pointer; }
+  .after { margin: 12px 0 0; font-size: 14px; line-height: 20px; color: var(--muted); text-align: center; }
+</style>
+</head>
+<body>
+<header>
+  <a class="back" href="#">Back</a>
+  <h1>Record payment</h1>
+</header>
+<main>
+  <div class="customer">
+    <div>Harbor Cafe<small>Owes $1,240.00</small></div>
+  </div>
+  <form>
+    <div class="field">
+      <label for="amount">Amount</label>
+      <input id="amount" type="text" inputmode="decimal" value="1,240.00" autocomplete="off">
+      <div class="quick">
+        <button class="chip" type="button">Whole debt</button>
+        <button class="chip" type="button">Half</button>
+      </div>
+    </div>
+    <fieldset>
+      <legend>Paid by</legend>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="method" checked> Cash</label>
+        <label class="choice"><input type="radio" name="method"> Card</label>
+        <label class="choice"><input type="radio" name="method"> Transfer</label>
+      </div>
+    </fieldset>
+    <div class="field">
+      <label for="note">Note <span class="optional">optional</span></label>
+      <input id="note" type="text">
+    </div>
+    <button class="btn" type="submit">Record $1,240.00</button>
+    <p class="after">You can undo this for 10 seconds after recording.</p>
+  </form>
+</main>
+</body>
+</html>

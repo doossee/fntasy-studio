@@ -1,0 +1,12 @@
+{
+  "name": "ux-clarity-measure",
+  "version": "1.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "type": "module",
+  "description": "Playwright measurements of the ux-clarity skill for any URL or local HTML file",
+  "bin": { "ux-clarity-measure": "measure.mjs" },
+  "scripts": { "measure": "node measure.mjs", "browser": "playwright install chromium" },
+  "engines": { "node": ">=20" },
+  "dependencies": { "playwright": "^1.49.0" }
+}

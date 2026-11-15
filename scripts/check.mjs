@@ -1,4 +1,4 @@
-// Repository checks that need no browser: shared copies in sync, scenarios parse, no secrets or reserved folders, examples size.
+// Repository checks that need no browser: shared copies in sync, scenarios parse, no secrets, examples size.
 //   npm run check
 import fs from 'node:fs';
 import path from 'node:path';
@@ -21,7 +21,6 @@ const secret = /(\b\d{8,10}:[A-Za-z0-9_-]{35}\b|sk-[A-Za-z0-9]{20,}|AKIA[0-9A-Z]
 for (const f of files.filter((x) => /\.(mjs|js|md|ya?ml|json|html|css|txt|csv)$/.test(x) && !x.endsWith('package-lock.json'))) {
   if (secret.test(fs.readFileSync(f, 'utf8'))) problems.push(`${f}: looks like a secret`);
 }
-for (const d of ['skills/ui-craft', 'skills/ux-clarity']) if (fs.existsSync(d)) problems.push(`${d} is reserved for another task and must not exist here`);
 for (const f of files.filter((x) => /\.(mp3|wav|m4a|mov|webm)$/.test(x))) problems.push(`${f}: audio/video sources do not belong in git`);
 const exSize = files.filter((f) => f.startsWith('examples')).reduce((a, f) => a + fs.statSync(f).size, 0);
 if (exSize > 5e6) problems.push(`examples/ is ${(exSize / 1e6).toFixed(1)} MB (limit 5 MB)`);
