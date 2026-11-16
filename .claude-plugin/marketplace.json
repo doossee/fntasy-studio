@@ -11,23 +11,43 @@
       "source": "./plugins/growth",
       "description": "Step-by-step growth research from open data: competitors, markets, Telegram channels, Central Asia, event kits. Content tools (posts, carousels, stories, reels with sound, content plan, UTM, weekly report) run from a clone",
       "version": "0.2.0",
-      "author": { "name": "doossee", "url": "https://github.com/doossee" },
+      "author": {
+        "name": "doossee",
+        "url": "https://github.com/doossee"
+      },
       "homepage": "https://github.com/doossee/fntasy-studio",
       "repository": "https://github.com/doossee/fntasy-studio",
       "license": "Apache-2.0",
-      "keywords": ["growth", "marketing", "research", "telegram", "central-asia", "content"],
+      "keywords": [
+        "growth",
+        "marketing",
+        "research",
+        "telegram",
+        "central-asia",
+        "content"
+      ],
       "category": "marketing"
     },
     {
       "name": "design",
       "source": "./plugins/design",
       "description": "ui-craft and ux-clarity: measurable screen design and clarity rules, audits of any URL, design variants, a blind rubric judge and an independent UX reviewer",
-      "version": "0.2.0",
-      "author": { "name": "doossee", "url": "https://github.com/doossee" },
+      "version": "0.2.1",
+      "author": {
+        "name": "doossee",
+        "url": "https://github.com/doossee"
+      },
       "homepage": "https://github.com/doossee/fntasy-studio",
       "repository": "https://github.com/doossee/fntasy-studio",
       "license": "Apache-2.0",
-      "keywords": ["design", "ui", "ux", "audit", "review", "playwright"],
+      "keywords": [
+        "design",
+        "ui",
+        "ux",
+        "audit",
+        "review",
+        "playwright"
+      ],
       "category": "design"
     },
     {
@@ -35,11 +55,20 @@
       "source": "./plugins/review",
       "description": "An independent code reviewer with fresh eyes: acceptance criteria to file:line and tests, access, tenant isolation, money, migrations, secrets; runs lint, types and tests; verdict integrate or return",
       "version": "0.2.0",
-      "author": { "name": "doossee", "url": "https://github.com/doossee" },
+      "author": {
+        "name": "doossee",
+        "url": "https://github.com/doossee"
+      },
       "homepage": "https://github.com/doossee/fntasy-studio",
       "repository": "https://github.com/doossee/fntasy-studio",
       "license": "Apache-2.0",
-      "keywords": ["code-review", "review", "quality", "security", "tests"],
+      "keywords": [
+        "code-review",
+        "review",
+        "quality",
+        "security",
+        "tests"
+      ],
       "category": "development"
     }
   ]

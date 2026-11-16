@@ -6,9 +6,14 @@ change checked by a reviewer who did not build it.
 - **ux-clarity** — will a new user understand this screen the first time, on a phone, without an explanation? 69 rules and a 54-question audit with a score;
 - **ui-craft** — is the screen even, and is it strong? Measurable rules for spacing, alignment, typography and layout at four widths, plus composition, data, colour within the brand and a "level of the best" rubric;
 - **a measurement script** for any URL or HTML file, audit commands and a read-only judge agent;
-- **ux-reviewer** — an independent reviewer of an interface change: walks real user tasks in the running product and returns accept / rework / return with evidence.
+- **ux-reviewer** — an independent reviewer of an interface change: walks real user tasks in the running product and returns accept / rework / return with evidence;
+- **ui-reviewer** — an independent reviewer of how the change looks: hierarchy, alignment, type, colour, consistency and states, against the product's own design system and public guidelines, with marked screenshots.
 
 Русская версия: [README.ru.md](README.ru.md). Catalog: [fntasy studio](../../README.md).
+
+## What changed in 0.2.1
+
+- New agent `ui-reviewer`: an independent review of the visual side of a change, next to `ux-reviewer` — see [UI reviewer](#ui-reviewer). The two often disagree (a cleaner screen can hide a label); keeping them apart makes the disagreement visible.
 
 ## What changed since 0.1
 
@@ -45,6 +50,7 @@ The plugin adds:
 | command `/design:design-variants <screen>` | by hand | freedom mode: 2-3 variants with named axes, measured and scored blind |
 | agent `design-judge` | used by the commands; or `@agent-design:design-judge` | read-only judge: scores screenshots by the rubric without the build history |
 | agent `ux-reviewer` | `@agent-design:ux-reviewer`, after a screen or flow changed | read-and-run reviewer: walks user tasks in the running product, verdict with evidence |
+| agent `ui-reviewer` | `@agent-design:ui-reviewer`, after a screen was built or restyled | read-and-run reviewer: hierarchy, alignment, type, colour, consistency and states at four widths and all themes, marked screenshots, verdict |
 
 ### As plain skills
 
@@ -57,7 +63,7 @@ cp -r fntasy-studio/plugins/design/skills/ui-craft fntasy-studio/plugins/design/
 # optional: the audit commands and the judge
 cp -r fntasy-studio/plugins/design/skills/ui-audit fntasy-studio/plugins/design/skills/ux-audit fntasy-studio/plugins/design/skills/design-variants  your-project/.claude/skills/
 cp fntasy-studio/plugins/design/agents/design-judge.md  your-project/.claude/agents/
-cp fntasy-studio/plugins/design/agents/ux-reviewer.md  your-project/.claude/agents/
+cp fntasy-studio/plugins/design/agents/ux-reviewer.md fntasy-studio/plugins/design/agents/ui-reviewer.md  your-project/.claude/agents/
 ```
 
 Each skill folder is self-contained: rules, checklist, script, examples.
@@ -83,6 +89,26 @@ walks 2-3 tasks of real users and separates taste from harm.
 ```
 @agent-design:ux-reviewer Review the new checkout flow. Start: npm run dev, http://localhost:3000/cart.
 Changed: /cart, /checkout, /checkout/done. Screenshots before: docs/screens/checkout-v1/.
+```
+
+## UI reviewer
+
+`ui-reviewer` looks at the visual result of a change with fresh eyes. It is not given the author's conclusions or
+blind-comparison scores: it opens the running product, takes full-page screenshots at 1440, 1280, 1024 and 390 in every
+theme, produces the states (empty, loading, error, long text, focus) and marks every problem on a screenshot.
+
+- **Grounds:** the product's own design system (from the review or design profile, or read from the theme tokens);
+  public guidelines — Apple Human Interface Guidelines, Material 3, Fluent 2, GOV.UK Design System; WCAG 2.2 where
+  looks decide readability (contrast, non-text contrast, text spacing, reflow, focus appearance). The `ui-craft` rules
+  are material under review: the reviewer reports where a rule made the screen worse or stayed silent.
+- **Output:** verdict *accept*, *rework* or *return*; findings with severity 1-4 and a marked screenshot;
+  *what we gain / what we lose*; *where a skill rule did harm or stayed silent*; taste kept apart; what was not checked.
+- **With `ux-reviewer`:** call both on the same change. Usability findings belong to `ux-reviewer`; `ui-reviewer` marks
+  them as such when it sees them on the way.
+
+```
+@agent-design:ui-reviewer Review the restyled dashboard. Start: npm run dev, http://localhost:3000/app.
+Changed: /app, /app/orders. Themes: light, dark. Screenshots before: docs/screens/dashboard-v1/.
 ```
 
 ### Project review profile
@@ -197,7 +223,7 @@ Rules are written in our own words; each cites its sources (standards, platform 
 skills/ui-craft/     the look of screens: SKILL.md, profile.md, checklist.md, rubric-best.md, references/ (19 files), scripts/, examples/
 skills/ux-clarity/   clarity of screens: SKILL.md, profile.md, checklist.md, references/ (11 files), scripts/, examples/
 skills/ui-audit/  skills/ux-audit/  skills/design-variants/     commands
-agents/              design-judge.md, ux-reviewer.md
+agents/              design-judge.md, ux-reviewer.md, ui-reviewer.md
 ```
 
 Licence: Apache-2.0, see [LICENSE](../../LICENSE).
