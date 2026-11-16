@@ -132,8 +132,30 @@
 
 ## Отчёт исполнителя
 
-- Версия выполненного задания:
-- Устройство и что куда переехало:
-- Ревьюеры — основание, профиль, выход:
-- Проверки:
-- Ограничения:
+- **Версия выполненного задания:** STUDIO-1 v1, ветка `task/STUDIO-1`, 16.11.2026. Плагины — 0.2.0.
+- **Устройство и что куда переехало:**
+  - `.claude-plugin/marketplace.json` — каталог `fantasy-studio`, три записи `growth`, `design`, `review`, у каждой свой `source` (`./plugins/<имя>`), `license: Apache-2.0`, `homepage` и `repository` — `https://github.com/doossee/fantasy-studio`. Общего `plugin.json` нет: запись каталога служит манифестом.
+  - `plugins/growth/` — `skills/growth`, `tools/*`, `profiles/example`, `examples`, `docs/{metrics,music,publishing,reels,voice}.md`, `scripts/` (check, build-examples, sync-shared, shoot-demo), `package.json` и `package-lock.json`. Перенос через `git mv`, история сохранена. Пути в скриптах относительные от папки плагина, поэтому правок кода не понадобилось. Пакеты переименованы в `fantasy-studio-growth` и `@fantasy-studio/*`, lock-файл пересобран `npm install`.
+  - `plugins/design/` — навыки `ui-craft`, `ux-clarity`, `ui-audit`, `ux-audit`, `design-variants`; агенты `design-judge` и новый `ux-reviewer`. В README навыков имя плагина `design-skills` заменено на `design`.
+  - `plugins/review/` — агент `code-reviewer` и `references/review-guide.md` (формат одной находки и пример профиля).
+  - Общего кода между плагинами нет. README и README.ru у корня (витрина каталога с командами установки из задания) и у каждого плагина, в каждом — «что изменилось с 0.1». `CLAUDE.md` переписан под новое устройство.
+- **Ревьюеры — основание, профиль, выход:**
+  - Оба: выводы автора не получают (если их передали — игнорируют и пишут об этом), инструменты `Read, Glob, Grep, Bash` без `Edit`/`Write`, в тексте прямой запрет править, коммитить и ставить пакеты в проект; черновая работа — во временной папке. Ни одного продукта, компании или клиента в тексте.
+  - Профиль проекта — общий файл `.claude/review-profile.md` (запасные пути `REVIEW.md`, `docs/review-profile.md`): у `ux-reviewer` — пользователи, задачи, языки, устройства, доступность, рискованные действия, решения; у `code-reviewer` — команды, рискованные зоны, многопользовательность, соглашения, решения. Формат и вымышленные примеры — в README обоих плагинов.
+  - `ux-reviewer`: основание — задачи пользователей проекта, затем эвристики Нильсена, Apple HIG, Material 3, Fluent 2, GOV.UK Design System, WCAG 2.2; навыки `ui-craft`/`ux-clarity` — предмет проверки. Работает через Playwright (снимки 1440 и 390, до и после), проходит 2–3 задачи, включая телефон и состояние ошибки, проверяет рискованные действия, отделяет вкус от вреда. Без профиля спрашивает три строки или берёт общие роли и пишет об этом. Выход: вердикт «принять / доработать / вернуть», находки с серьёзностью 1–4 и уликой (снимок, шаг, источник), «что выигрываем / что теряем», «где правило навыка навредило или промолчало», вкус отдельно, «не проверено».
+  - `code-reviewer`: соответствие заданию (критерий → `файл:строка` → тест), права, изоляция клиентов, деньги (неизменность проводок, идемпотентность, без float), миграции, секреты, тесты, проверяющие поведение. Находки с `файл:строка` и именем класса ошибки со всеми местами; Critical воспроизводится в черновой копии; не больше трёх кругов; обязательный раздел «Подтверждено»; запуск линтера, типов и тестов затронутых пакетов с приложенным выводом. Вердикт «можно интегрировать / вернуть автору».
+- **Проверки:**
+  - `claude plugin validate .` — «Validation passed».
+  - Установка по отдельности: в чистом `HOME` (`HOME=<временная папка>`) `claude plugin marketplace add /home/user/growth-studio`, затем `claude plugin install growth@fantasy-studio`, `design@fantasy-studio`, `review@fantasy-studio` — все три «Successfully installed», `claude plugin list` показывает 0.2.0 и enabled. В кэше установки: у `growth` — `skills/growth/SKILL.md`; у `design` — 5 навыков и агенты `design-judge`, `ux-reviewer`; у `review` — агент `code-reviewer`.
+  - Из `plugins/growth`: `npm install`; `npm run check` → «ok: 99 files checked, examples/ 2.36 MB»; `npm run examples` → все карточки, рилс на двух языках, план, UTM, отчёт собраны за 1 мин 28 с; превью JPG побайтно совпали с прежними, MP4 перекодировались с другими байтами и возвращены к прежним (`git checkout`). Превью карусели открыто и просмотрено. Отдельно: `npm run utm -- --source telegram --content post_1 --bot`, `npm run plan -- init`, `npm run report`, `npm run tg:post` (пробный режим, без `--send`), `npm run tg:channel -- telegram --posts 5` (публичный канал Telegram) — отработали.
+  - Из `plugins/design`: `node skills/ui-craft/scripts/measure.mjs` на `acme-today-good/bad.html` с примером профиля на 1440 и 390 → good 0 стопов, bad 22 и 18 (совпадает с README); `node skills/ux-clarity/scripts/measure.mjs` на `acme-payment-bad.html` → отчёт на 1440 и 390.
+  - Размер `plugins/growth/examples` — 2,36 МБ (предел 5 МБ).
+  - Поиск секретов по всему репозиторию (шаблоны токенов Telegram, `sk-`, `AKIA`, приватные ключи, `xox[bp]-`, `ghp_`, `github_pat_`, `AIza`) — совпадений нет; файлов `.env`, `.pem`, `.key` нет.
+  - Проверка относительных ссылок во всех `.md` — битых нет. Упоминаний `growth-studio` и `design-skills` вне задания и строк «что изменилось» не осталось.
+- **Ограничения:**
+  - Переименование репозитория на GitHub не делал (это делает владелец); ссылки уже на `fantasy-studio`.
+  - `claude plugin validate plugins/review` по отдельной папке требует `plugin.json`, которого по заданию нет; для `growth` и `design` выдаёт только предупреждение об отсутствии иконки. Каталог и установка проходят, поэтому `plugin.json` не добавлял.
+  - Установка из локальной папки копирует в кэш и `node_modules`, если они есть в клоне; при установке из GitHub их нет (`node_modules` в `.gitignore`).
+  - Скрипты измерений дизайна взяли Playwright из глобальной установки окружения; в чистом окружении нужен `npm install` в папке `scripts` навыка, как сказано в README.
+  - Агентов-ревьюеров на живом проекте в этой сессии не запускал: проверены загрузка и состав файлов, не качество ревью.
+  - `examples/growth-demo/competitor-duolingo.md` (разбор публичной компании по открытым данным из 0.1) перенесён как есть.
