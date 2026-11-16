@@ -1,0 +1,9 @@
+{
+  "name": "@fntasy-studio/metrics",
+  "version": "0.2.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "dependencies": { "yaml": "^2.5.0" }
+}
