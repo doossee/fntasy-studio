@@ -1,4 +1,6 @@
-# fantasy-studio
+<!-- Логотип: здесь будет логотип fntasy studio от владельца (файл ещё не передан). -->
+
+# fntasy studio
 
 Каталог из трёх независимых плагинов для Claude Code. Каждый ставится и работает отдельно; общего
 кода у них нет.
@@ -18,14 +20,14 @@ English: [README.md](README.md).
 ## Установка
 
 ```
-/plugin marketplace add doossee/fantasy-studio
-/plugin install growth@fantasy-studio
-/plugin install design@fantasy-studio
-/plugin install review@fantasy-studio
+/plugin marketplace add doossee/fntasy-studio
+/plugin install growth@fntasy-studio
+/plugin install design@fntasy-studio
+/plugin install review@fntasy-studio
 ```
 
 Ставьте любой из них. Из терминала:
-`claude plugin marketplace add doossee/fantasy-studio && claude plugin install review@fantasy-studio`.
+`claude plugin marketplace add doossee/fntasy-studio && claude plugin install review@fntasy-studio`.
 
 | Плагин | Как вызвать |
 |---|---|
@@ -33,7 +35,7 @@ English: [README.md](README.md).
 | `design` | навыки загружаются сами, когда вы проектируете или проверяете экран; `/design:ui-audit <адрес>`, `/design:ux-audit <адрес>`, `/design:design-variants <экран>`; `@agent-design:design-judge`, `@agent-design:ux-reviewer` |
 | `review` | `@agent-review:code-reviewer` |
 
-Попробовать локальную копию: `claude plugin marketplace add /путь/к/fantasy-studio` и установка как выше.
+Попробовать локальную копию: `claude plugin marketplace add /путь/к/fntasy-studio` и установка как выше.
 
 ## Два ревьюера
 
@@ -45,7 +47,7 @@ English: [README.md](README.md).
 
 ## Что изменилось с 0.1
 
-- Репозиторий и каталог называются `fantasy-studio` (были `growth-studio`). Старый адрес переадресует.
+- Репозиторий и каталог называются `fntasy-studio` (были `growth-studio`). Старый адрес переадресует.
 - Три плагина вместо двух, каждый в своей папке: `growth` (был `growth-studio`), `design` (был `design-skills`), `review` (новый).
 - Новые агенты: `ux-reviewer` в `design`, `code-reviewer` в `review`.
 - Инструменты роста переехали в `plugins/growth/`: `npm install` и `npm run …` запускаются там.

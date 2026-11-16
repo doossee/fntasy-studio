@@ -1,20 +1,20 @@
-# review — плагин каталога fantasy-studio
+# review — плагин каталога fntasy studio
 
 Независимый ревьюер кода со свежими глазами. Проверяет одну правку по её заданию, запускает линтер,
 проверку типов и тесты затронутых пакетов и выносит вердикт **«можно интегрировать»** или
 **«вернуть автору»** с находками, привязанными к `файл:строка`. Подходит любому проекту — с
 интерфейсом и без.
 
-English: [README.md](README.md). Каталог: [fantasy-studio](../../README.ru.md).
+English: [README.md](README.md). Каталог: [fntasy studio](../../README.ru.md).
 
 ## Установка
 
 ```
-/plugin marketplace add doossee/fantasy-studio
-/plugin install review@fantasy-studio
+/plugin marketplace add doossee/fntasy-studio
+/plugin install review@fntasy-studio
 ```
 
-Из терминала: `claude plugin marketplace add doossee/fantasy-studio && claude plugin install review@fantasy-studio`.
+Из терминала: `claude plugin marketplace add doossee/fntasy-studio && claude plugin install review@fntasy-studio`.
 
 | Что добавляет | Как вызвать |
 |---|---|

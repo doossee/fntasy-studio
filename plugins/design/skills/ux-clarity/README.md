@@ -4,7 +4,7 @@ A Claude Code skill for interface clarity: will a new user understand the screen
 
 ## Install
 
-Copy this folder to `.claude/skills/ux-clarity/` in a project or to `~/.claude/skills/ux-clarity/`, or install the `design` plugin from the `fantasy-studio` catalog that contains it. The skill loads by itself when you design, change or review a screen.
+Copy this folder to `.claude/skills/ux-clarity/` in a project or to `~/.claude/skills/ux-clarity/`, or install the `design` plugin from the `fntasy-studio` catalog that contains it. The skill loads by itself when you design, change or review a screen.
 
 For the measurement script: Node 20+ and Playwright. If Playwright is not installed yet:
 

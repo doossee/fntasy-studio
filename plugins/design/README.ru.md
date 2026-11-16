@@ -1,4 +1,4 @@
-# design — плагин каталога fantasy-studio
+# design — плагин каталога fntasy studio
 
 «Сделай красиво» и «сделай понятно» превращаются в правила, которые проверяются по снимку экрана,
 а правку проверяет ревьюер, который её не делал.
@@ -8,11 +8,11 @@
 - **скрипт измерений** для любого адреса или HTML-файла, команды аудита и агент-оценщик только для чтения;
 - **ux-reviewer** — независимый ревьюер правки интерфейса: проходит задачи реальных пользователей в работающем продукте и выносит вердикт «принять / доработать / вернуть» с уликами.
 
-English: [README.md](README.md). Каталог: [fantasy-studio](../../README.ru.md).
+English: [README.md](README.md). Каталог: [fntasy studio](../../README.ru.md).
 
 ## Что изменилось с 0.1
 
-- Плагин называется `design` (был `design-skills`) и лежит в `plugins/design/` каталога `fantasy-studio`. Команды теперь `/design:ui-audit`, `/design:ux-audit`, `/design:design-variants`; агенты `@agent-design:design-judge`, `@agent-design:ux-reviewer`.
+- Плагин называется `design` (был `design-skills`) и лежит в `plugins/design/` каталога `fntasy-studio`. Команды теперь `/design:ui-audit`, `/design:ux-audit`, `/design:design-variants`; агенты `@agent-design:design-judge`, `@agent-design:ux-reviewer`.
 - Новый агент `ux-reviewer` и профиль проекта, который он читает, — см. [Ревьюер интерфейса](#ревьюер-интерфейса).
 - Навыки, правила и скрипты не менялись; скрипты работают из новой папки.
 
@@ -30,8 +30,8 @@ English: [README.md](README.md). Каталог: [fantasy-studio](../../README.r
 ### Плагином (рекомендуется)
 
 ```
-/plugin marketplace add doossee/fantasy-studio
-/plugin install design@fantasy-studio
+/plugin marketplace add doossee/fntasy-studio
+/plugin install design@fntasy-studio
 ```
 
 Что добавляет плагин:
@@ -51,13 +51,13 @@ English: [README.md](README.md). Каталог: [fantasy-studio](../../README.r
 Скопируйте папки в проект (или в `~/.claude/skills/`, чтобы навыки работали во всех проектах):
 
 ```bash
-git clone https://github.com/doossee/fantasy-studio
+git clone https://github.com/doossee/fntasy-studio
 mkdir -p ваш-проект/.claude/skills ваш-проект/.claude/agents
-cp -r fantasy-studio/plugins/design/skills/ui-craft fantasy-studio/plugins/design/skills/ux-clarity  ваш-проект/.claude/skills/
+cp -r fntasy-studio/plugins/design/skills/ui-craft fntasy-studio/plugins/design/skills/ux-clarity  ваш-проект/.claude/skills/
 # по желанию: команды аудита и оценщик
-cp -r fantasy-studio/plugins/design/skills/ui-audit fantasy-studio/plugins/design/skills/ux-audit fantasy-studio/plugins/design/skills/design-variants  ваш-проект/.claude/skills/
-cp fantasy-studio/plugins/design/agents/design-judge.md  ваш-проект/.claude/agents/
-cp fantasy-studio/plugins/design/agents/ux-reviewer.md  ваш-проект/.claude/agents/
+cp -r fntasy-studio/plugins/design/skills/ui-audit fntasy-studio/plugins/design/skills/ux-audit fntasy-studio/plugins/design/skills/design-variants  ваш-проект/.claude/skills/
+cp fntasy-studio/plugins/design/agents/design-judge.md  ваш-проект/.claude/agents/
+cp fntasy-studio/plugins/design/agents/ux-reviewer.md  ваш-проект/.claude/agents/
 ```
 
 Каждая папка навыка самодостаточна: правила, чек-лист, скрипт, примеры.

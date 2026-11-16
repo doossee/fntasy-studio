@@ -1,6 +1,6 @@
 # Instructions for agents working in this repository
 
-fantasy-studio is a **public** repository: a catalog (`.claude-plugin/marketplace.json`) of three
+fntasy-studio is a **public** repository: a catalog (`.claude-plugin/marketplace.json`) of three
 independent Claude Code plugins, each in its own folder:
 
 - `plugins/growth/` — plugin `growth`: the growth research skill (`skills/growth/`) and content production
@@ -39,7 +39,7 @@ Every push is a publication. Licence: Apache-2.0 (`LICENSE`, `NOTICE`).
   copied between the growth tools.
 - There is no `plugin.json`: the catalog entry is the manifest.
 - After changing the catalog: `claude plugin validate .`. To check that a plugin installs alone:
-  `claude plugin marketplace add /path/to/clone && claude plugin install <name>@fantasy-studio` (use a throwaway `HOME`).
+  `claude plugin marketplace add /path/to/clone && claude plugin install <name>@fntasy-studio` (use a throwaway `HOME`).
 - Keep `license` as `Apache-2.0` in every catalog entry and every `package.json`; keep versions in step with the README's
   "What changed" section.
 

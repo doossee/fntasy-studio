@@ -1,9 +1,9 @@
 {
-  "name": "fantasy-studio-growth",
+  "name": "fntasy-studio-growth",
   "version": "0.2.0",
   "private": true,
   "license": "Apache-2.0",
-  "description": "growth plugin of the fantasy-studio catalog: growth research and content production with first-class Telegram and Central Asia support",
+  "description": "growth plugin of the fntasy-studio catalog: growth research and content production with first-class Telegram and Central Asia support",
   "type": "module",
   "engines": { "node": ">=20" },
   "workspaces": ["tools/*"],

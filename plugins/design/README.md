@@ -1,4 +1,4 @@
-# design — a plugin of the fantasy-studio catalog
+# design — a plugin of the fntasy studio catalog
 
 Turn "make it look good" and "make it clear" into rules you can count on a screenshot, and have a
 change checked by a reviewer who did not build it.
@@ -8,11 +8,11 @@ change checked by a reviewer who did not build it.
 - **a measurement script** for any URL or HTML file, audit commands and a read-only judge agent;
 - **ux-reviewer** — an independent reviewer of an interface change: walks real user tasks in the running product and returns accept / rework / return with evidence.
 
-Русская версия: [README.ru.md](README.ru.md). Catalog: [fantasy-studio](../../README.md).
+Русская версия: [README.ru.md](README.ru.md). Catalog: [fntasy studio](../../README.md).
 
 ## What changed since 0.1
 
-- The plugin is called `design` (was `design-skills`) and lives in `plugins/design/` of the `fantasy-studio` catalog. Commands are now `/design:ui-audit`, `/design:ux-audit`, `/design:design-variants`; agents `@agent-design:design-judge`, `@agent-design:ux-reviewer`.
+- The plugin is called `design` (was `design-skills`) and lives in `plugins/design/` of the `fntasy-studio` catalog. Commands are now `/design:ui-audit`, `/design:ux-audit`, `/design:design-variants`; agents `@agent-design:design-judge`, `@agent-design:ux-reviewer`.
 - New agent `ux-reviewer` and the project review profile it reads — see [UX reviewer](#ux-reviewer).
 - Skills, rules and scripts did not change; the scripts run from the new folder.
 
@@ -30,8 +30,8 @@ Skill guides: [ui-craft](skills/ui-craft/README.md), [ux-clarity](skills/ux-clar
 ### As a plugin (recommended)
 
 ```
-/plugin marketplace add doossee/fantasy-studio
-/plugin install design@fantasy-studio
+/plugin marketplace add doossee/fntasy-studio
+/plugin install design@fntasy-studio
 ```
 
 The plugin adds:
@@ -51,13 +51,13 @@ The plugin adds:
 Copy the folders into the project (or into `~/.claude/skills/` for all projects):
 
 ```bash
-git clone https://github.com/doossee/fantasy-studio
+git clone https://github.com/doossee/fntasy-studio
 mkdir -p your-project/.claude/skills your-project/.claude/agents
-cp -r fantasy-studio/plugins/design/skills/ui-craft fantasy-studio/plugins/design/skills/ux-clarity  your-project/.claude/skills/
+cp -r fntasy-studio/plugins/design/skills/ui-craft fntasy-studio/plugins/design/skills/ux-clarity  your-project/.claude/skills/
 # optional: the audit commands and the judge
-cp -r fantasy-studio/plugins/design/skills/ui-audit fantasy-studio/plugins/design/skills/ux-audit fantasy-studio/plugins/design/skills/design-variants  your-project/.claude/skills/
-cp fantasy-studio/plugins/design/agents/design-judge.md  your-project/.claude/agents/
-cp fantasy-studio/plugins/design/agents/ux-reviewer.md  your-project/.claude/agents/
+cp -r fntasy-studio/plugins/design/skills/ui-audit fntasy-studio/plugins/design/skills/ux-audit fntasy-studio/plugins/design/skills/design-variants  your-project/.claude/skills/
+cp fntasy-studio/plugins/design/agents/design-judge.md  your-project/.claude/agents/
+cp fntasy-studio/plugins/design/agents/ux-reviewer.md  your-project/.claude/agents/
 ```
 
 Each skill folder is self-contained: rules, checklist, script, examples.

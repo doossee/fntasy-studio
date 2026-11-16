@@ -1,20 +1,20 @@
-# review — a plugin of the fantasy-studio catalog
+# review — a plugin of the fntasy studio catalog
 
 An independent code reviewer with fresh eyes. It reviews one change against its task, runs the
 linter, type checker and tests of the affected packages, and returns **integrate** or
 **return to the author** with findings tied to `file:line`. It works for any project, with or
 without a user interface.
 
-Русская версия: [README.ru.md](README.ru.md). Catalog: [fantasy-studio](../../README.md).
+Русская версия: [README.ru.md](README.ru.md). Catalog: [fntasy studio](../../README.md).
 
 ## Install
 
 ```
-/plugin marketplace add doossee/fantasy-studio
-/plugin install review@fantasy-studio
+/plugin marketplace add doossee/fntasy-studio
+/plugin install review@fntasy-studio
 ```
 
-From a shell: `claude plugin marketplace add doossee/fantasy-studio && claude plugin install review@fantasy-studio`.
+From a shell: `claude plugin marketplace add doossee/fntasy-studio && claude plugin install review@fntasy-studio`.
 
 | Adds | Called as |
 |---|---|

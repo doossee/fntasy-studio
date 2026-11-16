@@ -4,7 +4,7 @@ A Claude Code skill for the look of product screens: measurable rules (the floor
 
 ## Install
 
-Copy this folder to `.claude/skills/ui-craft/` in a project or to `~/.claude/skills/ui-craft/`, or install the `design` plugin from the `fantasy-studio` catalog that contains it. The skill loads by itself when you design, build or review a screen.
+Copy this folder to `.claude/skills/ui-craft/` in a project or to `~/.claude/skills/ui-craft/`, or install the `design` plugin from the `fntasy-studio` catalog that contains it. The skill loads by itself when you design, build or review a screen.
 
 For the measurement script: Node 20+ and Playwright. If Playwright is not installed yet:
 

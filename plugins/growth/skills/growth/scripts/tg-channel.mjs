@@ -33,7 +33,7 @@ const median = (a) => { if (!a.length) return null; const s = [...a].sort((x, y)
 
 async function page(before) {
   const url = `https://t.me/s/${channel}${before ? `?before=${before}` : ''}`;
-  const res = await fetch(url, { headers: { 'user-agent': 'Mozilla/5.0 (compatible; fantasy-studio tg-channel)', 'accept-language': 'en' } });
+  const res = await fetch(url, { headers: { 'user-agent': 'Mozilla/5.0 (compatible; fntasy-studio tg-channel)', 'accept-language': 'en' } });
   if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
   return { url, html: await res.text() };
 }

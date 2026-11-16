@@ -1,4 +1,4 @@
-# growth — плагин каталога fantasy-studio
+# growth — плагин каталога fntasy studio
 
 Исследовать рынок и вести маркетинг из одной папки.
 
@@ -6,7 +6,7 @@
 - **инструменты производства** — посты, карусели, сторис и вертикальные рилсы со звуком: из текстового сценария одной командой;
 - **контент-план, UTM-ссылки и еженедельный отчёт**, чтобы заявки приходили в CRM с источником.
 
-English: [README.md](README.md). Каталог: [fantasy-studio](../../README.ru.md).
+English: [README.md](README.md). Каталог: [fntasy studio](../../README.ru.md).
 
 ![Карусель](examples/preview/carousel-first-lesson.ru.jpg)
 
@@ -15,11 +15,11 @@ English: [README.md](README.md). Каталог: [fantasy-studio](../../README.r
 ## Установка
 
 ```
-/plugin marketplace add doossee/fantasy-studio
-/plugin install growth@fantasy-studio
+/plugin marketplace add doossee/fntasy-studio
+/plugin install growth@fntasy-studio
 ```
 
-Из терминала: `claude plugin marketplace add doossee/fantasy-studio && claude plugin install growth@fantasy-studio`.
+Из терминала: `claude plugin marketplace add doossee/fntasy-studio && claude plugin install growth@fntasy-studio`.
 
 | Что добавляет | Как вызвать |
 |---|---|
@@ -29,9 +29,9 @@ English: [README.md](README.md). Каталог: [fantasy-studio](../../README.r
 
 ## Что изменилось с 0.1
 
-- Плагин называется `growth` (был `growth-studio`) и лежит в `plugins/growth/` каталога `fantasy-studio` (был корень репозитория).
+- Плагин называется `growth` (был `growth-studio`) и лежит в `plugins/growth/` каталога `fntasy-studio` (был корень репозитория).
 - Инструменты, пример профиля, примеры, документы и `package.json` переехали в `plugins/growth/`: `npm install` и все команды `npm run …` запускаются из этой папки.
-- Пакеты рабочих областей называются `@fantasy-studio/*`. Поведение инструментов не изменилось.
+- Пакеты рабочих областей называются `@fntasy-studio/*`. Поведение инструментов не изменилось.
 
 ## Чем отличается
 
@@ -63,8 +63,8 @@ sudo apt update && sudo apt install -y nodejs npm ffmpeg
 ```
 
 ```bash
-git clone https://github.com/doossee/fantasy-studio.git
-cd fantasy-studio/plugins/growth
+git clone https://github.com/doossee/fntasy-studio.git
+cd fntasy-studio/plugins/growth
 npm install
 npx playwright install chromium          # Linux: npx playwright install --with-deps chromium
 
@@ -120,8 +120,8 @@ Facebook, публичные Telegram-каналы и открытая стат�
 **1. Плагин** — см. [Установка](#установка):
 
 ```
-/plugin marketplace add doossee/fantasy-studio
-/plugin install growth@fantasy-studio
+/plugin marketplace add doossee/fntasy-studio
+/plugin install growth@fntasy-studio
 ```
 
 Навык будет доступен как `/growth:growth`; Claude также подключает его сам, когда вы просите
@@ -130,14 +130,14 @@ Facebook, публичные Telegram-каналы и открытая стат�
 **2. Копия** папки в проект или в домашний каталог:
 
 ```bash
-mkdir -p .claude/skills && cp -r /путь/к/fantasy-studio/plugins/design/skills/growth .claude/skills/     # этот проект
-mkdir -p ~/.claude/skills && cp -r /путь/к/fantasy-studio/plugins/design/skills/growth ~/.claude/skills/ # все проекты
+mkdir -p .claude/skills && cp -r /путь/к/fntasy-studio/plugins/design/skills/growth .claude/skills/     # этот проект
+mkdir -p ~/.claude/skills && cp -r /путь/к/fntasy-studio/plugins/design/skills/growth ~/.claude/skills/ # все проекты
 ```
 
 **3. Ссылка**, чтобы навык обновлялся вместе с `git pull`:
 
 ```bash
-mkdir -p ~/.claude/skills && ln -s /путь/к/fantasy-studio/plugins/design/skills/growth ~/.claude/skills/growth
+mkdir -p ~/.claude/skills && ln -s /путь/к/fntasy-studio/plugins/design/skills/growth ~/.claude/skills/growth
 ```
 
 Дальше — команда `/growth` или просьба обычными словами: «разбери по шагам, откуда <конкурент> берёт клиентов».

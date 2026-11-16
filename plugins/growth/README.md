@@ -1,4 +1,4 @@
-# growth — a plugin of the fantasy-studio catalog
+# growth — a plugin of the fntasy studio catalog
 
 Research a market and run marketing from one folder.
 
@@ -6,7 +6,7 @@ Research a market and run marketing from one folder.
 - **production tools** — posts, carousels, stories and vertical reels with sound, built from a text scenario with one command;
 - **a content plan, UTM links and a weekly report**, so leads reach the CRM with their source.
 
-Русская версия: [README.ru.md](README.ru.md). Catalog: [fantasy-studio](../../README.md).
+Русская версия: [README.ru.md](README.ru.md). Catalog: [fntasy studio](../../README.md).
 
 ![Carousel preview](examples/preview/carousel-first-lesson.ru.jpg)
 
@@ -15,11 +15,11 @@ The products in all examples are fictional. Previews: [`examples/`](examples/).
 ## Install
 
 ```
-/plugin marketplace add doossee/fantasy-studio
-/plugin install growth@fantasy-studio
+/plugin marketplace add doossee/fntasy-studio
+/plugin install growth@fntasy-studio
 ```
 
-From a shell: `claude plugin marketplace add doossee/fantasy-studio && claude plugin install growth@fantasy-studio`.
+From a shell: `claude plugin marketplace add doossee/fntasy-studio && claude plugin install growth@fntasy-studio`.
 
 | Adds | Called as |
 |---|---|
@@ -29,9 +29,9 @@ The plugin installs the skill. The production tools run from a clone of the repo
 
 ## What changed since 0.1
 
-- The plugin is called `growth` (was `growth-studio`) and lives in `plugins/growth/` of the `fantasy-studio` catalog (was the repository root).
+- The plugin is called `growth` (was `growth-studio`) and lives in `plugins/growth/` of the `fntasy-studio` catalog (was the repository root).
 - Tools, the example profile, examples, docs and `package.json` moved into `plugins/growth/`: run `npm install` and every `npm run …` command from this folder.
-- Workspace packages are named `@fantasy-studio/*`. Behaviour of the tools did not change.
+- Workspace packages are named `@fntasy-studio/*`. Behaviour of the tools did not change.
 
 ## What is different
 
@@ -63,8 +63,8 @@ sudo apt update && sudo apt install -y nodejs npm ffmpeg
 ```
 
 ```bash
-git clone https://github.com/doossee/fantasy-studio.git
-cd fantasy-studio/plugins/growth
+git clone https://github.com/doossee/fntasy-studio.git
+cd fntasy-studio/plugins/growth
 npm install
 npx playwright install chromium          # Linux: npx playwright install --with-deps chromium
 
@@ -120,8 +120,8 @@ Three ways; pick one.
 **1. Plugin** — see [Install](#install):
 
 ```
-/plugin marketplace add doossee/fantasy-studio
-/plugin install growth@fantasy-studio
+/plugin marketplace add doossee/fntasy-studio
+/plugin install growth@fntasy-studio
 ```
 
 The skill is then available as `/growth:growth`, and Claude also picks it up by itself when
@@ -130,14 +130,14 @@ you ask for research.
 **2. Copy** the folder into your project or your home directory:
 
 ```bash
-mkdir -p .claude/skills && cp -r /path/to/fantasy-studio/plugins/design/skills/growth .claude/skills/     # this project
-mkdir -p ~/.claude/skills && cp -r /path/to/fantasy-studio/plugins/design/skills/growth ~/.claude/skills/ # all projects
+mkdir -p .claude/skills && cp -r /path/to/fntasy-studio/plugins/design/skills/growth .claude/skills/     # this project
+mkdir -p ~/.claude/skills && cp -r /path/to/fntasy-studio/plugins/design/skills/growth ~/.claude/skills/ # all projects
 ```
 
 **3. Symlink**, to keep it updated with `git pull`:
 
 ```bash
-mkdir -p ~/.claude/skills && ln -s /path/to/fantasy-studio/plugins/design/skills/growth ~/.claude/skills/growth
+mkdir -p ~/.claude/skills && ln -s /path/to/fntasy-studio/plugins/design/skills/growth ~/.claude/skills/growth
 ```
 
 Then run `/growth`, or just ask: "research how <competitor> gets customers, step by step".

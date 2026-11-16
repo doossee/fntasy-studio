@@ -1,4 +1,6 @@
-# fantasy-studio
+<!-- Logo: the owner's fntasy studio logo goes here (file pending). -->
+
+# fntasy studio
 
 A catalog of three independent Claude Code plugins. Each one installs and works alone; they share
 no code.
@@ -18,14 +20,14 @@ The products in all examples are fictional.
 ## Install
 
 ```
-/plugin marketplace add doossee/fantasy-studio
-/plugin install growth@fantasy-studio
-/plugin install design@fantasy-studio
-/plugin install review@fantasy-studio
+/plugin marketplace add doossee/fntasy-studio
+/plugin install growth@fntasy-studio
+/plugin install design@fntasy-studio
+/plugin install review@fntasy-studio
 ```
 
 Install any of them. From a shell:
-`claude plugin marketplace add doossee/fantasy-studio && claude plugin install review@fantasy-studio`.
+`claude plugin marketplace add doossee/fntasy-studio && claude plugin install review@fntasy-studio`.
 
 | Plugin | Called as |
 |---|---|
@@ -33,7 +35,7 @@ Install any of them. From a shell:
 | `design` | skills load by themselves when you design or review a screen; `/design:ui-audit <url>`, `/design:ux-audit <url>`, `/design:design-variants <screen>`; `@agent-design:design-judge`, `@agent-design:ux-reviewer` |
 | `review` | `@agent-review:code-reviewer` |
 
-To try a local checkout: `claude plugin marketplace add /path/to/fantasy-studio`, then install as above.
+To try a local checkout: `claude plugin marketplace add /path/to/fntasy-studio`, then install as above.
 
 ## The two reviewers
 
@@ -45,7 +47,7 @@ READMEs. Nothing about a specific product is built into them.
 
 ## What changed since 0.1
 
-- The repository and catalog are called `fantasy-studio` (were `growth-studio`). The old address redirects.
+- The repository and catalog are called `fntasy-studio` (were `growth-studio`). The old address redirects.
 - Three plugins instead of two, each in its own folder: `growth` (was `growth-studio`), `design` (was `design-skills`), `review` (new).
 - New agents: `ux-reviewer` in `design`, `code-reviewer` in `review`.
 - The growth tools moved to `plugins/growth/`: run `npm install` and `npm run …` there.
