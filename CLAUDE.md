@@ -5,8 +5,8 @@ independent Claude Code plugins, each in its own folder:
 
 - `plugins/growth/` — plugin `growth`: the growth research skill (`skills/growth/`) and content production
   tools (`tools/`), with `profiles/example/`, `examples/`, `docs/`, `scripts/` and `package.json`;
-- `plugins/design/` — plugin `design`: skills `ui-craft`, `ux-clarity`, commands `ui-audit`, `ux-audit`,
-  `design-variants`, agents `design-judge`, `ux-reviewer` and `ui-reviewer`;
+- `plugins/design/` — plugin `design`: skill `design-review` (review only: clarity and look), command `audit`, agent
+  `design-reviewer` and an optional Stop hook `hooks/design-review-gate.mjs`;
 - `plugins/review/` — plugin `review`: agent `code-reviewer` and `references/review-guide.md`.
 
 Every push is a publication. Licence: Apache-2.0 (`LICENSE`, `NOTICE`).
@@ -78,8 +78,9 @@ npm run check                                # shared copies in sync, YAML parse
 From `plugins/design/`:
 
 ```bash
-node skills/ui-craft/scripts/measure.mjs <url-or-file.html> [--widths 1440,1280,1024,390] [--profile file] [--out dir]
-node skills/ux-clarity/scripts/measure.mjs <url-or-file.html>
+node skills/design-review/scripts/measure-look.mjs <url-or-file.html> [--widths 1440,1280,1024,390] [--profile file] [--out dir]
+node skills/design-review/scripts/measure-clarity.mjs <url-or-file.html>
+node --test hooks/design-review-gate.test.mjs
 ```
 
 ## Changing the code

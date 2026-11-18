@@ -1,229 +1,134 @@
 # design — a plugin of the fntasy studio catalog
 
-Turn "make it look good" and "make it clear" into rules you can count on a screenshot, and have a
-change checked by a reviewer who did not build it.
+An independent design review for product interfaces. Draw screens any way you like — with any skill, any tool or none; this plugin
+finds what is broken, uneven or unclear in the result and says what to fix, with evidence.
 
-- **ux-clarity** — will a new user understand this screen the first time, on a phone, without an explanation? 69 rules and a 54-question audit with a score;
-- **ui-craft** — is the screen even, and is it strong? Measurable rules for spacing, alignment, typography and layout at four widths, plus composition, data, colour within the brand and a "level of the best" rubric;
-- **a measurement script** for any URL or HTML file, audit commands and a read-only judge agent;
-- **ux-reviewer** — an independent reviewer of an interface change: walks real user tasks in the running product and returns accept / rework / return with evidence;
-- **ui-reviewer** — an independent reviewer of how the change looks: hierarchy, alignment, type, colour, consistency and states, against the product's own design system and public guidelines, with marked screenshots.
+- **design-review** — a skill with two lenses: **clarity** (will a first-time user understand the screen on a phone, without help) and **look** (is it even and calm). Measurable rules, two checklists with a score, one severity scale 1–4 and a report format;
+- **measurement scripts** for any URL or HTML file: stop items, touch targets, sideways scroll, cut labels, composition figures, marked and "squint" screenshots;
+- **design-reviewer** — an agent that reviews a change with fresh eyes: walks real user tasks in the running product at four widths, marks evidence on screenshots, separates defects from taste, returns accept / revise / return;
+- **/design:audit** — a command that reviews one screen by its address;
+- **an optional Stop hook** that makes a session ask for the review before it hands over work that changed the UI.
 
 Русская версия: [README.ru.md](README.ru.md). Catalog: [fntasy studio](../../README.md).
 
-## What changed in 0.2.1
+## What changed in 0.3.0
 
-- New agent `ui-reviewer`: an independent review of the visual side of a change, next to `ux-reviewer` — see [UI reviewer](#ui-reviewer). The two often disagree (a cleaner screen can hide a label); keeping them apart makes the disagreement visible.
+- **Review only.** The plugin no longer tells anyone how to draw a screen: designs are made freely, the plugin checks them. The skills `ui-craft` and `ux-clarity` became one skill, `design-review`, with two lenses; the rules, checklists and scripts moved with it. The design-generation parts were removed: freedom mode, design variants, the "level of the best" rubric.
+- One agent, `design-reviewer`, instead of `ux-reviewer` and `ui-reviewer`; the `design-judge` agent and the `design-variants` command are gone.
+- One command, `/design:audit`, instead of `/design:ui-audit` and `/design:ux-audit`.
+- New: an optional Stop hook, `hooks/design-review-gate.mjs` — see [Review gate](#review-gate).
 
-## What changed since 0.1
-
-- The plugin is called `design` (was `design-skills`) and lives in `plugins/design/` of the `fntasy-studio` catalog. Commands are now `/design:ui-audit`, `/design:ux-audit`, `/design:design-variants`; agents `@agent-design:design-judge`, `@agent-design:ux-reviewer`.
-- New agent `ux-reviewer` and the project review profile it reads — see [UX reviewer](#ux-reviewer).
-- Skills, rules and scripts did not change; the scripts run from the new folder.
-
-Skill guides: [ui-craft](skills/ui-craft/README.md), [ux-clarity](skills/ux-clarity/README.md).
-
-## What makes them different
-
-- **Every rule has a number.** "How to measure" is a pixel count or a yes/no question about a screenshot. If a rule cannot be checked, it is rewritten.
-- **A script measures any URL or HTML file.** Nine stop items for the look, the countable part of the clarity checklist, screenshots with red frames around violations, a blurred "squint" shot, composition figures.
-- **Project specifics live in a profile.** Scales, brand, languages, components, the owner's taste and deliberate deviations are read from `design-profile.md`. Without a profile the skills work on stated defaults and say so.
-- **The author does not grade their own work.** The rubric score that goes into a report comes from a judge in a fresh context who sees only screenshots.
+Moving from 0.2: rename your project's `.claude/skills/ui-craft` or `ux-clarity` copies to `design-review`; the design profile format did not change.
 
 ## Install
 
 ### As a plugin (recommended)
 
-```
+```bash
 /plugin marketplace add doossee/fntasy-studio
 /plugin install design@fntasy-studio
 ```
 
-The plugin adds:
+The skill loads by itself when you ask to review or check a screen. `/design:audit <url>` reviews one page; `@agent-design:design-reviewer` reviews a change.
 
-| What | How to call | What it does |
-| --- | --- | --- |
-| skill `ui-craft` | loads by itself when you design, build or review a screen; or `/design:ui-craft` | rules, checklist, rubric, measurement script |
-| skill `ux-clarity` | loads by itself; or `/design:ux-clarity` | rules, checklist, measurement script |
-| command `/design:ui-audit <url>` | by hand | measures the page at 1440/1280/1024/390, walks the checklist, writes `ui-audit.md` |
-| command `/design:ux-audit <url>` | by hand | measures at 1440 and 390, walks the 54 questions, writes `ux-audit.md` |
-| command `/design:design-variants <screen>` | by hand | freedom mode: 2-3 variants with named axes, measured and scored blind |
-| agent `design-judge` | used by the commands; or `@agent-design:design-judge` | read-only judge: scores screenshots by the rubric without the build history |
-| agent `ux-reviewer` | `@agent-design:ux-reviewer`, after a screen or flow changed | read-and-run reviewer: walks user tasks in the running product, verdict with evidence |
-| agent `ui-reviewer` | `@agent-design:ui-reviewer`, after a screen was built or restyled | read-and-run reviewer: hierarchy, alignment, type, colour, consistency and states at four widths and all themes, marked screenshots, verdict |
+### As a plain skill
 
-### As plain skills
+Copy `skills/design-review/` into `.claude/skills/` of a project (or `~/.claude/skills/`), and `agents/design-reviewer.md` into `.claude/agents/`. The skill works from its own folder: the scripts are in `scripts/`.
 
-Copy the folders into the project (or into `~/.claude/skills/` for all projects):
+### The measurement scripts
+
+Node 20+ and Playwright. Once, in `skills/design-review/scripts/`: `npm install` and `npm run browser`.
+
+## Review a change
+
+Call the reviewer when the work is done, before it is handed over:
+
+```
+@agent-design:design-reviewer review branch feature/orders against main: screens Orders and Order card; the user is a shop assistant on a phone; a running copy is at http://localhost:3000
+```
+
+Give it the branch, the diff, 2–3 user tasks and the address of a running copy or a folder of screenshots. Do not pass your own conclusions ("cleaner now") — the review is useful because it is independent. Fix findings scored 3–4, then run another round if the layout changed (at most three rounds).
+
+## Review gate
+
+Off by default. Turn it on for a project with `review-gate: true` in the front matter of `design-profile.md`, or for a session with `DESIGN_REVIEW_GATE=on`; `DESIGN_REVIEW_GATE=off` turns it off.
+
+When on, it blocks the end of a reply once if UI files differ from the base branch, the work is handed over (committed and pushed, nothing beyond the upstream) and this exact UI diff has not been reviewed. While the work is in progress it stays silent. After the review and the fixes:
 
 ```bash
-git clone https://github.com/doossee/fntasy-studio
-mkdir -p your-project/.claude/skills your-project/.claude/agents
-cp -r fntasy-studio/plugins/design/skills/ui-craft fntasy-studio/plugins/design/skills/ux-clarity  your-project/.claude/skills/
-# optional: the audit commands and the judge
-cp -r fntasy-studio/plugins/design/skills/ui-audit fntasy-studio/plugins/design/skills/ux-audit fntasy-studio/plugins/design/skills/design-variants  your-project/.claude/skills/
-cp fntasy-studio/plugins/design/agents/design-judge.md  your-project/.claude/agents/
-cp fntasy-studio/plugins/design/agents/ux-reviewer.md fntasy-studio/plugins/design/agents/ui-reviewer.md  your-project/.claude/agents/
+node "${CLAUDE_PLUGIN_ROOT}/hooks/design-review-gate.mjs" --mark     # mark the current UI diff as reviewed
+node "${CLAUDE_PLUGIN_ROOT}/hooks/design-review-gate.mjs" --status   # is a review needed now
 ```
 
-Each skill folder is self-contained: rules, checklist, script, examples.
-
-### The measurement script
-
-Node 20+ and Playwright. If Playwright is already installed in your project or globally, nothing else is needed. Otherwise, once per skill:
-
-```bash
-cd skills/ui-craft/scripts && npm install && npx playwright install chromium
-```
-
-## UX reviewer
-
-`ux-reviewer` is an independent reviewer of an interface change. It is not given the author's
-conclusions: it opens the running product, takes screenshots before and after with Playwright,
-walks 2-3 tasks of real users and separates taste from harm.
-
-- **Grounds:** the tasks of the project's users; public sources — Nielsen's 10 heuristics, Apple Human Interface Guidelines, Material 3, Fluent 2, GOV.UK Design System, WCAG 2.2. The `ui-craft` and `ux-clarity` rules are material under review, not law: the reviewer reports where a rule did harm or stayed silent.
-- **Output:** verdict *accept*, *rework* or *return*; findings with severity 1-4 and evidence (screenshot, task step, source); *what we gain / what we lose*; *where a skill rule did harm or stayed silent*; what was not checked.
-- **Tools:** read and run only (`Read`, `Glob`, `Grep`, `Bash`). It writes screenshots to its output folder and does not edit project files.
-
-```
-@agent-design:ux-reviewer Review the new checkout flow. Start: npm run dev, http://localhost:3000/cart.
-Changed: /cart, /checkout, /checkout/done. Screenshots before: docs/screens/checkout-v1/.
-```
-
-## UI reviewer
-
-`ui-reviewer` looks at the visual result of a change with fresh eyes. It is not given the author's conclusions or
-blind-comparison scores: it opens the running product, takes full-page screenshots at 1440, 1280, 1024 and 390 in every
-theme, produces the states (empty, loading, error, long text, focus) and marks every problem on a screenshot.
-
-- **Grounds:** the product's own design system (from the review or design profile, or read from the theme tokens);
-  public guidelines — Apple Human Interface Guidelines, Material 3, Fluent 2, GOV.UK Design System; WCAG 2.2 where
-  looks decide readability (contrast, non-text contrast, text spacing, reflow, focus appearance). The `ui-craft` rules
-  are material under review: the reviewer reports where a rule made the screen worse or stayed silent.
-- **Output:** verdict *accept*, *rework* or *return*; findings with severity 1-4 and a marked screenshot;
-  *what we gain / what we lose*; *where a skill rule did harm or stayed silent*; taste kept apart; what was not checked.
-- **With `ux-reviewer`:** call both on the same change. Usability findings belong to `ux-reviewer`; `ui-reviewer` marks
-  them as such when it sees them on the way.
-
-```
-@agent-design:ui-reviewer Review the restyled dashboard. Start: npm run dev, http://localhost:3000/app.
-Changed: /app, /app/orders. Themes: light, dark. Screenshots before: docs/screens/dashboard-v1/.
-```
-
-### Project review profile
-
-The reviewer reads `.claude/review-profile.md` in the project (or `REVIEW.md`, or `docs/review-profile.md`).
-The same file serves the `code-reviewer` agent of the `review` plugin: keep both parts in it.
-Without a profile the reviewer asks three questions or assumes general roles and says so.
-
-```markdown
-# Review profile
-
-## Users
-- Shop owner, 30-55, Android phone on mobile data; checks orders several times a day.
-- Courier, phone in one hand, outdoors; marks orders delivered.
-## Tasks
-1. Find today's unpaid orders and remind the customer.
-2. Mark an order delivered.
-3. Refund part of an order.
-## Languages
-en, de (longest)
-## Devices
-phones 360-414 px (most traffic), laptops 1280-1440
-## Accessibility
-WCAG 2.2 AA; large text setting is common among owners
-## Risky actions
-refunds, deleting a product, sending a message to all customers
-## Decisions
-the order list stays a dense table on desktop: owners asked for it
-```
-
-The example product is invented. Do not put personal data of real users into the profile: describe roles.
+What counts as UI: `*.tsx *.jsx *.vue *.svelte *.astro *.html *.css *.scss *.less` outside tests, stories, e2e and `node_modules`; `DESIGN_REVIEW_PATHS` (a regular expression over repository paths) replaces it. The base branch: `DESIGN_REVIEW_BASE`, else `origin/HEAD`, `origin/main`, `origin/master`, `origin/dev`. Marks live in the git directory and are never committed.
 
 ## Measure a page
 
 Run from `plugins/design/` of a clone, or replace `skills/` with the path of the installed skill.
 
 ```bash
-# the look: stop items, composition figures, marked and squint screenshots
-node skills/ui-craft/scripts/measure.mjs https://example.com
-node skills/ui-craft/scripts/measure.mjs http://localhost:3000/orders --widths 1440,390 --out audit/orders
+# look: stop items, composition figures, marked and squint screenshots
+node skills/design-review/scripts/measure-look.mjs https://example.com
+node skills/design-review/scripts/measure-look.mjs http://localhost:3000/orders --widths 1440,390 --out audit/orders
 
 # clarity: touch targets, sideways scroll, small text, primary buttons, cut labels
-node skills/ux-clarity/scripts/measure.mjs http://localhost:3000/orders
+node skills/design-review/scripts/measure-clarity.mjs http://localhost:3000/orders
 
-# the bundled examples: a clean screen and the same screen with a violation for every stop item and composition flag
-node skills/ui-craft/scripts/measure.mjs skills/ui-craft/examples/acme-today-good.html skills/ui-craft/examples/acme-today-bad.html \
-  --profile skills/ui-craft/examples/design-profile.md
+# the bundled examples: a clean screen and the same screen with a violation for every stop item
+node skills/design-review/scripts/measure-look.mjs skills/design-review/examples/acme-today-good.html skills/design-review/examples/acme-today-bad.html \
+  --profile skills/design-review/examples/design-profile.md
 ```
-
-Output of the first command, per width, in `ui-measure/<width>/`: `<name>.png`, `<name>-full.png`, `<name>-marks.png` (red frames; the letter is the rule), `<name>-squint.png`, `metrics.json`; and `ui-measure/summary.json`.
 
 ```
  1440  acme-today-good: 0 stops
  1440  acme-today-bad: 22 stops (text-edge 3, box-edge 1, clipped 1, off-scale 6, row-align 1, font-scale 4, line-length 1, state-shift 5); composition: no-hero, equal-cards, multi-primary, numbers-not-tabular, uneven-gaps, ragged-rows
 ```
 
-A screen behind a sign-in, a dialog or a tab: `--storage-state state.json`, `--cookie name=value`, and actions that run in order: `--fill 'selector=text'`, `--click 'selector'`, `--wait-for 'selector'`, `--press Escape`. `--strict` makes the script exit with code 1 on any stop item. `--help` lists every option; `skills/ui-craft/references/11-measure.md` explains every number.
+A screen behind a sign-in, a dialog or a tab: `--storage-state state.json`, `--cookie name=value`, and actions that run in order: `--fill 'selector=text'`, `--click 'selector'`, `--wait-for 'selector'`, `--press Escape`. `--strict` exits with code 1 on any stop item. `--help` lists every option; `skills/design-review/references/look/11-measure.md` explains every number.
 
 ## Design profile
 
-Put `design-profile.md` in the project root (or `.claude/`, or `docs/`). The front matter holds numbers for the script, the body holds text for the agent:
+Put `design-profile.md` in the project root (or `.claude/`, or `docs/`). The front matter holds numbers for the scripts and the gate switch, the body holds text for the reviewer:
 
 ```markdown
 ---
 name: Acme Orders
 spacing: [4, 8, 12, 16, 24, 32, 48, 64]
 fonts: [12, 14, 16, 18, 20, 24, 28, 30]
-hero-fonts: [36, 40, 48]
 primary: "--primary"
 main: "main"
 languages: [en, de]
+review-gate: true
 ---
 ## Product      who uses it, device, daily actions, familiar apps
 ## Brand        colour roles, fonts, radii, motion (or a link to your design document)
 ## Languages    which one is the longest; word lists
 ## Components   where the library is
 ## Taste        what the person who accepts the design has chosen and rejected
-## Decisions    deliberate deviations that must not be "fixed"
+## Decisions    deliberate deviations that are not defects
 ## Domain examples   your screens by kind, worst-case data
 ```
 
-Full format: `skills/ui-craft/profile.md`. A complete example: `skills/ui-craft/examples/design-profile.md`.
-
-No profile? The skills use the default scale and thresholds, infer the audience from the screen, and start every report with that fact.
-
-The design profile is a separate file from the growth profile (`profile.yaml`): one describes screens, the other marketing.
-
-## How the two skills work together
-
-1. `ux-clarity`: what is on the screen and in what order. The line about the screen (who, device, main question, main action), then the rules, then the checklist.
-2. `ui-craft`: how it is built and how it stands. Intent before code, assembly at 1440 → 1280 → 1024 → 390, the look before the numbers, the script, the checklist, the rubric.
-3. Any filter for a generic-AI look, a copy-style skill or an accessibility skill you already use runs after these two.
-
-Neither skill changes your brand: colours, fonts and radii come from the profile.
-
-The skill texts are in English so that any project can use them. The examples use a fictional product, Acme Orders, with German as the language with long words.
+Full format: `skills/design-review/profile.md`. A complete example: `skills/design-review/examples/design-profile.md`. No profile? The review uses the default scale and thresholds, infers the audience from the screen, and starts every report with that fact.
 
 ## Limits
 
-- The script uses Chromium only.
-- It measures what is in the DOM: not canvas, not text inside images, not iframes.
-- Meaning is not measured: whether a button names its result or a number has the right comparison next to it is a checklist question answered from screenshots.
-- The default numbers describe product screens (admin panels, dashboards, forms). For marketing pages set `hero-numbers-only: false` and your own `fonts` in a profile.
+- The scripts use Chromium only and measure what is in the DOM: not canvas, not text inside images, not iframes.
+- Meaning is not measured: whether a button names its result is a checklist question answered from screenshots.
+- The default numbers describe product screens (admin panels, dashboards, forms). For marketing pages set your own `fonts` and `hero-numbers-only: false` in a profile.
 
 ## Sources
 
-Rules are written in our own words; each cites its sources (standards, platform guidelines, research, articles) in `references/sources.md` of each skill, together with the claims that were checked and not confirmed.
+Rules are written in our own words; each cites its sources (standards, platform guidelines, research, articles) in `references/look/sources.md` and `references/clarity/sources.md`, together with the claims that were checked and not confirmed.
 
 ## Layout
 
 ```
-skills/ui-craft/     the look of screens: SKILL.md, profile.md, checklist.md, rubric-best.md, references/ (19 files), scripts/, examples/
-skills/ux-clarity/   clarity of screens: SKILL.md, profile.md, checklist.md, references/ (11 files), scripts/, examples/
-skills/ui-audit/  skills/ux-audit/  skills/design-variants/     commands
-agents/              design-judge.md, ux-reviewer.md, ui-reviewer.md
+skills/design-review/   SKILL.md, profile.md, checklist-clarity.md, checklist-look.md,
+                        references/clarity/ (11 files), references/look/ (18 files), scripts/, examples/
+skills/audit/           the /design:audit command
+agents/                 design-reviewer.md
+hooks/                  hooks.json, design-review-gate.mjs (+ its test)
 ```
 
 Licence: Apache-2.0, see [LICENSE](../../LICENSE).

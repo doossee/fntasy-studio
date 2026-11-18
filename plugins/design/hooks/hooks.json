@@ -1,0 +1,15 @@
+{
+  "description": "Optional design review gate: when turned on (review-gate: true in design-profile.md or DESIGN_REVIEW_GATE=on), work that changed the UI is handed over only after the design-reviewer agent has reviewed it",
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/design-review-gate.mjs\""
+          }
+        ]
+      }
+    ]
+  }
+}

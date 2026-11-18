@@ -1,6 +1,6 @@
 {
   "name": "fntasy-studio",
-  "description": "Three independent Claude Code plugins: growth research with content tools, measurable screen design with an independent UX reviewer, and an independent code reviewer",
+  "description": "Three independent Claude Code plugins: growth research with content tools, an independent design review of any interface, and an independent code reviewer",
   "owner": {
     "name": "doossee",
     "url": "https://github.com/doossee"
@@ -31,8 +31,8 @@
     {
       "name": "design",
       "source": "./plugins/design",
-      "description": "ui-craft and ux-clarity: measurable screen design and clarity rules, audits of any URL, design variants, a blind rubric judge and an independent UX reviewer",
-      "version": "0.2.1",
+      "description": "design-review: an independent design review of any interface — two lenses (clarity and look), measurable rules, checklists and measurement scripts for any URL; an audit command, the design-reviewer agent and an optional review gate hook",
+      "version": "0.3.0",
       "author": {
         "name": "doossee",
         "url": "https://github.com/doossee"
@@ -44,8 +44,8 @@
         "design",
         "ui",
         "ux",
-        "audit",
         "review",
+        "audit",
         "playwright"
       ],
       "category": "design"
