@@ -1,0 +1,23 @@
+{
+  "name": "design-review-measure",
+  "version": "1.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "type": "module",
+  "description": "Playwright measurements of the design-review skill (look and clarity lenses) for any URL or local HTML file",
+  "bin": {
+    "design-review-look": "measure-look.mjs",
+    "design-review-clarity": "measure-clarity.mjs"
+  },
+  "scripts": {
+    "look": "node measure-look.mjs",
+    "clarity": "node measure-clarity.mjs",
+    "browser": "playwright install chromium"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "playwright": "^1.49.0"
+  }
+}

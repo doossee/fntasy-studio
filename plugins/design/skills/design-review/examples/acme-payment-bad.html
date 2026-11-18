@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Record payment · Acme Orders (example with violations)</title>
+<!--
+  The same form with deliberate violations. Each one is named in a comment next to it, with the rule it breaks.
+  Run: node ../scripts/measure-clarity.mjs acme-payment-bad.html --profile design-profile.md
+-->
+<style>
+  :root { --primary: #1f5fbf; --ink: #1b2430; --muted: #5b6675; --line: #dfe3e8; --page: #f7f8fa; --panel: #ffffff; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { font: 14px/20px system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--ink); background: var(--page); }
+  header { display: flex; align-items: center; justify-content: space-between; height: 48px; padding: 0 16px; background: var(--panel); border-bottom: 1px solid var(--line); }
+  h1 { font-size: 18px; line-height: 24px; margin: 0; }
+  /* TOUCH-1 (H1, H2): icon buttons 20 px, 2 px apart */
+  .tools { display: flex; gap: 2px; }
+  .tools button { width: 20px; height: 20px; padding: 0; border: 1px solid #b9c0ca; border-radius: 4px; background: var(--panel); font-size: 12px; line-height: 16px; }
+  main { max-width: 480px; margin: 0 auto; padding: 16px; }
+  /* LIST-1 (D1): a fixed-width table makes the page scroll sideways on a phone */
+  table { width: 560px; border-collapse: collapse; margin-bottom: 16px; background: var(--panel); }
+  td, th { padding: 8px; border: 1px solid var(--line); text-align: left; }
+  /* TOUCH-3 (H3): 10 px text */
+  .hint { font-size: 10px; line-height: 14px; color: var(--muted); }
+  .field { margin-bottom: 12px; }
+  /* FORM-2: placeholder instead of a label; TOUCH-1: field 30 px high; TOUCH-3: a 14 px input zooms the page on iOS (not counted by the script: checklist) */
+  input[type="text"], select { width: 100%; height: 30px; padding: 0 8px; border: 1px solid #b9c0ca; border-radius: 6px; font: inherit; }
+  /* COPY-7 (G6): a tab label cut with an ellipsis */
+  .tabs { display: flex; gap: 4px; margin-bottom: 12px; }
+  .tabs button { flex: 0 0 104px; height: 44px; padding: 0 8px; border: 1px solid #b9c0ca; border-radius: 8px; background: var(--panel); font: inherit; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  /* ACT-1 (A2): three filled buttons of equal weight; COPY-7 (G6): a label in three lines; ACT-3: labels do not name the result */
+  .actions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .btn { min-height: 44px; padding: 4px 8px; border: 0; border-radius: 8px; background: var(--primary); color: #fff; font: inherit; font-weight: 600; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Payment entity</h1>
+  <div class="tools">
+    <button type="button" aria-label="Print">P</button>
+    <button type="button" aria-label="Export">E</button>
+    <button type="button" aria-label="Delete">D</button>
+  </div>
+</header>
+<main>
+  <table>
+    <tr><th>Customer</th><th>Invoice</th><th>Due</th><th>Balance</th></tr>
+    <tr><td>Harbor Cafe</td><td>INV-2291</td><td>Mar 3</td><td>-1240</td></tr>
+  </table>
+  <div class="tabs" role="tablist">
+    <button type="button" role="tab" aria-selected="true">Zahlungseingang erfassen</button>
+    <button type="button" role="tab">Rechnungsübersicht</button>
+    <button type="button" role="tab">History</button>
+  </div>
+  <form>
+    <div class="field"><input type="text" placeholder="Amount"></div>
+    <div class="field"><select><option>Select payment method type</option><option>Cash</option><option>Card</option></select></div>
+    <div class="field"><input type="text" placeholder="Transaction reference ID"></div>
+    <div class="field"><input type="text" placeholder="Fiscal period"></div>
+    <p class="hint">Fields marked as mandatory must be populated prior to submission of the entity.</p>
+    <div class="actions">
+      <button class="btn" type="submit">Submit</button>
+      <button class="btn" type="button">Submit and create another payment</button>
+      <button class="btn" type="button">Void</button>
+    </div>
+  </form>
+</main>
+</body>
+</html>

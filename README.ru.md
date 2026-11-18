@@ -8,7 +8,7 @@
 | Плагин | Для чего | Что добавляет |
 |---|---|---|
 | [`growth`](plugins/growth/README.ru.md) | исследовать рынок и вести маркетинг | навык `growth`: исследование конкурентов и рынка по открытым данным шаг за шагом, Telegram и Центральная Азия в первую очередь; инструменты в клоне: посты, карусели, сторис, рилсы со звуком, контент-план, UTM-ссылки, отчёт за неделю |
-| [`design`](plugins/design/README.ru.md) | ровные, сильные и понятные экраны | навыки `ui-craft`, `ux-clarity` с измеримыми правилами и скриптом измерений; команды `ui-audit`, `ux-audit`, `design-variants`; агенты `design-judge` (слепая оценка по рубрике), `ux-reviewer` (независимое ревью удобства) и `ui-reviewer` (независимое ревью внешнего вида) |
+| [`design`](plugins/design/README.ru.md) | независимое ревью дизайна любого интерфейса | навык `design-review` (две линзы: понятность и вид) с измеримыми правилами, чек-листами и скриптами измерений; команда `audit`; агент `design-reviewer`; необязательный хук Stop, который просит ревью перед сдачей работы с изменённым интерфейсом |
 | [`review`](plugins/review/README.ru.md) | правки, которые можно сливать, не веря автору на слово | агент `code-reviewer`: критерии приёмки → `файл:строка` и тесты, права, изоляция клиентов, деньги, миграции, секреты; запускает линтер, типы и тесты |
 
 English: [README.md](README.md).
@@ -32,18 +32,23 @@ English: [README.md](README.md).
 | Плагин | Как вызвать |
 |---|---|
 | `growth` | `/growth:growth`, или Claude подключает навык сам, когда вы просите исследование |
-| `design` | навыки загружаются сами, когда вы проектируете или проверяете экран; `/design:ui-audit <адрес>`, `/design:ux-audit <адрес>`, `/design:design-variants <экран>`; `@agent-design:design-judge`, `@agent-design:ux-reviewer`, `@agent-design:ui-reviewer` |
+| `design` | навык загружается сам, когда вы просите проверить экран; `/design:audit <адрес>`; `@agent-design:design-reviewer`; шлагбаум ревью выключен, пока в `design-profile.md` нет `review-gate: true` |
 | `review` | `@agent-review:code-reviewer` |
 
 Попробовать локальную копию: `claude plugin marketplace add /путь/к/fntasy-studio` и установка как выше.
 
 ## Два ревьюера
 
-`ux-reviewer`, `ui-reviewer` (плагин `design`) и `code-reviewer` (плагин `review`) устроены одинаково: выводы автора им
+`design-reviewer` (плагин `design`) и `code-reviewer` (плагин `review`) устроены одинаково: выводы автора им
 не передаются, они читают и запускают, но не правят, у каждой находки есть улика, ответ начинается с
 вердикта. Оба читают профиль самого проекта, `.claude/review-profile.md`: кто пользуется продуктом и
 зачем, рискованные действия, команды, сознательные решения. Формат — в README плагинов. Ничего о
 конкретном продукте в них не зашито.
+
+## Что изменилось в design 0.3.0
+
+- `design` теперь только проверяет: дизайн рисуют как угодно, плагин его ревьюит. Навыки `ui-craft` и `ux-clarity` стали одним навыком `design-review` с двумя линзами; агенты `ux-reviewer`, `ui-reviewer` и `design-judge` — одним агентом `design-reviewer`; команды `ui-audit`, `ux-audit` и `design-variants` — одной командой `audit`. Режим свободы и рубрика «уровень лучших» удалены.
+- Новое: необязательный хук Stop `design-review-gate` — просит ревью перед сдачей работы с изменённым интерфейсом.
 
 ## Что изменилось в design 0.2.1
 
@@ -62,7 +67,7 @@ English: [README.md](README.md).
 ```
 .claude-plugin/marketplace.json   каталог: три плагина, у каждого свой source
 plugins/growth/    навык growth, tools/, profiles/example, examples/, docs/, scripts/, package.json
-plugins/design/    навыки ui-craft, ux-clarity, ui-audit, ux-audit, design-variants; агенты design-judge, ux-reviewer, ui-reviewer
+plugins/design/    навыки design-review, audit; агент design-reviewer; hooks/ (необязательный шлагбаум ревью)
 plugins/review/    агент code-reviewer; references/review-guide.md
 docs/tasks/        файлы заданий этого репозитория
 ```
