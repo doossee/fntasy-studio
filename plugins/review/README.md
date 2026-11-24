@@ -99,7 +99,6 @@ money in integer minor units; ledger entries are append-only
 generated clients in src/gen/ are not reviewed
 ```
 
-The `ux-reviewer` agent of the `design` plugin reads the same file (users, tasks, devices, risky actions):
-keep both parts in one profile. Do not put secrets or personal data into it.
+Do not put secrets or personal data into the profile.
 
 Licence: Apache-2.0, see [LICENSE](../../LICENSE).

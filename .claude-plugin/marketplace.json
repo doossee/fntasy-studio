@@ -31,7 +31,7 @@
     {
       "name": "design",
       "source": "./plugins/design",
-      "description": "design-review: an independent design review of any interface — two lenses (clarity and look), measurable rules, checklists and measurement scripts for any URL; an audit command, the design-reviewer agent and an optional review gate hook",
+      "description": "Design of interfaces: being rewritten from scratch; the 0.3.0 skills, command, agent and hook were removed",
       "version": "0.3.0",
       "author": {
         "name": "doossee",

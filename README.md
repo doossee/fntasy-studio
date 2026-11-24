@@ -8,7 +8,7 @@ no code.
 | Plugin | For | Adds |
 |---|---|---|
 | [`growth`](plugins/growth/README.md) | research a market and run marketing | skill `growth`: step-by-step research of competitors and markets from open data, Telegram and Central Asia first; content tools in a clone: posts, carousels, stories, reels with sound, content plan, UTM links, weekly report |
-| [`design`](plugins/design/README.md) | an independent design review of any interface | skill `design-review` (two lenses: clarity and look) with measurable rules, checklists and measurement scripts; command `audit`; agent `design-reviewer`; an optional Stop hook that asks for the review before work with a changed UI is handed over |
+| [`design`](plugins/design/README.md) | design of interfaces | being rewritten from scratch: the 0.3.0 skills, command, agent and hook were removed |
 | [`review`](plugins/review/README.md) | changes that can be merged without trusting the author's word | agent `code-reviewer`: acceptance criteria to `file:line` and tests, access, tenant isolation, money, migrations, secrets; runs lint, types and tests |
 
 Русская версия: [README.ru.md](README.ru.md).
@@ -32,18 +32,14 @@ Install any of them. From a shell:
 | Plugin | Called as |
 |---|---|
 | `growth` | `/growth:growth`, or Claude loads the skill when you ask for research |
-| `design` | the skill loads by itself when you ask to review or check a screen; `/design:audit <url>`; `@agent-design:design-reviewer`; the review gate is off until `review-gate: true` in `design-profile.md` |
+| `design` | nothing yet: the plugin is being rewritten |
 | `review` | `@agent-review:code-reviewer` |
 
 To try a local checkout: `claude plugin marketplace add /path/to/fntasy-studio`, then install as above.
 
-## The two reviewers
+## design is being rewritten
 
-`design-reviewer` (plugin `design`) and `code-reviewer` (plugin `review`) work the same way: they are not
-given the author's conclusions, they read and run but do not edit, every finding has evidence, and the
-answer starts with a verdict. Both read the project's own profile, `.claude/review-profile.md`: who uses
-the product and what for, risky actions, commands, deliberate decisions. The format is in the plugins'
-READMEs. Nothing about a specific product is built into them.
+Everything of `design` 0.3.0 was removed: skill `design-review`, command `audit`, agent `design-reviewer`, the review gate hook, the measurement scripts and checklists. The new plugin will be written from new materials.
 
 ## What changed in design 0.3.0
 
@@ -67,7 +63,7 @@ READMEs. Nothing about a specific product is built into them.
 ```
 .claude-plugin/marketplace.json   the catalog: three plugins, each with its own source
 plugins/growth/    skill growth, tools/, profiles/example, examples/, docs/, scripts/, package.json
-plugins/design/    skills design-review, audit; agent design-reviewer; hooks/ (optional review gate)
+plugins/design/    being rewritten: README only
 plugins/review/    agent code-reviewer; references/review-guide.md
 docs/tasks/        task files of this repository
 ```
