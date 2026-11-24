@@ -119,6 +119,11 @@ rule needs is in the skill. No source text, tables or images are copied or trans
 
 ## What changed
 
+**0.6.0**
+- New skill `ui-create`: the process of designing a strong screen, a visual-system guide, variants, a craft pass, the template look to avoid, what public design systems do, a blind rubric and a before/after example.
+- New agents: `design-reviewer` (preloads `ui-rules`), `designer` (preloads `ui-create` and `ui-rules`), `design-judge` (blind, preloads `ui-create`).
+- `ui-rules`: every rule marked UI, UX or both; description rewritten; four test cases in the `claude plugin eval` format; first comparison with and without the skill; `measure.mjs` now reports controls that look clickable but cannot take focus.
+
 **0.5.0**
 - Rules rewritten as material a reviewer (or a model) can learn from: no authors, years, study names or study figures in the rules (kept in `sources.md` for people); no "law" labels; thresholds tagged as WCAG, platform or team default; contested effects described as contested.
 - Duplicates merged: 46 → 44 rules, then 8 new: icons, message channels, languages and right-to-left, dark theme, tables, numbers and dates, search, filters and sorting — 52 rules in 12 groups.

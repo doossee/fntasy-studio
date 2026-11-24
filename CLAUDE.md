@@ -5,8 +5,8 @@ independent Claude Code plugins, each in its own folder:
 
 - `plugins/growth/` — plugin `growth`: the growth research skill (`skills/growth/`) and content production
   tools (`tools/`), with `profiles/example/`, `examples/`, `docs/`, `scripts/` and `package.json`;
-- `plugins/design/` — plugin `design`: being rebuilt from new materials; so far skill `ui-rules`
-  (52 rules in 12 groups; WCAG 2.2 above all sources; own wording only, sources named without links, never copy
+- `plugins/design/` — plugin `design`: skills `ui-rules` (52 rules in 12 groups) and `ui-create` (how to design),
+  agents `design-reviewer`, `designer`, `design-judge` (ui-rules: WCAG 2.2 above all sources; own wording only, sources named without links, never copy
   or translate source text — several sources restrict reuse, see `skills/ui-rules/sources.md`);
 - `plugins/review/` — plugin `review`: agent `code-reviewer` and `references/review-guide.md`.
 
