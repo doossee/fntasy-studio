@@ -441,6 +441,20 @@ function measureInPage() {
   out.images = images.slice(0, MAX);
   out.iconOnly = iconOnly.slice(0, MAX);
 
+  // --- 8b. things that look clickable but are not reachable (STATE-1, WCAG 2.1.1, 4.1.2) ---
+  // A div or span with a pointer cursor or a click handler attribute, no interactive role and no tabindex:
+  // the keyboard never reaches it and a screen reader does not announce it as a control.
+  const fakeControls = [];
+  const nativeSel = 'a[href], button, input, select, textarea, summary, label, [tabindex], [role]';
+  for (const el of document.querySelectorAll('body *')) {
+    if (!visible(el) || el.matches(nativeSel) || el.closest('a[href], button, label, [role="button"]')) continue;
+    const pointer = getComputedStyle(el).cursor === 'pointer' && (!el.parentElement || getComputedStyle(el.parentElement).cursor !== 'pointer');
+    if (pointer || el.hasAttribute('onclick')) {
+      fakeControls.push({ rule: 'STATE-1', wcag: '2.1.1, 4.1.2', selector: sel(el), text: (el.innerText || '').trim().slice(0, 40), issue: 'looks clickable but has no role and no tabindex: not reachable by keyboard, not announced as a control' });
+    }
+  }
+  out.fakeControls = fakeControls.slice(0, MAX);
+
   // --- 9. spacing off a 4 px grid (LAYOUT-4) — counts only, low confidence ---
   const spacing = {};
   let spacingTotal = 0;
@@ -652,6 +666,9 @@ function mdReport(target, runs) {
     L.push(`### STATE-1 focus: ${r.focus.stopsVisited} stops of ${r.focus.focusableElements} focusable; no visible change ${r.focus.noVisibleChange.length}; covered ${r.focus.covered.length}`);
     show(r.focus.noVisibleChange, 8, (f) => `no visible focus: ${f.tag} "${f.label}"`);
     show(r.focus.covered, 8, (f) => `focus ${f.covered} covered by ${f.coveredBy}: ${f.tag} "${f.label}"`);
+    L.push('');
+    L.push(`### STATE-1 clickable but not reachable by keyboard: ${(r.fakeControls || []).length}`);
+    show(r.fakeControls || [], 8, (f) => `${f.issue}: "${f.text}" \`${f.selector}\``);
     L.push('');
     L.push(`### EXP-7 images and icons: ${r.images.length + r.iconOnly.length}`);
     show(r.images, 6, (i) => `${i.issue} \`${i.selector}\``);

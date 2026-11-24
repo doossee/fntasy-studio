@@ -60,3 +60,7 @@ meaning; whether a label is understandable; anything about the task. These need 
 ## Known false positive found in evaluation
 
 An element that has focus when the page loads (`autofocus`, or focus moved by a dialog) can be reported as "no visible focus change", because the script compares the focused look with the look it saw first, which was already focused. Check such elements on a screenshot.
+
+## Clickable but not reachable
+
+Added after the first with/without-skill comparison: the focus walk only visits elements that can take focus, so controls built from `div` or `span` were never reached. The script now lists visible elements with a pointer cursor or an `onclick` attribute that have no interactive role and no `tabindex` (STATE-1, WCAG 2.1.1 and 4.1.2). It can miss controls whose click handler is attached in script without a pointer cursor; the screen-reader view and a manual Tab walk catch those.
