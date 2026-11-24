@@ -1,0 +1,156 @@
+<!doctype html>
+<!-- Acme "Today" dashboard, AFTER the ui-create process. Desktop 1280x800; also checked at 390 px.
+     Same data and functions as today.before.html. Fictional data. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acme — Today</title>
+<style>
+  /* ---- System: tokens by role (see today.md) ---- */
+  :root {
+    color-scheme: light dark;
+    --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --text-caption: 13px; --text-secondary: 14px; --text-body: 16px; --text-title: 20px; --text-display: 40px;
+    --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-6: 24px; --space-8: 32px; --space-12: 48px;
+    --radius-control: 6px; --radius-card: 10px;
+    --surface-page: #f6f5f2; --surface-raised: #ffffff; --surface-sunken: #efede8;
+    --text-primary: #1c1b19; --text-secondary-c: #5c5a55; --line-divider: #e3e0da; --line-border: #8f8b84;
+    --accent: #1d5c4b; --accent-hover: #164a3c; --on-accent: #ffffff; --focus: #1d5c4b;
+    --error: #a12b1f; --error-soft: #fbeae7; --warning: #8a5300; --warning-soft: #fbf0dc; --success: #2f6b2a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --surface-page: #151513; --surface-raised: #1f1e1b; --surface-sunken: #262521;
+      --text-primary: #ecebe7; --text-secondary-c: #aeaba4; --line-divider: #33322e; --line-border: #7a776f;
+      --accent: #7fc7b0; --accent-hover: #9ad5c2; --on-accent: #0f2a22; --focus: #7fc7b0;
+      --error: #f2a196; --error-soft: #3a1f1b; --warning: #f0c27a; --warning-soft: #34291a; --success: #9fd39a;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: var(--text-body)/1.5 var(--font); background: var(--surface-page); color: var(--text-primary); }
+  a { color: var(--accent); }
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 2px; }
+  .num { font-variant-numeric: tabular-nums; }
+
+  /* ---- Shell: quiet, one level below content ---- */
+  .bar { display: flex; align-items: center; gap: var(--space-6); padding: 0 var(--space-6); height: 56px; border-bottom: 1px solid var(--line-divider); }
+  .logo { font-weight: 700; font-size: var(--text-body); }
+  .bar nav { display: flex; gap: var(--space-1); }
+  .bar nav a { color: var(--text-secondary-c); text-decoration: none; font-size: var(--text-secondary); padding: 0 var(--space-3); min-height: 44px; display: inline-flex; align-items: center; border-radius: var(--radius-control); }
+  .bar nav a[aria-current] { color: var(--text-primary); font-weight: 600; box-shadow: inset 0 -2px 0 var(--accent); border-radius: 0; }
+
+  main { max-width: 1200px; margin: 0 auto; padding: var(--space-8) var(--space-6) var(--space-12); }
+  .date { margin: 0 0 var(--space-6); color: var(--text-secondary-c); font-size: var(--text-secondary); }
+  .top { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: var(--space-8); align-items: start; }
+
+  /* ---- Leader: what needs you today ---- */
+  .needs h1 { margin: 0 0 var(--space-4); font-size: 28px; line-height: 1.2; letter-spacing: -0.01em; }
+  .needs ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line-divider); }
+  .needs li { display: grid; grid-template-columns: 8px minmax(0, 1fr) auto; gap: var(--space-4); align-items: center; padding: var(--space-4) 0; border-bottom: 1px solid var(--line-divider); }
+  .mark { width: 8px; height: 40px; border-radius: 4px; background: var(--error); }
+  .mark.warn { background: var(--warning); }
+  .what { font-weight: 600; }
+  .why { color: var(--text-secondary-c); font-size: var(--text-secondary); }
+  .kind { font-size: var(--text-caption); font-weight: 600; letter-spacing: 0.02em; color: var(--error); }
+  .kind.warn { color: var(--warning); }
+  .act { min-height: 44px; padding: 0 var(--space-4); border-radius: var(--radius-control); border: 1px solid var(--line-border); background: var(--surface-raised); color: var(--text-primary); font: inherit; font-size: var(--text-secondary); font-weight: 600; cursor: pointer; white-space: nowrap; }
+  .act.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+  .act:hover { border-color: var(--text-primary); }
+  .act.primary:hover { background: var(--accent-hover); }
+
+  /* ---- Today in numbers: secondary column ---- */
+  .day { border-left: 1px solid var(--line-divider); padding-left: var(--space-8); }
+  .day h2, .orders h2 { margin: 0 0 var(--space-3); font-size: var(--text-secondary); font-weight: 600; color: var(--text-secondary-c); }
+  .takings { font-size: var(--text-display); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+  .takings .unit { font-size: var(--text-title); font-weight: 500; color: var(--text-secondary-c); letter-spacing: 0; margin-left: 2px; }
+  .cmp { margin: var(--space-1) 0 var(--space-6); font-size: var(--text-secondary); color: var(--text-secondary-c); }
+  .cmp b { color: var(--success); font-weight: 600; }
+  .facts { margin: 0; display: grid; grid-template-columns: auto auto; gap: var(--space-2) var(--space-6); font-size: var(--text-secondary); }
+  .facts dt { color: var(--text-secondary-c); }
+  .facts dd { margin: 0; text-align: right; font-weight: 600; }
+
+  /* ---- Today's orders: dense and calm ---- */
+  .orders { margin-top: var(--space-12); }
+  .orders-head { display: flex; align-items: center; justify-content: space-between; }
+  .orders-head a { min-height: 44px; display: inline-flex; align-items: center; font-size: var(--text-secondary); }
+  table { width: 100%; border-collapse: collapse; font-size: var(--text-secondary); }
+  th { text-align: left; font-weight: 600; color: var(--text-secondary-c); font-size: var(--text-caption); padding: var(--space-2) var(--space-3); border-bottom: 1px solid var(--line-divider); }
+  td { padding: var(--space-3); border-bottom: 1px solid var(--line-divider); height: 44px; }
+  th:first-child, td:first-child { padding-left: 0; }
+  th.r, td.r { text-align: right; }
+  .st { display: inline-flex; align-items: center; gap: 6px; }
+  .st::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--line-border); }
+  .st.bad { color: var(--error); font-weight: 600; } .st.bad::before { background: var(--error); }
+  .st.warn { color: var(--warning); font-weight: 600; } .st.warn::before { background: var(--warning); }
+  .muted { color: var(--text-secondary-c); }
+
+  @media (max-width: 760px) {
+    .bar { padding: 0 var(--space-4); gap: var(--space-3); overflow-x: auto; }
+    .bar nav a { padding: 0 var(--space-2); }
+    main { padding: var(--space-6) var(--space-4) var(--space-12); }
+    .top { grid-template-columns: 1fr; gap: var(--space-8); }
+    .day { border-left: 0; padding-left: 0; border-top: 1px solid var(--line-divider); padding-top: var(--space-6); }
+    .needs li { grid-template-columns: 8px minmax(0, 1fr); }
+    .needs li .act { grid-column: 2; justify-self: start; }
+    .scroll { overflow-x: auto; }
+    .scroll table { min-width: 600px; }
+    .scroll th:first-child, .scroll td:first-child { position: sticky; left: 0; background: var(--surface-page); }
+  }
+</style>
+</head>
+<body>
+<header class="bar">
+  <span class="logo">Acme</span>
+  <nav aria-label="Main">
+    <a href="#" aria-current="page">Today</a><a href="#">Orders</a><a href="#">Customers</a><a href="#">Products</a><a href="#">Settings</a>
+  </nav>
+</header>
+<main>
+  <p class="date">Tuesday 24 November</p>
+  <div class="top">
+    <section class="needs" aria-labelledby="needs-h">
+      <h1 id="needs-h">4 things need you today</h1>
+      <ol>
+        <li><span class="mark" aria-hidden="true"></span>
+          <div><div class="kind">UNPAID · 3 ORDERS</div><div class="what">$139.89 not collected</div><div class="why">#1042 Mira Tal, #1040 Sana Ilyasova, #1038 Aiko Mori</div></div>
+          <button class="act primary" type="button">Send reminders</button></li>
+        <li><span class="mark warn" aria-hidden="true"></span>
+          <div><div class="kind warn">LATE · 2 DELIVERIES</div><div class="what">#1042 and #1039 are past their slot</div><div class="why">Courier Ali, last update 40 min ago</div></div>
+          <button class="act" type="button">Call courier</button></li>
+        <li><span class="mark" aria-hidden="true"></span>
+          <div><div class="kind">OUT OF STOCK</div><div class="what">Sourdough loaf — 0 left</div><div class="why">Your best seller this week; 6 orders tomorrow include it</div></div>
+          <button class="act" type="button">Restock</button></li>
+        <li><span class="mark warn" aria-hidden="true"></span>
+          <div><div class="kind warn">LOW STOCK</div><div class="what">Rye bread — 3 left</div><div class="why">Usually sells 8 a day</div></div>
+          <button class="act" type="button">Restock</button></li>
+      </ol>
+    </section>
+    <aside class="day" aria-labelledby="day-h">
+      <h2 id="day-h">Taken today</h2>
+      <div class="takings num">$1,284.50<span class="unit">USD</span></div>
+      <p class="cmp"><b>▲ 8%</b> vs last Tuesday ($1,189.40)</p>
+      <dl class="facts num">
+        <dt>Orders</dt><dd>14 <span class="muted">(▲ 12%)</span></dd>
+        <dt>Average order</dt><dd>$91.75 <span class="muted">(▼ 3%)</span></dd>
+        <dt>Customers</dt><dd>9, 2 new</dd>
+      </dl>
+    </aside>
+  </div>
+
+  <section class="orders" aria-labelledby="orders-h">
+    <div class="orders-head"><h2 id="orders-h">Today's orders</h2><a href="#">All orders</a></div>
+    <div class="scroll" role="region" aria-labelledby="orders-h" tabindex="0"><table>
+      <thead><tr><th>Order</th><th>Customer</th><th class="col-time">Slot</th><th>Payment</th><th>Delivery</th><th class="r">Total</th></tr></thead>
+      <tbody class="num">
+        <tr><td>#1042</td><td>Mira Tal</td><td class="col-time">10:00–11:00</td><td class="col-pay"><span class="st bad">Unpaid</span></td><td><span class="st warn">Late</span></td><td class="r">$46.39</td></tr>
+        <tr><td>#1041</td><td>Jon Abara</td><td class="col-time">13:00–14:00</td><td class="col-pay"><span class="st">Paid</span></td><td><span class="st">Today</span></td><td class="r">$212.00</td></tr>
+        <tr><td>#1040</td><td>Sana Ilyasova</td><td class="col-time">14:00–15:00</td><td class="col-pay"><span class="st bad">Unpaid</span></td><td><span class="st">Today</span></td><td class="r">$18.50</td></tr>
+        <tr><td>#1039</td><td>Peter Lund</td><td class="col-time">11:00–12:00</td><td class="col-pay"><span class="st">Paid</span></td><td><span class="st warn">Late</span></td><td class="r">$134.20</td></tr>
+        <tr><td>#1038</td><td>Aiko Mori</td><td class="col-time">09:00–10:00</td><td class="col-pay"><span class="st bad">Unpaid</span></td><td><span class="st">Delivered</span></td><td class="r">$75.00</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+</main>
+</body>
+</html>

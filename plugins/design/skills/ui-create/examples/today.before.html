@@ -17,7 +17,7 @@
   nav a { color: #fff; text-decoration: none; padding: 8px 14px; border-radius: 999px; background: rgba(0,0,0,.22); min-height: 36px; display: inline-flex; align-items: center; }
   main { max-width: 1180px; margin: -48px auto 32px; padding: 0 16px; }
   .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  .card { background: #fff; border-radius: 14px; box-shadow: 0 6px 20px rgba(30,30,60,.10); padding: 18px; text-align: center; }
+  .card { min-width: 0; background: #fff; border-radius: 14px; box-shadow: 0 6px 20px rgba(30,30,60,.10); padding: 18px; text-align: center; }
   .card h2 { margin: 0 0 10px; font-size: 14px; color: #4a4a55; font-weight: 600; text-align: center; }
   .tile .icon { width: 44px; height: 44px; margin: 0 auto 8px; border-radius: 50%; background: #ede9fe; display: flex; align-items: center; justify-content: center; }
   .tile .num { font-size: 14px; font-weight: 700; color: #33333d; }
@@ -67,7 +67,7 @@
   <section class="grid">
     <div class="card wide">
       <h2>Recent orders</h2>
-      <table>
+      <div style="overflow-x:auto"><table>
         <thead><tr><th>Order</th><th>Customer</th><th>Total</th><th>Payment</th><th>Delivery</th></tr></thead>
         <tbody>
           <tr><td>#1042</td><td>Mira Tal</td><td>$46.39</td><td><span class="badge red">Unpaid</span></td><td><span class="badge amber">Late</span></td></tr>
@@ -76,7 +76,7 @@
           <tr><td>#1039</td><td>Peter Lund</td><td>$134.20</td><td><span class="badge">Paid</span></td><td><span class="badge amber">Late</span></td></tr>
           <tr><td>#1038</td><td>Aiko Mori</td><td>$75.00</td><td><span class="badge red">Unpaid</span></td><td><span class="badge">Done</span></td></tr>
         </tbody>
-      </table>
+      </table></div>
       <button class="btn" type="button">View all orders</button>
     </div>
     <div class="card">
