@@ -31,8 +31,8 @@
     {
       "name": "design",
       "source": "./plugins/design",
-      "description": "Design of interfaces: being rewritten from scratch; the 0.3.0 skills, command, agent and hook were removed",
-      "version": "0.3.0",
+      "description": "Design of interfaces, being rewritten from new materials. So far: ux-laws, 30 rules for screens on the principles of Laws of UX, each with a way to check it",
+      "version": "0.4.0",
       "author": {
         "name": "doossee",
         "url": "https://github.com/doossee"
