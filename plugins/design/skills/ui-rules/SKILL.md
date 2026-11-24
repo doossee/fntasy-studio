@@ -1,21 +1,20 @@
 ---
 name: ui-rules
-description: "Rules for designing and reviewing interface screens and flows: 46 checkable rules in 10 groups — layout and grouping, attention and memory, action and decision, expectations and consistency, states and feedback, text, colour, phone/desktop/web, motion, honesty (no deceptive patterns). Built on WCAG 2.2, Nielsen Norman Group, Baymard, Apple HIG, Material 3, Laws of UX and others, with evidence strength for every rule, a conflict guide, a severity scale with calibration, a taste-vs-defect test and worked cases. Use when designing, building or reviewing a screen or flow, when someone asks why something is hard to use, or names a UX law or guideline."
+description: "Rules for designing and reviewing interface screens and flows: 52 checkable rules in 12 groups — layout, attention and memory, action and decision, expectations, states and messages, text and languages, colour and dark theme, phone/desktop/web, motion, data tables and numbers, search and filters, honesty (no deceptive patterns). WCAG 2.2 first; each rule says how to check it, with thresholds tagged as standard, platform guideline or team default. Includes a project-profile format, conflicts and cases where a rule is wrong, severity calibration, taste-vs-defect labels, interface text in five languages, example screens with answer keys, and a measuring script. Use when designing, building or reviewing a screen or flow, or when someone asks why something is hard to use."
 ---
 # ui-rules
 
-Forty-six rules for screens and flows. Each says **what to do, why, how to check it** (a number, a yes/no on a screenshot, or a step in a task walk-through), a bad → good example, where it stops applying, how strong its evidence is, and its sources. The wording is ours; sources are named, not linked, and everything a rule needs is in these files.
+52 rules for screens and flows. Each says **what must be true, why (what happens to a person), how to check it**, its thresholds with their kind, a bad → good example, where it stops applying, which conflicts touch it, and how strong its evidence is. Everything a rule needs is in these files; nothing has to be opened elsewhere.
 
 ## How to use
 
-- **Designing or building:** read the groups that fit the work. Start each group with its **Review questions**.
-- **Reviewing:** follow `method.md`. Walk the user's main tasks first; then use the review questions of every group; then the rules. Score findings with `severity.md`; test every remark against `taste-vs-defect.md`; decide clashes with `conflicts.md`.
-- **WCAG 2.2 stands above every other source.** After it, the source order depends on the question (see `sources.md`): platform convention → Apple HIG / Material 3; behaviour → NN/g, Baymard, then the others; e-commerce → Baymard.
-- **Evidence labels** tell you how hard to push a rule: *Standard*, *Platform guideline*, *Research*, *Research, extended* (measured on something else), *Disputed*, *Heuristic*, *Analogy*. A finding resting only on *Disputed*, *Heuristic* or *Analogy* needs the harm shown on the screen itself.
-- **Numbers marked "(ours)"** are this skill's choice to make a rule checkable. A project may change them.
-- **The project profile wins on facts about the product**: users, tasks, languages, devices, brand, decisions already taken. Look for `.claude/review-profile.md` or `design-profile.md` in the project.
-- Ideas that did not become rules (golden ratio, 60-30-10, F/Z layouts, colour psychology, "7 ± 2" menus, the three-click rule, onboarding carousels, urgency tactics…) are in `disputed.md`.
-- `cases.md` shows the method on eight worked cases.
+- **Designing or building:** read the groups that fit the work, starting with each group's **Review questions**. Look at the example screens in `examples/` for what a defect and its fix look like.
+- **Reviewing:** follow `method.md`. Read the project profile (`profile.md` describes it). Walk the people's main tasks first; then the review questions of every group; then the rules. Measure what can be measured (`tools/measure.mjs`) and confirm every measurement on the screen. Score with `severity.md`; test every remark with `taste-vs-defect.md` and `labelled-remarks.md`; decide clashes with `conflicts.md`, including the cases where a rule is wrong.
+- **WCAG 2.2 stands above every other source.** After it, the order depends on the question (`sources.md`).
+- **Thresholds** carry their kind: `WCAG x.y.z` (a requirement), `platform:` (Apple HIG, Material 3, Core Web Vitals), or `profile: key = default` (a team choice that makes the rule checkable; a project changes it in its profile; crossing it is a reason to look, not a finding by itself).
+- **Evidence** says how hard to push a rule: *Standard*, *Platform guideline*, *Research* (measured on interfaces), *Research, applied* (measured elsewhere and applied to screens), *Contested* (unstable effect; the rule says when it shows), *Practice* (shared practice, not measured). A finding that rests only on *Contested*, *Practice* or a profile threshold needs the harm shown on the screen.
+- **Findings cite** the rule ID, the WCAG criterion or platform guideline if any, and what was seen and measured — never an author, a year or a study figure from memory.
+- Ideas that did not become rules (golden ratio, 60-30-10, F/Z layouts, colour psychology, "7 ± 2" menus, the three-click rule, onboarding carousels, urgency tactics, "X's law" as a reason…) are in `disputed.md`.
 
 ## Rules
 
@@ -35,10 +34,8 @@ Forty-six rules for screens and flows. Each says **what to do, why, how to check
 | --- | --- |
 | MEM-1 | Spend attention only on the task; reveal the rest progressively |
 | MEM-2 | Never make people carry facts between screens |
-| MEM-3 | Keep what must be held in mind to about four items |
-| MEM-4 | Split long content into named chunks |
-| MEM-5 | Put messages where the eye already is; never style content like an ad |
-| MEM-6 | Put the most used items first and last |
+| MEM-3 | Split long content into named chunks |
+| MEM-4 | Put messages where the eye already is; never style content like an ad |
 
 **Action and decision** — `rules/action.md`
 
@@ -46,8 +43,8 @@ Forty-six rules for screens and flows. Each says **what to do, why, how to check
 | --- | --- |
 | ACT-1 | Make targets big enough and keep dangerous ones apart |
 | ACT-2 | Respond within 0.1 s; show progress after 1 s; never allow a double submit |
-| ACT-3 | Few, ordered options at each decision; recommend one |
-| ACT-4 | Give the best place to the few most frequent tasks |
+| ACT-3 | Few, ordered, comparable options at each decision; recommend one |
+| ACT-4 | Give the best places to the few most frequent tasks |
 | ACT-5 | Show progress honestly in multi-step tasks |
 | ACT-6 | Ask for as little as possible; let the product do the work |
 | ACT-7 | Accept the ways people type; show the right keyboard |
@@ -65,6 +62,7 @@ Forty-six rules for screens and flows. Each says **what to do, why, how to check
 | EXP-4 | Don't change what people already know without a reason |
 | EXP-5 | Teach in place, never in a tour |
 | EXP-6 | Keep navigation visible and show where people are |
+| EXP-7 | Icons: one set, one meaning, a label unless universal |
 
 **States and feedback** — `rules/states.md`
 
@@ -74,6 +72,7 @@ Forty-six rules for screens and flows. Each says **what to do, why, how to check
 | STATE-2 | Design every screen state: empty, loading, error, success, long data, other languages |
 | STATE-3 | Make form errors specific, next to the field, and keep what was typed |
 | STATE-4 | Prefer undo; confirm only what cannot be undone |
+| STATE-5 | Pick the message channel by urgency and lifetime |
 
 **Text** — `rules/text.md`
 
@@ -83,6 +82,7 @@ Forty-six rules for screens and flows. Each says **what to do, why, how to check
 | TEXT-2 | Make body text easy to read |
 | TEXT-3 | Text must survive 200% zoom, wider spacing and 320 px |
 | TEXT-4 | Write labels and messages in plain, specific words |
+| TEXT-5 | Make text ready for other languages, scripts and formats |
 
 **Colour** — `rules/color.md`
 
@@ -91,6 +91,7 @@ Forty-six rules for screens and flows. Each says **what to do, why, how to check
 | COLOR-1 | Meet contrast for text and controls in every theme |
 | COLOR-2 | Never use colour as the only signal |
 | COLOR-3 | Give each colour one job |
+| COLOR-4 | Design the dark theme; don't invert the light one |
 
 **Phone, desktop and web** — `rules/platform.md`
 
@@ -106,6 +107,20 @@ Forty-six rules for screens and flows. Each says **what to do, why, how to check
 | --- | --- |
 | MOTION-1 | Animate only to explain; keep it short; let people turn it off |
 
+**Data** — `rules/data.md`
+
+| Rule | In one line |
+| --- | --- |
+| DATA-1 | Make tables people can scan, compare and act on, on every screen |
+| DATA-2 | Show numbers, units and dates people can check |
+
+**Search** — `rules/search.md`
+
+| Rule | In one line |
+| --- | --- |
+| SEARCH-1 | Search finds what people mean and never dead-ends |
+| SEARCH-2 | Filters and sorting show what is applied and never trap people |
+
 **Honesty** — `rules/honesty.md`
 
 | Rule | In one line |
@@ -119,12 +134,17 @@ Forty-six rules for screens and flows. Each says **what to do, why, how to check
 
 | File | What it is |
 | --- | --- |
-| `rules/*.md` | The 46 rules in 10 groups, each group with review questions |
+| `rules/*.md` | The rules in 12 groups, each group with review questions |
 | `method.md` | How a reviewer gets from what they see to a finding; report format |
+| `profile.md` | Format of a project profile, default thresholds, a fictional example |
 | `severity.md` | Scale 1–4 and calibration by frequency, cost and who is affected |
 | `taste-vs-defect.md` | The test for a defect, and common remarks that are only taste |
-| `conflicts.md` | Rule against rule, source against source, and how to decide |
-| `disputed.md` | Ideas that were checked and rejected or narrowed |
-| `cases.md` | Eight worked cases on a fictional product |
-| `sources.md` | Sources, their order, terms of use, research named in the rules |
-| `mapping.md` | Where each source and each former `ux-laws` rule went |
+| `labelled-remarks.md` | Review remarks labelled defect, taste or depends, including ones where experts disagree |
+| `conflicts.md` | Rule against rule, source against source, and cases where a rule is wrong |
+| `disputed.md` | Ideas that were checked and rejected or narrowed, and the shape of each dispute |
+| `microcopy.md` | Interface text, bad and good, in English, Russian, German, Uzbek and Arabic |
+| `cases.md` | Worked cases on a fictional product |
+| `examples/` | Screen pairs (bad and good) with numbered boxes and answer keys |
+| `tools/` | `measure.mjs`: contrast, targets, type scale, truncation, reflow, labels, focus, screen-reader view |
+| `sources.md` | Sources, their order and terms, where each rule comes from, checked thresholds |
+| `mapping.md` | Where each source and each former rule went |

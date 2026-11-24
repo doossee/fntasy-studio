@@ -31,8 +31,8 @@
     {
       "name": "design",
       "source": "./plugins/design",
-      "description": "Design and review of interfaces: ui-rules, 46 checkable rules in 10 groups on WCAG 2.2, NN/g, Baymard, Apple HIG, Material 3 and Laws of UX, with evidence strength, conflicts, severity calibration and worked cases",
-      "version": "0.4.0",
+      "description": "Design and review of interfaces: ui-rules, 52 checkable rules in 12 groups on WCAG 2.2, NN/g, Baymard, Apple HIG, Material 3 and Laws of UX, with thresholds by kind, evidence strength, conflicts, severity calibration, a project profile, example screens with answer keys and a measuring script",
+      "version": "0.5.0",
       "author": {
         "name": "doossee",
         "url": "https://github.com/doossee"

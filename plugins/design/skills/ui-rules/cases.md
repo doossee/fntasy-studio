@@ -64,7 +64,7 @@ Eight reviews on the fictional products Acme (an app where small shops take orde
 
 **First glance.** "Clean and minimal."
 
-**What is actually wrong.** On desktop there is room for four labelled sections. NN/g measured with 179 people that hidden navigation on desktop was used in 27% of cases against 48% for visible navigation, and tasks took longer (EXP-6). The current section is not shown anywhere either.
+**What is actually wrong.** On desktop there is room for four labelled sections. Navigation behind a menu icon is used less than visible navigation, so sections are found less often and tasks take longer (EXP-6). The current section is not shown anywhere either.
 
 **Severity.** 2 — people find the reports eventually, but slower, on a screen used every day; 3 if new owners regularly fail to find a section.
 

@@ -6,11 +6,13 @@ The rules say what to look at. This file says how to get from what you see to a 
 
 Write down, before looking at the screen: who uses it (role from the project profile), on what device, and the 2–3 tasks the change touches. Walk each task step by step. Rules come after: they explain what you saw, they do not replace looking.
 
-If the project has a profile (`.claude/review-profile.md`, `design-profile.md` or similar), read the users, tasks, languages, devices, risky actions, the team's own principles and the decisions already taken. A decision recorded there is not a defect: name its cost if it has one and move on. When a team principle and a rule here disagree, say so and do not decide it yourself.
+If the project has a profile (format in `profile.md`; usually `.claude/design-profile.md` or a section of `.claude/review-profile.md`), read the users, tasks, languages, devices, risky actions, the team's own principles and the decisions already taken. Its thresholds replace the defaults in the rules' `profile:` tags. A threshold from the profile is a team choice: crossing it is a reason to look, and becomes a finding only when you can show the harm. A decision recorded there is not a defect: name its cost if it has one and move on. When a team principle and a rule here disagree, say so and do not decide it yourself.
 
 ## 2. From fact to conclusion, one rung at a time
 
-Climb the ladder slowly: what is on the screen (fact) → what it means for this person (interpretation) → what they lose (conclusion). A script mark, a measurement or a rule is a reason to look, not a finding. Confirm it on the screen and in the task.
+Climb the ladder slowly: what is on the screen (fact) → what it means for this person (interpretation) → what they lose (conclusion). A rule is a reason to look, not a finding.
+
+A measurement from `tools/measure.mjs` or any script is a reason to look, not a finding: confirm it on the screen and in the task.
 
 Before writing a finding, try to refute it: another width, the other theme, the hover or focus state, the same action on another screen, a long name, another language. If you cannot confirm it, write "not checked", not a finding.
 
@@ -38,7 +40,7 @@ Situation → what is visible → what the person loses:
 
 - **Where:** screen, element, width, theme, language, state.
 - **Evidence:** the task step, the number (contrast 3.2:1, target 28 × 28 px, 2.4 s), the screenshot region.
-- **Rule and source:** rule ID, and the standard or source behind it.
+- **Rule:** rule ID, plus the WCAG criterion or platform guideline when the rule's Thresholds line names one. Do not cite authors, years, study names or study figures: they are not needed to act on a finding, and quoted from memory they are often wrong. Evidence for a finding is what you saw and measured.
 - **Severity** 1–4 with frequency, cost and who is affected (`severity.md`).
 - **The smallest fix** in words.
 
@@ -56,4 +58,4 @@ Order the fixes by effect and effort: high effect and low effort first.
 
 ## Measuring with people
 
-When a decision rests on people's behaviour, test with people. Five people per round find most of the large problems in a qualitative test (NN/g, a recommendation from their practice); use more for numbers. Measure task success, time and errors; ask the Single Ease Question after each task; use SUS only to compare versions, not to find problems. Do not count opinions about the look as results.
+When a decision rests on people's behaviour, test with people. A handful of people per round (the profile's `honest.test-round`, default 5) finds most of the large problems in a qualitative test; use more for numbers. Measure task success, time and errors; ask a single ease rating after each task; use a standard questionnaire score only to compare versions, not to find problems. Do not count opinions about the look as results.

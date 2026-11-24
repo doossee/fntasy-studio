@@ -2,7 +2,7 @@
 
 Every rule in this skill is written in our own words. Sources are named, not linked: the skill must work without opening anything, and links go stale. Facts, numbers and research results are reported with their source; no source text, tables, images or examples are copied, translated or closely paraphrased.
 
-Read 24.11.2026 unless stated otherwise.
+Read in November 2026 unless stated otherwise.
 
 ## Order of sources
 
@@ -35,15 +35,56 @@ Then, by the kind of question:
 | Apple Human Interface Guidelines | Accessibility, layout, typography, colour, buttons, tab bars, alerts, text fields, onboarding, motion | Copyright Apple; guidance restated in our words with platform scope |
 | Material Design 3 and Android Developers | Accessibility (touch targets, contrast), typography contrast, buttons, navigation bar, dialogs, snackbar, motion overview, window size classes | Guidance restated in our words |
 
-## Research named in the rules
+## How sources appear in the rules
 
-Fitts 1954; Hick 1952 and Hyman; Seow 2005; Miller 1956; Cowan 2001 ("The magical number 4", Behavioral and Brain Sciences); Sweller 1988; Kurosu & Kashimura 1995 (CHI); Tractinsky 1997 (CHI); Moshagen & Thielsch 2010; Sonderegger & Sauer 2010; Doherty & Thadani 1982 (IBM Systems Journal); Csíkszentmihályi 1975; Hull 1932; Kivetz, Urminsky & Zheng 2006; Nunes & Drèze 2006 (Journal of Consumer Research); Craik 1943; Carroll & Rosson 1987; Kahneman, Fredrickson, Schreiber & Redelmeier 1993; Tversky & Kahneman 1974 (Science); von Restorff 1933; Zeigarnik 1927 and Ovsiankina 1928; Ghibellini & Meier 2025 (meta-analysis); Scheibehenne, Greifeneder & Todd 2010 (meta-analysis); Ebbinghaus; Wertheimer and the Gestalt school; Parhi, Karlson & Bederson 2006; Seckler and others 2014 (CHI, forms); Joachims and others 2005 (defaults in search results); Mathur and others 2019 (deceptive patterns on about 11,000 shopping sites); Di Geronimo and others 2020 (deceptive patterns in 240 apps); Brooke 1986 (SUS); Nielsen & Molich 1990 (heuristic evaluation); Conway 1967; Postel and RFC 9413 (2023).
+Since version 0.5.0 the rule files name only what a reviewer can cite in a finding: a WCAG criterion or a platform guideline, in the **Thresholds** line. Authors, years, study names and study figures were taken out of the rules: they are not needed to check a screen, and a reviewer (or a model) that learns to quote them tends to quote them wrongly. They are kept here, for people who want to check where a rule comes from.
 
-Research details were checked through abstracts, the papers' own pages and reviews of them, not always the full papers. Where a rule depends on a contested result, its **Evidence** line says so.
+## Where each rule comes from
+
+| Rules | Built on |
+| --- | --- |
+| LAYOUT-1..5 | Gestalt perception research; NN/g (visual hierarchy, proximity, F-shaped reading, cognitive load); Apple HIG (layout, one or two prominent buttons); Laws of UX (Prägnanz, proximity, common region, uniform connectedness, Von Restorff, Occam's razor); Figma Resource Library (Gestalt, simplicity, grids); public design systems (spacing scales) |
+| MEM-1..4 | Cognitive load theory; working-memory research (an early estimate of about seven items, later estimates near four chunks); chunking; selective attention and banner blindness (NN/g eyetracking); WCAG 3.3.7; Laws of UX (cognitive load, working memory, Miller's law, chunking, selective attention) |
+| ACT-1..10 | Movement-time research (Fitts) and NN/g touch-target guidance; WCAG 2.5.5, 2.5.8; Apple HIG; Material 3; response-time limits (NN/g); choice-reaction research (Hick and Hyman) and a meta-analysis of choice overload; goal-gradient and endowed-progress studies; NN/g and Baymard on forms and defaults; Baymard on input formats and keyboards; IETF RFC 9413 on input robustness; flow research; research on resuming interrupted tasks (Ovsiankina) and a 2025 meta-analysis that did not confirm the Zeigarnik memory effect; the peak-end rule; Laws of UX (Fitts, Doherty, Hick, choice overload, Pareto, goal-gradient, Tesler, Parkinson, Postel, flow, Zeigarnik, peak-end, serial position) |
+| EXP-1..7 | NN/g (consistency and standards, mental models, hamburger menus, breadcrumbs, onboarding, tooltips, icon usability); research on new users skipping manuals (Carroll and Rosson); Apple HIG (native controls, onboarding, tab bars, icons, right-to-left); Material 3 (navigation bar); Mobbin and Component Gallery as evidence of conventions; Laws of UX (Jakob's law, mental model, similarity, paradox of the active user); Conway's law; WCAG 1.4.11, 4.1.2 |
+| STATE-1..5 | WCAG 1.4.1, 1.4.11, 2.2.1, 2.4.7, 2.4.11, 3.3.1, 3.3.2, 4.1.3; NN/g (button states, empty states, skeleton screens, form errors, placeholders, required fields, confirmation dialogs, indicators and notifications); Baymard (inline validation, error messages, accessibility benchmark); Apple HIG (buttons, alerts); Material 3 (dialogs, snackbars, banners); Figma Resource Library (button states, UX validation) |
+| TEXT-1..5 | WCAG 1.4.4, 1.4.8, 1.4.10, 1.4.12, 3.1.1, 3.1.2; Apple HIG (typography, right-to-left); NN/g (plain language, lower-literacy users); internationalisation practice of platforms and design systems |
+| COLOR-1..4 | WCAG 1.4.1, 1.4.3, 1.4.11; Apple HIG (colour, dark mode, increased contrast); Material 3 (colour, dark theme); design-token practice |
+| PLAT-1..3 | WCAG 1.4.10, 1.4.13, 2.1.1, 2.5.1, 2.5.7; Apple HIG (layout, gestures); Material 3 and Android (window size classes); Core Web Vitals (web.dev) |
+| MOTION-1 | WCAG 2.2.2, 2.3.1, 2.3.3; Apple HIG (motion, reduce motion); Material 3 (motion); NN/g (animation, response times) |
+| DATA-1..2 | NN/g (mobile tables, data tables); WCAG 1.3.1, 1.4.1, 1.4.10; data-table guidance of public design systems |
+| SEARCH-1..2 | Baymard (search, autocomplete, filters, sorting); NN/g (search); WCAG 2.1.1, 2.5.3, 4.1.3 |
+| HONEST-1..4 | NN/g (deceptive patterns, aesthetic-usability, number of test users); Baymard (checkout abandonment, deceptive patterns in e-commerce); research on judgement under uncertainty (Tversky and Kahneman); prevalence studies of deceptive patterns on about 11,000 shopping sites (2019) and in 240 apps (2020); Kurosu and Kashimura (1995) and Tractinsky (1997) on look and judged ease; Apple HIG (permissions); Figma Resource Library (design ethics); Untools (second-order thinking); UX Hints (questionnaires) |
+
+The groups added in 0.5.0 (EXP-7, STATE-5, TEXT-5, COLOR-4, DATA, SEARCH) rest partly on general practice of platforms and design systems, written without a separate source read for every sentence; their Evidence lines say *Practice* where that is the case.
+
+## Evidence notes for people
+
+Figures that used to stand in the rules. They are recorded with their source for people checking the skill; a reviewer does not cite them in findings.
+
+- Forms that followed form-design guidelines were submitted without errors at the first try 78% of the time against 42% for forms that broke them (Seckler and others, CHI 2014, as reported by NN/g) — STATE-3.
+- Hidden navigation on desktop was used in 27% of cases against 48% for visible navigation; on phones 57% against 86% for a combined design (NN/g, 179 people, six sites, 2016) — EXP-6.
+- In banner-blindness eyetracking, one participant gave the right-hand column 1 of 148 fixations (NN/g, 2018) — MEM-4.
+- Rewriting a site in plain language raised task success for lower-literacy users from 46% to 82%, and for others from 68% to 93% (NN/g, 50 people) — TEXT-4.
+- Separate first- and last-name fields made 42% of test participants type their full name into the first field at least once; the average checkout asks for about 11 fields where about 8 are needed (Baymard) — ACT-6.
+- 48% of tested e-commerce sites lacked a consistently visible focus indicator (Baymard accessibility benchmark, 2021) — STATE-1.
+- Extra costs revealed late were the most common design-related reason to abandon a checkout, about 40% of those who abandoned (Baymard surveys of US shoppers) — HONEST-1.
+- Deceptive patterns on more than 10% of about 11,000 shopping sites (Mathur and others, 2019) and in 95% of 240 popular free Android apps (Di Geronimo and others, 2020) — HONEST-1.
+- Fingertips are about 1.6–2 cm wide; targets of at least 1 × 1 cm recommended (NN/g, citing Parhi, Karlson and Bederson 2006) — ACT-1.
+
+These figures were read through the sources' own pages and summaries, not always the original papers.
+
+## Thresholds checked against the primary pages
+
+Checked 24.11.2026:
+- WCAG 2.2 (W3C Recommendation page): 1.4.1, 1.4.3, 1.4.4, 1.4.8, 1.4.10, 1.4.11, 1.4.12, 1.4.13, 2.2.2, 2.3.3, 2.4.7, 2.4.11, 2.5.5, 2.5.8, 3.3.1, 3.3.7, 3.3.8 — values and levels as in the rules. The other criteria named in the rules (1.3.1, 2.1.1, 2.2.1, 2.3.1, 2.5.1, 2.5.3, 2.5.7, 3.1.1, 3.1.2, 3.3.2, 4.1.2, 4.1.3) are named by number and level only and were not checked separately in this pass.
+- Core Web Vitals (web.dev): LCP ≤ 2.5 s (poor > 4 s), INP ≤ 200 ms (poor > 500 ms), CLS ≤ 0.1 (poor > 0.25), at the 75th percentile.
+- Android developers: touch targets at least 48 × 48 dp; window size classes compact < 600, medium 600–839, expanded 840–1199, large 1200–1599, extra-large ≥ 1600 dp; compact height < 480 dp. Material 3 (structure page, rendered earlier): targets separated by 8 dp or more.
+- Apple HIG: 44 × 44 pt hit target, iOS body 17 pt (minimum 11 pt), macOS 13 pt (minimum 10 pt) — from the pages rendered when the skill was first written; the pages could not be fetched again in this pass.
 
 ## Numbers chosen by this skill
 
-Numbers marked "(ours)" in the rules are not in the sources; they make a rule checkable. A project may change them in its profile. The full list is in the rule files; search for "(ours)".
+Numbers tagged `profile:` in the rules are team choices that make a rule checkable. Their defaults are listed in `profile.md`; a project changes them in its profile.
 
 ## Former skill ux-laws
 

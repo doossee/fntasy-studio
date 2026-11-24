@@ -7,52 +7,67 @@ How screens adapt to window size and input type, and how fast they load and sett
 - At 320 px wide, does everything still work without sideways scrolling?
 - Is every function available at every window size, not just rearranged?
 - Can everything reachable by hover or gesture also be reached by tap, click and keyboard?
-- Does the main content appear within about 2.5 seconds and stay still while the page loads?
+- Does the main content appear quickly and stay still while the page loads?
 
 ## PLAT-1. Adapt to the window, not the device, and keep every function
 
 **Rule.** Layout changes are driven by the available window width (and height where it matters), not by guessing the device. Every function and every piece of content available at one size is available at every other size; small windows rearrange or stack, they do not drop features.
 
-**Why.** Windows change size with rotation, split screen, foldables and zoom, so "phone" and "desktop" are not fixed. WCAG 2.2 1.4.10 Reflow requires content to work at 320 CSS px wide without two-dimensional scrolling. Apple lays out by size class, not device type, and asks to keep functionality the same across size classes. Material defines window size classes by width: compact < 600 dp, medium 600-839, expanded 840-1199, large 1200-1599, extra-large ≥ 1600; height compact < 480 dp.
+**Why.** Windows change size with rotation, split screen, foldable phones and zoom, so "phone" and "desktop" are not fixed. A feature that disappears at one width is a feature some people never get, often the ones on the cheapest devices.
 
-**How to check.** Resize the window through the breakpoints (in the web: 320, 390, 768, 1024, 1280, 1440 px; in apps: compact, medium, expanded). At each size, run the main task. Pass: the task completes at every size; no horizontal scroll at 320 px except for data tables, maps and similar; nothing present at 1440 px is missing at 390 px (it may be behind a menu or a disclosure).
+**How to check.**
+- Resize the window through the breakpoints (web: 320, 390, 768, 1024, 1280, 1440 px; apps: compact, medium, expanded).
+- At each size, run the main task: it completes.
+- No horizontal scroll at 320 px except for data tables, maps and similar.
+- Nothing present at 1440 px is missing at 390 px (it may sit behind a menu or a disclosure).
 
-**Bad → Good.** Acme hides the "Export" action on phones because it does not fit → it moves into the overflow menu on compact widths.
+**Thresholds.** 320 CSS px without two-dimensional scrolling [WCAG 1.4.10 AA]. Window width classes: compact < 600 dp, medium 600–839, expanded 840–1199, large 1200–1599, extra-large ≥ 1600; compact height < 480 dp [platform: Material 3 / Android]. Layout by size class, same functions across size classes [platform: Apple HIG].
 
-**Limits.** Content that needs two dimensions (tables, maps, editors) may scroll sideways inside its own container. Some features may legitimately depend on hardware (camera, keyboard shortcuts).
+**Bad → Good.** Acme hides the "Export" action on phones because it does not fit → it moves into the overflow menu at compact widths.
 
-**Evidence.** Standard (WCAG 1.4.10) and Platform guideline (HIG, Material).
+**Limits.** Content that needs two dimensions (tables, maps, editors) may scroll sideways inside its own container (DATA-1). Some features legitimately depend on hardware (camera, keyboard shortcuts).
 
-**Sources.** WCAG 2.2 (1.4.10); Apple HIG (Layout); Material 3 / Android developers (Window size classes); NN/g (Mobile tables, 2017); Figma Resource Library (Responsive website design; Mobile first); secondary: SAP Fiori (adaptive), Wroblewski (Mobile first, 2011).
+**Evidence.** Standard and Platform guideline.
 
 ## PLAT-2. Touch is not hover: no hover-only content, alternatives to gestures
 
-**Rule.** Nothing is reachable only by hovering: tooltips, menus and previews also open on tap and on keyboard focus. Every gesture (swipe, long press, pinch, multi-finger) has a visible on-screen alternative. On phones, the main action of a long screen stays reachable without scrolling back up.
+**Rule.** Nothing is reachable only by hovering: tooltips, menus and previews also open on tap and on keyboard focus. Every gesture (swipe, long press, pinch, multi-finger, drag) has a visible on-screen alternative. On phones, the main action of a long screen stays reachable without scrolling back up.
 
-**Why.** Touch screens have no hover, and gestures are invisible until learned. Apple asks for an on-screen alternative to every gesture (for example a delete button as well as swipe) and the simplest gesture for frequent actions. NN/g notes that tooltips are a desktop and keyboard pattern; on touch, use tap-triggered tips.
+**Why.** Touch screens have no hover, and gestures are invisible until learned; some people cannot perform them at all. A function that exists only behind a gesture does not exist for them.
 
-**How to check.** On a touch device or emulator, try to reach every tooltip, menu and hidden action. With the keyboard only, Tab to every control that has a hover effect. Pass: all content and actions reachable by tap and by keyboard; every swipe action also exists as a button or menu item; on a phone, the primary action of a screen taller than the viewport is pinned or repeated (ours).
+**How to check.**
+- On a touch device or emulator, try to reach every tooltip, menu and hidden action.
+- With the keyboard only, Tab to every control that has a hover effect.
+- Every swipe or drag action also exists as a button or menu item.
+- Content that appears on hover or focus can be dismissed without moving the pointer, can be hovered itself, and stays until dismissed.
+- On a phone, the primary action of a screen taller than the viewport is pinned or repeated.
+
+**Thresholds.** Keyboard access to all functions [WCAG 2.1.1 A]; content on hover or focus dismissible, hoverable, persistent [WCAG 1.4.13 AA]; single-pointer alternative to path-based and multi-point gestures [WCAG 2.5.1 A]; alternative to dragging [WCAG 2.5.7 AA]; on-screen alternative to every gesture [platform: Apple HIG].
 
 **Bad → Good.** In Acme's order list, "Archive" exists only as a swipe-left gesture → swipe stays, and the order's menu also has "Archive".
 
-**Limits.** Pure enhancements (a hover highlight on a row) need no alternative if they carry no information. Thumb-reach maps are a heuristic; the placement of the primary action at the bottom of phone screens is a convention, not a measured law (see disputed.md for "corners are hard to reach").
+**Limits.** Pure enhancements (a hover highlight on a row) need no alternative if they carry no information. Where the thumb reaches easily is a rough map, not a measured law.
 
-**Evidence.** Platform guideline (HIG) and Heuristic (NN/g, thumb reach).
+**Conflicts.** S-6, S-9.
 
-**Sources.** Apple HIG (Accessibility, gestures); WCAG 2.2 (1.4.13 content on hover or focus, 2.1.1 keyboard); NN/g (Tooltip guidelines, 2019); Figma Resource Library (Mobile website design; Pricing page best practices — tap tooltips); secondary: Baymard (hover menus need a delay of about 300-500 ms on desktop).
+**Evidence.** Standard and Platform guideline.
 
 ## PLAT-3. Load fast and keep the layout still
 
 **Rule.** The main content appears quickly, the page answers input quickly, and nothing jumps while it loads. Images and embeds reserve their space before they arrive.
 
-**Why.** Slow pages lose people before the first task starts, and layout shifts cause mis-taps. Google's Core Web Vitals set "good" thresholds at the 75th percentile of page loads: Largest Contentful Paint ≤ 2.5 s, Interaction to Next Paint ≤ 200 ms, Cumulative Layout Shift ≤ 0.1 (poor: > 4 s, > 500 ms, > 0.25).
+**Why.** Slow pages lose people before the first task starts, and layout shifts cause mis-taps: a button moves just as the finger lands, and the wrong product is opened or the wrong order confirmed.
 
-**How to check.** Run a lab test (browser performance panel or a Lighthouse-type tool) with mobile throttling, and field data where available. Pass: LCP ≤ 2.5 s, INP ≤ 200 ms, CLS ≤ 0.1. Check that every image, video and ad slot has width and height (or an aspect ratio) set, and that web fonts do not shift text when they load.
+**How to check.**
+- Run a lab test (the browser's performance panel or a similar tool) with mobile throttling, and use field data where available.
+- Every image, video and ad slot has width and height or an aspect ratio set; web fonts do not shift text when they load.
 
-**Bad → Good.** Acme Shop's product list shifts down when the promo banner loads, and a shopper taps the wrong product → the banner's space is reserved; CLS drops from 0.3 to 0.02.
+**Thresholds.** At the 75th percentile of page loads: largest contentful paint ≤ 2.5 s (poor > 4 s), interaction to next paint ≤ 200 ms (poor > 500 ms), cumulative layout shift ≤ 0.1 (poor > 0.25) [platform: Core Web Vitals].
 
-**Limits.** These thresholds are for web pages; native apps follow their platform's responsiveness guidance (see ACT-2 for response times).
+**Bad → Good.** Acme Shop's product list shifts down when the promo banner loads, and a shopper taps the wrong product → the banner's space is reserved; layout shift drops from 0.3 to 0.02.
 
-**Evidence.** Platform guideline (Google, web.dev Core Web Vitals, thresholds derived from Google's research).
+**Limits.** These thresholds are for web pages; native apps follow their platform's responsiveness guidance (ACT-2 for response times).
 
-**Sources.** web.dev (Core Web Vitals thresholds); NN/g (Response times, 1993/2014); secondary: uxpilot (performance budgets, unsourced), Figma Resource Library (Responsive website design).
+**Conflicts.** C-12.
+
+**Evidence.** Platform guideline.

@@ -8,7 +8,7 @@ no code.
 | Plugin | For | Adds |
 |---|---|---|
 | [`growth`](plugins/growth/README.md) | research a market and run marketing | skill `growth`: step-by-step research of competitors and markets from open data, Telegram and Central Asia first; content tools in a clone: posts, carousels, stories, reels with sound, content plan, UTM links, weekly report |
-| [`design`](plugins/design/README.md) | design and review of interfaces | skill `ui-rules`: 46 checkable rules in 10 groups on WCAG 2.2, NN/g, Baymard, Apple HIG, Material 3, Laws of UX and others, with evidence strength, conflicts, severity calibration and worked cases |
+| [`design`](plugins/design/README.md) | design and review of interfaces | skill `ui-rules`: 52 checkable rules in 12 groups on WCAG 2.2, NN/g, Baymard, Apple HIG, Material 3, Laws of UX and others, with thresholds by kind, evidence strength, conflicts, severity calibration, a project profile, example screens with answer keys and a measuring script |
 | [`review`](plugins/review/README.md) | changes that can be merged without trusting the author's word | agent `code-reviewer`: acceptance criteria to `file:line` and tests, access, tenant isolation, money, migrations, secrets; runs lint, types and tests |
 
 Русская версия: [README.ru.md](README.ru.md).
@@ -39,7 +39,7 @@ To try a local checkout: `claude plugin marketplace add /path/to/fntasy-studio`,
 
 ## design is being rewritten
 
-Everything of `design` 0.3.0 was removed: skill `design-review`, command `audit`, agent `design-reviewer`, the review gate hook, the measurement scripts and checklists. The new plugin is written from new materials; the first part is the skill `ui-rules` (0.4.0).
+Everything of `design` 0.3.0 was removed: skill `design-review`, command `audit`, agent `design-reviewer`, the review gate hook, the measurement scripts and checklists. The new plugin is written from new materials; the first part is the skill `ui-rules` (0.5.0).
 
 ## What changed in design 0.3.0
 

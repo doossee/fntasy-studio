@@ -36,6 +36,7 @@ Severity moves with three factors. Write them down for every finding of score 3 
 ## Rules for scoring
 
 - A WCAG A or AA failure on a main path is at least 3; it is 4 when it blocks the task or hides a number people must check.
-- A finding based only on a rule marked *Disputed*, *Heuristic* or *Analogy* can be scored above 2 only if the harm is shown on the screen (a failed step, a wrong number, a measured contrast).
+- A finding that rests only on a rule whose Evidence is *Contested* or *Practice*, or only on a `profile:` threshold, can be scored above 2 only if the harm is shown on the screen (a failed step, a wrong number, a measured contrast).
+- A *Standard* threshold (WCAG A or AA) is a requirement whatever the profile says; AAA criteria are targets unless the profile adopts them.
 - A defect in a shared component or a design token is scored by its worst place, and the report says it affects every screen that uses it.
 - Several findings with one cause are one finding with a list of places (see `method.md`).

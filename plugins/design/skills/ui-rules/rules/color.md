@@ -1,58 +1,92 @@
 # Colour
 
-How colour is used: enough contrast for text and controls in every theme, never as the only signal, and one job per colour.
+How colour is used: enough contrast for text and controls in every theme, never as the only signal, one job per colour, and a dark theme that is designed rather than inverted.
 
 ## Review questions
 
 - Does every text and every control boundary meet its contrast ratio, in light and dark themes?
 - If the screen were greyscale, could you still tell errors, statuses, links and the selected item apart?
-- Does the accent colour mark only actions, and only the main one stand out?
+- Does the accent colour mark only actions, and does only the main one stand out?
 - Does each colour mean one thing across the product?
+- In the dark theme, are levels, states and brand colours still clear, without glare or muddy grey?
 
 ## COLOR-1. Meet contrast for text and controls in every theme
 
-**Rule.** Text has a contrast ratio of at least 4.5:1 against its background, large text at least 3:1. Boundaries and states of controls (input borders, focus rings, selected tabs, icons that carry meaning) have at least 3:1 against what is next to them. This holds in every theme the product offers and for text placed over images.
+**Rule.** Text meets the contrast ratio against its background; boundaries and states of controls (input borders, focus rings, selected tabs, icons that carry meaning) meet the non-text ratio against what is next to them. This holds in every theme the product offers and for text placed over images.
 
-**Why.** Low contrast makes text unreadable for people with low vision, on cheap screens and outdoors. WCAG 2.2 makes these ratios a requirement: 1.4.3 Contrast (Minimum) — 4.5:1 for text, 3:1 for large text (at least 18 pt, or 14 pt bold); 1.4.11 Non-text Contrast — 3:1 for UI components and meaningful graphics. Apple and Material use the same values, and Material asks 3:1 for navigation bar icons against their container.
+**Why.** Low contrast makes text unreadable for people with low vision, on cheap screens and outdoors, and makes controls invisible as controls. "Subtle grey" is the most common way an attractive screen excludes people.
 
-**How to check.** Measure foreground/background pairs with a contrast checker or the browser's accessibility panel, in each theme. For text over images, measure against the lightest and darkest area behind the text. Pass: all text ≥ 4.5:1 (≥ 3:1 if large); input borders, focus indicators and state markers ≥ 3:1. Disabled controls are exempt, but their label should still be legible.
+**How to check.**
+- Measure foreground/background pairs with a contrast checker or the browser's accessibility panel, in each theme.
+- For text over images, measure against the lightest and the darkest area behind the text.
+- Measure input borders, focus indicators and state markers against the adjacent colours.
 
-**Bad → Good.** Acme's grey placeholder-style field labels at 2.9:1 and a light-grey input border at 1.6:1 → labels at 7:1, borders at 3.2:1.
+**Thresholds.** Text ≥ 4.5:1; large text (at least 18 pt, or 14 pt bold) ≥ 3:1 [WCAG 1.4.3 AA]; UI components and meaningful graphics ≥ 3:1 [WCAG 1.4.11 AA].
 
-**Limits.** Logos and purely decorative graphics are exempt. Brand colours may need a darker or lighter variant for text use.
+**Bad → Good.** Acme's grey field labels at 2.9:1 and a light-grey input border at 1.6:1 → labels at 7:1, borders at 3.2:1.
 
-**Evidence.** Standard (WCAG 2.2, AA).
+**Limits.** Logos, purely decorative graphics and disabled controls are exempt, though a disabled label should still be legible. Brand colours may need a darker or lighter variant for text.
 
-**Sources.** WCAG 2.2 (1.4.3, 1.4.11); Apple HIG (Accessibility, Color); Material 3 (Color contrast, Navigation bar); secondary: Figma Resource Library (Typography in design), uxpilot.
+**Evidence.** Standard.
 
 ## COLOR-2. Never use colour as the only signal
 
 **Rule.** Every meaning carried by colour is also carried by something else: a word, an icon, a shape, an underline, a position or a pattern. This applies to errors, statuses, links in text, selected items, required fields and chart series.
 
-**Why.** About one in twelve men has some colour vision deficiency (a commonly cited figure; source varies), and colour also fails on monochrome displays, in bright light and in print. WCAG 2.2 1.4.1 (Level A) forbids colour as the only visual means of conveying information.
+**Why.** A noticeable share of people, mostly men, do not tell some colours apart, and colour also fails on monochrome displays, in bright light and in print. A red amount that means "overdue" is just a number to them.
 
-**How to check.** View the screen in greyscale or with a colour-vision simulator. Pass: you can still tell an error field from a normal one, a paid order from an overdue one, a link from plain text, the selected tab from the others and chart series from each other.
+**How to check.** View the screen in greyscale or with a colour-vision simulator. You can still tell an error field from a normal one, a paid order from an overdue one, a link from plain text, the selected tab from the others, and chart series from each other.
+
+**Thresholds.** Colour is not the only visual means of conveying information [WCAG 1.4.1 A].
 
 **Bad → Good.** Acme's order list shows overdue orders with a red amount only → the amount stays red and gets an "Overdue" badge with an icon.
 
-**Limits.** Colour may be the only signal for decoration or when the text already says the same thing.
+**Limits.** Colour may be the only signal for decoration, or when text next to it already says the same thing.
 
-**Evidence.** Standard (WCAG 2.2, A).
-
-**Sources.** WCAG 2.2 (1.4.1); Apple HIG (Color, Accessibility); NN/g (Error-message guidelines, 2023; Visual hierarchy, 2021); secondary: Figma Resource Library (Accessible & inclusive design), IxDF (colour topic, as pointer).
+**Evidence.** Standard.
 
 ## COLOR-3. Give each colour one job
 
-**Rule.** Each colour has one meaning across the product: the accent marks interactive and primary actions, semantic colours mark states (error, warning, success, information), neutrals carry structure and text. The brand colour is not used for non-interactive text. Every colour has light and dark (and, where offered, high-contrast) variants defined as tokens by role.
+**Rule.** Each colour has one meaning across the product: the accent marks interactive and primary actions, semantic colours mark states (error, warning, success, information), neutrals carry structure and text. The brand colour is not used for non-interactive text. Colours are defined as tokens named by role, with a value for each theme.
 
-**Why.** When the accent also decorates headings and illustrations, people can no longer tell what is clickable, and the primary action stops standing out (see LAYOUT-3). Apple asks to use each colour for one consistent meaning, not to reuse brand colours for non-interactive text, and to provide light, dark and increased-contrast variants.
+**Why.** When the accent also decorates headings and illustrations, people can no longer tell what is clickable, and the primary action stops standing out (LAYOUT-3). When red means both "error" and "sale", people learn to ignore it.
 
-**How to check.** List every colour used on three main screens and write the job of each. Pass: every colour has one job; the accent appears only on interactive elements; error red is used only for errors; each colour token is named by role (e.g. `text-secondary`, `action-primary`) and has a dark-theme value. The number of hues is small enough that each role is distinct (ours: about 1 accent + semantic set + neutrals).
+**How to check.**
+- List every colour used on three main screens and write the job of each: one job each.
+- The accent appears only on interactive elements; error red is used only for errors.
+- Each colour token is named by role (`text-secondary`, `action-primary`) and has a value in every theme.
+
+**Thresholds.** One consistent meaning per colour; brand colours not used for non-interactive text [platform: Apple HIG].
 
 **Bad → Good.** Acme uses its brand green for section titles, success messages and the "Pay" button → green only for "Pay" and other primary actions; success uses a distinct green with an icon; titles use the text colour.
 
-**Limits.** Charts may need more hues than the UI; give them their own palette, still checked for contrast and distinguishability. The "60-30-10" proportion rule comes from interior design and has no evidence for interfaces (see disputed.md).
+**Limits.** Charts may need more hues than the interface; give them their own palette, still checked for contrast and for telling series apart. Proportion rules such as 60-30-10 come from interior design and have no evidence for interfaces (`disputed.md`).
 
-**Evidence.** Platform guideline (Apple) and Heuristic (design-system practice).
+**Conflicts.** S-7.
 
-**Sources.** Apple HIG (Color); Material 3 (Color system); NN/g (Visual hierarchy, 2021); Figma Resource Library (Design tokens; Types of color palettes); secondary: "58 rules" (Bakusevych), IBM design principles.
+**Evidence.** Platform guideline and Practice.
+
+## COLOR-4. Design the dark theme; don't invert the light one
+
+**Rule.** A dark theme has its own palette: dark grey rather than pure black surfaces, off-white rather than pure white text, lighter surfaces for higher levels (where light themes use shadows), and accent and semantic colours adjusted so they stay readable without glowing. Every contrast check is repeated in the dark theme. Images, illustrations, charts and brand marks have dark-theme versions where the light ones fail. The product follows the system setting unless the person chooses otherwise.
+
+**Why.** Inverted colours break hierarchy (shadows vanish on black), make saturated colours vibrate against dark backgrounds, and turn white-background images into glaring blocks. Pure white text on pure black blurs for many people with astigmatism; very dark grey text on dark grey disappears. A theme that is not checked separately is where contrast failures hide.
+
+**How to check.**
+- Switch the system to dark mode (or emulate `prefers-color-scheme: dark`) and walk the main task.
+- Repeat every COLOR-1 measurement in the dark theme: text, borders, focus rings, icons, chart lines.
+- Levels: a raised card or a sheet is distinguishable from the page without a shadow.
+- Accent and semantic colours: readable as text on dark surfaces, not glowing; error and success still distinguishable.
+- Images and logos with white or transparent backgrounds: no glaring rectangles, no black logo on black.
+- Text inputs, scrollbars and native controls follow the theme (`color-scheme` on the web).
+- The setting follows the system by default and the person's choice is remembered.
+
+**Thresholds.** The same ratios as COLOR-1 in every theme [WCAG 1.4.3, 1.4.11 AA]; light, dark and increased-contrast variants of colours [platform: Apple HIG, Material 3].
+
+**Bad → Good.** Acme's dark theme is a CSS inversion: the brand blue turns orange, product photos become negatives, cards lose their shadows and merge with the page, and the secondary text is #555 on #121212 (2.5:1) → a designed palette: page #121212, cards #1E1E1E, secondary text #A0A0A0 (7:1), brand blue lightened for text, photos untouched.
+
+**Limits.** A product may ship without a dark theme; then the light theme must still respect the system's increased-contrast setting where the platform offers it. Whether a dark theme is offered at all is a product decision, not a defect.
+
+**Conflicts.** C-17.
+
+**Evidence.** Standard (contrast in every theme) and Platform guideline (dark-theme palettes and levels); the astigmatism remark is Practice, not a measurement.

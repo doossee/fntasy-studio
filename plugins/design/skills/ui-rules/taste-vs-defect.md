@@ -23,7 +23,7 @@ Before writing a finding, answer three questions:
 | "Rounded corners would be friendlier" | Brand choice | Never |
 | "Use a serif for trust" | No usable evidence | Never by itself |
 | "Add an animation, it feels static" | Motion is not required | Never; the opposite (motion that delays) is the defect |
-| "Icons would look better without labels" | Cleaner look | Removing labels from non-universal icons is a defect (EXP-5) |
+| "Icons would look better without labels" | Cleaner look | Removing labels from non-universal icons is a defect (EXP-7) |
 | "Only two font sizes — not enough hierarchy" | Two sizes can be enough | If headings and body cannot be told apart |
 | "The competitor does it differently" | Not a user loss | If the convention is what users expect (EXP-1) and it is checked across several products, not one |
 
@@ -34,7 +34,7 @@ These are often waved away as "style" but are defects:
 - Light grey text on white (measure it: COLOR-1).
 - Text over a photo without a scrim (COLOR-1).
 - Placeholder used as the only label (STATE-3).
-- Icon-only navigation with unfamiliar icons (EXP-5).
+- Icon-only navigation with unfamiliar icons (EXP-7).
 - All-caps body text or long all-caps labels (TEXT-2).
 - Removing the focus outline "because it is ugly" (STATE-1).
 - An attractive screen where people still fail the task (HONEST-4).
