@@ -12,6 +12,8 @@ How things move on the screen: transitions, feedback animations, loading effects
 
 ## MOTION-1. Animate only to explain; keep it short; let people turn it off
 
+**Lens.** UI.
+
 **Rule.** Use motion only to show cause and effect, where something came from or went, or what changed. Start it at once after the action that caused it, keep it brief, and never let it delay an action people repeat many times a day. Respect the system "reduce motion" setting: replace movement with a fade or an instant change. Nothing moves, blinks or plays sound on its own without a visible way to stop it.
 
 **Why.** A change that starts at once is felt as caused by the action; a late one breaks the link. Motion pulls attention whether people want it or not, so decorative motion competes with the task. Large movement, zoom and parallax make some people physically unwell. A long animation on a frequent action adds waiting to every repetition.

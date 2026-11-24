@@ -11,6 +11,8 @@ How screens adapt to window size and input type, and how fast they load and sett
 
 ## PLAT-1. Adapt to the window, not the device, and keep every function
 
+**Lens.** UI and UX.
+
 **Rule.** Layout changes are driven by the available window width (and height where it matters), not by guessing the device. Every function and every piece of content available at one size is available at every other size; small windows rearrange or stack, they do not drop features.
 
 **Why.** Windows change size with rotation, split screen, foldable phones and zoom, so "phone" and "desktop" are not fixed. A feature that disappears at one width is a feature some people never get, often the ones on the cheapest devices.
@@ -30,6 +32,8 @@ How screens adapt to window size and input type, and how fast they load and sett
 **Evidence.** Standard and Platform guideline.
 
 ## PLAT-2. Touch is not hover: no hover-only content, alternatives to gestures
+
+**Lens.** UX.
 
 **Rule.** Nothing is reachable only by hovering: tooltips, menus and previews also open on tap and on keyboard focus. Every gesture (swipe, long press, pinch, multi-finger, drag) has a visible on-screen alternative. On phones, the main action of a long screen stays reachable without scrolling back up.
 
@@ -53,6 +57,8 @@ How screens adapt to window size and input type, and how fast they load and sett
 **Evidence.** Standard and Platform guideline.
 
 ## PLAT-3. Load fast and keep the layout still
+
+**Lens.** UI and UX.
 
 **Rule.** The main content appears quickly, the page answers input quickly, and nothing jumps while it loads. Images and embeds reserve their space before they arrive.
 

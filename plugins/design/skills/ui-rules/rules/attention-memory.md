@@ -13,6 +13,8 @@ The four rules have clear borders. MEM-1 is about what is on the screen now. MEM
 
 ## MEM-1. Spend attention only on the task; reveal the rest progressively
 
+**Lens.** UX.
+
 **Rule.** Everything on the screen that is not needed for the current task has to earn its place. Show the few most important options first and put advanced ones behind a clearly labelled control, at a shallow depth. People must never work out how the interface works on top of doing their task.
 
 **Why.** Understanding an interface takes mental effort, and the amount available is small; effort spent decoding labels, decoration and needless choices is taken from the task. Hiding advanced options helps when the split between first and later options matches real use; deep layers make people lost.
@@ -33,6 +35,8 @@ The four rules have clear borders. MEM-1 is about what is on the screen now. MEM
 **Evidence.** Research, applied: cognitive load was measured in learning tasks; progressive disclosure is supported by usability studies of applications.
 
 ## MEM-2. Never make people carry facts between screens
+
+**Lens.** UX.
 
 **Rule.** What a person needs to decide is visible where they decide it. They do not retype or remember a number, a code, a name or an earlier choice: it is shown, prefilled or selectable. A confirmation states exactly what is being confirmed. When something must be held in mind without being seen (digits of a code, options read out by voice, instructions given before a task), the set is kept to a few items.
 
@@ -56,6 +60,8 @@ The four rules have clear borders. MEM-1 is about what is on the screen now. MEM
 
 ## MEM-3. Split long content into named chunks
 
+**Lens.** UI and UX.
+
 **Rule.** Long strings, texts and forms are split into short groups with a visible break. Numbers people read or type are grouped (card numbers by four, phone numbers in the local format). Text comes in short paragraphs under headings that say what is inside. Long forms come in named sections.
 
 **Why.** People take in information in meaningful pieces. A few named pieces are easier to read, check and keep in mind than one long run, and a heading lets people skip what they do not need.
@@ -75,6 +81,8 @@ The four rules have clear borders. MEM-1 is about what is on the screen now. MEM
 **Evidence.** Research: chunking is well established; the thresholds are team choices.
 
 ## MEM-4. Put messages where the eye already is; never style content like an ad
+
+**Lens.** UI and UX.
 
 **Rule.** Messages and changes appear where attention is at that moment: next to the field, button or item just used. Errors are never shown only in toasts that disappear. Important content does not look like advertising and does not sit in places people learn to skip (a banner strip at the top, a right-hand column).
 

@@ -11,6 +11,8 @@ Tables, lists of records and the numbers inside them: what people scan, compare,
 
 ## DATA-1. Make tables people can scan, compare and act on, on every screen
 
+**Lens.** UI and UX.
+
 **Rule.** Columns are ordered by importance, with the column that identifies the row first. Text is start-aligned, numbers are end-aligned with tabular figures and the same number of decimals, and column headers align with their content. Headers stay visible while scrolling long tables. Sortable columns show that they can be sorted and which way they are sorted. Row actions sit in a consistent place, and the whole row is not a hidden link next to visible buttons. On narrow windows the table keeps its key columns and lets the rest scroll inside the table, or turns rows into cards with the same fields in the same order.
 
 **Why.** People use tables to look up one row and to compare values down a column. Numbers aligned by their last digit can be compared at a glance; misaligned ones must be read one by one. A table squeezed into a phone by hiding columns silently removes the data someone came for.
@@ -36,6 +38,8 @@ Tables, lists of records and the numbers inside them: what people scan, compare,
 **Evidence.** Practice (data-table guidance of design systems) and Standard (table structure).
 
 ## DATA-2. Show numbers, units and dates people can check
+
+**Lens.** UI and UX.
 
 **Rule.** Every number that people check or act on carries its unit and currency, uses the person's locale for separators, and shows the precision the task needs — no more, no less. Large numbers are grouped; abbreviated ones ("12.4k") show the exact value on demand. Amounts, identifiers and dates are never truncated. Relative dates ("2 days ago") show the absolute date on demand, and dates that matter (deadlines, delivery, billing) are shown absolute with the weekday when it helps. Time zones are stated when people in different zones see the same time. Negative values and changes show the sign and a word or icon, not only colour.
 

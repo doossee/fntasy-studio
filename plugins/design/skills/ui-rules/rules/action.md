@@ -14,6 +14,8 @@ How much a person has to do, decide and wait to get a task done: the size and pl
 
 ## ACT-1. Make targets big enough and keep dangerous ones apart
 
+**Lens.** UI and UX.
+
 **Rule.** Every interactive element has a hit area big enough for a fingertip on touch screens and never below the WCAG minimum. A checkbox or radio button and its label form one hit area. The targets used most are large and close to where the thumb or pointer already is; destructive actions are not placed right next to frequent ones.
 
 **Why.** The time to hit a target grows with its distance and shrinks with its size, and a fingertip covers far more than a mouse pointer. A small target costs repeated taps; a dangerous target next to a frequent one gets hit by accident.
@@ -35,6 +37,8 @@ How much a person has to do, decide and wait to get a task done: the size and pl
 **Evidence.** Standard and Platform guideline; the movement-time relation behind it is among the best replicated results in human movement research.
 
 ## ACT-2. Respond within 0.1 s; show progress after 1 s; never allow a double submit
+
+**Lens.** UX.
 
 **Rule.** Every action gets a visible response at once: the pressed state, the item added, the screen changed. If the result takes longer than about a second, the screen shows that work has started; for long waits it shows progress and offers a way to stop. A button that sends a request cannot be pressed again while the request runs.
 
@@ -59,6 +63,8 @@ How much a person has to do, decide and wait to get a task done: the size and pl
 
 ## ACT-3. Few, ordered, comparable options at each decision; recommend one
 
+**Lens.** UX.
+
 **Rule.** At each point where people decide what to do next, the options are few, in a sensible order (by frequency, alphabet or size), and the recommended one is visibly marked when the product can know it. Long sets are grouped or narrowed with search and filters. When people pick one of several comparable items (plans, slots, templates), the items show the same attributes in the same order so they can be compared line by line.
 
 **Why.** Choosing among known, ordered options is fast and grows slowly with their number; an unordered list of unfamiliar items is scanned one by one, so every item adds time. Large sets sometimes make people put off the choice, but the effect is unstable: it appears when options are hard to compare and the person has no clear preference, and often does not appear at all. So the rule targets order and comparability, not a magic count.
@@ -80,6 +86,8 @@ How much a person has to do, decide and wait to get a task done: the size and pl
 
 ## ACT-4. Give the best places to the few most frequent tasks
 
+**Lens.** UX.
+
 **Rule.** Find the few tasks that make up most of the use of a screen. They get the best places: the first screen, the largest targets, one tap from the start, and the first positions in bars and menus. Everything else can be one level deeper. Frequent desktop actions also get keyboard shortcuts.
 
 **Why.** Use is spread unevenly: a few features carry most of it. Designing every feature as equally important serves the rarely used ones at the cost of the few that matter. In short bars and menus, the start (and to a lesser degree the end) is found and remembered most easily; the middle is where the rarely used items belong.
@@ -100,6 +108,8 @@ How much a person has to do, decide and wait to get a task done: the size and pl
 **Evidence.** Practice (frequent tasks first, accelerators for experts); Research, applied for first and last positions (measured on memory for lists).
 
 ## ACT-5. Show progress honestly in multi-step tasks
+
+**Lens.** UX.
 
 **Rule.** A task with several steps shows where the person is and how much is left: "Step 2 of 4", a progress bar or a checklist. Steps already done, by the person or by the product, count from the start. The count never grows near the end.
 
@@ -123,6 +133,8 @@ How much a person has to do, decide and wait to get a task done: the size and pl
 
 ## ACT-6. Ask for as little as possible; let the product do the work
 
+**Lens.** UX.
+
 **Rule.** Every field and every decision in a task is needed for the result. What the product can know or work out (from earlier data, the device, a lookup or a sensible default) it fills in itself. Before a task longer than one screen, the screen says how long it is.
 
 **Why.** Every task has some complexity that cannot be removed: it either sits with the product or lands on the person as extra fields and errors. Every field costs time and is one more chance to make a mistake; split name fields, for example, make people type their full name into the first one.
@@ -143,6 +155,8 @@ How much a person has to do, decide and wait to get a task done: the size and pl
 **Evidence.** Research (form and checkout testing, mostly e-commerce in the US and Europe) and Practice.
 
 ## ACT-7. Accept the ways people type; show the right keyboard
+
+**Lens.** UX.
 
 **Rule.** Fields accept the formats people naturally use (spaces, dashes and brackets in phone numbers; spaces in card numbers; a comma or a dot in amounts; a pasted value with extra spaces) and turn them into one clean format. Ambiguous input is never guessed. On phones, each field opens the keyboard that fits it, and names, addresses and emails are not autocorrected.
 
@@ -165,6 +179,8 @@ How much a person has to do, decide and wait to get a task done: the size and pl
 
 ## ACT-8. Don't interrupt a task in progress
 
+**Lens.** UX.
+
 **Rule.** While a person is doing the main task, nothing appears that they did not ask for: no pop-ups, rating requests, promotions, chat prompts or tours. Feedback comes at once and in place. Requests for ratings, upgrades or surveys come after a task is finished, and rarely.
 
 **Why.** Focused work needs clear goals, immediate feedback and no breaks; every interruption costs the time to get back and sometimes the task itself. A pop-up in the middle of typing also takes keystrokes meant for the form.
@@ -186,6 +202,8 @@ How much a person has to do, decide and wait to get a task done: the size and pl
 
 ## ACT-9. Keep unfinished work and show the way back
 
+**Lens.** UX.
+
 **Rule.** When a task is left half done (a draft order, a cart, an unfinished setup, a closed dialog with a form), the product keeps what was entered, shows that it is unfinished, and offers a direct way back to the exact step. Long multi-session processes have an explicit "save and return".
 
 **Why.** People tend to go back to an interrupted task when they get the chance. A product that keeps the work makes the return easy; one that loses it turns the return into frustration and retyping. (A popular claim that unfinished tasks are also remembered better did not hold up; the rule does not rely on it.)
@@ -202,6 +220,8 @@ How much a person has to do, decide and wait to get a task done: the size and pl
 **Evidence.** Research for resumption of interrupted tasks; Contested for the memory claim, which this rule does not use.
 
 ## ACT-10. Design the worst moment and the last moment
+
+**Lens.** UX.
 
 **Rule.** For each main task, find its worst moment (usually an error, a wait or a loss) and its last moment (the result). The error is clear, specific and recoverable, and keeps what was entered. The result screen says plainly what was done, with its key facts, and what comes next.
 

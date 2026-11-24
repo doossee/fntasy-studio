@@ -13,6 +13,8 @@ How text is sized, set and worded on screens: the type scale, how easy body text
 
 ## TEXT-1. Use a short type scale with clear steps
 
+**Lens.** UI.
+
 **Rule.** Use a small set of text sizes and weights, each with one role (page title, section title, body, secondary, caption). Neighbouring steps differ enough to be told apart at a glance. Very thin weights are not used for small text.
 
 **Why.** Hierarchy is read from differences in size and weight; many near-identical sizes read as noise rather than as levels. Thin strokes at small sizes lose legibility, especially on low-resolution screens and in dark themes.
@@ -31,6 +33,8 @@ How text is sized, set and worded on screens: the type scale, how easy body text
 **Evidence.** Practice; Platform guideline for thin weights.
 
 ## TEXT-2. Make body text easy to read
+
+**Lens.** UI.
 
 **Rule.** Body text is at least the platform's default size, start-aligned (left in left-to-right languages, right in right-to-left ones), not justified, in lines of reasonable length, with comfortable line height. Long passages are not set in capitals.
 
@@ -53,6 +57,8 @@ How text is sized, set and worded on screens: the type scale, how easy body text
 
 ## TEXT-3. Text must survive 200% zoom, wider spacing and 320 px
 
+**Lens.** UI.
+
 **Rule.** When text is enlarged to 200%, when line, paragraph, letter and word spacing are increased, or when the window is 320 CSS px wide, no text is cut off, overlapped or hidden, and nothing needs sideways scrolling. Essential text (amounts, names, errors, button labels) is never truncated.
 
 **Why.** People with low vision enlarge text and change spacing. Designs with fixed-height boxes and single-line labels break first, and what breaks is usually the button label or the amount.
@@ -74,6 +80,8 @@ How text is sized, set and worded on screens: the type scale, how easy body text
 
 ## TEXT-4. Write labels and messages in plain, specific words
 
+**Lens.** UX.
+
 **Rule.** Buttons start with a verb and name the result ("Record payment", "Send invoice"), not "OK", "Submit" or "Continue". Messages use the words users use, short sentences and one idea per sentence. The same thing has the same name everywhere, and the tone is consistent.
 
 **Why.** People read the button, not the paragraph around it; a specific label tells them what will happen. Plain language helps everyone, and helps most the people who read slowly, read in a second language or are under stress — experts included.
@@ -92,6 +100,8 @@ How text is sized, set and worded on screens: the type scale, how easy body text
 **Evidence.** Research (plain language raised task success in usability tests) and Platform guideline.
 
 ## TEXT-5. Make text ready for other languages, scripts and formats
+
+**Lens.** UI and UX.
 
 **Rule.** Every string can grow, wrap and change direction without breaking the screen. Text is never built by gluing fragments together, never baked into images, and plurals use the language's own forms. Dates, times, numbers, currencies, names and addresses follow the person's locale. In right-to-left languages the layout mirrors, while numbers, Latin brand names and media controls keep their direction.
 

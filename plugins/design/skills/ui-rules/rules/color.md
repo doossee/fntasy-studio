@@ -12,6 +12,8 @@ How colour is used: enough contrast for text and controls in every theme, never 
 
 ## COLOR-1. Meet contrast for text and controls in every theme
 
+**Lens.** UI.
+
 **Rule.** Text meets the contrast ratio against its background; boundaries and states of controls (input borders, focus rings, selected tabs, icons that carry meaning) meet the non-text ratio against what is next to them. This holds in every theme the product offers and for text placed over images.
 
 **Why.** Low contrast makes text unreadable for people with low vision, on cheap screens and outdoors, and makes controls invisible as controls. "Subtle grey" is the most common way an attractive screen excludes people.
@@ -31,6 +33,8 @@ How colour is used: enough contrast for text and controls in every theme, never 
 
 ## COLOR-2. Never use colour as the only signal
 
+**Lens.** UI.
+
 **Rule.** Every meaning carried by colour is also carried by something else: a word, an icon, a shape, an underline, a position or a pattern. This applies to errors, statuses, links in text, selected items, required fields and chart series.
 
 **Why.** A noticeable share of people, mostly men, do not tell some colours apart, and colour also fails on monochrome displays, in bright light and in print. A red amount that means "overdue" is just a number to them.
@@ -46,6 +50,8 @@ How colour is used: enough contrast for text and controls in every theme, never 
 **Evidence.** Standard.
 
 ## COLOR-3. Give each colour one job
+
+**Lens.** UI.
 
 **Rule.** Each colour has one meaning across the product: the accent marks interactive and primary actions, semantic colours mark states (error, warning, success, information), neutrals carry structure and text. The brand colour is not used for non-interactive text. Colours are defined as tokens named by role, with a value for each theme.
 
@@ -67,6 +73,8 @@ How colour is used: enough contrast for text and controls in every theme, never 
 **Evidence.** Platform guideline and Practice.
 
 ## COLOR-4. Design the dark theme; don't invert the light one
+
+**Lens.** UI.
 
 **Rule.** A dark theme has its own palette: dark grey rather than pure black surfaces, off-white rather than pure white text, lighter surfaces for higher levels (where light themes use shadows), and accent and semantic colours adjusted so they stay readable without glowing. Every contrast check is repeated in the dark theme. Images, illustrations, charts and brand marks have dark-theme versions where the light ones fail. The product follows the system setting unless the person chooses otherwise.
 

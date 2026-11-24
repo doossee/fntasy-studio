@@ -12,6 +12,8 @@ How the eye splits a screen into blocks before anyone reads a word: how many blo
 
 ## LAYOUT-1. Keep the screen to a few simple blocks; every element has a job
 
+**Lens.** UI and UX.
+
 **Rule.** Blurred, the screen reads as a small number of simple blocks: a header, one main area, perhaps a side panel, and a few groups inside them. Every element can be explained by a task it serves; decoration and repetition that serve no task are removed.
 
 **Why.** People see a busy picture as the simplest shape it can be. When the layout is not simple, the eye makes its own grouping, which may not be the intended one. Every extra element is one more thing to see and judge, so it has to pay for itself.
@@ -33,6 +35,8 @@ How the eye splits a screen into blocks before anyone reads a word: how many blo
 
 ## LAYOUT-2. Group by distance first, then a shared box, then a connecting line
 
+**Lens.** UI.
+
 **Rule.** Things that belong together sit closer to each other than to anything else: the gap between groups is clearly larger than the gap inside one, and a label is closer to its own field than to any other. Use a box (background, border, card) only when a group needs a stronger edge than distance gives, and a connecting line only when order or a link between items matters (steps, parent and children).
 
 **Why.** People see nearby objects as one group before they read them. A shared bounded area and a visible connection are stronger cues and override distance. Overused, they stop meaning anything; misplaced, they group the wrong things.
@@ -53,6 +57,8 @@ How the eye splits a screen into blocks before anyone reads a word: how many blo
 **Evidence.** Research, applied: perceptual grouping is well replicated; the ratio is a team choice.
 
 ## LAYOUT-3. One focal point per screen; limit emphasis
+
+**Lens.** UI.
 
 **Rule.** The one thing that must be noticed first (the primary action, the key figure, a warning) is the only element with the strongest emphasis: the only filled accent button, the only very large number, the only alert-coloured block. A view has one or two prominent buttons at most. Emphasis is not stacked (bold plus colour plus italic plus capitals on one block) and does not rely on colour alone.
 
@@ -76,6 +82,8 @@ How the eye splits a screen into blocks before anyone reads a word: how many blo
 
 ## LAYOUT-4. Align to shared edges and a spacing scale
 
+**Lens.** UI.
+
 **Rule.** Every element lines up with something: a column edge, a shared left margin, the text of the element above. Paddings, margins and gaps come from one scale built on a base unit, and similar elements use the same step.
 
 **Why.** When neighbouring blocks sit at 10, 12 and 14 px, people do not see three decisions, they see carelessness: a small difference does not read as meaning but is noticed as unevenness. Shared edges let the eye scan straight down a column.
@@ -94,6 +102,8 @@ How the eye splits a screen into blocks before anyone reads a word: how many blo
 **Evidence.** Practice: spacing scales and grids are shared practice of public design systems.
 
 ## LAYOUT-5. Put what people came for at the top and leading edge
+
+**Lens.** UI and UX.
 
 **Rule.** The answer to the screen's main question (the balance due, today's orders, what is not shipped) and the main action stand at the top and leading edge, larger than the rest of the text. Headings and the first words of list items carry the meaning, so a reader who only scans the start of lines still gets it.
 

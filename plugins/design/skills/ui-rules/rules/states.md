@@ -13,6 +13,8 @@ A screen is not one picture. Every control has states (pressed, focused, disable
 
 ## STATE-1. Every control shows its state: default, hover, focus, pressed, disabled, busy
 
+**Lens.** UI.
+
 **Rule.** Each interactive control has a visible look for each state it can be in: default, hover (pointer devices), keyboard focus, pressed, selected where it applies, disabled, and busy. Focus is always visible and never hidden by other content. A disabled control stays readable and the screen says why it is disabled and what enables it. A busy control shows that it is working and cannot be pressed again.
 
 **Why.** People need to know that the product heard them and what they can do next. Keyboard users cannot act at all without a visible focus, and a focus ring hidden under a sticky header is the same as none.
@@ -34,6 +36,8 @@ A screen is not one picture. Every control has states (pressed, focused, disable
 
 ## STATE-2. Design every screen state: empty, loading, error, success, long data, other languages
 
+**Lens.** UI and UX.
+
 **Rule.** Every screen and every container that shows data has a designed state for: still loading, nothing to show, failed to load, action succeeded, and full of the longest real data. Each state tells people what is going on and gives a next step. The layout holds with the longest supported language and with long names, large numbers and many items.
 
 **Why.** Screens are usually designed with tidy, average sample data; real users meet the empty first day, the slow connection, the error and the 40-character name. A blank container reads as "broken"; "No records" shown while data is still loading is a wrong answer that people act on.
@@ -52,6 +56,8 @@ A screen is not one picture. Every control has states (pressed, focused, disable
 **Evidence.** Practice.
 
 ## STATE-3. Make form errors specific, next to the field, and keep what was typed
+
+**Lens.** UI and UX.
 
 **Rule.** Every field has a visible label outside the field (a placeholder is not a label). Required and optional fields are both marked at the field. A field is checked when the person leaves it or has typed the full expected length, not while they are still typing; an error clears as soon as the input becomes valid. Each error message sits next to its field, names exactly what is wrong and how to fix it, uses more than colour, and never erases what the person typed. A summary at the top may be added, never used alone.
 
@@ -77,6 +83,8 @@ A screen is not one picture. Every control has states (pressed, focused, disable
 
 ## STATE-4. Prefer undo; confirm only what cannot be undone
 
+**Lens.** UX.
+
 **Rule.** Common actions, even destructive ones, can be undone (an Undo that stays long enough to reach, a trash emptied later, an edit history). A confirmation dialog is used only for serious actions that cannot be undone; it names the object and the consequence, its buttons name the actions ("Delete 3 orders" / "Keep orders"), and the destructive choice is never the default and never styled as the primary action. The most dangerous actions may need a deliberate extra step.
 
 **Why.** Confirmations shown for everything are clicked through by habit and stop protecting anyone; undo fixes the mistake after it happens without slowing every routine action. A vague "Are you sure?" with Yes/No makes people reread the question and still guess.
@@ -98,6 +106,8 @@ A screen is not one picture. Every control has states (pressed, focused, disable
 **Evidence.** Platform guideline and Practice.
 
 ## STATE-5. Pick the message channel by urgency and lifetime
+
+**Lens.** UX.
 
 **Rule.** Each message goes to the channel that fits how urgent it is, whom it concerns and how long it must stay:
 - **inline**, next to the element, for anything about a field, an item or an action just taken — errors always go here;

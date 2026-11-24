@@ -14,6 +14,8 @@ What people bring with them before they open the screen: habits from the product
 
 ## EXP-1. Work the way familiar products work; check the convention before calling something unusual
 
+**Lens.** UX.
+
 **Rule.** Common tasks use the patterns users know from the products they use every day: where navigation sits, how search, back, close, cart and sign-in work. Use the platform's native controls where they exist. Depart from a convention only for a clear gain, and then make the new way obvious. Before a review calls a pattern "unusual", check how products in the same category actually do it.
 
 **Why.** People spend most of their time in other products and bring those habits along. A familiar pattern costs nothing to learn; an unfamiliar one costs every user time and errors.
@@ -35,6 +37,8 @@ What people bring with them before they open the screen: habits from the product
 
 ## EXP-2. Name and structure things in the user's words, not the company's
 
+**Lens.** UX.
+
 **Rule.** Section names, labels and the order of the menu follow how users think about their task, not the database, the code or the company's departments. An action does what its label leads people to expect.
 
 **Why.** People carry a small picture of how a system works and use it to predict results; when the product matches it, they predict right. Products tend to copy the structure of the organisation that builds them, which gives menus split by team rather than by task, and users cannot find things.
@@ -52,6 +56,8 @@ What people bring with them before they open the screen: habits from the product
 **Evidence.** Research (mental models in psychology and HCI) and Practice.
 
 ## EXP-3. Same job, same look and behaviour — consistent, not uniform
+
+**Lens.** UI and UX.
 
 **Rule.** Elements that do the same job look and behave the same on every screen: one style per kind of button, link, status and field, the same button order in every dialog, the same word for the same thing. Elements that do different jobs do not share a look; plain text never looks like a link. Consistency serves the user; it is not a reason to force one pattern onto tasks that need a different one.
 
@@ -73,6 +79,8 @@ What people bring with them before they open the screen: habits from the product
 
 ## EXP-4. Don't change what people already know without a reason
 
+**Lens.** UX.
+
 **Rule.** Do not move, rename or restyle something existing users already know unless the change fixes a real problem for them. When a change is needed, make it in steps, keep the old way findable for a while, and tell people in place what moved and where.
 
 **Why.** People judge a familiar interface more kindly than a new one and resist changes to what they learned. A moved button costs every existing user a search, even when the new place is better for new users.
@@ -91,6 +99,8 @@ What people bring with them before they open the screen: habits from the product
 **Evidence.** Practice.
 
 ## EXP-5. Teach in place, never in a tour
+
+**Lens.** UX.
 
 **Rule.** The product works without reading anything first. No forced tour or swipe-through carousel before the first task. Help appears inside the task when it is needed: a visible hint at the field, an example value, an empty state that shows the first step, a short tip near the control. Task-critical information (password rules, fees) is never only in a tooltip.
 
@@ -111,6 +121,8 @@ What people bring with them before they open the screen: habits from the product
 **Evidence.** Research (new users skip manuals; tutorials did not improve task performance in usability testing) and Platform guideline (optional onboarding, learning by doing).
 
 ## EXP-6. Keep navigation visible and show where people are
+
+**Lens.** UX.
 
 **Rule.** On desktop the top-level sections are visible, not hidden behind a menu icon. On phones, a small set of top-level sections sits in a visible bar; a menu holds the rest. The current section is highlighted. Tab bars move between sections; they do not start actions. Deep content shows its path (breadcrumbs), and there is always a one-step way back.
 
@@ -135,6 +147,8 @@ What people bring with them before they open the screen: habits from the product
 **Evidence.** Research (hidden navigation measured as used less, desktop and phone) and Platform guideline.
 
 ## EXP-7. Icons: one set, one meaning, a label unless universal
+
+**Lens.** UI and UX.
 
 **Rule.** Icons come from one set with one style (stroke weight, corner shape, fill, optical size) and sit on the same grid. Each icon means one thing across the product, and a standard icon (search, home, share, delete, settings) is used only for its usual meaning. Icons that are not universally understood have a visible text label; icon-only buttons have an accessible name. An icon that carries meaning meets non-text contrast.
 

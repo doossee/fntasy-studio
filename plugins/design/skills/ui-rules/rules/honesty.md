@@ -13,6 +13,8 @@ Choices that involve money, data, consent and time: prices, add-ons, subscriptio
 
 ## HONEST-1. Show the full price and give honest choices
 
+**Lens.** UX.
+
 **Rule.** Show the full cost (fees, delivery, taxes, renewal price) before the person commits, not on the last step. Nothing that costs money or shares data is selected by default. The decline option is a plain, neutral label as visible as the accept option. Scarcity, countdowns and social proof are shown only when they are true. Plans are not arranged with a fake option whose only job is to make another look better. Cancelling is no harder than signing up.
 
 **Why.** These tricks work because people predictably keep defaults, anchor on the first price they see and hurry under time pressure. They raise short-term numbers and destroy trust: costs revealed late are one of the most common reasons people abandon a checkout. Many of these patterns are also illegal under consumer and data-protection law in a growing number of countries.
@@ -40,6 +42,8 @@ Check with the most vulnerable person in mind: someone in a hurry, on a phone, r
 
 ## HONEST-2. Engage people without manipulating them
 
+**Lens.** UX.
+
 **Rule.** Rewards, streaks, badges, reminders and progress serve the person's own goal. Do not use random rewards to keep people pulling, artificial waiting times that make people return on the product's schedule, rewards for advertising the product to friends, or guilt over a broken streak. Before adding any engagement mechanic, ask what it teaches the person after a month, not only what it does to today's numbers.
 
 **Why.** Random rewards and artificial waits are the mechanics of slot machines and free-to-play games; they raise return visits by building a habit, not by helping. In a product about money, health or learning they also teach the wrong lesson: a random gift of a share teaches that investing is a lottery. Paying people in points to share turns them into unpaid advertisers and floods their friends.
@@ -61,6 +65,8 @@ Check with the most vulnerable person in mind: someone in a hurry, on a phone, r
 **Evidence.** Practice, supported by research on reinforcement schedules and on deceptive patterns.
 
 ## HONEST-3. Ask for data and permissions only when needed, and say why
+
+**Lens.** UX.
 
 **Rule.** Ask for each permission (location, camera, contacts, notifications) at the moment the person uses the feature that needs it, with one sentence on why, not at first launch. Collect only the personal data the task needs. Say before use what is collected and how it is used; sharing data with third parties for advertising needs explicit opt-in. Give a visible way to delete the account and its data.
 
@@ -84,6 +90,8 @@ Check with the most vulnerable person in mind: someone in a hurry, on a phone, r
 **Evidence.** Platform guideline and Practice.
 
 ## HONEST-4. Judge a screen by what people do, not by how it looks
+
+**Lens.** UX.
 
 **Rule.** Make the product look cared-for and consistent, because people judge good-looking interfaces as easier to use. But decide whether a design works by what people manage to do: task success, time, errors, hesitation. Opinions about the look are recorded separately and never decide a verdict. An expert review, including one made with this skill, finds only part of the real problems and reports some that are not; it does not replace watching people use the product.
 

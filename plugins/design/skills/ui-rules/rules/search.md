@@ -12,6 +12,8 @@ Finding one thing among many: the search field, suggestions, results, filters an
 
 ## SEARCH-1. Search finds what people mean and never dead-ends
 
+**Lens.** UX.
+
 **Rule.** Where people need to find one item among many, a search field is visible (not only an icon) on the screens where they look for things, wide enough for a typical query. Search tolerates typos, plurals, word order, letter case, accents and the alternative names people use (including the profile's other languages and scripts). Suggestions appear as people type, can be chosen with the keyboard, and do not hide the typed text. The results page repeats the query, shows the number of results, and highlights why each result matched. "No results" is never a dead end: it suggests corrections, related items or removing filters, and keeps the query editable.
 
 **Why.** People who search have already decided what they want and expect the product to understand their words, not the catalogue's. A strict search that fails on a typo or a synonym tells them the item does not exist, and they leave or call support.
@@ -35,6 +37,8 @@ Finding one thing among many: the search field, suggestions, results, filters an
 **Evidence.** Research (search and site-search usability testing, much of it in e-commerce) and Practice.
 
 ## SEARCH-2. Filters and sorting show what is applied and never trap people
+
+**Lens.** UX.
 
 **Rule.** Filters match the attributes people actually choose by, use their words, and show how many results each option gives when that number is known. Applied filters are visible above the results as removable chips, with one "Clear all". Changing a filter keeps the others and the scroll position where possible; on phones, filters open in a sheet with a clear "Show N results". Combinations that give zero results are prevented or announced before people apply them. The current sort order is visible and named in plain words ("Price: low to high"). Query, filters and sort survive going back, a page reload and sharing a link.
 
