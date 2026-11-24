@@ -1,0 +1,50 @@
+<!doctype html>
+<!-- Viewport: 390 x 844 (phone), light theme, English. Fictional product: Acme Shop. Training example, bad version. -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Acme Shop — Payment</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:15px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#1d1d1f;background:#f4f4f6}
+.sheet{background:#fff;min-height:844px;padding:16px 18px 24px;border-radius:14px 14px 0 0}
+.top{display:flex;align-items:center;justify-content:space-between;height:40px}
+.top h1{font:600 19px/1.2 Georgia,serif;margin:0}
+#close{width:20px;height:20px;border:0;background:none;font-size:18px;line-height:20px;padding:0;color:#666}
+#timer{margin:10px 0 14px;background:#fff1f0;color:#b42318;font-weight:600;font-size:13px;padding:8px 10px;border-radius:8px}
+#err-top{color:#d92d20;font-size:13px;margin:0 0 10px}
+.field{margin:0 0 10px}
+.field input{width:100%;height:44px;border:1px solid #d0d0d5;border-radius:8px;padding:0 12px;font:inherit;color:#1d1d1f}
+.field input::placeholder{color:#9a9aa2}
+.field input.bad{border-color:#d92d20}
+.row{display:flex;gap:10px}.row .field{flex:1}
+.lines{margin:16px 0 6px;font-size:14px;color:#555}
+.lines div{display:flex;justify-content:space-between;padding:3px 0}
+#protect{display:flex;gap:10px;align-items:flex-start;margin:14px 0 4px;padding:12px;border:1px solid #eee;border-radius:12px;font-size:14px}
+#protect input{margin:2px 0 0}
+#decline{display:block;font-size:11px;color:#b5b5bb;margin:0 0 14px 4px;text-decoration:none}
+#total{display:flex;justify-content:space-between;font-weight:700;font-size:24px;color:#a2a2a8;margin:12px 0 16px}
+#pay{width:100%;height:52px;border:0;border-radius:14px;background:#6b3fd4;color:#fff;font:600 17px/1 system-ui,sans-serif}
+.methods{display:flex;gap:8px;margin-bottom:14px}
+.methods span{flex:1;text-align:center;border:1px solid #d0d0d5;border-radius:8px;padding:8px 0;font-size:13px}
+.methods span.on{border:2px solid #6b3fd4}
+</style></head><body>
+<div class="sheet">
+  <div class="top"><h1>Payment</h1><button id="close" aria-label="Close">×</button></div>
+  <div id="timer">Hurry! Only 2 left — your cart expires in 04:59</div>
+  <div class="methods"><span class="on">Card</span><span>Wallet</span><span>Bank</span></div>
+  <p id="err-top">Please fix the errors above</p>
+  <div class="field"><input id="card" class="bad" placeholder="Card number" value=""></div>
+  <div class="row">
+    <div class="field"><input id="exp" placeholder="MM/YY" value="09/27"></div>
+    <div class="field"><input id="cvc" placeholder="CVC" value="123"></div>
+  </div>
+  <div class="field"><input id="name" placeholder="Name on card" value="Mira Tal"></div>
+  <div class="lines">
+    <div><span>2 items</span><span>$46.00</span></div>
+    <div><span>Delivery</span><span>$3.90</span></div>
+    <div><span>Service fee</span><span>$1.50</span></div>
+  </div>
+  <label id="protect"><input type="checkbox" checked><span><b>Package protection</b> +$4.99<br>Covers loss and damage in transit.</span></label>
+  <a id="decline" href="#">No thanks, I like losing my packages</a>
+  <div id="total"><span>Total</span><span>$56.39</span></div>
+  <button id="pay">Submit</button>
+</div>
+</body></html>

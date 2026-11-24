@@ -1,0 +1,42 @@
+<!doctype html>
+<!-- Viewport: 1280 x 860 (desktop), dark theme, Uzbek (Latin script). Fictional product: Acme for shop owners. Training example, bad version.
+     State: a shop on its first day (no orders yet); a payout sync has just failed. -->
+<html lang="uz"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Acme — Boshqaruv paneli</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:14px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#000;color:#f0f0f0;display:flex;height:860px;overflow:hidden;position:relative}
+nav{width:210px;padding:18px 10px;border-right:1px solid #111}
+nav a{display:block;padding:8px 12px;color:#cfcfcf;text-decoration:none;border-radius:6px}nav a.on{background:#151515;color:#fff}
+main{flex:1;padding:22px 26px;overflow:hidden}
+h1{font-size:22px;margin:0 0 14px}
+#actions{display:flex;gap:10px;margin-bottom:18px}
+#actions button{position:relative;height:40px;padding:0 18px;border:0;border-radius:8px;background:#2a3cff;color:#fff;font:600 14px/1 system-ui,sans-serif}
+#actions button i{position:absolute;top:-9px;right:-6px;background:#ff2d55;color:#fff;font:700 10px/1 system-ui;padding:3px 5px;border-radius:6px;font-style:normal}
+#grid{columns:4;column-gap:14px}
+.c{break-inside:avoid;background:#000;box-shadow:0 2px 6px rgba(0,0,0,.6);border-radius:10px;padding:14px;margin-bottom:10px}
+.c h3{margin:0 0 6px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#bdbdbd}
+.c .v{font-size:18px;font-weight:700}
+.c a{color:#2a3cff;font-size:13px}
+.c.t1{min-height:90px}.c.t2{min-height:150px}.c.t3{min-height:210px}
+#toast{position:absolute;left:226px;bottom:18px;background:#1a1a1a;color:#e0e0e0;padding:10px 14px;border-radius:8px;font-size:13px;opacity:.85}
+</style></head><body>
+<nav><a class="on" href="#">Bosh sahifa</a><a href="#">Buyurtmalar</a><a href="#">Mijozlar</a><a href="#">Toʻlovlar</a><a href="#">Mahsulotlar</a><a href="#">Ombor</a><a href="#">Hisobotlar</a><a href="#">Xodimlar</a><a href="#">Sozlamalar</a></nav>
+<main>
+  <h1>Boshqaruv paneli</h1>
+  <div id="actions"><button>Yangi buyurtma<i>Yangi!</i></button><button>Mahsulot qoʻshish<i>Yangi!</i></button><button>Aksiya yaratish<i>Yangi!</i></button></div>
+  <div id="grid">
+    <div class="c t2"><h3>Yangiliklar</h3>Acme yangi funksiyalarni taqdim etadi: shablonlar, QR-kodlar va boshqalar.<br><a href="#">Batafsil</a></div>
+    <div class="c t1"><h3>Sharhlar</h3><div class="v">—</div></div>
+    <div class="c t3" id="recent"><h3>Oxirgi buyurtmalar</h3></div>
+    <div class="c t1"><h3>Haftalik reja</h3><div class="v">0%</div></div>
+    <div class="c t2"><h3>Aksiyalar</h3>Faol aksiyalar yoʻq.<br><a href="#">Batafsil</a></div>
+    <div class="c t1"><h3>Yangi mijozlar</h3><div class="v">0</div></div>
+    <div class="c t2"><h3>Eng koʻp sotilgan</h3>—<br><a href="#">Batafsil</a></div>
+    <div class="c t1"><h3>Yetkazib berish</h3><div class="v">0 ta</div></div>
+    <div class="c t2"><h3>Ombordagi qoldiq</h3><div class="v">146 dona</div><a href="#">Batafsil</a></div>
+    <div class="c t1"><h3>Toʻlanmagan</h3><div class="v">0 soʻm</div></div>
+    <div class="c t1" id="revenue"><h3>Bugungi tushum</h3><div class="v">0 soʻm</div></div>
+  </div>
+</main>
+<div id="toast">Xatolik yuz berdi</div>
+</body></html>

@@ -1,0 +1,2 @@
+{"screen":"../h4-lessons.html","out":"h4-lessons.key.jpg","viewport":{"width":390,"height":844},"fullPage":false,
+"boxes":[{"n":1,"selector":".chest"},{"n":2,"selector":".streak"},{"n":3,"selector":".card:has(.dis)"},{"n":4,"selector":".share"},{"n":5,"selector":".progt"},{"n":6,"selector":".card:has(.pri) p"},{"n":7,"selector":".card:has(.pri) h2"}]}

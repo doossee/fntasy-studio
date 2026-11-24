@@ -1,0 +1,31 @@
+<!doctype html>
+<!-- Viewport: 390 x 844 (phone), light theme, Arabic (right-to-left). Fictional product: Acme for shop owners. Training example, good version.
+     State: step 2 of 3 of shop sign-up; the phone number typed with spaces is accepted. -->
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Acme — إنشاء متجر</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;color:#1c1c1e;background:#fff}
+.top{display:flex;align-items:center;gap:12px;height:56px;padding:0 12px}
+.back{width:44px;height:44px;border:0;background:none;font-size:22px}
+.top h1{font-size:18px;margin:0}
+form{padding:8px 16px}
+.step{color:#4a4a4f;font-size:14px;margin:0 0 6px}
+.bar{height:6px;border-radius:3px;background:#e5e5ea;margin:0 0 16px}.bar i{display:block;width:66%;height:100%;border-radius:3px;background:#0a7a5c}
+.f{margin:0 0 14px}
+.f label{display:block;font-size:15px;font-weight:600;margin:0 0 4px}
+.f label small{font-weight:400;color:#4a4a4f}
+.f input{width:100%;height:48px;border:1px solid #8e8e93;border-radius:10px;padding:0 12px;font:inherit}
+.f input[dir=ltr]{text-align:right}
+.hint{color:#4a4a4f;font-size:14px}
+.go{width:100%;height:50px;border:0;border-radius:12px;background:#0a7a5c;color:#fff;font:600 17px/1 system-ui,sans-serif;margin-top:6px}
+</style></head><body>
+<div class="top"><button class="back" aria-label="رجوع">→</button><h1>إنشاء متجر</h1></div>
+<form>
+  <p class="step">الخطوة 2 من 3: بيانات التواصل</p>
+  <div class="bar"><i></i></div>
+  <div class="f"><label for="n">اسم المتجر</label><input id="n" value="متجر الياسمين للزهور"></div>
+  <div class="f"><label for="p">رقم الهاتف</label><input id="p" dir="ltr" type="tel" inputmode="tel" value="+971 50 123 4567"><div class="hint">سنرسل إليه رمز التأكيد.</div></div>
+  <div class="f"><label for="m">البريد الإلكتروني <small>(اختياري)</small></label><input id="m" dir="ltr" type="email" value="yasmin@example.com"></div>
+  <button class="go" type="button">التالي: طريقة الاستلام</button>
+</form>
+</body></html>

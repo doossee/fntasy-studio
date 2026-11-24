@@ -1,0 +1,37 @@
+<!doctype html>
+<!-- Viewport: 390 x 844 (phone), light theme, Russian. Fictional product: Acme Shop. Training example, bad version.
+     State: a search with three filters applied; results are still loading. -->
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Acme Shop — Поиск</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:16px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#1b1b1f;background:#fff;height:844px;overflow:hidden;position:relative}
+.bar{display:flex;gap:8px;align-items:center;padding:12px 16px}
+.search{flex:1;position:relative}
+.search input{width:100%;height:44px;border-radius:22px;border:1px solid #c9c9cf;padding:0 40px 0 16px;font:inherit}
+#clear{position:absolute;right:12px;top:14px;width:16px;height:16px;border:0;padding:0;background:#c9c9cf;color:#fff;border-radius:50%;font-size:11px;line-height:16px}
+#filters{width:44px;height:44px;border:1px solid #c9c9cf;border-radius:22px;background:#fff;font-size:18px}
+.cats{display:flex;gap:8px;overflow-x:auto;padding:4px 16px 12px;white-space:nowrap}
+.cats span{border-radius:16px;background:#eef6f0;color:#1d6b3a;padding:6px 12px;font-size:14px}
+#loading{display:flex;align-items:center;gap:8px;padding:0 16px;color:#6b6b73;font-size:13px}
+.spin{width:14px;height:14px;border:2px solid #c9c9cf;border-top-color:#1d6b3a;border-radius:50%}
+#empty{text-align:center;padding:60px 32px 0;color:#1b1b1f}
+#empty h2{font-size:20px;margin:0 0 8px}
+#empty p{color:#6b6b73;margin:0}
+#tabbar{position:absolute;bottom:0;left:0;right:0;height:64px;border-top:1px solid #e4e4e8;display:flex;justify-content:space-around;align-items:center;background:#fff}
+#tabbar button{width:48px;height:48px;border:0;background:none;font-size:22px;color:#55555c}
+#promo{position:absolute;left:12px;right:12px;bottom:76px;background:#1d6b3a;color:#fff;border-radius:16px;padding:18px 18px 16px;box-shadow:0 8px 30px rgba(0,0,0,.25)}
+#promo h3{margin:0 0 6px;font-size:18px}#promo p{margin:0 0 12px;font-size:14px;opacity:.9}
+#promo .row{display:flex;gap:8px}#promo input{flex:1;height:40px;border:0;border-radius:10px;padding:0 10px;font:inherit}
+#promo button{height:40px;border:0;border-radius:10px;padding:0 12px;background:#fff;color:#1d6b3a;font-weight:600}
+#promo .x{position:absolute;right:10px;top:6px;background:none;color:#cfe5d6;font-size:16px;padding:0;height:auto}
+</style></head><body>
+<div class="bar">
+  <div class="search" id="searchbox"><input value="кросовки детские" placeholder="Поиск" aria-label="Поиск"><button id="clear" aria-label="Очистить">×</button></div>
+  <button id="filters" aria-label="Фильтры">⧩</button>
+</div>
+<div class="cats" id="cats"><span>Обувь</span><span>Одежда</span><span>Спорт</span><span>Игрушки</span><span>Школа</span><span>Дом</span><span>Сад</span><span>Книги</span><span>Электроника</span><span>Красота</span><span>Здоровье</span><span>Подарки</span></div>
+<div id="loading"><span class="spin"></span>Загрузка…</div>
+<div id="empty"><h2>Ничего не найдено</h2><p>Попробуйте другой запрос.</p></div>
+<div id="promo"><button class="x" aria-label="Закрыть">×</button><h3>Скидка 10% на первый заказ</h3><p>Подпишитесь на рассылку и получите промокод.</p><div class="row"><input placeholder="Эл. почта"><button>Получить</button></div></div>
+<nav id="tabbar"><button aria-label="Главная">⌂</button><button id="t-scan" aria-label="Сканировать">⌗</button><button id="t-cmp" aria-label="Сравнить">⇄</button><button aria-label="Корзина">🛒</button><button aria-label="Профиль">☺</button></nav>
+</body></html>

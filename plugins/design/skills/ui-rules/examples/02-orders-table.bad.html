@@ -1,0 +1,41 @@
+<!doctype html>
+<!-- Viewport: 1280 x 800 (desktop), dark theme, German. Fictional product: Acme back office. Training example, bad version.
+     Keyboard focus is on "Stornieren" in the first row (autofocus); its focus style is removed. -->
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Acme — Bestellungen</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:14px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#121214;color:#e8e8ec}
+header{display:flex;align-items:center;gap:16px;height:56px;padding:0 24px;border-bottom:1px solid #2a2a30}
+#burger{width:36px;height:36px;border:0;background:none;color:#e8e8ec;font-size:22px}
+header .brand{font-weight:700}
+main{padding:24px}
+h1{font-size:22px;margin:0 0 4px}
+.sub{color:#5f5f69;margin:0 0 18px;font-size:13px}
+table{border-collapse:collapse;width:906px;table-layout:fixed}
+th,td{padding:9px 10px;border-bottom:1px solid #26262b;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+th{font-size:12px;color:#5f5f69;font-weight:600;cursor:pointer}
+th:nth-child(1){width:90px}th:nth-child(2){width:200px}th:nth-child(3){width:100px}th:nth-child(4){width:150px}
+th:nth-child(5){width:80px}th:nth-child(6){width:96px}th:nth-child(7){width:190px}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%}
+.g{background:#2fbf71}.r{background:#e5484d}.y{background:#f5a524}
+.act button{background:#26262b;color:#e8e8ec;border:1px solid #34343b;border-radius:6px;padding:4px 10px;font:inherit;font-size:13px;margin-right:6px}
+.act button:focus{outline:none}
+.id{font-family:ui-monospace,Menlo,Consolas,monospace;color:#b9b9c2}
+</style></head><body>
+<header><button id="burger" aria-label="Menü">☰</button><span class="brand">Acme</span></header>
+<main>
+  <h1>Bestellungen</h1>
+  <p class="sub" id="sub">128 Bestellungen · zuletzt aktualisiert vor 2 Minuten</p>
+  <table>
+    <thead><tr><th id="h-nr">Bestellnr.</th><th>Kunde</th><th id="h-date">Datum</th><th id="h-long">Lieferadressänderungsdatum</th><th id="h-status">Status</th><th id="h-sum">Rechnungsbetrag</th><th>Aktionen</th></tr></thead>
+    <tbody>
+      <tr><td class="id">A-1042</td><td>Gartenbedarf Müller-Lüdenscheidt GmbH</td><td>03.04.</td><td>—</td><td class="st"><span class="dot g"></span></td><td class="sum">1.234,5 €</td><td class="act"><button>Details</button><button id="focused" autofocus>Stornieren</button></td></tr>
+      <tr><td class="id">A-1041</td><td>Bäckerei Sonnenschein</td><td>03.04.</td><td>02.04.</td><td class="st"><span class="dot r"></span></td><td class="sum">89 €</td><td class="act"><button>Details</button><button>Stornieren</button></td></tr>
+      <tr><td class="id">A-1040</td><td>Kfz-Versicherungsvermittlung Brandt</td><td>02.04.</td><td>—</td><td class="st"><span class="dot y"></span></td><td class="sum" id="cut">12.340,00 €</td><td class="act"><button>Details</button><button>Stornieren</button></td></tr>
+      <tr><td class="id">A-1039</td><td>Blumen Weber</td><td>02.04.</td><td>—</td><td class="st"><span class="dot g"></span></td><td class="sum">45,90 €</td><td class="act"><button>Details</button><button>Stornieren</button></td></tr>
+      <tr><td class="id">A-1038</td><td>Elektrofachhandel Schwarzwald-Baar</td><td>01.04.</td><td>31.03.</td><td class="st"><span class="dot r"></span></td><td class="sum">3.007 €</td><td class="act"><button>Details</button><button>Stornieren</button></td></tr>
+      <tr><td class="id">A-1037</td><td>Café Morgenrot</td><td>01.04.</td><td>—</td><td class="st"><span class="dot g"></span></td><td class="sum">17,2 €</td><td class="act"><button>Details</button><button>Stornieren</button></td></tr>
+    </tbody>
+  </table>
+</main>
+</body></html>

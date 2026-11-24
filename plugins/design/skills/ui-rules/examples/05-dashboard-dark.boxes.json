@@ -1,0 +1,2 @@
+{"screen":"05-dashboard-dark.bad.html","out":"05-dashboard-dark.key.jpg","viewport":{"width":1280,"height":860},"fullPage":false,"dark":true,
+"boxes":[{"n":1,"selector":"#toast"},{"n":2,"selector":"#revenue"},{"n":3,"selector":"#grid"},{"n":4,"selector":"#actions"},{"n":5,"selector":"#recent"},{"n":6,"selector":".c a"},{"n":7,"selector":".c.t2"},{"n":8,"selector":"#actions button:nth-child(2)"}]}

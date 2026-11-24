@@ -1,0 +1,2 @@
+{"screen":"01-checkout.bad.html","out":"01-checkout.key.jpg","viewport":{"width":390,"height":844},"fullPage":false,
+"boxes":[{"n":1,"selector":"#protect"},{"n":1,"selector":"#decline"},{"n":2,"selector":"#total"},{"n":3,"selector":".field"},{"n":4,"selector":"#err-top"},{"n":5,"selector":"#timer"},{"n":6,"selector":"#pay"},{"n":7,"selector":"#close"}]}

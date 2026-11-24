@@ -1,0 +1,38 @@
+<!doctype html>
+<!-- Viewport: 1280 x 900 (desktop), light theme, English. Fictional product: Acme plans page. -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Acme — Plans</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#1a1a1e;background:#fbfbfd}
+.wrap{max-width:1040px;margin:0 auto;padding:40px 24px}
+h1{font:700 40px/1.1 Georgia,serif;text-align:center;margin:0 0 8px}
+.lead{text-align:center;color:#4a4a52;margin:0 0 12px}
+.timer{text-align:center;color:#c01048;font-weight:700;margin:0 0 28px;text-transform:uppercase;letter-spacing:.04em}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.p{position:relative;background:#fff;border:1px solid #e1e1e6;border-radius:16px;padding:28px 22px}
+.rib{position:absolute;top:-12px;left:22px;padding:4px 10px;border-radius:8px;font:800 12px/1 system-ui;text-transform:uppercase;color:#fff}
+.r1{background:#ff7a00}.r2{background:#c01048}.r3{background:#0a7cff}
+.p h2{margin:0 0 6px;font-size:22px}
+.price{font-size:40px;font-weight:800}.price small{font-size:15px;font-weight:400;color:#4a4a52}
+.fine{font-size:10px;color:#a0a0a8;margin:2px 0 14px}
+.p ul{padding:0 18px;margin:0 0 20px;min-height:150px}
+.p button{width:100%;height:48px;border:0;border-radius:12px;color:#fff;font:800 16px/1 system-ui;text-transform:uppercase}
+.b1{background:#ff7a00}.b2{background:#c01048}.b3{background:#0a7cff}
+.q{display:inline-block;width:18px;height:18px;border-radius:50%;background:#e1e1e6;text-align:center;font-size:12px;line-height:18px;cursor:help}
+footer{margin-top:40px;text-align:center;font-size:11px;color:#a0a0a8}
+</style></head><body>
+<div class="wrap">
+  <h1>Grow your shop with Acme</h1>
+  <p class="lead">Billed yearly. Cancel anytime.</p>
+  <p class="timer">Offer ends in 00:14:59</p>
+  <div class="plans">
+    <div class="p"><span class="rib r1">Best start</span><h2>Basic</h2><div class="price">$9<small>/mo</small></div><p class="fine">$108 billed yearly, renews at $15/mo</p>
+      <ul><li>1 user</li><li>100 orders a month</li><li>Email receipts</li></ul><button class="b1">Start now</button></div>
+    <div class="p"><span class="rib r2">Hot deal</span><h2>Plus</h2><div class="price">$19<small>/mo</small></div><p class="fine">$228 billed yearly, renews at $29/mo</p>
+      <ul><li>Up to 3 users</li><li>Payments <span class="q" title="Card fees 2.9% + 30¢">?</span></li><li>500 orders</li></ul><button class="b2">Grab it</button></div>
+    <div class="p"><span class="rib r3">Most popular</span><h2>Pro</h2><div class="price">$20<small>/mo</small></div><p class="fine">$240 billed yearly, renews at $39/mo</p>
+      <ul><li>Unlimited orders</li><li>Unlimited users</li><li>Inventory and reports</li><li>Payments <span class="q" title="Card fees 2.4% + 30¢">?</span></li><li>Priority support</li></ul><button class="b3">Go Pro</button></div>
+  </div>
+  <footer>Prices exclude VAT. To cancel a subscription, call our support line on weekdays 9:00–17:00.</footer>
+</div>
+</body></html>
