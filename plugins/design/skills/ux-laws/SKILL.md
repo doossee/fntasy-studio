@@ -4,7 +4,7 @@ description: "30 rules for interfaces built on the principles collected on Laws 
 ---
 # ux-laws
 
-Thirty rules, one for each principle on Laws of UX. Each rule is written for screens: what to do, why, **how to check it** (a number or a yes/no on a screenshot or a walk through the task), bad → good, where the rule stops applying, and its sources. The wording is ours; the site is linked, not copied (see `references/sources.md`).
+Thirty rules, one for each principle on Laws of UX. Each rule is written for screens: what to do, why, **how to check it** (a number or a yes/no on a screenshot or a walk through the task), bad → good, where the rule stops applying, and its sources. The wording is ours; the site is credited, not copied, and there are no links: everything a rule needs is in these files (see `references/sources.md`).
 
 ## How to use
 

@@ -34,7 +34,7 @@ Example:
 Review the checkout at http://localhost:3000/cart against ux-laws: walk "pay for the cart" on a phone, then go through all 30 rules.
 ```
 
-**Licence of the source.** The Laws of UX site is licensed CC BY-NC-ND 4.0. Its texts are not copied, translated or paraphrased here: the rules are our own wording, with a link to each principle's page and the research it comes from (`skills/ux-laws/references/sources.md`).
+**Licence of the source.** The Laws of UX site is licensed CC BY-NC-ND 4.0. Its texts are not copied, translated or paraphrased here: the rules are our own wording; each one names the principle and the research it comes from (`skills/ux-laws/references/sources.md`). The skill has no links on purpose: an agent does not open them, and everything a rule needs is in its files.
 
 ## What changed since 0.3.0
 
