@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Your order · Acme Bakery</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    width: 390px; min-height: 844px; margin: 0 auto;
+    background: #fffaf3; color: #2b1d12;
+    font: 15px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex; flex-direction: column;
+  }
+  button:focus, a:focus { outline: none; }
+  header {
+    display: flex; align-items: center; gap: 10px;
+    padding: 14px 16px 10px;
+  }
+  .back {
+    width: 44px; height: 44px; border: 0; border-radius: 22px; background: #f3e9db;
+    display: grid; place-items: center; cursor: pointer;
+  }
+  .wordmark { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 18px; letter-spacing: -0.2px; }
+  main { flex: 1; padding: 0 16px 16px; }
+  .card { background: #ffffff; border: 1px solid #efe4d4; border-radius: 16px; padding: 16px; margin-top: 12px; }
+  .status { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600;
+    color: #1d5f2e; background: #e3f4e6; padding: 4px 10px; border-radius: 999px; }
+  .status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #2e8b47; }
+  .code-wrap { text-align: center; padding: 6px 0 2px; }
+  .code { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 44px; font-weight: 700; letter-spacing: 6px; margin: 10px 0 2px; }
+  .code-hint { font-size: 14px; color: #6b5a48; margin: 0; }
+  .row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .label { font-size: 13px; color: #6b5a48; margin: 0 0 2px; }
+  .pickup-time { font-size: 20px; font-weight: 600; color: #b8a993; margin: 0; }
+  .place { font-size: 14px; color: #6b5a48; margin: 2px 0 0; }
+  h2 { font-size: 16px; margin: 0; }
+  .change { font-size: 11px; color: #7a4a1e; text-decoration: underline; padding: 0; }
+  ul.items { list-style: none; margin: 10px 0 0; padding: 0; }
+  ul.items li { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-top: 1px solid #f3eadc; }
+  ul.items li:first-child { border-top: 0; }
+  .qty { width: 26px; height: 26px; border-radius: 8px; background: #f3e9db; display: grid; place-items: center; font-size: 13px; font-weight: 600; flex: none; }
+  .item-name { flex: 1; min-width: 0; max-width: 230px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .price { flex: none; }
+  .tips { display: flex; gap: 8px; margin-top: 10px; }
+  .chip { flex: 1; height: 44px; border-radius: 999px; border: 1px solid #d8c8b2; background: #fff; color: #2b1d12; font: inherit; font-weight: 600; cursor: pointer; }
+  .chip[aria-pressed="true"] { background: #7a4a1e; border-color: #7a4a1e; color: #fff; }
+  .notip { display: inline-block; margin-top: 8px; font-size: 11px; color: #6b5a48; }
+  .tip-note { font-size: 13px; color: #6b5a48; margin: 0; }
+  .totals { margin-top: 12px; border-top: 1px solid #f3eadc; padding-top: 10px; }
+  .totals .row { padding: 2px 0; }
+  .totals .grand { font-weight: 700; font-size: 17px; padding-top: 6px; }
+  .bar { position: sticky; bottom: 0; background: #fffaf3; padding: 12px 16px 24px; display: flex; gap: 10px; border-top: 1px solid #efe4d4; }
+  .btn { flex: 1; height: 52px; border: 0; border-radius: 14px; font: inherit; font-size: 16px; font-weight: 700; color: #fff; cursor: pointer; }
+  .btn-cancel { background: #c62828; }
+  .btn-here { background: #7a4a1e; }
+  .toast { display: none; margin-top: 12px; padding: 12px 14px; border-radius: 12px; background: #2b1d12; color: #fff; font-size: 14px; }
+</style>
+</head>
+<body>
+<header>
+  <button class="back" aria-label="Back to orders">
+    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="#2b1d12" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <div class="wordmark">
+    <svg width="30" height="22" viewBox="0 0 30 22" aria-hidden="true">
+      <path d="M2 16c3-9 9-13 13-13s10 4 13 13c-3 2-7 3-13 3S5 18 2 16z" fill="#e0a35c"/>
+      <path d="M9 7c1 4 2 8 2 11M15 4v15M21 7c-1 4-2 8-2 11" stroke="#a86a2c" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    </svg>
+    acme bakery
+  </div>
+</header>
+
+<main>
+  <section class="card" aria-labelledby="code-title">
+    <span class="status">Ready for pickup</span>
+    <div class="code-wrap">
+      <h1 id="code-title" class="code">B-4827</h1>
+      <p class="code-hint">Show this code at the counter</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <p class="label">Pickup</p>
+    <p class="pickup-time">Today, 8:15–8:30 AM</p>
+    <p class="place">Acme Bakery · 14 Mill Street</p>
+  </section>
+
+  <section class="card" aria-labelledby="items-title">
+    <div class="row">
+      <h2 id="items-title">Your order</h2>
+      <a href="#" class="change">Change</a>
+    </div>
+    <ul class="items">
+      <li><span class="qty">1</span><span class="item-name">Sourdough loaf, sliced, no sesame seeds (allergy)</span><span class="price">$7.50</span></li>
+      <li><span class="qty">2</span><span class="item-name">Butter croissant</span><span class="price">$4</span></li>
+      <li><span class="qty">1</span><span class="item-name">Oat milk flat white, extra hot</span><span class="price">$3.00</span></li>
+    </ul>
+  </section>
+
+  <section class="card" aria-labelledby="tip-title">
+    <h2 id="tip-title">Add a tip</h2>
+    <p class="tip-note">Tips go to the whole bakery team.</p>
+    <div class="tips" role="group" aria-label="Tip amount">
+      <button class="chip" aria-pressed="false">10%</button>
+      <button class="chip" aria-pressed="false">15%</button>
+      <button class="chip" aria-pressed="true">20%</button>
+      <button class="chip" aria-pressed="false">Custom</button>
+    </div>
+    <a href="#" class="notip">No tip</a>
+    <div class="totals">
+      <div class="row"><span>Subtotal</span><span>$14.50</span></div>
+      <div class="row"><span>Tip (20%)</span><span id="tip">$2.90</span></div>
+      <div class="row grand"><span>Total charged</span><span id="total">$17.40</span></div>
+    </div>
+  </section>
+
+  <div class="toast" id="toast" role="status"></div>
+</main>
+
+<div class="bar">
+  <button class="btn btn-cancel" id="cancel">Cancel order</button>
+  <button class="btn btn-here" id="here">I'm here</button>
+</div>
+
+<script>
+  const sub = 14.50;
+  document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
+    document.querySelectorAll('.chip').forEach(x => x.setAttribute('aria-pressed', 'false'));
+    c.setAttribute('aria-pressed', 'true');
+    const p = parseInt(c.textContent, 10) || 0;
+    document.getElementById('tip').textContent = '$' + (sub * p / 100).toFixed(2);
+    document.getElementById('total').textContent = '$' + (sub * (1 + p / 100)).toFixed(2);
+  }));
+  document.getElementById('cancel').addEventListener('click', () => {
+    const t = document.getElementById('toast');
+    t.textContent = 'Order cancelled. Refunds take 5–10 business days.';
+    t.style.display = 'block';
+    document.querySelector('.status').textContent = 'Cancelled';
+    document.getElementById('here').disabled = true;
+  });
+  document.getElementById('here').addEventListener('click', () => {
+    const t = document.getElementById('toast');
+    t.textContent = 'Thanks! We let the counter know you have arrived.';
+    t.style.display = 'block';
+  });
+</script>
+</body>
+</html>
