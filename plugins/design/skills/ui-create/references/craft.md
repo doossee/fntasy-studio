@@ -36,6 +36,8 @@ A tidy screen and a strong screen can use the same components. The difference is
 
 - **Every number has a job:** a label, a unit, and a comparison when the comparison is what the person needs.
 - **Align for comparison:** numbers by their last digit, consistent decimals, tabular figures (`ui-rules` DATA-1, DATA-2).
+- **Show the consequence before the choice.** When the person must decide, show what each answer changes: the new total, the price difference, the deadline, what happens if they do not answer.
+- **One story everywhere.** The same fact (a status, a time, a total) is stated once or stated identically; after every action the numbers still add up.
 - **Show the exception.** The row that needs action stands out by position (top), a status word and a quiet colour — not by making every row loud.
 - **Charts answer a question.** One chart per question, labelled directly on the lines instead of a legend where possible, no 3D, no decoration.
 - **Design empty, one and many**: the first day, a single item, and a thousand.
