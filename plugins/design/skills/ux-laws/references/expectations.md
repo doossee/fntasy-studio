@@ -14,6 +14,8 @@ Eight rules on what users already know and expect before they open the screen: h
 
 **Limits.** Copy the behaviour that users know, not the look or brand of another product.
 
+**Evidence.** Heuristic: an observation by Jakob Nielsen from usability practice, not an experiment. Origin as given on lawsofux.com, not checked.
+
 **Sources.** [LUX-JAKOB]; origin: Jakob Nielsen, Nielsen Norman Group [LUX-JAKOB].
 
 ## LAW-MENTAL-MODEL. Match how users think the thing works
@@ -27,6 +29,8 @@ Eight rules on what users already know and expect before they open the screen: h
 **Bad → Good.** Menu sections "Entities", "Transactions", "Config" → "Customers", "Payments", "Settings".
 
 **Limits.** When the user's model is wrong in a way that leads to loss (for example, they think "delete" can be undone when it cannot), do not follow it silently: change the design or say so clearly at the point of action.
+
+**Evidence.** Research: mental models are a long-standing concept in psychology and HCI. Origin as given on lawsofux.com, not checked.
 
 **Sources.** [LUX-MENTAL-MODEL]; origin: Kenneth Craik, "The Nature of Explanation", 1943 [LUX-MENTAL-MODEL].
 
@@ -42,6 +46,8 @@ Eight rules on what users already know and expect before they open the screen: h
 
 **Limits.** Complex professional tools may need training; then the training is optional and the product still does not block the first task.
 
+**Evidence.** Research: observed in studies of new users (Carroll and Rosson). Origin as given on lawsofux.com, not checked.
+
 **Sources.** [LUX-ACTIVE-USER]; origin: Mary Beth Rosson and John Carroll, 1987 [LUX-ACTIVE-USER].
 
 ## LAW-TESLER. Let the product carry the complexity, not the user
@@ -56,6 +62,8 @@ Eight rules on what users already know and expect before they open the screen: h
 
 **Limits.** Automatic choices that matter (money, sending, deleting) are shown and can be changed; do not hide a decision the user is responsible for.
 
+**Evidence.** Heuristic: a maxim of an interface designer, not a study. Origin as given on lawsofux.com, not checked.
+
 **Sources.** [LUX-TESLER]; origin: Larry Tesler, Xerox PARC, mid-1980s [LUX-TESLER].
 
 ## LAW-POSTEL. Accept what people type; give back a clean, consistent format
@@ -68,9 +76,11 @@ Eight rules on what users already know and expect before they open the screen: h
 
 **Bad → Good.** "+1 (555) 010-0199" rejected with "Invalid phone" → accepted and shown as "+1 555 010 0199".
 
-**Limits.** Being liberal must not guess on ambiguous input that changes meaning (03/04 as a date: March or April?). Then ask, or use a date picker.
+**Limits.** Being liberal must not guess on ambiguous input that changes meaning (03/04 as a date: March or April?). Then ask, or use a date picker. The principle is disputed in its home field: the IETF (RFC 9413, 2023) warns that silently accepting and reinterpreting bad input causes problems over time. Accept variants of a known format; do not guess intent.
 
-**Sources.** [LUX-POSTEL]; origin: Jon Postel, robustness principle of Internet protocols [LUX-POSTEL].
+**Evidence.** Analogy: a principle of network protocols, disputed in its own field (RFC 9413); applied here to form input. Checked against the research 24.11.2026 (RFC 9413).
+
+**Sources.** [LUX-POSTEL]; origin: Jon Postel, robustness principle of Internet protocols [LUX-POSTEL]; critique: RFC 9413, "Maintaining Robust Protocols", 2023.
 
 ## LAW-OCCAM. Every element must do a job; remove the rest
 
@@ -84,13 +94,15 @@ Eight rules on what users already know and expect before they open the screen: h
 
 **Limits.** Fewer is not always simpler: removing labels, units or confirmations makes the task harder, not simpler.
 
+**Evidence.** Analogy: a principle of reasoning from philosophy. Origin as given on lawsofux.com, not checked.
+
 **Sources.** [LUX-OCCAM]; origin: William of Ockham, 14th century [LUX-OCCAM].
 
 ## LAW-AESTHETIC-USABILITY. Good looks hide problems; test what people do, not what they say
 
-**Rule.** The product looks cared-for and consistent, because people trust and forgive what looks good. But a review or a test judges usability by what people manage to do (finish the task, time, errors), not by whether they like how it looks.
+**Rule.** The product looks cared-for and consistent, because people judge a good-looking interface as easier to use. But a review or a test judges usability by what people manage to do (finish the task, time, errors), not by whether they like how it looks.
 
-**Why.** People judge attractive designs as easier to use and tolerate small problems in them. That helps the product, and it also hides real problems from anyone who only asks for opinions.
+**Why.** In the original study people rated the ease of use of interfaces they had not used yet, and their ratings followed the look more than the actual usability; later studies repeated the result, including ratings after use. Opinions about ease of use are therefore coloured by the look, and anyone who only asks for opinions will miss real problems.
 
 **How to check.** In any review or test, record for each task: done or not, time, errors, places where the person hesitated. Pass: the verdict rests on these, and comments like "looks nice" are kept apart from the findings. For the look itself: alignment, spacing and type follow one system on every screen (see LAW-SIMILARITY).
 
@@ -98,7 +110,9 @@ Eight rules on what users already know and expect before they open the screen: h
 
 **Limits.** A beautiful screen with a broken task fails. A plain screen with a working task passes, and can be polished later.
 
-**Sources.** [LUX-AESTHETIC-USABILITY]; origin: Masaaki Kurosu and Kaori Kashimura, Hitachi Design Center, 1995 [LUX-AESTHETIC-USABILITY].
+**Evidence.** Research: Kurosu and Kashimura 1995, repeated by Tractinsky 1997; the effect is on judged ease of use, not on actual task success. Checked against the research 24.11.2026.
+
+**Sources.** [LUX-AESTHETIC-USABILITY]; origin: Masaaki Kurosu and Kaori Kashimura, "Apparent Usability vs. Inherent Usability", CHI '95 [LUX-AESTHETIC-USABILITY]; replication: Noam Tractinsky, CHI '97.
 
 ## LAW-COGNITIVE-BIAS. Do not exploit biases; guard against them
 
@@ -112,4 +126,6 @@ Eight rules on what users already know and expect before they open the screen: h
 
 **Limits.** Good defaults are not manipulation when they serve the user and are easy to change (for example, the most common delivery option preselected).
 
-**Sources.** [LUX-COGNITIVE-BIAS]; origin: Amos Tversky and Daniel Kahneman, 1970s [LUX-COGNITIVE-BIAS].
+**Evidence.** Research: Tversky and Kahneman 1974 and later work; the list of dark patterns to avoid is ours. Checked against the research 24.11.2026 (year and paper).
+
+**Sources.** [LUX-COGNITIVE-BIAS]; origin: Amos Tversky and Daniel Kahneman, "Judgment under Uncertainty: Heuristics and Biases", Science, 1974 [LUX-COGNITIVE-BIAS].

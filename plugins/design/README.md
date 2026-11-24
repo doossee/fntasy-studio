@@ -26,7 +26,7 @@ Without the plugin system: copy `plugins/design/skills/ux-laws` into `.claude/sk
 - **Action and decision** — Fitts's law, Doherty threshold, Hick's law, choice overload, Pareto principle, goal-gradient effect, flow, Parkinson's law;
 - **Expectations** — Jakob's law, mental model, paradox of the active user, Tesler's law, Postel's law, Occam's razor, aesthetic-usability effect, cognitive bias.
 
-Each rule says what to do on a screen, why, how to check it (a number or a yes/no on a screenshot or a walk through the task), bad → good, where it stops applying, and its sources. Thresholds that are the skill's own choice are listed separately, so a project can change them.
+Each rule says what to do on a screen, why, how to check it (a number or a yes/no on a screenshot or a walk through the task), bad → good, where it stops applying, and its sources. Every rule also says how strong its ground is (research, research applied to screens by inference, disputed, heuristic, analogy). Thresholds that are the skill's own choice are marked "(ours)" and listed separately, so a project can change them. The most doubtful claims were checked against the research; the list of what was checked and what changed is in `skills/ux-laws/references/sources.md`.
 
 Example:
 

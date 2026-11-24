@@ -8,11 +8,13 @@ Five rules on how the eye splits a screen into groups before anyone reads a word
 
 **Why.** People see an ambiguous or busy picture as the simplest shape it can be. When the layout itself is not simple, the eye makes its own simplification, and it may not be the one the designer meant.
 
-**How to check.** Blur a screenshot (about 8 px Gaussian blur, or look at it from two metres away). Count the blocks you can tell apart. Pass: no more than seven blocks at the top level, and each one has a clear edge (aligned with its neighbours, or with a background or border). The threshold of seven is this skill's choice. Fail: shapes that overlap, edges that almost line up but not quite, or blocks you cannot count.
+**How to check.** Blur a screenshot (about 8 px Gaussian blur, or look at it from two metres away). Count the blocks you can tell apart. Pass: no more than seven blocks at the top level, and each one has a clear edge (aligned with its neighbours, or with a background or border). The threshold of seven is ours. Fail: shapes that overlap, edges that almost line up but not quite, or blocks you cannot count.
 
 **Bad → Good.** A dashboard where eleven cards of four different heights are packed in a masonry layout → three rows of cards, one height per row, the main figure in the first row.
 
 **Limits.** Simple is not the same as empty. A dense table can be simple if it reads as one block with an obvious structure.
+
+**Evidence.** Research, extended: Gestalt perception studies; applying it to whole screens is a design inference. Origin as given on lawsofux.com, not checked.
 
 **Sources.** [LUX-PRAGNANZ]; origin: Max Wertheimer and the Gestalt school, early 20th century [LUX-PRAGNANZ].
 
@@ -22,11 +24,13 @@ Five rules on how the eye splits a screen into groups before anyone reads a word
 
 **Why.** People see nearby objects as one group without reading them. A wrong distance groups the wrong things, and no amount of text fixes it.
 
-**How to check.** Measure gaps on a screenshot or in the browser's inspector. Pass: the gap between groups is at least twice the gap inside a group (this ratio is this skill's choice). For every label, the distance to its own field is smaller than the distance to any other field.
+**How to check.** Measure gaps on a screenshot or in the browser's inspector. Pass: the gap between groups is at least twice the gap inside a group (ours). For every label, the distance to its own field is smaller than the distance to any other field.
 
 **Bad → Good.** A form with 16 px everywhere: the label "Email" sits exactly halfway between the name field above and the email field below → 4–8 px from label to its field, 24 px between field groups.
 
 **Limits.** A strong box or line (see LAW-COMMON-REGION, LAW-CONNECTEDNESS) overrides distance. Do not fix a grouping problem with distance when a box already says otherwise.
+
+**Evidence.** Research: Gestalt grouping, widely confirmed; the 2:1 ratio is ours. Origin as given on lawsofux.com, not checked.
 
 **Sources.** [LUX-PROXIMITY]; origin: Gestalt grouping principles [LUX-PROXIMITY].
 
@@ -42,6 +46,8 @@ Five rules on how the eye splits a screen into groups before anyone reads a word
 
 **Limits.** Colour alone is not enough to separate groups: some people do not see the difference (WCAG 2.2, 1.4.1 Use of Color). Pair colour with a second sign.
 
+**Evidence.** Research: Gestalt grouping; "alike looks mean alike behaviour" is an inference for interfaces. Origin as given on lawsofux.com, not checked.
+
 **Sources.** [LUX-SIMILARITY]; origin: Gestalt grouping principles [LUX-SIMILARITY]; [WCAG-USE-OF-COLOR].
 
 ## LAW-COMMON-REGION. A shared background or border makes a group
@@ -56,6 +62,8 @@ Five rules on how the eye splits a screen into groups before anyone reads a word
 
 **Limits.** Nested boxes are fine when the levels look different (a page background, a card, a lighter inset area inside it).
 
+**Evidence.** Research: Gestalt grouping (common region was added to the classic list later). Origin as given on lawsofux.com, not checked.
+
 **Sources.** [LUX-COMMON-REGION]; origin: Gestalt grouping principles [LUX-COMMON-REGION].
 
 ## LAW-CONNECTEDNESS. A line or a link between items is the strongest tie
@@ -69,5 +77,7 @@ Five rules on how the eye splits a screen into groups before anyone reads a word
 **Bad → Good.** A three-step checkout shown as three separate circles with numbers → three circles on one line, done steps filled, the current one outlined.
 
 **Limits.** Dividers between rows of a list connect nothing; they separate. Keep them light so they do not outweigh the grouping by distance.
+
+**Evidence.** Research: Gestalt grouping (uniform connectedness was added to the classic list later). Origin as given on lawsofux.com, not checked.
 
 **Sources.** [LUX-CONNECTEDNESS]; origin: Gestalt grouping principles [LUX-CONNECTEDNESS].

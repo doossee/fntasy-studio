@@ -11,7 +11,15 @@ Thirty rules, one for each principle on Laws of UX. Each rule is written for scr
 - **Designing or building a screen:** read the group that fits the work. Grouping and layout: `perception.md`. Forms, lists, messages, multi-step tasks: `attention-memory.md` and `action-decision.md`. Navigation, labels, input formats, choices with money or consent: `expectations.md`.
 - **Reviewing a screen:** walk the user's main task first, then go through all 30 rules. For each rule write: pass, fail (with the place on the screen and the number or step that shows it), or not applicable. A fail needs evidence; "feels cluttered" is not a finding.
 - **A rule is a tool, not a law.** The question is always whether the screen got worse for a person doing their task. When following a rule would hurt the task, say so and do not follow it. When the rules conflict (for example LAW-OCCAM and LAW-WORKING-MEMORY: removing information vs keeping it in view), the user's task decides.
-- **Thresholds.** Numbers marked "this skill's choice" are not from the sources; a project may change them. The list is at the end of `references/sources.md`.
+- **Thresholds.** Numbers marked "(ours)" are not from the sources; they make a rule checkable, and a project may change them. The list is at the end of `references/sources.md`.
+- **Evidence.** Every rule says how strong its ground is, so a reviewer knows how hard to push it:
+  - *Research* — the principle comes from repeated experiments, and the screen rule follows from it closely;
+  - *Research, extended* or *limited* — the experiments were about something else (lists, learning) or hold only in some conditions; the screen rule is an inference;
+  - *Disputed* — the classic effect did not replicate reliably; the rule rests on what did;
+  - *Heuristic* — a rule of thumb from practitioners, not a study;
+  - *Analogy* — an idea from another field (economics, philosophy, network protocols), used as a design principle.
+  
+  A finding based on a *Disputed*, *Heuristic* or *Analogy* rule needs the harm shown on the screen itself; the law's name alone is not an argument.
 - **Accessibility** is checked against WCAG 2.2 where a rule touches it (colour, target size); this skill does not replace an accessibility review.
 
 ## Rules

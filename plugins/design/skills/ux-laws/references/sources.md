@@ -11,7 +11,7 @@ The "Origin" column restates facts from the "Origins" and "Further reading" sect
 | LUX-AESTHETIC-USABILITY | Aesthetic-Usability Effect | Masaaki Kurosu and Kaori Kashimura (Hitachi Design Center), 1995: 26 ATM interface variants rated by 252 people | https://lawsofux.com/aesthetic-usability-effect/ |
 | LUX-CHOICE-OVERLOAD | Choice Overload | Term from Alvin Toffler, "Future Shock", 1970 | https://lawsofux.com/choice-overload/ |
 | LUX-CHUNKING | Chunking | George A. Miller, "The Magical Number Seven, Plus or Minus Two", 1956 | https://lawsofux.com/chunking/ |
-| LUX-COGNITIVE-BIAS | Cognitive Bias | Amos Tversky and Daniel Kahneman, 1972 | https://lawsofux.com/cognitive-bias/ |
+| LUX-COGNITIVE-BIAS | Cognitive Bias | Amos Tversky and Daniel Kahneman, 1972 (the classic paper is 1974, see below) | https://lawsofux.com/cognitive-bias/ |
 | LUX-COGNITIVE-LOAD | Cognitive Load | John Sweller, cognitive load theory, late 1980s; "Cognitive Load Theory, Learning Difficulty, and Instructional Design", 1988 | https://lawsofux.com/cognitive-load/ |
 | LUX-DOHERTY | Doherty Threshold | Walter J. Doherty and Arvind J. Thadani, IBM Systems Journal, 1982: a 400 ms response requirement instead of 2 s | https://lawsofux.com/doherty-threshold/ |
 | LUX-FITTS | Fitts's Law | Paul Fitts, "The information capacity of the human motor system in controlling the amplitude of movement", 1954 | https://lawsofux.com/fittss-law/ |
@@ -46,15 +46,33 @@ The "Origin" column restates facts from the "Origins" and "Further reading" sect
 | WCAG-USE-OF-COLOR | WCAG 2.2, 1.4.1 Use of Color: colour is not the only way to convey information | https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html |
 | WCAG-TARGET-SIZE | WCAG 2.2, 2.5.8 Target Size (Minimum): targets at least 24 × 24 CSS px, or spaced so a 24 px circle around each does not overlap another | https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html |
 
+## Checked against the research (24.11.2026)
+
+After the first version, the claims most likely to be wrong were checked against the research itself (abstracts, the papers' own pages and reviews of them). What changed:
+
+- **Zeigarnik.** A 2025 meta-analysis of the Zeigarnik and Ovsiankina effects (Ghibellini and Meier) found no general memory advantage for unfinished tasks, but a general tendency to resume them (Ovsiankina, 1928). LAW-ZEIGARNIK now rests on resumption.
+- **Choice overload.** A 2010 meta-analysis (Scheibehenne, Greifeneder and Todd; 50 experiments) found a mean effect close to zero with large variation between studies. LAW-CHOICE-OVERLOAD now targets the conditions in which overload appears.
+- **Hick.** The law describes choice reaction among known options. In unordered menus of unfamiliar items, search time grows linearly with the number of items. LAW-HICK says so and asks for ordered or grouped lists.
+- **Postel.** RFC 9413, "Maintaining Robust Protocols" (IETF, 2023), argues the robustness principle is applied too broadly and warns against silently reinterpreting bad input. LAW-POSTEL keeps "accept variants of a known format" and drops any guessing.
+- **Aesthetic-usability.** Kurosu and Kashimura, "Apparent Usability vs. Inherent Usability", CHI '95, 26 ATM layouts: ratings of ease of use followed the look more than the actual usability; Tractinsky (CHI '97) repeated the result. The claim that people "forgive" problems in good-looking interfaces was removed: it is not in these studies.
+- **WCAG 2.2, 2.5.8.** The spacing exception is a 24 px circle centred on the small target that must not touch another target or another small target's circle; inline links are exempt. LAW-FITTS was corrected.
+- **Miller.** Nelson Cowan, "The magical number 4 in short-term memory", Behavioral and Brain Sciences, 2001: about four chunks; the figure is still debated.
+- **Goal-gradient.** The "head start" part is the endowed progress effect: Nunes and Drèze, Journal of Consumer Research, 2006 (car-wash loyalty cards; checked through summaries, not the paper).
+- **Cognitive bias.** The classic paper is Tversky and Kahneman, "Judgment under Uncertainty: Heuristics and Biases", Science, 1974. Laws of UX dates the notion to 1972.
+
+The other origins in the table above are as given on Laws of UX and were not checked.
+
 ## Thresholds that are this skill's own choice
 
-These numbers are not in the sources; they are chosen to make a rule checkable. Change them in the project profile if they do not fit.
+These numbers are not in the sources; they make a rule checkable. In the rules they are marked "(ours)". Change them in the project profile if they do not fit.
 
 - LAW-PRAGNANZ: no more than seven top-level blocks on a blurred screenshot.
 - LAW-PROXIMITY: the gap between groups is at least twice the gap inside a group.
-- LAW-CHUNKING: paragraphs of at most five lines; forms of more than six fields are split into sections; strings over eight characters are grouped.
-- LAW-MILLER: about four unseen items at once, following the later estimate of working memory, not "seven".
-- LAW-FITTS: 44 × 44 px touch targets (24 × 24 px as the hard minimum comes from WCAG 2.2); 16 px between a destructive and a frequent action.
-- LAW-DOHERTY: the 400 ms threshold is from the source; 1 s for an indicator and 10 s for progress are this skill's choice.
-- LAW-HICK, LAW-CHOICE-OVERLOAD: at most five actions on the first phone screen; about five comparable options before filters; search or grouping from ten items.
+- LAW-CHUNKING: strings over eight characters are grouped; paragraphs of at most five lines; forms of more than six fields are split into sections.
+- LAW-MILLER: at most four unseen items at once (after Cowan's estimate).
+- LAW-FITTS: 44 × 44 px touch targets (the same size as WCAG 2.2 AAA, 2.5.5; AA requires 24 × 24 px or spacing); the primary action in the lower two thirds of a phone screen; 16 px between a destructive and a frequent action.
+- LAW-DOHERTY: 400 ms is from the source; 1 s for an indicator and 10 s for progress are ours.
+- LAW-HICK: at most five actions on the first phone screen; lists of more than ten items are ordered or grouped and get search.
+- LAW-CHOICE-OVERLOAD: about five comparable options before filters.
 - LAW-PARETO: three to five most frequent tasks, each within one tap of the main screen.
+- LAW-GOAL-GRADIENT: progress shown for tasks of three or more steps.
