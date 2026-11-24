@@ -16,7 +16,7 @@ Taste is not a finding: no score, one line at the end of the report (see `taste-
 Severity moves with three factors. Write them down for every finding of score 3 or 4.
 
 1. **Frequency** — how often the main user meets it (once ever, weekly, many times a day).
-2. **Cost of the error** — nothing, time, money, data, safety, exclusion.
+2. **Cost of the error** — nothing, time, money, data, safety, exclusion; for engagement mechanics also what the person earned, their own goal, and consent.
 3. **Who is affected** — everyone, a group (keyboard users, people with low vision, a language), one role.
 
 | Defect | Where | Score | Why |
@@ -32,6 +32,10 @@ Severity moves with three factors. Write them down for every finding of score 3 
 | The same animation | Order list opened 100 times a day | 2 | Waiting on every opening of a frequent screen |
 | Preselected add-on | Free newsletter checkbox | 3 | Consent taken without a clear choice |
 | Preselected add-on | Paid insurance at checkout | 4 | Money taken without a clear choice |
+| Streak that "burns" earned progress after a missed day | Learning app the person opens a few minutes a day | 3 | Takes what the person earned and pushes them on the product's schedule |
+| Lock on the next lesson for 15 hours with no reason | The same app | 3 | Blocks the person's own goal |
+| Random coin reward, coins for reposting | The same app, coins with no use | 2 | Teaches the wrong habit; no money or data lost |
+| The same random reward | An investing app, the reward is a share | 3 | Teaches that investing is a lottery; money involved |
 
 ## Rules for scoring
 

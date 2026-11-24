@@ -24,11 +24,20 @@ No real people were tested. Every predicted outcome is **assumed**.
 
 | # | Where | What is visible | Measured | Rule | Severity | Smallest fix |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | `.dlg` | "Are you sure?" with Yes/No. It does not name the invoice or the consequence. "Yes" is the filled primary button and has focus by default. | — | STATE-4 (also TEXT-4) | 3: an invoice deleted by habit | Name the invoice: "Delete invoice INV-3300? This cannot be undone." Use buttons "Delete invoice" and "Keep". Make Keep the default and give delete the destructive style. Prefer undo. |
-| 2 | `tr.late` | Overdue invoices are marked only by a pink row tint. | — | COLOR-2 (WCAG 1.4.1) | 3: A failure on the main task | Add an "متأخرة" ("overdue") status with an icon. |
+| 1 | `.dlg` | "Are you sure?" with Yes/No. It does not name the invoice or the consequence. "Yes" is the filled primary button and has focus by default. | — | STATE-4 (also TEXT-4) | 4: an invoice deleted by habit with Yes as the default; data lost without noticing (raised from 3 after the evaluation of 24.11.2026, see below) | Name the invoice: "Delete invoice INV-3300? This cannot be undone." Use buttons "Delete invoice" and "Keep". Make Keep the default and give delete the destructive style. Prefer undo. |
+| 2 | `tr.late` | Overdue invoices are marked only by a pink row tint. | — | COLOR-2 (WCAG 1.4.1) | 4: a Level A failure that hides what the bookkeeper came to check (raised from 3 after the evaluation) | Add an "متأخرة" ("overdue") status with an icon. |
 | 3 | `td.ic` | Four icon-only buttons (✎ ⧉ ⇪ 🗑) without labels or accessible names. ⧉ and ⇪ are not universal, and delete sits next to duplicate. | — | EXP-7 (WCAG 4.1.2) | 3: A failure for screen reader users; guesswork for everyone | Add accessible names and visible labels or tooltips that also open on focus. Move delete into a menu. |
 | 4 | `tbody td:nth-child(4)` | Amounts appear in four formats: "AED 1,200", "٣٥٠ درهم" (Eastern Arabic digits), "AED 89.5", "2.450 د.إ" (a dot as the thousands separator). | — | DATA-2 | 3: money can be misread | Use one currency format, one digit system and two decimals, aligned for comparison. |
 | 5 | `aside` | Navigation sits on the left in a right-to-left layout. | — | TEXT-5 | 2 | Remove `row-reverse` and let `dir="rtl"` place the sidebar at the start (right). |
+
+## Found in evaluation (not planted)
+
+| # | Where | What is visible | Rule | Severity |
+| --- | --- | --- | --- | --- |
+| E1 | `.dlg` | With the dialog open, Tab moves to the sidebar and the row buttons behind the veil. | STATE-1 (WCAG 2.4.3, 2.4.11) | 3 |
+| E2 | `.dlg` | The dialog is placed at fixed pixel coordinates; at 200% zoom its question and buttons leave the screen. | TEXT-3 (WCAG 1.4.4, 1.4.10) | 3 |
+
+Severity of #1 and #2 was raised from 3 to 4 after both reviewers scored them 4 and `severity.md` supported them: the key had been inconsistent with the scale.
 
 ## Taste, not defects
 

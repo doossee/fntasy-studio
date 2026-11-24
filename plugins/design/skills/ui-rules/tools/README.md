@@ -56,3 +56,7 @@ meaning; whether a label is understandable; anything about the task. These need 
 3. Keep only what is confirmed and matters to the task; group lines with one cause (one token, one component) into
    one finding, as `../method.md` step 3 says.
 4. In the finding, give the measured number ("text 2.2:1, needs 4.5:1, WCAG 1.4.3"), not the script's wording.
+
+## Known false positive found in evaluation
+
+An element that has focus when the page loads (`autofocus`, or focus moved by a dialog) can be reported as "no visible focus change", because the script compares the focused look with the look it saw first, which was already focused. Check such elements on a screenshot.

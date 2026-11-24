@@ -46,7 +46,7 @@ How screens adapt to window size and input type, and how fast they load and sett
 
 **Bad → Good.** In Acme's order list, "Archive" exists only as a swipe-left gesture → swipe stays, and the order's menu also has "Archive".
 
-**Limits.** Pure enhancements (a hover highlight on a row) need no alternative if they carry no information. Where the thumb reaches easily is a rough map, not a measured law.
+**Limits.** Whether a simple one-direction swipe counts as a path-based gesture under WCAG 2.5.1 is read differently by different auditors; it does not matter here, because this rule asks for an on-screen alternative to every gesture anyway. Pure enhancements (a hover highlight on a row) need no alternative if they carry no information. Where the thumb reaches easily is a rough map, not a measured law.
 
 **Conflicts.** S-6, S-9.
 

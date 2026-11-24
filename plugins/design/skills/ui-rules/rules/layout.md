@@ -68,7 +68,7 @@ How the eye splits a screen into blocks before anyone reads a word: how many blo
 
 **Bad → Good.** Acme Shop's plan page with a "Most popular" ribbon on all three plans in three colours → one plan with the ribbon and a filled button, the other two with outlined buttons.
 
-**Limits.** A form with several errors may have several red items; then the error summary is the one thing that stands out. Strong content (a bright photo) can override the intended hierarchy; check with the real content.
+**Limits.** On pricing and plan pages, competing emphasis (several ribbons, several filled buttons) is LAYOUT-3; plans that cannot be compared line by line are ACT-3; a plan that exists only to steer is HONEST-1. A form with several errors may have several red items; then the error summary is the one thing that stands out. Strong content (a bright photo) can override the intended hierarchy; check with the real content.
 
 **Conflicts.** C-3 (consistency vs one thing standing out).
 

@@ -17,7 +17,7 @@ Tables, lists of records and the numbers inside them: what people scan, compare,
 
 **How to check.**
 - Order of columns: the identifier first, then what people check most.
-- Alignment: numbers end-aligned with the same decimals; text start-aligned; headers aligned like their column.
+- Alignment: numbers aligned so their last digits line up (the right edge of the numbers, in right-to-left tables too, because digits run left to right), with the same decimals; text start-aligned; headers aligned like their column.
 - Tabular figures: digits of equal width (`font-variant-numeric: tabular-nums` or a font with tabular digits).
 - Scroll a long table: headers stay; the first column stays when the table scrolls sideways.
 - Sorting: the sorted column and direction are visible; sorting is available from the keyboard; the sort holds after going back.

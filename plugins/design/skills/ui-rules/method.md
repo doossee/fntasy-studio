@@ -16,9 +16,11 @@ A measurement from `tools/measure.mjs` or any script is a reason to look, not a 
 
 Before writing a finding, try to refute it: another width, the other theme, the hover or focus state, the same action on another screen, a long name, another language. If you cannot confirm it, write "not checked", not a finding.
 
+On a static mock or a screenshot, separate the product from the frame. A page height fixed to imitate a phone, a missing scroll container or placeholder data are artefacts of the mock: zoom, reflow and scrolling are "not checked" unless the defect sits in the component itself (a dialog placed at fixed pixels, a button with a fixed height). Behaviour the mock cannot show (whether a timer or a stock count is real, what happens after a tap) is marked **assumed**.
+
 ## 3. Find the cause, not five symptoms
 
-Ask "why" until you reach something a person can change. Five screens with low-contrast grey text are one finding: the "secondary text" token fails contrast. List every place under that one finding. Fixing the cause fixes all of them; fixing symptoms leaves the next screen broken.
+Ask "why" until you reach something a person can change. Five screens with low-contrast grey text are one finding: the "secondary text" token fails contrast. List every place under that one finding. Fixing the cause fixes all of them; fixing symptoms leaves the next screen broken. The test: if one fix removes all the places, it is one finding; if the fixes differ (a streak, a lock and a random reward each need their own change), they are separate findings under the same rule.
 
 ## 4. Look one step further
 

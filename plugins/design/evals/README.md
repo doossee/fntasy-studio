@@ -36,6 +36,10 @@ Held-out screens for checking whether a reviewer that uses `skills/ui-rules` fin
 5. Record per run: matched / key total, false, traps hit, exact severity share, ±1 severity share. Record run-to-run agreement per screen.
 6. Where the two runs disagree, or both hit a trap, read the rule they used. If the rule can be read two ways, rewrite the rule, not the key.
 
+## Results
+
+The first evaluation and what it changed: `results-2026-11-24.md`. After it, this set is no longer held out.
+
 ## Limits
 
 - Four screens with 5–8 defects each are a small set. A result is a signal, not a benchmark.

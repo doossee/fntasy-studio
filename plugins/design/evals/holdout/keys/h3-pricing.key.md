@@ -32,6 +32,13 @@ No real people were tested. Every predicted outcome is **assumed**.
 | 7 | `.q` | Card fees are only in `title` tooltips on hover. | 18 × 18 px | PLAT-2 | 3: a price element unreachable on touch and keyboard | Write the fees in the feature list. |
 | 8 | `.p ul` | Features differ in order and content between plans. | — | ACT-3 | 2: plans cannot be compared row by row | Use one comparison table with the same rows for every plan. |
 
+## Found in evaluation (not planted)
+
+| # | Where | What is visible | Rule | Severity |
+| --- | --- | --- | --- | --- |
+| E1 | plan buttons | Three different labels for the same action; none says that a payment follows. | TEXT-4, EXP-3 | 2 |
+| E2 | page at 320 CSS px | The three-column grid does not stack; the page scrolls sideways. | TEXT-3, PLAT-1 (WCAG 1.4.10) | 3 |
+
 ## Taste, not defects
 
 - **Serif headline.** A brand choice.

@@ -28,7 +28,7 @@ How much a person has to do, decide and wait to get a task done: the size and pl
 
 **Bad → Good.** A 20 px "×" in the top corner is the only way to close the order sheet → the backdrop also closes it, plus a 44 px "Close" button. "Delete order" sits beside "Save" → "Save" is the primary button, "Delete order" is in the "More" menu.
 
-**Limits.** With a mouse, screen edges and corners are easy to hit because the pointer stops there; on touch screens the top corners are hard for one hand. Dense expert tools on desktop may use smaller targets if they meet the WCAG minimum.
+**Limits.** ACT-1 covers size, spacing and whether a target is within reach; which task deserves the best place is ACT-4. With a mouse, screen edges and corners are easy to hit because the pointer stops there; on touch screens the top corners are hard for one hand. Dense expert tools on desktop may use smaller targets if they meet the WCAG minimum.
 
 **Conflicts.** S-1 (target sizes across sources), S-6 (corners).
 
@@ -72,7 +72,7 @@ How much a person has to do, decide and wait to get a task done: the size and pl
 
 **Bad → Good.** "New" opens a menu of 14 document types in random order → the 3 most used on top, "All types" with search below. Six subscription plans with different feature lists → three plans, "Most chosen" on one, one comparison table.
 
-**Limits.** Experts who make the same choice every day may prefer everything at once (a toolbar, keyboard shortcuts). Catalogues with hundreds of items rely on search and filters (SEARCH-1, SEARCH-2). Decide by frequency and the person's task, not by the count alone. A recommendation must be the best fit for the person, not the most profitable option (HONEST-1).
+**Limits.** Experts who make the same choice every day may prefer everything at once (a toolbar, keyboard shortcuts). Catalogues with hundreds of items rely on search and filters (SEARCH-1, SEARCH-2). Decide by frequency and the person's task, not by the count alone. Whether the options can be compared (same attributes, same order) is ACT-3; which one shouts loudest (ribbons, colours, filled buttons) is LAYOUT-3. A recommendation must be the best fit for the person, not the most profitable option (HONEST-1).
 
 **Conflicts.** C-4, C-14.
 

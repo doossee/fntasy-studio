@@ -81,6 +81,7 @@ rule needs is in the skill. No source text, tables or images are copied or trans
 - Rules rewritten as material a reviewer (or a model) can learn from: no authors, years, study names or study figures in the rules (kept in `sources.md` for people); no "law" labels; thresholds tagged as WCAG, platform or team default; contested effects described as contested.
 - Duplicates merged: 46 → 44 rules, then 8 new: icons, message channels, languages and right-to-left, dark theme, tables, numbers and dates, search, filters and sorting — 52 rules in 12 groups.
 - New: project profile format, cases where a rule is wrong, labelled remarks, interface text in five languages, example screens with answer keys, a measuring script, and held-out screens for testing a reviewer.
+- First evaluation (`evals/results-2026-11-24.md`): two independent reviewers found 26 and 22 of 26 planted defects, with no traps hit; where they disagreed, the rules were clarified.
 
 **0.4.0**
 - Everything of 0.3.0 was removed: skill `design-review`, command `audit`, agent `design-reviewer`, the review gate hook, the measurement scripts and checklists.

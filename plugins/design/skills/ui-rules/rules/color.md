@@ -25,7 +25,7 @@ How colour is used: enough contrast for text and controls in every theme, never 
 
 **Bad → Good.** Acme's grey field labels at 2.9:1 and a light-grey input border at 1.6:1 → labels at 7:1, borders at 3.2:1.
 
-**Limits.** Logos, purely decorative graphics and disabled controls are exempt, though a disabled label should still be legible. Brand colours may need a darker or lighter variant for text.
+**Limits.** A character used as an icon (×, ⊘, ✓) is text to a contrast checker; judge it as text (4.5:1) when in doubt, or replace it with a real icon with an accessible name and judge that at 3:1. Logos, purely decorative graphics and disabled controls are exempt, though a disabled label should still be legible. Brand colours may need a darker or lighter variant for text.
 
 **Evidence.** Standard.
 

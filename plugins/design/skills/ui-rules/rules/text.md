@@ -102,6 +102,7 @@ How text is sized, set and worded on screens: the type scale, how easy body text
 - Find the longest single word in each language; it fits in the narrowest container that shows it, or the container allows hyphenation.
 - Search the code or strings for concatenation (`"Hello " + name + "!"`, "You have " + n + " orders"): each is a finding.
 - Check plurals with 0, 1, 2, 5, 21 and 101.
+- Digits: Western (0–9) or Eastern Arabic (٠–٩) digits as the profile says; mixing both on one screen is the defect.
 - Check dates, times, numbers and currencies in two locales: thousand and decimal separators, date order, 24-hour clock, currency position.
 - Switch to a right-to-left language: navigation, back arrows and progress mirror; phone numbers, amounts and code stay left-to-right; text in input fields aligns to the start.
 - Name and address fields accept the formats of the profile's countries (one "Full name" field, no required "State" for countries without states).
