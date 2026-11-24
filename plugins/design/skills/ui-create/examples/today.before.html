@@ -1,0 +1,93 @@
+<!doctype html>
+<!-- Acme "Today" dashboard, BEFORE the ui-create process. Desktop 1280x800; also checked at 390 px.
+     Correct (passes the ui-rules floor) but with the template look. Fictional data. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acme — Dashboard</title>
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 14px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: #f4f5f9; color: #4a4a55; }
+  header { background: linear-gradient(120deg, #6d28d9, #2563eb); color: #fff; padding: 28px 24px 72px; text-align: center; }
+  header h1 { margin: 0 0 6px; font-size: 24px; font-weight: 700; }
+  header p { margin: 0; color: #fff; }
+  nav { display: flex; justify-content: center; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+  nav a { color: #fff; text-decoration: none; padding: 8px 14px; border-radius: 999px; background: rgba(0,0,0,.22); min-height: 36px; display: inline-flex; align-items: center; }
+  main { max-width: 1180px; margin: -48px auto 32px; padding: 0 16px; }
+  .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .card { background: #fff; border-radius: 14px; box-shadow: 0 6px 20px rgba(30,30,60,.10); padding: 18px; text-align: center; }
+  .card h2 { margin: 0 0 10px; font-size: 14px; color: #4a4a55; font-weight: 600; text-align: center; }
+  .tile .icon { width: 44px; height: 44px; margin: 0 auto 8px; border-radius: 50%; background: #ede9fe; display: flex; align-items: center; justify-content: center; }
+  .tile .num { font-size: 14px; font-weight: 700; color: #33333d; }
+  .badge { display: inline-block; font-size: 12px; padding: 2px 8px; border-radius: 999px; background: #e7f6ec; color: #17663a; margin-left: 4px; }
+  .badge.red { background: #fde8e8; color: #9b1c1c; }
+  .badge.amber { background: #fdf3d8; color: #7a4d00; }
+  .badge.blue { background: #e3edff; color: #1e429f; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { padding: 8px 6px; text-align: center; border-bottom: 1px solid #eee; }
+  th { font-weight: 600; color: #4a4a55; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li { padding: 8px 0; border-bottom: 1px solid #eee; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 36px; padding: 0 14px; border-radius: 8px; border: 0; background: #6d28d9; color: #fff; font: inherit; cursor: pointer; margin-top: 12px; }
+  .wide { grid-column: span 2; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #0b0b10; color: #c9c9d4; }
+    .card { background: #1b1b24; box-shadow: 0 6px 20px rgba(0,0,0,.6); }
+    .card h2, th { color: #c9c9d4; }
+    .tile .num { color: #ececf2; }
+    .tile .icon { background: #2e2350; }
+    th, td, li { border-color: #2c2c38; }
+  }
+  @media (max-width: 760px) {
+    .tiles { grid-template-columns: repeat(2, 1fr); }
+    .grid { grid-template-columns: 1fr; }
+    .wide { grid-column: auto; }
+    table { font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <nav aria-label="Main">
+    <a href="#" aria-current="page">Dashboard</a><a href="#">Orders</a><a href="#">Customers</a><a href="#">Products</a><a href="#">Settings</a>
+  </nav>
+  <h1>Welcome back, Dana! 👋</h1>
+  <p>Here's what's happening with your store today.</p>
+</header>
+<main>
+  <section class="tiles" aria-label="Summary">
+    <div class="card tile"><div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6d28d9" stroke-width="2"><path d="M6 6h15l-2 9H8L6 3H3"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg></div><h2>Orders</h2><div class="num">14 <span class="badge">↑ 12%</span></div></div>
+    <div class="card tile"><div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6d28d9" stroke-width="2"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h2>Revenue</h2><div class="num">$1,284.50 <span class="badge">↑ 8%</span></div></div>
+    <div class="card tile"><div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6d28d9" stroke-width="2"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-7 7-7s7 3 7 7"/></svg></div><h2>Customers</h2><div class="num">9 <span class="badge blue">New 2</span></div></div>
+    <div class="card tile"><div class="icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6d28d9" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div><h2>Avg. order</h2><div class="num">$91.75 <span class="badge red">↓ 3%</span></div></div>
+  </section>
+  <section class="grid">
+    <div class="card wide">
+      <h2>Recent orders</h2>
+      <table>
+        <thead><tr><th>Order</th><th>Customer</th><th>Total</th><th>Payment</th><th>Delivery</th></tr></thead>
+        <tbody>
+          <tr><td>#1042</td><td>Mira Tal</td><td>$46.39</td><td><span class="badge red">Unpaid</span></td><td><span class="badge amber">Late</span></td></tr>
+          <tr><td>#1041</td><td>Jon Abara</td><td>$212.00</td><td><span class="badge">Paid</span></td><td><span class="badge blue">Today</span></td></tr>
+          <tr><td>#1040</td><td>Sana Ilyasova</td><td>$18.50</td><td><span class="badge red">Unpaid</span></td><td><span class="badge blue">Today</span></td></tr>
+          <tr><td>#1039</td><td>Peter Lund</td><td>$134.20</td><td><span class="badge">Paid</span></td><td><span class="badge amber">Late</span></td></tr>
+          <tr><td>#1038</td><td>Aiko Mori</td><td>$75.00</td><td><span class="badge red">Unpaid</span></td><td><span class="badge">Done</span></td></tr>
+        </tbody>
+      </table>
+      <button class="btn" type="button">View all orders</button>
+    </div>
+    <div class="card">
+      <h2>Low stock <span class="badge amber">2</span></h2>
+      <ul>
+        <li>Sourdough loaf <span class="badge red">0 left</span></li>
+        <li>Rye bread <span class="badge amber">3 left</span></li>
+      </ul>
+      <button class="btn" type="button">Manage products</button>
+    </div>
+  </section>
+</main>
+</body>
+</html>
