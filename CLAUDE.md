@@ -5,8 +5,9 @@ independent Claude Code plugins, each in its own folder:
 
 - `plugins/growth/` — plugin `growth`: the growth research skill (`skills/growth/`) and content production
   tools (`tools/`), with `profiles/example/`, `examples/`, `docs/`, `scripts/` and `package.json`;
-- `plugins/design/` — plugin `design`: being rewritten from new materials; so far skill `ux-laws`
-  (30 rules on the principles of Laws of UX, own wording: the site is CC BY-NC-ND, never copy or translate its text);
+- `plugins/design/` — plugin `design`: being rebuilt from new materials; so far skill `ui-rules`
+  (46 rules in 10 groups; WCAG 2.2 above all sources; own wording only, sources named without links, never copy
+  or translate source text — several sources restrict reuse, see `skills/ui-rules/sources.md`);
 - `plugins/review/` — plugin `review`: agent `code-reviewer` and `references/review-guide.md`.
 
 Every push is a publication. Licence: Apache-2.0 (`LICENSE`, `NOTICE`).

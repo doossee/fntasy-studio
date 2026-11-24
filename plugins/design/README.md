@@ -1,10 +1,11 @@
 # design — a plugin of the fntasy studio catalog
 
-The plugin is being rewritten from scratch, from new materials. The first part is ready:
+Rules for designing and reviewing interface screens and flows. The plugin is being rebuilt from new
+materials; the first part is the skill `ui-rules`.
 
 | Adds | Called as |
 |---|---|
-| skill `ux-laws` | loads by itself when you design, build or review a screen or a flow; or `/design:ux-laws` |
+| skill `ui-rules` | loads by itself when you design, build or review a screen or a flow; or `/design:ui-rules` |
 
 Русская версия: [README.ru.md](README.ru.md). Catalog: [fntasy studio](../../README.md).
 
@@ -15,30 +16,58 @@ The plugin is being rewritten from scratch, from new materials. The first part i
 /plugin install design@fntasy-studio
 ```
 
-Without the plugin system: copy `plugins/design/skills/ux-laws` into `.claude/skills/` of a project or `~/.claude/skills/`.
+Without the plugin system: copy `plugins/design/skills/ui-rules` into `.claude/skills/` of a project or `~/.claude/skills/`.
 
-## ux-laws
+## ui-rules
 
-30 rules for interfaces, one for each principle collected on [Laws of UX](https://lawsofux.com/) by Jon Yablonski:
+46 checkable rules in 10 groups:
 
-- **Perception** — Prägnanz, proximity, similarity, common region, uniform connectedness;
-- **Attention and memory** — cognitive load, working memory, Miller's law, chunking, selective attention, Von Restorff effect, serial position effect, Zeigarnik effect, peak-end rule;
-- **Action and decision** — Fitts's law, Doherty threshold, Hick's law, choice overload, Pareto principle, goal-gradient effect, flow, Parkinson's law;
-- **Expectations** — Jakob's law, mental model, paradox of the active user, Tesler's law, Postel's law, Occam's razor, aesthetic-usability effect, cognitive bias.
+| Group | Rules | Examples |
+|---|---|---|
+| Layout and grouping | 5 | a few simple blocks, grouping by distance, one focal point, alignment, the important first |
+| Attention and memory | 6 | progressive disclosure, no facts carried between screens, chunks, messages where the eye is |
+| Action and decision | 10 | targets (WCAG, HIG, Material), response within 0.1 s, few ordered options, short forms, keep unfinished work |
+| Expectations and consistency | 6 | conventions, the user's words, consistent not uniform, don't change what people know, teach in place, visible navigation |
+| States and feedback | 4 | every control state, every screen state, form errors, undo over confirmation |
+| Text | 4 | type scale, readable body text, 200% zoom and 320 px, plain words |
+| Colour | 3 | contrast, never colour alone, one job per colour |
+| Phone, desktop and web | 3 | adapt to the window, touch is not hover, Core Web Vitals |
+| Motion | 1 | animate only to explain, short, can be turned off |
+| Honesty | 4 | full price and honest choices, engagement without manipulation, data and permissions, judge by what people do |
 
-Each rule says what to do on a screen, why, how to check it (a number or a yes/no on a screenshot or a walk through the task), bad → good, where it stops applying, and its sources. Every rule also says how strong its ground is (research, research applied to screens by inference, disputed, heuristic, analogy). Thresholds that are the skill's own choice are marked "(ours)" and listed separately, so a project can change them. The most doubtful claims were checked against the research; the list of what was checked and what changed is in `skills/ux-laws/references/sources.md`.
+Each rule has: the rule, why, **how to check** (a number, a yes/no on a screenshot or a step in a task), bad → good on a
+fictional product, limits, **evidence strength** (standard, platform guideline, research, extended research, disputed,
+heuristic, analogy) and sources. Numbers that are the skill's own choice are marked "(ours)".
+
+Around the rules:
+
+- `method.md` — how a reviewer gets from what they see to a finding, and the report format;
+- `severity.md` — scale 1–4, calibrated by frequency, cost of the error and who is affected;
+- `taste-vs-defect.md` — the test for a defect, and remarks that are only taste;
+- `conflicts.md` — rule against rule and source against source, and how to decide;
+- `disputed.md` — ideas that were checked and rejected or narrowed: golden ratio, 60-30-10, F/Z layouts, colour psychology, "7 ± 2" menus, the three-click rule, onboarding carousels, urgency tactics, variable rewards;
+- `cases.md` — eight worked cases;
+- `sources.md`, `mapping.md` — sources, their order and terms, and where every input went.
 
 Example:
 
 ```
-Review the checkout at http://localhost:3000/cart against ux-laws: walk "pay for the cart" on a phone, then go through all 30 rules.
+Review the checkout at http://localhost:3000/cart with ui-rules: walk "pay for the cart" on a phone, then the review questions of every group.
 ```
 
-**Licence of the source.** The Laws of UX site is licensed CC BY-NC-ND 4.0. Its texts are not copied, translated or paraphrased here: the rules are our own wording; each one names the principle and the research it comes from (`skills/ux-laws/references/sources.md`). The skill has no links on purpose: an agent does not open them, and everything a rule needs is in its files.
+## Sources
+
+**WCAG 2.2 stands above all sources.** After it, by the kind of question: platform convention — Apple Human Interface
+Guidelines and Material Design 3; human behaviour — Nielsen Norman Group, then Baymard Institute, Interaction Design
+Foundation, Laws of UX, Figma Resource Library; e-commerce — Baymard first; how products usually do it — Mobbin and
+Component Gallery. Design principles of public design systems and several articles are secondary sources.
+
+Every rule is written in our own words. Sources are named, not linked: an agent does not follow links, and everything a
+rule needs is in the skill. No source text, tables or images are copied or translated.
 
 ## What changed since 0.3.0
 
 - Everything of 0.3.0 was removed: skill `design-review`, command `audit`, agent `design-reviewer`, the review gate hook, the measurement scripts and checklists.
-- New: skill `ux-laws`.
+- New: skill `ui-rules`. It replaces the intermediate skill `ux-laws` (30 rules on Laws of UX), keeps its corrections, and adds rules from the other sources, evidence strength, conflicts, severity calibration and worked cases.
 
 Licence: Apache-2.0, see [LICENSE](../../LICENSE).

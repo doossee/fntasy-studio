@@ -31,7 +31,7 @@
     {
       "name": "design",
       "source": "./plugins/design",
-      "description": "Design of interfaces, being rewritten from new materials. So far: ux-laws, 30 rules for screens on the principles of Laws of UX, each with a way to check it",
+      "description": "Design and review of interfaces: ui-rules, 46 checkable rules in 10 groups on WCAG 2.2, NN/g, Baymard, Apple HIG, Material 3 and Laws of UX, with evidence strength, conflicts, severity calibration and worked cases",
       "version": "0.4.0",
       "author": {
         "name": "doossee",

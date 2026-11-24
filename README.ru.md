@@ -8,7 +8,7 @@
 | Плагин | Для чего | Что добавляет |
 |---|---|---|
 | [`growth`](plugins/growth/README.ru.md) | исследовать рынок и вести маркетинг | навык `growth`: исследование конкурентов и рынка по открытым данным шаг за шагом, Telegram и Центральная Азия в первую очередь; инструменты в клоне: посты, карусели, сторис, рилсы со звуком, контент-план, UTM-ссылки, отчёт за неделю |
-| [`design`](plugins/design/README.ru.md) | дизайн интерфейсов | переписывается по новым материалам; пока навык `ux-laws`: 30 правил для экранов, по одному на каждый принцип Laws of UX, у каждого способ проверки |
+| [`design`](plugins/design/README.ru.md) | проектирование и проверка интерфейсов | навык `ui-rules`: 46 проверяемых правил в 10 группах по WCAG 2.2, NN/g, Baymard, Apple HIG, Material 3, Laws of UX и другим, с силой основания, конфликтами, калибровкой серьёзности и разобранными случаями |
 | [`review`](plugins/review/README.ru.md) | правки, которые можно сливать, не веря автору на слово | агент `code-reviewer`: критерии приёмки → `файл:строка` и тесты, права, изоляция клиентов, деньги, миграции, секреты; запускает линтер, типы и тесты |
 
 English: [README.md](README.md).
@@ -32,14 +32,14 @@ English: [README.md](README.md).
 | Плагин | Как вызвать |
 |---|---|
 | `growth` | `/growth:growth`, или Claude подключает навык сам, когда вы просите исследование |
-| `design` | навык `ux-laws` загружается сам, когда вы проектируете или проверяете экран; или `/design:ux-laws` |
+| `design` | навык `ui-rules` загружается сам, когда вы проектируете или проверяете экран; или `/design:ui-rules` |
 | `review` | `@agent-review:code-reviewer` |
 
 Попробовать локальную копию: `claude plugin marketplace add /путь/к/fntasy-studio` и установка как выше.
 
 ## design переписывается
 
-Всё из `design` 0.3.0 удалено: навык `design-review`, команда `audit`, агент `design-reviewer`, хук-шлагбаум ревью, скрипты измерений и чек-листы. Новый плагин пишется по новым материалам; первая часть — навык `ux-laws` (0.4.0).
+Всё из `design` 0.3.0 удалено: навык `design-review`, команда `audit`, агент `design-reviewer`, хук-шлагбаум ревью, скрипты измерений и чек-листы. Новый плагин пишется по новым материалам; первая часть — навык `ui-rules` (0.4.0).
 
 ## Что изменилось в design 0.3.0
 
@@ -63,7 +63,7 @@ English: [README.md](README.md).
 ```
 .claude-plugin/marketplace.json   каталог: три плагина, у каждого свой source
 plugins/growth/    навык growth, tools/, profiles/example, examples/, docs/, scripts/, package.json
-plugins/design/    переписывается; навык ux-laws
+plugins/design/    собирается заново; навык ui-rules
 plugins/review/    агент code-reviewer; references/review-guide.md
 docs/tasks/        файлы заданий этого репозитория
 ```
