@@ -49,6 +49,7 @@ A tidy screen and a strong screen can use the same components. The difference is
 - Hit areas bigger than what is drawn where needed, without changing the look.
 - States everywhere: hover, focus, pressed, disabled, loading — drawn in the same system (`ui-rules` STATE-1).
 - Real-looking content: plausible names, amounts and dates; the longest name in the data set; no lorem ipsum in a review.
+- Never present invented facts as real. A comparison, a baseline or a status the brief did not give is either left out or marked on the prototype as an example, and listed as an assumption in the hand-over.
 - Text in the product's voice: short, verbs on buttons, no exclamation marks in routine messages (`ui-rules` TEXT-4).
 
 ## Motion and imagery
