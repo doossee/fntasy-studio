@@ -1,0 +1,42 @@
+<!doctype html>
+<!-- desktop 1280x800, light, English. Fictional product: Acme Clinic, a small dental clinic's admin dashboard. -->
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acme Clinic — Dashboard</title>
+<style>
+body{margin:0;font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:#f3f4f8;color:#374151;font-size:14px}
+header{background:linear-gradient(90deg,#7c3aed,#2563eb);color:#fff;text-align:center;padding:28px 0 70px}
+header nav a{color:#fff;margin:0 6px;padding:6px 14px;border-radius:20px;background:rgba(255,255,255,.18);text-decoration:none}
+h1{margin:18px 0 4px;font-size:22px} header p{margin:0;opacity:.9}
+.wrap{max-width:1180px;margin:-48px auto 0;padding:0 20px}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.tile{background:#fff;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,.08);padding:18px;text-align:center}
+.tile .ic{font-size:22px} .tile b{display:block;font-size:18px;margin-top:6px}
+.badge{display:inline-block;font-size:11px;padding:2px 8px;border-radius:10px;background:#ede9fe;color:#5b21b6;margin-left:4px}
+.row{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-top:16px}
+.card{background:#fff;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,.08);padding:18px}
+.card h2{font-size:14px;text-align:center;margin:0 0 10px}
+table{width:100%;border-collapse:collapse} td,th{padding:8px;text-align:center;border-bottom:1px solid #eee}
+.btn{display:inline-block;margin-top:12px;background:#7c3aed;color:#fff;padding:8px 16px;border-radius:8px;text-decoration:none}
+</style></head><body>
+<header><nav><a href="#">Dashboard</a><a href="#">Appointments</a><a href="#">Patients</a><a href="#">Billing</a><a href="#">Settings</a></nav>
+<h1>Welcome back, Dr. Rossi! 👋</h1><p>Here's what's happening in your clinic today.</p></header>
+<div class="wrap">
+<div class="tiles">
+<div class="tile"><div class="ic">📅</div>Appointments<b>18 <span class="badge">↑ 2</span></b></div>
+<div class="tile"><div class="ic">🦷</div>Patients seen<b>7 <span class="badge">of 18</span></b></div>
+<div class="tile"><div class="ic">💶</div>Revenue<b>€2,340 <span class="badge">↑ 6%</span></b></div>
+<div class="tile"><div class="ic">⏰</div>No-shows<b>3 <span class="badge">today</span></b></div>
+</div>
+<div class="row">
+<div class="card"><h2>Upcoming appointments</h2>
+<table><tr><th>Time</th><th>Patient</th><th>Treatment</th><th>Dentist</th><th>Status</th></tr>
+<tr><td>11:30</td><td>Lena Ortiz</td><td>Filling</td><td>Dr. Rossi</td><td><span class="badge">Confirmed</span></td></tr>
+<tr><td>12:00</td><td>Marc Weber</td><td>Check-up</td><td>Dr. Ali</td><td><span class="badge">Not confirmed</span></td></tr>
+<tr><td>12:30</td><td>Aiko Mori</td><td>Root canal (2 of 3)</td><td>Dr. Rossi</td><td><span class="badge">Confirmed</span></td></tr>
+<tr><td>13:15</td><td>Sana Ilyasova</td><td>Cleaning</td><td>Hygienist</td><td><span class="badge">Unpaid deposit</span></td></tr>
+<tr><td>14:00</td><td>Peter Lund</td><td>Crown fitting</td><td>Dr. Ali</td><td><span class="badge">Lab work late</span></td></tr>
+</table><a class="btn" href="#">View all appointments</a></div>
+<div class="card"><h2>Alerts <span class="badge">3</span></h2>
+<p>🔔 Lab work for Peter Lund not delivered</p><p>🔔 Marc Weber hasn't confirmed</p><p>🔔 Deposit missing for Sana Ilyasova</p>
+<a class="btn" href="#">See all alerts</a></div>
+</div></div></body></html>

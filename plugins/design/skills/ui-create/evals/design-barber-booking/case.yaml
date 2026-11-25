@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: design-barber-booking
+expected_outcome: |
+  A self-contained, strong and correct phone booking screen with a written intent, a small token system, variants or a stated reason for one, a self-check, familiar controls for first-time and older clients, and no template look.
