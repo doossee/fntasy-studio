@@ -44,3 +44,13 @@ users, often in a hurry or unwell. Money is charged on this screen.
 - The date strip is 480 px wide inside 390 px; the 6th day (вт 1) starts at x = 396, fully off-screen, and the 5th chip
   ends at 388 px, so there is no visual cue that the strip scrolls. A reviewer flagging this is right (severity 1–2).
 - Summary rows scroll under the sticky pay bar on 844 px height — normal sticky-footer behaviour.
+
+
+## Found in evaluation, 25.11.2026 (not planted)
+
+Real defects both or one of two independent reviewer runs found, checked in the page:
+
+- Payment goes through with no time chosen: the success message reads "Вы записаны на —" and the charge is taken. Severity 4.
+- The consent error and the success message appear under the fixed pay bar, so nothing visible happens after tapping pay. Severity 3.
+- The pay button stays enabled after payment and can be pressed twice. Severity 3.
+- The weekday on the selected date chip is 3.98:1. Severity 2.

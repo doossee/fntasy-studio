@@ -9,7 +9,7 @@ Held-out screens for checking whether a reviewer that uses `skills/ui-rules` fin
   - `warehouse-picking`: tablet, dark, English;
   - `subscription-settings`: desktop, light, German;
   - `school-grades`: desktop and phone, light, Uzbek (Latin).
-  Keys in `holdout-2/keys/` (`*.key.md`, `*.boxes.json`, screenshots). Not used yet.
+  Keys in `holdout-2/keys/` (`*.key.md`, `*.boxes.json`, screenshots). First used 25.11.2026 (`results-2026-11-25.md`): 30 of 30 planted defects found in both runs.
 - **`holdout/` — the first set, already used** to change the skill (see `results-2026-11-24.md`); keep it for regression checks only.
 - **`holdout/*.html`:** four fictional screens with planted defects:
   - `h1-courier-route`: phone, dark, English;

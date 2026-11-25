@@ -40,3 +40,16 @@ often with gloves, at arm's length, under mixed lighting. Errors become wrong cu
 
 ## Notes
 - "Picked" button white on #2563eb = 5.17:1 (passes). SKU text #9aa3ae on #1b1e23 = 6.54:1 (passes).
+
+
+## Found in evaluation, 25.11.2026 (not planted)
+
+Real defects both or one of two independent reviewer runs found, checked in the page:
+
+- The scan field is not focused on load and focus drops to the page after any row tap, so scanner input is lost silently. Severity 4.
+- An unknown code shows an error for 1.2 s at the top; a good scan gives no feedback. Severity 3.
+- The label says "Scan item or bin", but a bin code gives "Unknown code". Severity 2.
+- Scanning after every line is done throws a script error and shows nothing. Severity 2.
+- The +/− buttons are named "Less"/"More" with no line context for screen readers. Severity 2.
+
+Severity note: defect 3 (bin code at 2.12:1) is raised from 3 to 4 — the picker must read the bin code on every line, and `severity.md` scores an AA failure that hides what people must check as 4. Trap note: "Picked" is reversible with "−", but on a 40-unit line that takes 40 taps on a small button; a reviewer who asks for a one-step undo is not wrong.

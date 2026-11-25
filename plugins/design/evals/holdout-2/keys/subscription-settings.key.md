@@ -45,3 +45,12 @@ below the 800 px fold.)
 ## Trap (looks like a defect, is fine)
 - **Currency after the number with a space: "44,94 €".** That is the German convention (comma decimal, sign after the
   amount); "€44.94" would be wrong here. Not a defect — only the stray dot in defect 8 is.
+
+
+## Found in evaluation, 25.11.2026 (not planted)
+
+Real defects both or one of two independent reviewer runs found, checked in the page:
+
+- A skipped week is faded to 55% opacity, which drops the still-active "Lieferung wieder aufnehmen" button to 2.55:1 and "Übersprungen" to 2.28:1. Severity 3.
+
+Severity note: defect 7 is raised from 2 to 3 — "Ändern" does nothing and there is no save button, so the payment details cannot be changed on this screen.

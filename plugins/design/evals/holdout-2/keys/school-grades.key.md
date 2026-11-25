@@ -41,3 +41,16 @@ attendance, read and answer teachers. Frequency: weekly, more before parent meet
 - **Grade colours: 5 green, 2 red.** A reviewer used to a 1-is-best scale (Germany) may call it inverted. In the Uzbek
   5-point scale 5 = "aʼlo" (excellent) and 2 = "qoniqarsiz" (failing), so green 5 and red 2 are right. The digit is
   printed in every chip, so meaning does not rely on colour alone (only the yellow "3" has a contrast problem, defect 4).
+
+
+## Found in evaluation, 25.11.2026 (not planted)
+
+Real defects both or one of two independent reviewer runs found, checked in the page:
+
+- Between about 601 and 1000 px wide (including 1280 px at 200% zoom) the stat cards and term dates run under the side panel. Severity 3.
+- The tabs do not tell screen readers which one is selected. Severity 2.
+- One reply box sits under messages from two teachers, so the recipient is unclear. Severity 3.
+- Search and reply field borders are 1.60:1. Severity 2.
+- White avatar initials are 2.97:1 (the full name is printed next to each). Severity 1.
+
+Severity note: defect 4 (grade "3" at 1.62:1) is raised from 2 to 4 — the grade is the number the parent came to check, and `severity.md` scores an AA failure that hides it as 4.

@@ -107,6 +107,7 @@ The agents preload the skills they need (`skills:` in their frontmatter).
 - Automatic loading: in a test of 20 requests the skill never loaded where it should not, but loaded on only about
   one in ten requests where it should; the model answers design questions itself. Use the agents or call the skills by name.
 - `evals/` — held-out screens with answer keys from the first evaluation of `ui-rules` 0.5.0 (`evals/results-2026-11-24.md`).
+- On the new held-out set (`evals/results-2026-11-25.md`) two independent `design-reviewer` runs found 30 of 30 planted defects, with one false finding and no full trap hit between them, and found real defects the keys had missed.
 - End-to-end check (`evals/e2e-2026-11-24/`): on one brief, two blind `design-judge` runs ranked the three `designer` variants above the page the same model made without the plugin (means 19.75, 19 and 18 against 15.75 of 24, same order from both judges). `design-reviewer` returned "revise" for both pages with two severity-3 findings each; the designer's were about page logic after actions, which its self-check now covers. The judges use the rubric the designer works towards, so this shows the process is followed, not that people prefer the result.
 
 ## Sources
