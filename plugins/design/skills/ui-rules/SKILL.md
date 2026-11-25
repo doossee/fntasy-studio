@@ -137,6 +137,7 @@ description: "Checkable UI and UX rules for designing and reviewing app and web 
 | File | What it is |
 | --- | --- |
 | `rules/*.md` | The rules in 12 groups, each group with review questions |
+| `user-test.md` | A kit for testing with five people: question, recruiting, tasks, session script, what to record, how to read results | When a decision rests on behaviour |
 | `method.md` | How a reviewer gets from what they see to a finding; report format |
 | `profile.md` | Format of a project profile, default thresholds, a fictional example |
 | `severity.md` | Scale 1–4 and calibration by frequency, cost and who is affected |

@@ -60,4 +60,4 @@ Order the fixes by effect and effort: high effect and low effort first.
 
 ## Measuring with people
 
-When a decision rests on people's behaviour, test with people. A handful of people per round (the profile's `honest.test-round`, default 5) finds most of the large problems in a qualitative test; use more for numbers. Measure task success, time and errors; ask a single ease rating after each task; use a standard questionnaire score only to compare versions, not to find problems. Do not count opinions about the look as results.
+When a decision rests on people's behaviour, test with people (`user-test.md` has the kit). A handful of people per round (the profile's `honest.test-round`, default 5) finds most of the large problems in a qualitative test; use more for numbers. Measure task success, time and errors; ask a single ease rating after each task; use a standard questionnaire score only to compare versions, not to find problems. Do not count opinions about the look as results.

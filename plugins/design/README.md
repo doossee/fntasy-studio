@@ -60,6 +60,7 @@ Around the rules:
 - `microcopy.md` — interface text, bad and good, in English, Russian, German, Uzbek and Arabic (written by a model; a project should have native speakers check its own strings);
 - `examples/` — screen pairs, bad and good, with numbered boxes on the defects and answer keys;
 - `tools/measure.mjs` — measures contrast, target sizes, type scale, truncation, reflow at 320 px, field labels, focus and the screen-reader view; needs Playwright; its output is a list of places to look, not findings;
+- `user-test.md` — a kit for testing with five people: tasks, session script, what to record, how to read the results;
 - `cases.md` — worked cases;
 - `sources.md`, `mapping.md` — sources, their order and terms, where each rule comes from, which thresholds were checked against the primary pages.
 
