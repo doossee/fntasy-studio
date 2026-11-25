@@ -199,4 +199,4 @@ What people bring with them before they open the screen: habits from the product
 
 **Conflicts.** C-19.
 
-**Evidence.** Research for icon labels, gestures, weak signifiers and the age effect beyond experience (studies with older and younger adults); the product owner's own observation for fields and filled-versus-outlined buttons (**assumed**: no study comparing age groups on these was found).
+**Evidence.** Research for icon labels, gestures, weak signifiers and the age effect beyond experience (studies with older and younger adults); Practice for visible field boundaries and filled versus outlined buttons (no study comparing age groups on these was found).
