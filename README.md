@@ -39,7 +39,7 @@ To try a local checkout: `claude plugin marketplace add /path/to/fntasy-studio`,
 
 ## design is being rewritten
 
-Everything of `design` 0.3.0 was removed: skill `design-review`, command `audit`, agent `design-reviewer`, the review gate hook, the measurement scripts and checklists. The new plugin is written from new materials; it now has skills `ui-rules` and `ui-create` and agents `design-reviewer`, `designer` and `design-judge` (0.7.0).
+Everything of `design` 0.3.0 was removed: skill `design-review`, command `audit`, agent `design-reviewer`, the review gate hook, the measurement scripts and checklists. The new plugin is written from new materials; it now has skills `ui-rules` and `ui-create` and agents `design-reviewer`, `designer` and `design-judge` (0.8.0).
 
 ## What changed in design 0.3.0
 

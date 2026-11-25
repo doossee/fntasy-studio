@@ -6,7 +6,7 @@ The rules say what to look at. This file says how to get from what you see to a 
 
 Write down, before looking at the screen: who uses it (role from the project profile), on what device, and the 2–3 tasks the change touches. Walk each task step by step. Rules come after: they explain what you saw, they do not replace looking.
 
-If the project has a profile (format in `profile.md`; usually `.claude/design-profile.md` or a section of `.claude/review-profile.md`), read the users, tasks, languages, devices, risky actions, the team's own principles and the decisions already taken. Its thresholds replace the defaults in the rules' `profile:` tags. A threshold from the profile is a team choice: crossing it is a reason to look, and becomes a finding only when you can show the harm. A decision recorded there is not a defect: name its cost if it has one and move on. When a team principle and a rule here disagree, say so and do not decide it yourself.
+If the project has a profile (format in `profile.md`; usually `.claude/design-profile.md`, `docs/design-profile.md` or a section of `.claude/review-profile.md`), read the users, tasks, languages, devices, risky actions, the team's own principles and the decisions already taken. Its thresholds replace the defaults in the rules' `profile:` tags. A threshold from the profile is a team choice: crossing it is a reason to look, and becomes a finding only when you can show the harm. A decision recorded there is not a defect: name its cost if it has one and move on. When a team principle and a rule here disagree, say so and do not decide it yourself.
 
 ## 2. From fact to conclusion, one rung at a time
 

@@ -6,6 +6,7 @@ strong, a reviewer, a designer and a blind judge.
 | Adds | Called as |
 |---|---|
 | skill `ui-rules` | 53 checkable UI/UX rules; `/design:ui-rules`, or loaded by the agents |
+| skill `design-profile` | writes the project's design profile: finds tokens, fonts, themes, breakpoints and languages in the code, asks the rest; `/design:design-profile` |
 | skill `ui-create` | how to design: intent, visual system, variants, craft pass, self-check; `/design:ui-create` |
 | agent `design-reviewer` | independent review of screens or a flow against `ui-rules`: verdict, findings, severity |
 | agent `designer` | designs a screen from a brief: intent, system, 2–3 variants as HTML, self-checked |
@@ -22,7 +23,7 @@ The skills rarely load by themselves on a plain question (see "Testing"): call t
 /plugin install design@fntasy-studio
 ```
 
-Without the plugin system: copy `plugins/design/skills/ui-rules` and `plugins/design/skills/ui-create` into `.claude/skills/` of a project or `~/.claude/skills/`, and the files of `plugins/design/agents/` into `.claude/agents/`.
+Without the plugin system: copy `plugins/design/skills/ui-rules`, `plugins/design/skills/ui-create` and `plugins/design/skills/design-profile` into `.claude/skills/` of a project or `~/.claude/skills/`, and the files of `plugins/design/agents/` into `.claude/agents/`.
 
 ## ui-rules
 
@@ -109,6 +110,7 @@ The agents preload the skills they need (`skills:` in their frontmatter). `desig
 - `skills/ui-create/evals/` — two test cases (a booking screen from a brief; a redesign of a template dashboard). First comparison, graded blind: with the skill 9/9 and 7/7, without 6/9 and 7/7; the blind grader preferred the design made with the skill in both cases. Without the skill the booking screen had no intent, no type or spacing scale and no variants; with the skill the dashboard showed one invented comparison as fact, which `craft.md` now forbids.
 - `evals/` — held-out screens with answer keys from the first evaluation of `ui-rules` 0.5.0 (`evals/results-2026-11-24.md`).
 - On the new held-out set (`evals/results-2026-11-25.md`) two independent `design-reviewer` runs found 30 of 30 planted defects, with one false finding and no full trap hit between them, and found real defects the keys had missed.
+- Second end-to-end check (`evals/e2e-2026-11-25/`, a bank card screen with the taste in the profile): blind judges ranked the designer's recommended variant first (20.5 and 20 of 24) and the page made without the plugin last (14 and 12); `design-reviewer` accepted the designer's page (no finding above 2) and returned the other (two severity-4 findings).
 - End-to-end check (`evals/e2e-2026-11-24/`): on one brief, two blind `design-judge` runs ranked the three `designer` variants above the page the same model made without the plugin (means 19.75, 19 and 18 against 15.75 of 24, same order from both judges). `design-reviewer` returned "revise" for both pages with two severity-3 findings each; the designer's were about page logic after actions, which its self-check now covers. The judges use the rubric the designer works towards, so this shows the process is followed, not that people prefer the result.
 
 ## Sources
@@ -122,6 +124,10 @@ Every rule is written in our own words. Sources are named, not linked: an agent 
 rule needs is in the skill. No source text, tables or images are copied or translated.
 
 ## What changed
+
+**0.8.0**
+- New skill `design-profile`: writes `.claude/design-profile.md` — finds tokens, fonts, themes, breakpoints, languages and components in the code (with the file each fact came from), asks the person only what code cannot tell, marks every line found, told or assumed, and checks the found colour pairs for contrast.
+- Second end-to-end check (`evals/e2e-2026-11-25/`).
 
 **0.7.0**
 - Taste: five axes (calm–expressive, dense–spacious, strict–playful, neutral–brand-led, conventional–novel) in the project profile, a default taste, "familiar first", and fourteen widely known products (Google, GOV.UK, YouTube, Uzum Market, Yandex Go, Apple, Airbnb, Duolingo, Headspace, Netflix, Spotify, Uber, Linear, Figma) observed on their public pages and grouped into six taste families (`ui-create/references/taste.md`, `taste-references.md`). The judge scores character against the product's taste.

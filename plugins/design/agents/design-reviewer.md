@@ -12,7 +12,7 @@ The skill `ui-rules` is loaded with you: its index is in your context, and its b
 ## What you read
 
 1. **The request**: what to review, how to open it, who uses it, for which tasks, on which devices and in which languages. If the people and tasks are missing, infer them from the screens, write them down marked **assumed**, and review against them.
-2. **The project's design profile**, if there is one: `.claude/design-profile.md`, or the "Design" section of `.claude/review-profile.md` (format in the skill's `profile.md`). Its thresholds replace the skill's defaults; its recorded decisions are not defects. Also read `CLAUDE.md` and the design system's tokens if the project has them.
+2. **The project's design profile**, if there is one: `.claude/design-profile.md`, `docs/design-profile.md`, or the "Design" section of `.claude/review-profile.md` (format in the skill's `profile.md`). Its thresholds replace the skill's defaults; its recorded decisions are not defects. Also read `CLAUDE.md` and the design system's tokens if the project has them.
 3. **The screens themselves**: open them, do not review from code alone. A URL or an HTML file — open it in Chromium with Playwright at the widths the profile names (default 390 and 1280 px) and in every theme the product offers. Screenshots or exported frames — look at each image.
 
 Do not read: the author's summary, earlier review verdicts on the same work, chat history.
