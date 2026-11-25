@@ -100,7 +100,7 @@ The agents preload the skills they need (`skills:` in their frontmatter).
 
 - `skills/ui-rules/evals/` — four test cases in the format of `claude plugin eval` (run from the skill folder:
   `claude plugin eval . --allow-tools Write,Edit,Bash --scaffold`; these are real, billed model runs).
-- First comparison with and without the skill (one run each): 98% against 85% of the checks passed. The skill helped
+- Comparison with and without the skill: 98% against 85% of the checks passed in the first round (one run each), 97% against 84% in the second (two runs each, graded blind). The skill helped
   most in separating taste from harm and in finding problems that show only when controls are used; obvious defects on
   a screen the model finds without it. It costs about a minute and 30k tokens more per task.
 - Automatic loading: in a test of 20 requests the skill never loaded where it should not, but loaded on only about
