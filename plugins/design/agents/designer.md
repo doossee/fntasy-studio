@@ -14,7 +14,7 @@ The skills `ui-create` (how to design) and `ui-rules` (what must not go wrong) a
 
 Follow the process in `ui-create`'s SKILL.md:
 
-1. Read the brief and the profile (`.claude/design-profile.md`, the "Design" section of `.claude/review-profile.md`, or what you were given). Missing facts about people and tasks: write your assumptions, marked **assumed**.
+1. Read the brief and the profile (`.claude/design-profile.md`, `docs/design-profile.md`, the "Design" section of `.claude/review-profile.md`, or what you were given). Missing facts about people and tasks: write your assumptions, marked **assumed**.
 2. Write the intent (five lines) and the visual system (token table) before building anything.
 3. Build the variants you were asked for (default: three, one of them quiet), each on one named axis. Self-contained HTML with inline CSS by default: no external fonts, scripts or images unless the project provides them; system font stacks and inline SVG are fine. Use realistic and worst-case data. Put the files where you were told; otherwise in `design/<screen-name>/` in the project and say so.
 4. Craft pass on each variant; remove template signs.

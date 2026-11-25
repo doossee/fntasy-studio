@@ -6,6 +6,7 @@ strong, a reviewer, a designer and a blind judge.
 | Adds | Called as |
 |---|---|
 | skill `ui-rules` | 53 checkable UI/UX rules; `/design:ui-rules`, or loaded by the agents |
+| skill `design-profile` | writes the project's design profile: finds tokens, fonts, themes, breakpoints and languages in the code, asks the rest; `/design:design-profile` |
 | skill `ui-create` | how to design: intent, visual system, variants, craft pass, self-check; `/design:ui-create` |
 | agent `design-reviewer` | independent review of screens or a flow against `ui-rules`: verdict, findings, severity |
 | agent `designer` | designs a screen from a brief: intent, system, 2–3 variants as HTML, self-checked |
@@ -22,7 +23,7 @@ The skills rarely load by themselves on a plain question (see "Testing"): call t
 /plugin install design@fntasy-studio
 ```
 
-Without the plugin system: copy `plugins/design/skills/ui-rules` and `plugins/design/skills/ui-create` into `.claude/skills/` of a project or `~/.claude/skills/`, and the files of `plugins/design/agents/` into `.claude/agents/`.
+Without the plugin system: copy `plugins/design/skills/ui-rules`, `plugins/design/skills/ui-create` and `plugins/design/skills/design-profile` into `.claude/skills/` of a project or `~/.claude/skills/`, and the files of `plugins/design/agents/` into `.claude/agents/`.
 
 ## ui-rules
 
@@ -123,6 +124,10 @@ Every rule is written in our own words. Sources are named, not linked: an agent 
 rule needs is in the skill. No source text, tables or images are copied or translated.
 
 ## What changed
+
+**0.8.0**
+- New skill `design-profile`: writes `.claude/design-profile.md` — finds tokens, fonts, themes, breakpoints, languages and components in the code (with the file each fact came from), asks the person only what code cannot tell, marks every line found, told or assumed, and checks the found colour pairs for contrast.
+- Second end-to-end check (`evals/e2e-2026-11-25/`).
 
 **0.7.0**
 - Taste: five axes (calm–expressive, dense–spacious, strict–playful, neutral–brand-led, conventional–novel) in the project profile, a default taste, "familiar first", and fourteen widely known products (Google, GOV.UK, YouTube, Uzum Market, Yandex Go, Apple, Airbnb, Duolingo, Headspace, Netflix, Spotify, Uber, Linear, Figma) observed on their public pages and grouped into six taste families (`ui-create/references/taste.md`, `taste-references.md`). The judge scores character against the product's taste.

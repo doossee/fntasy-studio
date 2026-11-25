@@ -1,8 +1,8 @@
 # Project profile
 
-The rules are general. A project profile tells the reviewer who the people are, what they do, on what devices and in what languages, what the team has already decided, and which team thresholds replace the defaults. Without a profile, the reviewer uses the defaults below and writes "no profile: defaults used" in the report.
+The rules are general. A project profile tells the reviewer who the people are, what they do, on what devices and in what languages, what the team has already decided, and which team thresholds replace the defaults. The `design-profile` skill of this plugin writes it: it finds what it can in the code and asks the rest. Without a profile, the reviewer uses the defaults below and writes "no profile: defaults used" in the report.
 
-The profile lives in the reviewed project, not in this skill: `.claude/design-profile.md`, or a "Design" section of `.claude/review-profile.md`. A real product's profile is never added to this repository.
+The profile lives in the reviewed project, not in this skill: `.claude/design-profile.md` (or `docs/design-profile.md`), or a "Design" section of `.claude/review-profile.md`. A real product's profile is never added to this repository.
 
 ## Format
 
