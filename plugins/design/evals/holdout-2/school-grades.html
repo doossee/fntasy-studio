@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="uz-Latn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acme Maktab — Farzandim baholari</title>
+<style>
+  :root { --ink:#1c2230; --muted:#5a6475; --line:#e3e6eb; --brand:#3355cc; --soft:#f6f7f9; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; background:#fff; color:var(--ink);
+    font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size:15px; line-height:1.45; }
+  button,input,select,textarea { font:inherit; }
+  .top { display:flex; align-items:center; justify-content:space-between; padding:14px 28px; border-bottom:1px solid var(--line); }
+  .logo { font-weight:800; color:var(--brand); font-size:19px; }
+  .child { display:flex; align-items:center; gap:10px; }
+  .ava { width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; color:#fff; }
+  .tabs { display:flex; gap:4px; padding:0 28px; border-bottom:1px solid var(--line); }
+  .tab { width:140px; padding:12px 10px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; border:0; background:none; cursor:pointer; color:var(--muted); border-bottom:3px solid transparent; text-align:left; }
+  .tab.on { color:var(--brand); border-bottom-color:var(--brand); font-weight:600; }
+  .wrap { display:grid; grid-template-columns:1fr 360px; gap:24px; padding:20px 28px; }
+  .stats { display:flex; gap:12px; margin-bottom:16px; }
+  .stat { flex:1; background:var(--soft); border-radius:10px; padding:12px 14px; }
+  .stat b { display:block; font-size:22px; }
+  .stat span { color:var(--muted); font-size:13px; }
+  .wrap > section { min-width:0; }
+  .tools { display:flex; gap:10px; margin-bottom:10px; }
+  .tools input, .tools select { height:38px; border:1px solid #c8cdd5; border-radius:8px; padding:0 10px; }
+  .tools input { width:240px; }
+  .pill { display:inline-flex; align-items:center; height:38px; padding:0 12px; border-radius:8px; background:var(--soft); color:var(--muted); font-size:14px; }
+  .tablebox { overflow:hidden; border:1px solid var(--line); border-radius:10px; }
+  table { border-collapse:collapse; min-width:820px; width:100%; }
+  th, td { padding:9px 12px; border-bottom:1px solid var(--line); text-align:left; font-size:14px; }
+  th { color:var(--muted); font-weight:600; background:var(--soft); }
+  td.avg { font-variant-numeric:tabular-nums; }
+  .g { display:inline-block; width:26px; height:26px; line-height:26px; text-align:center; border-radius:6px; color:#fff; font-weight:700; font-size:13px; margin-right:3px; }
+  .g5 { background:#1e7e34; } .g4 { background:#2f6fbd; } .g3 { background:#f5c542; } .g2 { background:#c62828; }
+  .side h3 { margin:0 0 10px; font-size:16px; }
+  .att { background:var(--soft); border-radius:10px; padding:12px 14px; margin-bottom:18px; font-size:14px; }
+  .att li { margin:2px 0; }
+  .msgs { border:1px solid var(--line); border-radius:10px; }
+  .m { padding:10px 14px; border-bottom:1px solid var(--line); display:flex; gap:10px; }
+  .m:last-child { border-bottom:0; }
+  .m .who { font-weight:600; font-size:14px; }
+  .m .txt { font-size:14px; color:var(--ink); }
+  .m .when { font-size:12px; color:var(--muted); }
+  .m.unread .who::after { content:' •'; color:var(--brand); }
+  .reply { padding:10px 14px; border-top:1px solid var(--line); }
+  .reply textarea { width:100%; height:64px; border:1px solid #c8cdd5; border-radius:8px; padding:8px; resize:vertical; }
+  .reply button { margin-top:6px; height:36px; padding:0 16px; border:0; border-radius:8px; background:var(--brand); color:#fff; cursor:pointer; font-weight:600; }
+  .empty { padding:14px; color:var(--muted); display:none; }
+  @media (max-width: 600px) {
+    .top { padding:12px 16px; }
+    .tabs { padding:0 8px; overflow:hidden; }
+    .wrap { grid-template-columns:1fr; padding:16px; }
+    .stats { flex-wrap:wrap; }
+    .stat { flex:1 1 40%; }
+    .tools { flex-wrap:wrap; }
+    .tools input { width:100%; }
+  }
+</style>
+</head>
+<body>
+  <div class="top">
+    <div class="logo">Acme Maktab</div>
+    <div class="child"><div class="ava" style="background:#a35bd6">AK</div><div><b>Aziza K.</b><br><span style="color:var(--muted);font-size:13px">7-„B“ sinf</span></div></div>
+  </div>
+  <div class="tabs">
+    <button class="tab on">Baholar</button>
+    <button class="tab">Davomat</button>
+    <button class="tab">Oʻzlashtirish koʻrsatkichlari</button>
+    <button class="tab">Uyga vazifalar</button>
+    <button class="tab">Xabarlar (2)</button>
+  </div>
+
+  <div class="wrap">
+    <section>
+      <div class="stats">
+        <div class="stat"><b>4,3</b><span>Oʻrtacha baho (2-chorak)</span></div>
+        <div class="stat"><b>96%</b><span>Davomat</span></div>
+        <div class="stat"><b>3</b><span>Topshirilmagan vazifa</span></div>
+      </div>
+      <div class="tools">
+        <input id="q" type="search" placeholder="Fanni qidirish">
+        <span class="pill">2-chorak · 03.11–27.12.2026</span>
+      </div>
+      <div class="tablebox">
+        <table id="grades">
+          <thead><tr><th>Fan</th><th>Oʻqituvchi</th><th>Baholar</th><th>Oʻrtacha</th><th>Oxirgi baho</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <div class="empty" id="empty">Hech narsa topilmadi.</div>
+      </div>
+    </section>
+
+    <aside class="side">
+      <h3>Davomat (2-chorak)</h3>
+      <div class="att">
+        60 ta darsdan 7 tasida qatnashmagan:
+        <ul style="margin:6px 0 0; padding-left:18px;">
+          <li>11/03 — Matematika, Fizika (sababli)</li>
+          <li>11/12 — 3 ta dars (kasallik)</li>
+          <li>11/24 — Ingliz tili, Tarix (sababsiz)</li>
+        </ul>
+      </div>
+      <h3>Oʻqituvchilardan xabarlar</h3>
+      <div class="msgs">
+        <div class="m unread"><div class="ava" style="background:#e07b39">NR</div><div><div class="who">N. Rahimova · sinf rahbari</div><div class="txt">Ertaga soat 18:00 da ota-onalar majlisi boʻladi. Iltimos, qatnashing.</div><div class="when">11/25 · 09:12</div></div></div>
+        <div class="m unread"><div class="ava" style="background:#3aa17e">SY</div><div><div class="who">S. Yoʻldoshev · matematika</div><div class="txt">Aziza nazorat ishini qayta topshirishi mumkin, payshanba kuni.</div><div class="when">11/24 · 15:40</div></div></div>
+        <div class="reply">
+          <textarea id="reply" placeholder="Javob yozish…"></textarea>
+          <button id="send">Yuborish</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+<script>
+  var rows = [
+    {f:'Matematika', t:'S. Yoʻldoshev', g:[5,4,3,5,4,5]},
+    {f:'Ona tili va adabiyot', t:'N. Rahimova', g:[4,4,5,5]},
+    {f:'Ingliz tili', t:'D. Saidova', g:[5,5,4]},
+    {f:'Oʻzbekiston tarixi', t:'B. Qodirov', g:[3,4,4]},
+    {f:'Fizika', t:'A. Ergashev', g:[2,3,4,3]},
+    {f:'Biologiya', t:'M. Tursunova', g:[5,4,5,5,4]},
+    {f:'Informatika', t:'J. Nazarov', g:[5,5,5]}
+  ];
+  var tb = document.querySelector('#grades tbody');
+  function avg(a){ var s=0; a.forEach(function(x){s+=x;}); return s/a.length; }
+  function render(q){
+    tb.innerHTML=''; var n=0;
+    rows.forEach(function(r){
+      if (q && r.f.indexOf(q) === -1) return;
+      n++;
+      var tr=document.createElement('tr');
+      tr.innerHTML='<td>'+r.f+'</td><td>'+r.t+'</td><td>'+r.g.map(function(x){return '<span class="g g'+x+'">'+x+'</span>';}).join('')+'</td><td class="avg">'+String(avg(r.g)).replace('.',',')+'</td><td>'+r.g[r.g.length-1]+'</td>';
+      tb.appendChild(tr);
+    });
+    document.getElementById('empty').style.display = n ? 'none' : 'block';
+  }
+  render('');
+  document.getElementById('q').addEventListener('input', function(){ render(this.value.trim()); });
+  document.getElementById('send').addEventListener('click', function(){
+    document.getElementById('reply').value = '';
+  });
+</script>
+</body>
+</html>

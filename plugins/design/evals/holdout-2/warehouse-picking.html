@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acme Pick — Wave 1182</title>
+<style>
+  :root { --bg:#121417; --panel:#1b1e23; --line:#2a2f37; --ink:#e8eaed; --muted:#9aa3ae; --dim:#4a5260; --ok:#2e9e5b; --bad:#c94a3c; --warn:#d49a2a; --brand:#2563eb; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; background:var(--bg); color:var(--ink);
+    font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size:16px; }
+  button,input { font:inherit; }
+  .app { width:820px; min-height:1180px; margin:0 auto; padding:20px 24px; }
+  .top { display:flex; justify-content:space-between; align-items:flex-end; }
+  .top h1 { margin:0; font-size:26px; }
+  .top .sub { color:var(--muted); font-size:15px; margin-top:4px; }
+  .prog { margin-top:16px; }
+  .prog-label { display:flex; justify-content:space-between; font-size:15px; color:var(--muted); margin-bottom:6px; }
+  .prog-track { height:10px; border-radius:5px; background:var(--line); overflow:hidden; }
+  .prog-fill { height:100%; width:62%; background:linear-gradient(90deg,#2563eb,#22c55e); }
+  .scan { margin-top:20px; display:flex; gap:12px; align-items:center; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px; }
+  .scan label { font-size:15px; color:var(--muted); white-space:nowrap; }
+  #scan { flex:1; height:56px; border-radius:10px; border:2px solid #3a414c; background:#0d0f12; color:var(--ink); padding:0 16px; font-size:20px; }
+  #scan:focus { outline:3px solid var(--brand); outline-offset:2px; }
+  .msg { position:fixed; top:0; left:50%; transform:translateX(-50%); width:820px; padding:10px 24px; background:#7a2a22; color:#fff; font-size:14px; display:none; }
+  .head { display:grid; grid-template-columns:8px 1fr 120px 150px 230px; gap:16px; padding:18px 16px 8px; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
+  .list { display:flex; flex-direction:column; gap:10px; }
+  .item { display:grid; grid-template-columns:8px 1fr 120px 150px 230px; gap:16px; align-items:center; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px 16px 14px 0; overflow:hidden; }
+  .stripe { align-self:stretch; margin:-14px 0; background:var(--warn); }
+  .item.done .stripe { background:var(--ok); }
+  .item.short .stripe { background:var(--bad); }
+  .name { font-size:18px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .sku { font-size:14px; color:var(--muted); margin-top:3px; }
+  .bin { font-size:14px; color:var(--dim); font-weight:600; }
+  .qty { display:flex; align-items:center; gap:8px; font-size:20px; }
+  .qty button { width:28px; height:28px; border-radius:6px; border:1px solid #3a414c; background:#252a31; color:var(--ink); cursor:pointer; padding:0; line-height:1; }
+  .qty .n { min-width:54px; text-align:left; }
+  .acts { display:flex; gap:8px; }
+  .acts button { height:40px; border-radius:8px; border:1px solid #3a414c; background:#252a31; color:var(--ink); padding:0 14px; cursor:pointer; font-size:15px; }
+  .acts .pick { background:var(--brand); border-color:var(--brand); color:#fff; }
+  .item.short .n, .item.done .n { color:var(--muted); }
+</style>
+</head>
+<body>
+<div class="msg" id="msg" role="status"></div>
+<div class="app">
+  <div class="top">
+    <div>
+      <h1>Wave 1182 · Order picking</h1>
+      <div class="sub">Zone B · Cart C-07 · Picker: Sam R.</div>
+    </div>
+    <div class="sub">Shift ends 14:00</div>
+  </div>
+
+  <div class="prog">
+    <div class="prog-label"><span id="prog-lines">3 of 8 lines</span><span>62%</span></div>
+    <div class="prog-track"><div class="prog-fill"></div></div>
+  </div>
+
+  <div class="scan">
+    <label for="scan">Scan item or bin</label>
+    <input id="scan" autocomplete="off" placeholder="Waiting for scanner…">
+  </div>
+
+  <div class="head"><span></span><span>Item</span><span>Bin</span><span>Qty</span><span>Action</span></div>
+  <div class="list" id="list"></div>
+</div>
+
+<script>
+  var items = [
+    {sku:'SKU-48210', name:'Stainless steel hex bolt M8×30, DIN 933, zinc plated', bin:'B-14-03', need:40, got:40, st:'done'},
+    {sku:'SKU-48213', name:'Stainless steel hex bolt M8×40, DIN 933, zinc plated', bin:'B-14-04', need:40, got:0,  st:'open'},
+    {sku:'SKU-11902', name:'Cable ties 200 mm, black, pack of 100', bin:'B-02-11', need:6, got:6, st:'done'},
+    {sku:'SKU-30577', name:'Wall plug 8 mm nylon, pack of 50', bin:'B-07-01', need:12, got:0, st:'open'},
+    {sku:'SKU-30578', name:'Wall plug 10 mm nylon, pack of 50', bin:'B-07-02', need:8, got:0, st:'short'},
+    {sku:'SKU-77140', name:'Hinge 75 mm, brushed steel, pair', bin:'B-21-06', need:4, got:4, st:'done'},
+    {sku:'SKU-77152', name:'Drawer runner 450 mm, full extension, soft close', bin:'B-21-09', need:10, got:0, st:'open'},
+    {sku:'SKU-90018', name:'Wood screw 4×40 mm, countersunk, box of 200', bin:'B-03-15', need:3, got:0, st:'open'}
+  ];
+  var list = document.getElementById('list');
+  function render(){
+    list.innerHTML = '';
+    items.forEach(function(it, i){
+      var el = document.createElement('div');
+      el.className = 'item ' + it.st; el.dataset.sku = it.sku;
+      el.innerHTML = '<div class="stripe"></div>' +
+        '<div style="min-width:0"><div class="name">'+it.name+'</div><div class="sku">'+it.sku+'</div></div>' +
+        '<div class="bin">'+it.bin+'</div>' +
+        '<div class="qty"><button class="minus" aria-label="Less">−</button><span class="n">'+it.got+' / '+it.need+'</span><button class="plus" aria-label="More">+</button></div>' +
+        '<div class="acts"><button class="pick">Picked</button><button class="shortb">Mark short</button></div>';
+      el.querySelector('.minus').onclick = function(){ if(it.got>0){it.got--; it.st = it.got>=it.need?'done':'open'; render();} };
+      el.querySelector('.plus').onclick = function(){ if(it.got<it.need){it.got++; it.st = it.got>=it.need?'done':'open'; render();} };
+      el.querySelector('.pick').onclick = function(){ it.got = it.need; it.st='done'; render(); };
+      el.querySelector('.shortb').onclick = function(){ items.splice(i,1); flash('Line removed from order.'); render(); };
+      list.appendChild(el);
+    });
+    var done = items.filter(function(x){return x.st!=='open';}).length;
+    document.getElementById('prog-lines').textContent = done + ' of ' + items.length + ' lines';
+  }
+  function flash(t){ var m=document.getElementById('msg'); m.textContent=t; m.style.display='block'; clearTimeout(flash.h); flash.h=setTimeout(function(){m.style.display='none';},1200); }
+  document.getElementById('scan').addEventListener('keydown', function(e){
+    if (e.key !== 'Enter') return;
+    var code = this.value.trim(); this.value='';
+    var known = items.some(function(x){return x.sku===code;});
+    if (!known) { flash('Unknown code: ' + code); return; }
+    // count the scanned unit
+    var target = items.find(function(x){return x.st==='open';});
+    target.got++; if (target.got>=target.need) target.st='done';
+    render();
+  });
+  render();
+</script>
+</body>
+</html>

@@ -4,6 +4,13 @@ Held-out screens for checking whether a reviewer that uses `skills/ui-rules` fin
 
 ## Files
 
+- **`holdout-2/` — the current held-out set** (made 25.11.2026 by an author who had not read the rules), four screens with 7–8 planted defects each, including one that shows only when a control is used, style-only items and one trap per screen:
+  - `clinic-booking`: phone, light, Russian;
+  - `warehouse-picking`: tablet, dark, English;
+  - `subscription-settings`: desktop, light, German;
+  - `school-grades`: desktop and phone, light, Uzbek (Latin).
+  Keys in `holdout-2/keys/` (`*.key.md`, `*.boxes.json`, screenshots). Not used yet.
+- **`holdout/` — the first set, already used** to change the skill (see `results-2026-11-24.md`); keep it for regression checks only.
 - **`holdout/*.html`:** four fictional screens with planted defects:
   - `h1-courier-route`: phone, dark, English;
   - `h2-invoices-rtl`: desktop, light, Arabic, right to left;
@@ -15,7 +22,7 @@ Held-out screens for checking whether a reviewer that uses `skills/ui-rules` fin
   - selectors (`*.boxes.json`).
 - **`render-keys.mjs`:** draws the numbered boxes for both the training and the held-out keys.
 
-**The reviewer must never see `holdout/keys/`.** The screens carry no hints: class names are neutral, and the only comment gives the viewport, theme and language.
+**The reviewer must never see `holdout/keys/` or `holdout-2/keys/`.** The screens carry no hints: class names are neutral, and the only comment gives the viewport, theme and language.
 
 ## How to run
 
