@@ -4,4 +4,4 @@ focus: trace
 weight: 1
 ---
 
-The answer gives at least one checkable threshold tied to a standard or platform guideline (for example touch target 24/44 px or 48 dp, or text contrast 4.5:1).
+The answer names the standard or platform guideline behind at least one threshold it gives (for example WCAG 2.5.8 or 1.4.3, Apple HIG, Material), not just a bare number.
