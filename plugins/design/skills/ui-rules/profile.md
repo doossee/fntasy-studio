@@ -10,15 +10,17 @@ Plain Markdown with these sections. Leave out what does not apply; write "unknow
 
 1. **Product** — one or two sentences: what it is for.
 2. **People and tasks** — roles; for each role, the 3–5 most frequent tasks with frequency (per day, week, month) and the risky tasks (money, data, sending to others, deleting).
-3. **Devices and conditions** — phones, desktop, tablets, kiosks; one hand or two; outdoors, in motion, slow networks; the slowest connection to test with.
-4. **Languages and locales** — languages, scripts (including right-to-left), the longest language, date, number and currency formats, countries for names and addresses.
-5. **Accessibility target** — WCAG 2.2 AA is the floor; any AAA criteria the team adopts; assistive technologies to test with.
-6. **Platforms and design system** — iOS, Android, web; the design system and its tokens (colour roles, type scale, spacing scale); themes offered (light, dark, increased contrast).
-7. **Brand** — what is fixed (logo, hues, typefaces) and what may adapt (lightness per theme, sizes).
-8. **Team principles** — the team's own principles, in its words. When one disagrees with a rule here, the reviewer reports the disagreement and does not decide it.
-9. **Decisions already taken** — each with its date, reason and known cost. A recorded decision is not a defect.
-10. **Thresholds** — values that replace the defaults below, each with a reason.
-11. **Out of scope** — screens, states or platforms the review should not cover, and why.
+3. **Audience experience** — for each role: age range, how experienced with apps and websites, and the products these people use every day (messengers, banks, marketplaces, government services of their country). These products set the conventions the design should follow (`rules/expectations.md` EXP-1, EXP-8).
+4. **Devices and conditions** — phones, desktop, tablets, kiosks; one hand or two; outdoors, in motion, slow networks; the slowest connection to test with.
+5. **Languages and locales** — languages, scripts (including right-to-left), the longest language, date, number and currency formats, countries for names and addresses.
+6. **Accessibility target** — WCAG 2.2 AA is the floor; any AAA criteria the team adopts; assistive technologies to test with.
+7. **Platforms and design system** — iOS, Android, web; the design system and its tokens (colour roles, type scale, spacing scale); themes offered (light, dark, increased contrast).
+8. **Brand** — what is fixed (logo, hues, typefaces) and what may adapt (lightness per theme, sizes).
+9. **Taste** — where the product sits on five axes, each 1–5: calm ↔ expressive, dense ↔ spacious, strict ↔ playful, neutral ↔ brand-led, conventional ↔ novel; plus two or three reference products whose principles (not looks) the team wants to follow. No taste section: the default taste of `ui-create` applies (`ui-create/references/taste.md`).
+10. **Team principles** — the team's own principles, in its words. When one disagrees with a rule here, the reviewer reports the disagreement and does not decide it.
+11. **Decisions already taken** — each with its date, reason and known cost. A recorded decision is not a defect.
+12. **Thresholds** — values that replace the defaults below, each with a reason.
+13. **Out of scope** — screens, states or platforms the review should not cover, and why.
 
 ## Default thresholds
 
@@ -78,6 +80,12 @@ Orders and payments for small shops: a phone app for staff and couriers, a web d
 - Owner (web, laptop 1280–1440 px): today's takings — daily; export payments — weekly;
   send a promotion to all customers — monthly. Risky: promotion to all customers, refunds.
 
+## Audience experience
+- Clerks: 18–35, use apps all day (messengers, marketplaces, payment apps).
+- Couriers: 20–50, mixed experience; some use only a messenger and a bank app.
+- Owners: 30–60; several are not confident with new interfaces and call support for anything unfamiliar.
+- Products they all use daily (assumed, to be checked in interviews): a messenger, their bank's app, a local marketplace, the state services portal.
+
 ## Devices and conditions
 Android phones 360–412 px wide, many with large system text. Slowest connection: 3G.
 
@@ -94,6 +102,10 @@ Themes: light and dark, following the system.
 
 ## Brand
 Hue fixed (green); lightness may change per theme. One typeface, system fallback.
+
+## Taste
+calm 2 · spacious 3 · strict 2 · brand-led 2 · conventional 1 (owners must recognise every control at once).
+References: the bank app and the state services portal the owners already use (for familiar forms and buttons); a quiet project-management tool (for density in the owner's dashboard).
 
 ## Team principles
 "The courier never needs two hands."

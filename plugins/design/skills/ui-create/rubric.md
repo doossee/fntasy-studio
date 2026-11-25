@@ -40,9 +40,12 @@ Before scoring, check the `ui-rules` floor on the screenshots and measurements, 
 - 4 — dense where the task is dense and calm; the main number has unit and comparison; exceptions stand out; empty, one and many are designed; real-looking content.
 
 ### 5. Character
+
+Scored against the product's taste from the profile, or the default taste in `references/taste.md` — not against the judge's own preference. State which taste you used.
+
 - 0 — template look (`references/generic-look.md`): could be any product.
 - 2 — tidy and consistent, but generic; the brand appears only as a logo and an accent.
-- 4 — recognisably this product: the screen's move, the brand used with restraint and purpose, a consistent voice in text and imagery — without decoration that has no job.
+- 4 — recognisably this product and true to its taste: the screen's move, the brand used as the taste asks, a consistent voice in text and imagery — without decoration that has no job.
 
 ### 6. Craft
 - 0 — inconsistent spacing, radii, icons; missing states.

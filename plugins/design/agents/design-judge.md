@@ -14,7 +14,7 @@ Read `rubric.md` and `references/generic-look.md` in the `ui-create` skill's bas
 - The screenshots in the folder you were given, under neutral names.
 - The brief: who uses the screen, the question it answers, the main action.
 - Measurements (`measure.mjs` reports), if given — for the floor gate only.
-- The brand section of the project's design profile, if given: fixed brand parts and recorded decisions are not defects.
+- The brand and taste sections of the project's design profile, if given: fixed brand parts and recorded decisions are not defects, and criterion 5 is judged against the product's taste. Without a taste section, use the default taste in `references/taste.md` and say so.
 
 Nothing else: no code, no intent, no conversation, no earlier scores.
 

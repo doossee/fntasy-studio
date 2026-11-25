@@ -10,7 +10,7 @@ description: "How to design interface screens that are strong, not just correct:
 
 Work in this order. Each step leaves something written, so the next step and the person who accepts the design can see why.
 
-1. **Read the brief and the profile.** Who uses the screen, for which task, how often, on what device, in which languages; the brand (fixed: logo, hues, typefaces; free: everything else); decisions already taken. The profile format is the one in `ui-rules/profile.md`. No profile: write your assumptions down and mark them **assumed**.
+1. **Read the brief and the profile.** Who uses the screen, for which task, how often, on what device, in which languages; the brand (fixed: logo, hues, typefaces; free: everything else); decisions already taken; the audience's experience and the products they use every day; the taste (`references/taste.md`, default taste if none). The profile format is the one in `ui-rules/profile.md`. No profile: write your assumptions down and mark them **assumed**.
 2. **Write the intent** (`intent.md` or the top of your answer), five lines:
    - the screen's question — what the person comes to learn or do;
    - the content in three levels — what must be seen, what must be findable, what can be one step away;
@@ -31,6 +31,7 @@ When asked for a single screen, still write the intent and the system, and say t
 
 | File | What it is | When to read |
 | --- | --- | --- |
+| `references/taste.md` | Five taste axes, the default taste, "familiar first", reference families | Step 1, before choosing a direction |
 | `references/system.md` | Building a small visual system: type, spacing, colour roles, depth, radius, icons, motion | Step 3 |
 | `references/variants.md` | Axes for variants, how to make them really different, the hand-over table | Step 4 |
 | `references/craft.md` | The craft pass: what separates a strong screen from a tidy one | Step 6 |
