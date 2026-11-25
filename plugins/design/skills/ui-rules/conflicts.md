@@ -32,6 +32,7 @@ When two rules, or two sources, point in different directions, decide here. Do n
 | C-16 | TEXT-5 (the person's locale) vs DATA-2 (numbers people compare with others) | Show values in the viewer's locale; exports, links and messages to other people use an unambiguous format (ISO dates, currency code) and state the time zone. |
 | C-17 | COLOR-4 (dark theme palette) vs brand colours | The brand owns the hue; contrast owns the lightness. Adjust the brand colour's lightness per theme; never fail COLOR-1 to keep an exact brand value. |
 | C-18 | DATA-1 (keep the table's columns) vs PLAT-1 / TEXT-3 (fit narrow windows) | If people compare values across rows, keep a table that scrolls sideways inside its container with the first column fixed. If they look up one record at a time, turn rows into cards with the same fields in the same order. Never drop a column silently. |
+| C-19 | EXP-8 (least experienced person) vs an expressive or novel taste in the profile | Expression goes into colour, imagery, type and copy; fields, buttons, navigation and gestures stay conventional for the least experienced audience. If the taste asks for novel controls, the owner decides with the cost stated: who in the audience will fail. |
 
 ## Source against source
 

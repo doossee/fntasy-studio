@@ -8,7 +8,7 @@ no code.
 | Plugin | For | Adds |
 |---|---|---|
 | [`growth`](plugins/growth/README.md) | research a market and run marketing | skill `growth`: step-by-step research of competitors and markets from open data, Telegram and Central Asia first; content tools in a clone: posts, carousels, stories, reels with sound, content plan, UTM links, weekly report |
-| [`design`](plugins/design/README.md) | design and review of interfaces | skills `ui-rules` (52 checkable UI/UX rules on WCAG 2.2, NN/g, Baymard, Apple HIG, Material 3 and others) and `ui-create` (intent, visual system, variants, craft pass, blind rubric); agents `design-reviewer`, `designer`, `design-judge` |
+| [`design`](plugins/design/README.md) | design and review of interfaces | skills `ui-rules` (53 checkable UI/UX rules on WCAG 2.2, NN/g, Baymard, Apple HIG, Material 3 and others) and `ui-create` (intent, visual system, variants, craft pass, blind rubric); agents `design-reviewer`, `designer`, `design-judge` |
 | [`review`](plugins/review/README.md) | changes that can be merged without trusting the author's word | agent `code-reviewer`: acceptance criteria to `file:line` and tests, access, tenant isolation, money, migrations, secrets; runs lint, types and tests |
 
 Русская версия: [README.ru.md](README.ru.md).

@@ -1,10 +1,10 @@
 ---
 name: ui-rules
-description: "Checkable UI and UX rules for designing and reviewing app and web screens and flows: 52 rules in 12 groups (layout, attention, actions and forms, conventions and navigation, states and errors, text and other languages, colour and dark theme, phone/desktop/web, motion, tables and numbers, search and filters, honest pricing and consent), with WCAG 2.2 first, a severity scale, conflicts, taste-vs-defect labels, example screens and a measuring script. Use this skill whenever someone designs, builds, critiques or reviews an interface, a screenshot, a Figma frame, an HTML page or a mobile screen; asks why a screen is confusing or hard to use; asks about usability, accessibility, contrast, touch targets, forms, empty states, dark mode, onboarding, navigation, pricing pages or dark patterns; or quotes a UX law or design rule of thumb to check whether it holds — even if they do not say UX or UI."
+description: "Checkable UI and UX rules for designing and reviewing app and web screens and flows: 53 rules in 12 groups (layout, attention, actions and forms, conventions and navigation, states and errors, text and other languages, colour and dark theme, phone/desktop/web, motion, tables and numbers, search and filters, honest pricing and consent), with WCAG 2.2 first, a severity scale, conflicts, taste-vs-defect labels, example screens and a measuring script. Use this skill whenever someone designs, builds, critiques or reviews an interface, a screenshot, a Figma frame, an HTML page or a mobile screen; asks why a screen is confusing or hard to use; asks about usability, accessibility, contrast, touch targets, forms, empty states, dark mode, onboarding, navigation, pricing pages or dark patterns; or quotes a UX law or design rule of thumb to check whether it holds — even if they do not say UX or UI."
 ---
 # ui-rules
 
-52 rules for screens and flows. Each says **what must be true, why (what happens to a person), how to check it**, its thresholds with their kind, a bad → good example, where it stops applying, which conflicts touch it, and how strong its evidence is. Everything a rule needs is in these files; nothing has to be opened elsewhere.
+53 rules for screens and flows. Each says **what must be true, why (what happens to a person), how to check it**, its thresholds with their kind, a bad → good example, where it stops applying, which conflicts touch it, and how strong its evidence is. Everything a rule needs is in these files; nothing has to be opened elsewhere.
 
 ## How to use
 
@@ -64,6 +64,7 @@ description: "Checkable UI and UX rules for designing and reviewing app and web 
 | EXP-5 | UX | Teach in place, never in a tour |
 | EXP-6 | UX | Keep navigation visible and show where people are |
 | EXP-7 | UI and UX | Icons: one set, one meaning, a label unless universal |
+| EXP-8 | UX | Design for the least experienced person in the audience |
 
 **States and feedback** — `rules/states.md`
 

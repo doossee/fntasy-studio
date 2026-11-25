@@ -5,7 +5,7 @@ strong, a reviewer, a designer and a blind judge.
 
 | Adds | Called as |
 |---|---|
-| skill `ui-rules` | 52 checkable UI/UX rules; `/design:ui-rules`, or loaded by the agents |
+| skill `ui-rules` | 53 checkable UI/UX rules; `/design:ui-rules`, or loaded by the agents |
 | skill `ui-create` | how to design: intent, visual system, variants, craft pass, self-check; `/design:ui-create` |
 | agent `design-reviewer` | independent review of screens or a flow against `ui-rules`: verdict, findings, severity |
 | agent `designer` | designs a screen from a brief: intent, system, 2–3 variants as HTML, self-checked |
@@ -26,14 +26,14 @@ Without the plugin system: copy `plugins/design/skills/ui-rules` and `plugins/de
 
 ## ui-rules
 
-52 checkable rules in 12 groups:
+53 checkable rules in 12 groups:
 
 | Group | Rules | Examples |
 |---|---|---|
 | Layout and grouping | 5 | a few simple blocks, grouping by distance, one focal point, alignment, the important first |
 | Attention and memory | 4 | progressive disclosure, nothing carried between screens, chunks, messages where the eye is |
 | Action and decision | 10 | targets (WCAG, HIG, Material), response within 0.1 s, few ordered options, short forms, keep unfinished work |
-| Expectations and consistency | 7 | conventions, the user's words, consistent not uniform, don't change what people know, teach in place, visible navigation, icons |
+| Expectations and consistency | 8 | conventions, the user's words, consistent not uniform, don't change what people know, teach in place, visible navigation, icons, the least experienced person in the audience |
 | States and feedback | 5 | every control state, every screen state, form errors, undo over confirmation, the right channel for each message |
 | Text | 5 | type scale, readable body text, 200% zoom and 320 px, plain words, other languages and right-to-left |
 | Colour | 4 | contrast, never colour alone, one job per colour, a designed dark theme |

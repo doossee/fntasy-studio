@@ -1,6 +1,6 @@
 # Expectations and consistency
 
-What people bring with them before they open the screen: habits from the products they use every day, their own words for things, what they learned in this product last month, and how little they read before they start. These rules cover conventions, naming, consistency, change, teaching, navigation and icons.
+What people bring with them before they open the screen: habits from the products they use every day, their own words for things, what they learned in this product last month, and how little they read before they start. These rules cover conventions, naming, consistency, change, teaching, navigation, icons and the audience's experience.
 
 ## Review questions
 
@@ -11,6 +11,7 @@ What people bring with them before they open the screen: habits from the product
 - Can a new user finish the main task without a tour, a manual or a tooltip?
 - Are the main sections visible, and can people always tell where they are and how to go back?
 - Is every icon from one set, used for one meaning, and labelled unless it is universal?
+- Could the least experienced person in the audience name every field, every button and the main action from the screenshot alone?
 
 ## EXP-1. Work the way familiar products work; check the convention before calling something unusual
 
@@ -170,3 +171,32 @@ What people bring with them before they open the screen: habits from the product
 **Conflicts.** C-15.
 
 **Evidence.** Research (icon recognition without labels is poor for most icons) and Standard (contrast and names).
+
+## EXP-8. Design for the least experienced person in the audience
+
+**Lens.** UX.
+
+**Rule.** Find the least experienced people the product serves (from the profile: age range, how often they use apps, which products they use every day) and make every control work for them without learning: text fields that look like boxes with a label above, the main action as a filled button with a verb, secondary actions visibly weaker but still recognisable as buttons, text that is not clickable never styled like a link or a button, icons with text labels, navigation that is visible and says where the person is, tap and scroll as the only required gestures, a visible way back and an undo for anything that changes data. The more the audience includes people with little digital experience — often, but not only, older people — the closer the design stays to the products they already use.
+
+**Why.** People read a screen through the conventions they have already learned. Someone who has used few apps does not yet know that a thin line is a field to type in, that an outlined box is a weaker button, or that a lone icon hides a menu; every unfamiliar pattern is a guess, and a wrong guess costs a lost task or a call for help. Age adds its own costs — slower pointing, weaker small-text vision, more effort to learn new layouts — that remain even when experience is the same. Younger users know more conventions but read less, click first and give up sooner, so clear labels and strong signals help them too.
+
+**How to check.**
+- Read the profile's audience experience. No profile: mark the audience as **assumed** and design for a mixed audience.
+- Walk the main task as the least experienced person would: can you name, from the screenshot alone, every place to type, every button, and which button is the main one?
+- Every input has a visible boundary (meeting 3:1) and a visible label outside it; no field is just a line or a placeholder.
+- The main action is a filled button with a verb; secondary actions are recognisably buttons; no plain text, heading or status badge looks clickable, and nothing clickable looks like plain text.
+- Every icon on a main path has a visible text label; the menu icon, if used, says "Menu".
+- No task needs swipe, long-press, pinch or drag; each has a visible button (PLAT-2).
+- Every action that changes data can be undone or is confirmed (STATE-4).
+- Meanings carried by colour (red for error, green for done; red or green for rising prices) also have a word or icon, and follow the local convention in the profile (COLOR-2).
+- Compare the main patterns with the products the audience uses every day (EXP-1): differences are deliberate and explained.
+
+**Thresholds.** Labels or instructions for input [WCAG 3.3.2 A]; non-text contrast of field boundaries and controls ≥ 3:1 [WCAG 1.4.11 AA]; no colour-only meaning [WCAG 1.4.1 A]; single-pointer alternatives to gestures [WCAG 2.5.1 A]; target size from the profile, larger for an older audience [profile: act.target-web].
+
+**Bad → Good.** Acme's owner dashboard (owners 30–60, several unsure with new apps) shows the order search as a grey line with "Search…" inside, the main action "New order" as an outlined pill identical to "Export", a hamburger icon for navigation and swipe-to-archive → a boxed search field with the label "Find an order", "New order" as a filled button and "Export" as a plain secondary button, a left sidebar with section names, and "Archive" in each order's menu.
+
+**Limits.** Expert tools for trained staff may use denser and less explicit controls if the profile says the audience is experienced. Age is a proxy: ask about experience and the products people use, and do not assume that a person cannot learn because of age. "Conventional" means the conventions of this audience's products and region, not of the reviewer's favourite apps.
+
+**Conflicts.** C-19.
+
+**Evidence.** Research for icon labels, gestures, weak signifiers and the age effect beyond experience (studies with older and younger adults); the product owner's own observation for fields and filled-versus-outlined buttons (**assumed**: no study comparing age groups on these was found).
