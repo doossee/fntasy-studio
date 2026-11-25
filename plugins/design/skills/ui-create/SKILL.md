@@ -32,7 +32,7 @@ When asked for a single screen, still write the intent and the system, and say t
 | File | What it is | When to read |
 | --- | --- | --- |
 | `references/taste.md` | Five taste axes, the default taste, "familiar first", reference families | Step 1, before choosing a direction |
-| `references/taste-references.md` | Ten widely known products on the five axes, five taste families, conventions seen across them | When choosing a direction |
+| `references/taste-references.md` | Fourteen widely known products on the five axes, six taste families, conventions seen across them | When choosing a direction |
 | `references/system.md` | Building a small visual system: type, spacing, colour roles, depth, radius, icons, motion | Step 3 |
 | `references/variants.md` | Axes for variants, how to make them really different, the hand-over table | Step 4 |
 | `references/craft.md` | The craft pass: what separates a strong screen from a tidy one | Step 6 |

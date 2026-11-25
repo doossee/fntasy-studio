@@ -121,7 +121,7 @@ rule needs is in the skill. No source text, tables or images are copied or trans
 ## What changed
 
 **0.7.0**
-- Taste: five axes (calm–expressive, dense–spacious, strict–playful, neutral–brand-led, conventional–novel) in the project profile, a default taste, "familiar first", and ten widely known products (Google, GOV.UK, Uzum Market, Yandex Go, Airbnb, Duolingo, Netflix, Spotify, Uber, Linear) observed on their public pages and grouped into five taste families (`ui-create/references/taste.md`, `taste-references.md`). The judge scores character against the product's taste.
+- Taste: five axes (calm–expressive, dense–spacious, strict–playful, neutral–brand-led, conventional–novel) in the project profile, a default taste, "familiar first", and fourteen widely known products (Google, GOV.UK, YouTube, Uzum Market, Yandex Go, Apple, Airbnb, Duolingo, Headspace, Netflix, Spotify, Uber, Linear, Figma) observed on their public pages and grouped into six taste families (`ui-create/references/taste.md`, `taste-references.md`). The judge scores character against the product's taste.
 - Profile: a section on the audience's experience — age range, how experienced, which products they use every day.
 - `ui-rules` EXP-8: design for the least experienced person in the audience (research on age and experience). Conflict C-19. 53 rules.
 - New held-out set `evals/holdout-2/`; second with/without comparison (two runs each, blind): 97% against 84%.
