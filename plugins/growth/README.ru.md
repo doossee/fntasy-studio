@@ -130,14 +130,14 @@ Facebook, публичные Telegram-каналы и открытая стат�
 **2. Копия** папки в проект или в домашний каталог:
 
 ```bash
-mkdir -p .claude/skills && cp -r /путь/к/fntasy-studio/plugins/design/skills/growth .claude/skills/     # этот проект
-mkdir -p ~/.claude/skills && cp -r /путь/к/fntasy-studio/plugins/design/skills/growth ~/.claude/skills/ # все проекты
+mkdir -p .claude/skills && cp -r /путь/к/fntasy-studio/plugins/growth/skills/growth .claude/skills/     # этот проект
+mkdir -p ~/.claude/skills && cp -r /путь/к/fntasy-studio/plugins/growth/skills/growth ~/.claude/skills/ # все проекты
 ```
 
 **3. Ссылка**, чтобы навык обновлялся вместе с `git pull`:
 
 ```bash
-mkdir -p ~/.claude/skills && ln -s /путь/к/fntasy-studio/plugins/design/skills/growth ~/.claude/skills/growth
+mkdir -p ~/.claude/skills && ln -s /путь/к/fntasy-studio/plugins/growth/skills/growth ~/.claude/skills/growth
 ```
 
 Дальше — команда `/growth` или просьба обычными словами: «разбери по шагам, откуда <конкурент> берёт клиентов».

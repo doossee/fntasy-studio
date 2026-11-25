@@ -1,0 +1,1 @@
+{"screen": "../h2-invoices-rtl.html", "out": "h2-invoices-rtl.key.jpg", "viewport": {"width": 1280, "height": 800}, "fullPage": false, "boxes": [{"n": 1, "selector": ".dlg"}, {"n": 2, "selector": "tr.late"}, {"n": 3, "selector": "tbody tr:first-child td.ic"}, {"n": 4, "selector": "tbody td:nth-child(4)"}, {"n": 5, "selector": "aside"}]}

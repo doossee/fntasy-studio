@@ -130,14 +130,14 @@ you ask for research.
 **2. Copy** the folder into your project or your home directory:
 
 ```bash
-mkdir -p .claude/skills && cp -r /path/to/fntasy-studio/plugins/design/skills/growth .claude/skills/     # this project
-mkdir -p ~/.claude/skills && cp -r /path/to/fntasy-studio/plugins/design/skills/growth ~/.claude/skills/ # all projects
+mkdir -p .claude/skills && cp -r /path/to/fntasy-studio/plugins/growth/skills/growth .claude/skills/     # this project
+mkdir -p ~/.claude/skills && cp -r /path/to/fntasy-studio/plugins/growth/skills/growth ~/.claude/skills/ # all projects
 ```
 
 **3. Symlink**, to keep it updated with `git pull`:
 
 ```bash
-mkdir -p ~/.claude/skills && ln -s /path/to/fntasy-studio/plugins/design/skills/growth ~/.claude/skills/growth
+mkdir -p ~/.claude/skills && ln -s /path/to/fntasy-studio/plugins/growth/skills/growth ~/.claude/skills/growth
 ```
 
 Then run `/growth`, or just ask: "research how <competitor> gets customers, step by step".

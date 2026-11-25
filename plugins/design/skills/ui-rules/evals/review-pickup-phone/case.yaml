@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: review-pickup-phone
+expected_outcome: |
+  A prioritised review of a phone pickup screen that finds the planted defects (one-tap cancel next to the main action, preselected tip, truncated allergy note, low-contrast pickup time, zoom disabled, focus removed, tiny targets) and does not report the style-only choices as defects.
+context:
+  scaffold_script: place-files.sh

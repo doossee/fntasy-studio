@@ -1,0 +1,38 @@
+<!doctype html>
+<!-- Viewport: 1280 x 800 (desktop), light theme, Arabic (right-to-left). Fictional product: Acme invoicing. -->
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Acme — الفواتير</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:12px/1.4 system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;color:#1f1f23;background:#f6f6f8;display:flex;flex-direction:row-reverse;height:800px;overflow:hidden;position:relative}
+aside{width:200px;background:#fff;border-right:1px solid #e3e3e8;padding:16px 8px}
+aside a{display:block;padding:8px 12px;color:#333;text-decoration:none;border-radius:6px;font-size:14px}aside a.on{background:#eef2ff;color:#2b3fd6}
+main{flex:1;padding:24px}
+h1{font-size:22px;margin:0 0 16px}
+table{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden}
+th,td{padding:10px 12px;border-bottom:1px solid #ececf0;text-align:right}
+th{font-size:12px;color:#55555c;background:#fafafb}
+tr.late td{background:#ffe9e9}
+.ic button{width:28px;height:28px;border:1px solid #dcdce2;background:#fff;border-radius:6px;margin-left:4px;font-size:13px}
+.veil{position:absolute;inset:0;background:rgba(0,0,0,.4)}
+.dlg{position:absolute;left:470px;top:300px;width:340px;background:#fff;border-radius:12px;padding:20px}
+.dlg p{font-size:16px;margin:0 0 18px}
+.dlg div{display:flex;gap:8px}
+.dlg button{flex:1;height:40px;border-radius:8px;font:600 14px/1 system-ui,sans-serif}
+.y{background:#2b3fd6;color:#fff;border:0}.n{background:#fff;border:1px solid #c9c9d0;color:#333}
+</style></head><body>
+<aside><a href="#">الرئيسية</a><a class="on" href="#">الفواتير</a><a href="#">العملاء</a><a href="#">المدفوعات</a><a href="#">الإعدادات</a></aside>
+<main>
+  <h1>الفواتير</h1>
+  <table>
+    <thead><tr><th>رقم الفاتورة</th><th>العميل</th><th>تاريخ الإصدار</th><th>المبلغ</th><th>إجراءات</th></tr></thead>
+    <tbody>
+      <tr><td>INV-3301</td><td>مخبز النخيل</td><td>2026/03/02</td><td>AED 1,200</td><td class="ic"><button>✎</button><button>⧉</button><button>⇪</button><button>🗑</button></td></tr>
+      <tr class="late"><td>INV-3300</td><td>مقهى الواحة</td><td>2026/02/14</td><td>٣٥٠ درهم</td><td class="ic"><button>✎</button><button>⧉</button><button>⇪</button><button>🗑</button></td></tr>
+      <tr><td>INV-3299</td><td>زهور الياسمين</td><td>2026/02/10</td><td>AED 89.5</td><td class="ic"><button>✎</button><button>⧉</button><button>⇪</button><button>🗑</button></td></tr>
+      <tr class="late"><td>INV-3298</td><td>مكتبة المعرفة</td><td>2026/01/28</td><td>2.450 د.إ</td><td class="ic"><button>✎</button><button>⧉</button><button>⇪</button><button>🗑</button></td></tr>
+    </tbody>
+  </table>
+</main>
+<div class="veil"></div>
+<div class="dlg"><p>هل أنت متأكد؟</p><div><button class="y" autofocus>نعم</button><button class="n">لا</button></div></div>
+</body></html>

@@ -5,8 +5,9 @@ independent Claude Code plugins, each in its own folder:
 
 - `plugins/growth/` — plugin `growth`: the growth research skill (`skills/growth/`) and content production
   tools (`tools/`), with `profiles/example/`, `examples/`, `docs/`, `scripts/` and `package.json`;
-- `plugins/design/` — plugin `design`: skill `design-review` (review only: clarity and look), command `audit`, agent
-  `design-reviewer` and an optional Stop hook `hooks/design-review-gate.mjs`;
+- `plugins/design/` — plugin `design`: skills `ui-rules` (53 rules in 12 groups) and `ui-create` (how to design),
+  agents `design-reviewer`, `designer`, `design-judge` (ui-rules: WCAG 2.2 above all sources; own wording only, sources named without links, never copy
+  or translate source text — several sources restrict reuse, see `skills/ui-rules/sources.md`);
 - `plugins/review/` — plugin `review`: agent `code-reviewer` and `references/review-guide.md`.
 
 Every push is a publication. Licence: Apache-2.0 (`LICENSE`, `NOTICE`).
@@ -72,16 +73,6 @@ npm run check                                # shared copies in sync, YAML parse
 - After rendering, look at the result: open a PNG, and for a reel the `*.phone-390.jpg` sheet. Fix warnings about text that does not fit or is too small by shortening the text.
 - If Chromium for the installed Playwright is missing, the tools fall back to `/opt/pw-browsers/chromium` or a system Chrome; `GROWTH_CHROMIUM=/path/to/chrome` overrides.
 - `npm run examples` re-encodes the preview MP4s with different bytes each time; if the reel did not change, restore them with `git checkout -- examples/preview/*.mp4`.
-
-## Running the design measurements
-
-From `plugins/design/`:
-
-```bash
-node skills/design-review/scripts/measure-look.mjs <url-or-file.html> [--widths 1440,1280,1024,390] [--profile file] [--out dir]
-node skills/design-review/scripts/measure-clarity.mjs <url-or-file.html>
-node --test hooks/design-review-gate.test.mjs
-```
 
 ## Changing the code
 

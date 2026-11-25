@@ -1,0 +1,38 @@
+<!doctype html>
+<!-- Viewport: 390 x 844 (phone), light theme, Arabic (right-to-left). Fictional product: Acme for shop owners. Training example, bad version.
+     State: step 2 of 3 of shop sign-up, after pressing the button once; a notification permission prompt is open. -->
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Acme — إنشاء متجر</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:16px/1.5 system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;color:#1c1c1e;background:#fff;height:844px;overflow:hidden;position:relative}
+.top{display:flex;align-items:center;gap:12px;height:56px;padding:0 12px;direction:ltr}
+#back{width:44px;height:44px;border:0;background:none;font-size:22px}
+.top h1{font-size:18px;margin:0}
+#form{direction:ltr;text-align:left;padding:8px 16px}
+.step{color:#636366;font-size:14px;margin:0 0 12px}
+.f{margin:0 0 12px}
+.f label{display:block;font-size:14px;font-weight:600;margin:0 0 4px}
+.f input,.f select{width:100%;height:46px;border:1px solid #aeaeb2;border-radius:10px;padding:0 12px;font:inherit;text-align:left}
+.f input.bad{border:2px solid #d70015}
+.err{color:#d70015;font-size:14px}
+#go{width:100%;height:50px;border:0;border-radius:12px;background:#0a7a5c;color:#fff;font:600 17px/1 system-ui,sans-serif;margin-top:4px}
+#perm-veil{position:absolute;inset:0;background:rgba(0,0,0,.35)}
+#perm{position:absolute;left:40px;right:40px;top:300px;background:#f2f2f7;border-radius:14px;text-align:center;overflow:hidden}
+#perm p{margin:0;padding:18px 16px;font-size:15px}
+#perm div{display:flex;border-top:1px solid #c6c6c8}#perm button{flex:1;height:44px;border:0;background:none;color:#0a60d0;font:inherit}
+#perm button+button{border-left:1px solid #c6c6c8}
+</style></head><body>
+<div class="top"><button id="back" aria-label="رجوع">←</button><h1>إنشاء متجر</h1></div>
+<div id="form">
+  <p class="step">الخطوة 2 من 3</p>
+  <div class="f"><label>اسم المتجر *</label><input value="متجر الياسمين للزهور"></div>
+  <div class="f" id="f-phone"><label>رقم الهاتف</label><input class="bad" value="+971 50 123 4567"><div class="err">قيمة غير صالحة</div></div>
+  <div class="f" id="f-mail"><label>البريد الإلكتروني</label><input value="yasmin@example.com"></div>
+  <div class="f" id="f-birth"><label>تاريخ الميلاد</label><input placeholder="03/04/1990"></div>
+  <div class="f" id="f-tax"><label>الرقم الضريبي</label><input></div>
+  <div class="f" id="f-gender"><label>الجنس</label><select><option>اختر</option></select></div>
+  <button id="go">إرسال</button>
+</div>
+<div id="perm-veil"></div>
+<div id="perm"><p>يريد Acme إرسال إشعارات إليك</p><div><button>عدم السماح</button><button>سماح</button></div></div>
+</body></html>

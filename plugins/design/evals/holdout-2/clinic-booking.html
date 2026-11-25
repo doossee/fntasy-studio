@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acme Клиника — запись к врачу</title>
+<style>
+  :root { --ink:#1d2430; --muted:#5b6472; --line:#e3e7ee; --brand:#1f6feb; --bg:#ffffff; --soft:#f7f8fa; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; background:var(--bg); color:var(--ink);
+    font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size:16px; line-height:1.4; }
+  button { font:inherit; }
+  button:focus, input:focus { outline:none; }
+  .app { width:390px; min-height:844px; margin:0 auto; position:relative; padding-bottom:230px; }
+  header { display:flex; align-items:center; gap:12px; padding:14px 16px; border-bottom:1px solid var(--line); }
+  .back { width:24px; height:24px; padding:0; border:0; background:none; color:var(--ink); cursor:pointer; display:flex; }
+  header h1 { font-size:18px; margin:0; font-weight:700; }
+  .card { margin:16px; border:1px solid var(--line); border-radius:12px; padding:14px; display:flex; gap:12px; align-items:center; }
+  .avatar { width:52px; height:52px; border-radius:50%; background:#dce7f7; flex:none; display:flex; align-items:center; justify-content:center; color:#1f4f99; font-weight:600; }
+  .doc { min-width:0; flex:1; }
+  .doc-name { font-weight:600; font-size:16px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:230px; }
+  .doc-spec { color:var(--muted); font-size:14px; }
+  .doc-meta { color:var(--muted); font-size:14px; margin-top:2px; }
+  .doc-meta b { color:var(--ink); font-weight:600; }
+  h2 { font-size:16px; margin:20px 16px 10px; font-weight:600; }
+  .days { display:flex; gap:8px; overflow-x:auto; padding:0 16px 4px; scrollbar-width:none; }
+  .day { flex:none; width:68px; height:64px; border-radius:10px; border:1px solid var(--line); background:#fff; text-align:center; cursor:pointer; color:var(--ink); }
+  .day small { display:block; color:var(--muted); font-size:13px; }
+  .day strong { font-size:18px; }
+  .day.on { background:var(--brand); border-color:var(--brand); color:#fff; }
+  .day.on small { color:#e6eeff; }
+  .slots { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; padding:0 16px; }
+  .slot { height:44px; border-radius:8px; border:1px solid var(--line); background:var(--soft); color:var(--ink); font-size:15px; cursor:pointer; }
+  .slot.sel { background:#f1f5fb; }
+  .slot[disabled] { background:#f2f3f5; color:#8a9099; text-decoration:line-through; cursor:not-allowed; }
+  .legend { margin:8px 16px 0; font-size:13px; color:var(--muted); }
+  .summary { margin:20px 16px 0; padding:14px; border-radius:12px; background:var(--soft); }
+  .row { display:flex; justify-content:space-between; font-size:15px; padding:3px 0; }
+  .row span:first-child { color:var(--muted); }
+  .checks { margin:0 0 10px; font-size:14px; color:var(--ink); }
+  .checks label { display:flex; gap:10px; align-items:flex-start; padding:6px 0; }
+  .checks input { width:20px; height:20px; margin:1px 0 0; flex:none; }
+  .bar { position:fixed; left:50%; transform:translateX(-50%); bottom:0; width:390px; background:#fff; border-top:1px solid var(--line); padding:10px 16px 16px; }
+  .pay { width:100%; height:52px; border:0; border-radius:10px; background:var(--brand); color:#fff; font-weight:600; font-size:17px; cursor:pointer; }
+  .fee-note { font-size:10px; color:#a8adb4; margin-top:6px; text-align:center; }
+  .toast { display:none; margin:12px 16px; padding:12px; border-radius:10px; background:#e8f6ee; color:#135c33; font-size:15px; }
+  svg.i { stroke:currentColor; fill:none; }
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <button class="back" aria-label="Назад"><svg class="i" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <h1>Запись к врачу</h1>
+  </header>
+
+  <div class="card">
+    <div class="avatar" aria-hidden="true">КА</div>
+    <div class="doc">
+      <div class="doc-name" title="">Ковальчук-Ширинская Анастасия Владимировна</div>
+      <div class="doc-spec">Терапевт, стаж 14 лет</div>
+      <div class="doc-meta">Acme Клиника на Садовой, каб. 214 · <b>1 500 ₽</b></div>
+    </div>
+  </div>
+
+  <h2>Дата</h2>
+  <div class="days" id="days">
+    <button class="day on"><small>ср</small><strong>25</strong></button>
+    <button class="day"><small>чт</small><strong>26</strong></button>
+    <button class="day"><small>пт</small><strong>27</strong></button>
+    <button class="day"><small>сб</small><strong>28</strong></button>
+    <button class="day"><small>пн</small><strong>30</strong></button>
+    <button class="day"><small>вт</small><strong>1</strong></button>
+  </div>
+
+  <h2>Время</h2>
+  <div class="slots" id="slots"></div>
+  <p class="legend">Зачёркнутое время уже занято.</p>
+
+  <div class="summary" aria-live="polite">
+    <div class="row"><span>Врач</span><span>Терапевт</span></div>
+    <div class="row"><span>Когда</span><span><span id="summary-date">ср, 25 ноября</span>, <span id="summary-time">—</span></span></div>
+    <div class="row"><span>Стоимость приёма</span><span>1 500 ₽</span></div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+</div>
+
+<div class="bar">
+<div class="checks">
+    <label><input type="checkbox" id="consent-data"> <span>Даю согласие на обработку персональных данных</span></label>
+    <label><input type="checkbox" id="consent-ads" checked> <span>Хочу получать новости и спецпредложения Acme Клиники по SMS и e-mail</span></label>
+  </div>
+  <button class="pay" id="pay">Оплатить 1 500 ₽</button>
+  <div class="fee-note">При онлайн-оплате взимается сервисный сбор 800 ₽, итог списания 2 300 ₽</div>
+</div>
+
+<script>
+  var slots = ['08:30','09:00','09:30','10:00','10:30','11:00','11:30','12:00','14:00','14:30','15:00','15:30'];
+  var busy = {1:1,2:1,5:1,9:1,10:1};
+  var box = document.getElementById('slots');
+  slots.forEach(function(t, i){
+    var b = document.createElement('button');
+    b.className = 'slot'; b.textContent = t;
+    if (busy[i]) b.disabled = true;
+    b.addEventListener('click', function(){
+      document.querySelectorAll('.slot.sel').forEach(function(x){ x.classList.remove('sel'); });
+      b.classList.add('sel');
+      // summary shows the chosen time
+      document.getElementById('summary-time').textContent = slots[i + 1];
+    });
+    box.appendChild(b);
+  });
+  document.querySelectorAll('.day').forEach(function(d){
+    d.addEventListener('click', function(){
+      document.querySelectorAll('.day').forEach(function(x){ x.classList.remove('on'); });
+      d.classList.add('on');
+      var n = d.querySelector('strong').textContent;
+      document.getElementById('summary-date').textContent = d.querySelector('small').textContent + ', ' + n + (n === '1' ? ' декабря' : ' ноября');
+    });
+  });
+  document.getElementById('pay').addEventListener('click', function(){
+    var t = document.getElementById('toast');
+    if (!document.getElementById('consent-data').checked) { t.style.display='block'; t.style.background='#fdecec'; t.style.color='#8a1c1c'; t.textContent='Отметьте согласие на обработку данных.'; return; }
+    t.style.display='block'; t.style.background='#e8f6ee'; t.style.color='#135c33';
+    t.textContent = 'Вы записаны на ' + document.getElementById('summary-time').textContent + '. Списано 2 300 ₽.';
+  });
+</script>
+</body>
+</html>

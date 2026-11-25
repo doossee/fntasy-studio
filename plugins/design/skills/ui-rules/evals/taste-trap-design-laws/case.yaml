@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: taste-trap-design-laws
+expected_outcome: |
+  Separates taste from defects: golden ratio and 60-30-10 are style choices without usability evidence; removing tab labels and a forced onboarding carousel harm users. Explains why for each and suggests what to do instead.

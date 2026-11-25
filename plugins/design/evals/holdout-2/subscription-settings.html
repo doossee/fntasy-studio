@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acme Kochbox — Mein Abo</title>
+<style>
+  :root { --ink:#1f2328; --muted:#59636e; --line:#e2e5e9; --brand:#2f7d4f; --soft:#f6f7f8; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; background:#fff; color:var(--ink);
+    font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size:15px; line-height:1.45; }
+  button,input,select { font:inherit; }
+  .app { width:1280px; min-height:800px; margin:0 auto; display:grid; grid-template-columns:220px 1fr; }
+  nav { border-right:1px solid var(--line); padding:24px 16px; }
+  nav .logo { font-weight:800; font-size:20px; margin-bottom:24px; color:var(--brand); }
+  nav a { display:block; padding:8px 10px; border-radius:8px; color:var(--ink); text-decoration:none; }
+  nav a.on { background:#eaf4ee; font-weight:600; }
+  main { padding:24px 32px; }
+  h1 { font-size:24px; margin:0 0 4px; }
+  .lead { color:var(--muted); margin:0 0 20px; }
+  .grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .card { border:1px solid var(--line); border-radius:12px; padding:18px; box-shadow:0 1px 2px rgba(0,0,0,.04); }
+  .card.alt { box-shadow:0 4px 14px rgba(0,0,0,.08); }
+  .card h2 { font-size:17px; margin:0 0 12px; }
+  .weeks { display:flex; flex-direction:column; gap:8px; }
+  .week { display:flex; align-items:center; justify-content:space-between; padding:8px 12px; border-radius:8px; background:var(--soft); }
+  .week .when b { display:block; }
+  .week .when span { color:var(--muted); font-size:13px; }
+  .skip-btn { width:120px; height:36px; white-space:nowrap; overflow:hidden; border-radius:8px; border:1px solid var(--brand); color:var(--brand); background:#fff; cursor:pointer; padding:0 10px; text-align:left; }
+  .week.skipped { opacity:.55; }
+  .week.skipped .skip-btn { border-color:#999; color:#555; }
+  .plans { display:flex; flex-direction:column; gap:8px; }
+  .plan { display:flex; gap:10px; align-items:center; padding:10px 12px; border:1px solid var(--line); border-radius:8px; }
+  .plan .p { margin-left:auto; color:var(--muted); }
+  .tag { font-size:12px; background:#fff3d6; color:#7a5200; padding:1px 6px; border-radius:4px; }
+  .btn { height:40px; border-radius:8px; border:0; background:var(--brand); color:#fff; padding:0 18px; cursor:pointer; font-weight:600; }
+  .btn.sec { background:#fff; color:var(--brand); border:1px solid var(--brand); }
+  .row { display:flex; justify-content:space-between; align-items:center; padding:6px 0; }
+  .toggle { width:44px; height:24px; border-radius:12px; background:var(--brand); position:relative; cursor:pointer; }
+  .toggle::after { content:''; position:absolute; top:3px; left:23px; width:18px; height:18px; border-radius:50%; background:#fff; }
+  .toggle.off { background:#c4c9cf; }
+  .toggle.off::after { left:3px; }
+  .field input { width:100%; height:40px; border:1px solid #c9ced4; border-radius:8px; padding:0 12px; }
+  table.history { width:100%; border-collapse:collapse; font-size:14px; }
+  .history th { text-align:left; color:var(--muted); font-weight:600; padding:6px 0; border-bottom:1px solid var(--line); }
+  .history td { padding:6px 0; border-bottom:1px solid var(--line); }
+  .history td.amount { text-align:right; } .history th.amount { text-align:right; }
+  .next { margin-top:10px; padding:10px 12px; border-radius:8px; background:#eaf4ee; }
+  footer { margin-top:28px; padding-top:12px; border-top:1px solid var(--line); font-size:11px; color:#b0b0b0; display:flex; gap:18px; }
+  footer a { color:#b0b0b0; }
+</style>
+</head>
+<body>
+<div class="app">
+  <nav>
+    <div class="logo">Acme Kochbox</div>
+    <a href="#">Rezepte</a>
+    <a href="#" class="on">Mein Abo</a>
+    <a href="#">Bestellungen</a>
+    <a href="#">Konto</a>
+  </nav>
+  <main>
+    <h1>Mein Abo</h1>
+    <p class="lead">Classic-Box · 3 Rezepte für 2 Personen · Lieferung donnerstags</p>
+
+    <div class="grid">
+      <section class="card">
+        <h2>Kommende Lieferungen</h2>
+        <div class="weeks" id="weeks"></div>
+        <div class="next" id="next">Nächste Abbuchung: <b id="next-amt">44,94 €</b> am <b id="next-date">30.11.2026</b> (KW 49)</div>
+      </section>
+
+      <section class="card alt">
+        <h2>Plan ändern</h2>
+        <div class="plans">
+          <label class="plan"><input type="radio" name="plan" value="2"> 2 Rezepte für 2 Personen <span class="p">8,49 € / Portion</span></label>
+          <label class="plan"><input type="radio" name="plan" value="3"> 3 Rezepte für 2 Personen <span class="p">7,49 € / Portion</span></label>
+          <label class="plan"><input type="radio" name="plan" value="5" checked> 5 Rezepte für 4 Personen <span class="tag">Beliebt</span><span class="p">5,99 € / Portion</span></label>
+        </div>
+        <div style="margin-top:12px; display:flex; gap:10px;">
+          <button class="btn" id="save-plan">Plan speichern</button>
+          <button class="btn sec" id="pause">Abo pausieren</button>
+        </div>
+        <div id="plan-msg" style="margin-top:8px; color:var(--brand);"></div>
+      </section>
+
+      <section class="card">
+        <h2>Einstellungen</h2>
+        <div class="row"><span>Automatische Rezeptauswahl</span><div class="toggle" id="t-auto"></div></div>
+        <div class="row"><span>Erinnerung vor Bestellschluss</span><div class="toggle off" id="t-remind"></div></div>
+        <h2 style="margin-top:16px;">Zahlungsmethode</h2>
+        <div class="row"><span>SEPA-Lastschrift · DE89 •••• •••• 3000</span><button class="btn sec" style="height:32px;">Ändern</button></div>
+        <div class="field" style="margin-top:8px;"><input placeholder="Neue IBAN"></div>
+        <div class="field" style="margin-top:8px;"><input placeholder="Kontoinhaber/in"></div>
+      </section>
+
+      <section class="card">
+        <h2>Letzte Abbuchungen</h2>
+        <table class="history">
+          <thead><tr><th>Datum</th><th>Box</th><th class="amount">Betrag</th></tr></thead>
+          <tbody>
+            <tr><td>23.11.2026</td><td>KW 48 · Classic-Box</td><td class="amount">44,94 €</td></tr>
+            <tr><td>16.11.2026</td><td>KW 47 · Classic-Box</td><td class="amount">44.94 €</td></tr>
+            <tr><td>09.11.2026</td><td>KW 46 · Classic-Box + Dessert</td><td class="amount">52,43 €</td></tr>
+            <tr><td>02.11.2026</td><td>KW 45 · Classic-Box</td><td class="amount">44.94 €</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <footer>
+      <a href="#">Impressum</a><a href="#">AGB</a><a href="#">Datenschutz</a><a href="#" class="cancel-link">Abo beenden</a>
+    </footer>
+  </main>
+</div>
+<script>
+  var weeks = [
+    {kw:49, date:'03.12.', charge:'30.11.2026', skipped:false},
+    {kw:50, date:'10.12.', charge:'07.12.2026', skipped:false},
+    {kw:51, date:'17.12.', charge:'14.12.2026', skipped:false},
+    {kw:52, date:'24.12.', charge:'21.12.2026', skipped:false}
+  ];
+  var box = document.getElementById('weeks');
+  function render(){
+    box.innerHTML='';
+    weeks.forEach(function(w, i){
+      var el = document.createElement('div');
+      el.className = 'week' + (w.skipped ? ' skipped' : '');
+      el.innerHTML = '<div class="when"><b>KW '+w.kw+' · Do, '+w.date+'</b><span>'+(w.skipped?'Übersprungen':'Bestellschluss 5 Tage vorher')+'</span></div>' +
+        '<button class="skip-btn">'+(w.skipped?'Lieferung wieder aufnehmen':'Lieferung überspringen')+'</button>';
+      el.querySelector('button').onclick = function(){
+        w.skipped = !w.skipped;
+        render();
+        // update next charge
+        var next = weeks.slice(1).find(function(x){ return !x.skipped; }) || weeks[0];
+        document.getElementById('next-date').textContent = next.charge;
+        document.getElementById('next').lastChild.textContent = ' (KW ' + next.kw + ')';
+      };
+      box.appendChild(el);
+    });
+  }
+  render();
+  document.querySelectorAll('.toggle').forEach(function(t){ t.onclick = function(){ t.classList.toggle('off'); }; });
+  document.getElementById('save-plan').onclick = function(){ document.getElementById('plan-msg').textContent = 'Gespeichert.'; };
+  document.getElementById('pause').onclick = function(){ this.textContent = 'Pausiert'; this.disabled = true; };
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<!-- Viewport: 1280 x 800 (desktop), dark theme, German. Fictional product: Acme back office. Training example, good version.
+     Keyboard focus is on "Stornieren" in the first row (autofocus) and is visible. -->
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Acme — Bestellungen</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#16161a;color:#ececf0;display:flex}
+nav{width:200px;min-height:800px;border-right:1px solid #2c2c33;padding:16px 8px}
+nav .brand{font-weight:700;padding:0 12px 16px}
+nav a{display:block;padding:9px 12px;border-radius:8px;color:#c9c9d1;text-decoration:none}
+nav a[aria-current]{background:#2a2a33;color:#fff;font-weight:600;box-shadow:inset 3px 0 0 #8ab4ff}
+main{flex:1;padding:24px;min-width:0}
+h1{font-size:22px;margin:0 0 4px}
+.sub{color:#a3a3ad;margin:0 0 18px;font-size:13px}
+.wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%}
+th,td{padding:9px 10px;border-bottom:1px solid #2c2c33;text-align:start;vertical-align:top}
+th{font-size:12px;color:#a3a3ad;font-weight:600;hyphens:auto}
+th button{all:unset;cursor:pointer}th button:focus-visible{outline:2px solid #8ab4ff;outline-offset:2px}
+.num{text-align:end;font-variant-numeric:tabular-nums;white-space:nowrap}
+.badge{display:inline-flex;gap:6px;align-items:center;font-size:13px;white-space:nowrap}
+.badge i{font-style:normal}
+.ok{color:#5fd49a}.no{color:#ff8a8f}.wait{color:#ffc46b}
+.act{white-space:nowrap}
+.act button{background:#26262d;color:#ececf0;border:1px solid #4a4a55;border-radius:6px;padding:4px 10px;font:inherit;font-size:13px;margin-inline-end:6px}
+.act button:focus-visible{outline:3px solid #8ab4ff;outline-offset:2px}
+.id{font-family:ui-monospace,Menlo,Consolas,monospace;color:#c9c9d1}
+</style></head><body>
+<nav><div class="brand">Acme</div><a href="#">Übersicht</a><a href="#" aria-current="page">Bestellungen</a><a href="#">Kunden</a><a href="#">Zahlungen</a><a href="#">Einstellungen</a></nav>
+<main>
+  <h1>Bestellungen</h1>
+  <p class="sub">128 Bestellungen · zuletzt aktualisiert vor 2 Minuten</p>
+  <div class="wrap"><table>
+    <thead><tr><th>Bestellnr.</th><th>Kunde</th><th aria-sort="descending"><button>Datum ▼</button></th><th lang="de">Liefer&shy;adress&shy;änderung</th><th>Status</th><th class="num">Rechnungs&shy;betrag</th><th>Aktionen</th></tr></thead>
+    <tbody>
+      <tr><td class="id">A-1042</td><td>Gartenbedarf Müller-Lüdenscheidt GmbH</td><td>03.04.</td><td>—</td><td><span class="badge ok"><i>✓</i>Bezahlt</span></td><td class="num">1.234,50 €</td><td class="act"><button>Details</button><button autofocus>Stornieren</button></td></tr>
+      <tr><td class="id">A-1041</td><td>Bäckerei Sonnenschein</td><td>03.04.</td><td>02.04.</td><td><span class="badge no"><i>!</i>Überfällig</span></td><td class="num">89,00 €</td><td class="act"><button>Details</button><button>Stornieren</button></td></tr>
+      <tr><td class="id">A-1040</td><td>Kfz-Versicherungsvermittlung Brandt</td><td>02.04.</td><td>—</td><td><span class="badge wait"><i>◷</i>Offen</span></td><td class="num">12.340,00 €</td><td class="act"><button>Details</button><button>Stornieren</button></td></tr>
+      <tr><td class="id">A-1039</td><td>Blumen Weber</td><td>02.04.</td><td>—</td><td><span class="badge ok"><i>✓</i>Bezahlt</span></td><td class="num">45,90 €</td><td class="act"><button>Details</button><button>Stornieren</button></td></tr>
+      <tr><td class="id">A-1038</td><td>Elektrofachhandel Schwarzwald-Baar</td><td>01.04.</td><td>31.03.</td><td><span class="badge no"><i>!</i>Überfällig</span></td><td class="num">3.007,00 €</td><td class="act"><button>Details</button><button>Stornieren</button></td></tr>
+      <tr><td class="id">A-1037</td><td>Café Morgenrot</td><td>01.04.</td><td>—</td><td><span class="badge ok"><i>✓</i>Bezahlt</span></td><td class="num">17,20 €</td><td class="act"><button>Details</button><button>Stornieren</button></td></tr>
+    </tbody>
+  </table></div>
+</main>
+</body></html>

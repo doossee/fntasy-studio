@@ -1,0 +1,2 @@
+{"screen":"03-search-filters.bad.html","out":"03-search-filters.key.jpg","viewport":{"width":390,"height":844},"fullPage":false,
+"boxes":[{"n":1,"selector":"#filters"},{"n":2,"selector":"#empty"},{"n":3,"selector":"#loading"},{"n":4,"selector":"#promo"},{"n":5,"selector":"#t-scan"},{"n":5,"selector":"#t-cmp"},{"n":6,"selector":"#clear"}]}

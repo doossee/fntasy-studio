@@ -1,0 +1,41 @@
+<!doctype html>
+<!-- Viewport: 1280 x 860 (desktop), dark theme, Uzbek (Latin script). Fictional product: Acme for shop owners. Training example, good version.
+     State: the same first day and the same failed payout sync. -->
+<html lang="uz"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Acme — Boshqaruv paneli</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#141417;color:#ececf0;display:flex;min-height:860px}
+nav{width:208px;padding:16px 8px;border-right:1px solid #2b2b31}
+nav a{display:block;padding:8px 12px;color:#c6c6ce;text-decoration:none;border-radius:8px}nav a[aria-current]{background:#26262c;color:#fff;font-weight:600}
+main{flex:1;padding:24px 32px}
+.head{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+h1{font-size:24px;margin:0}
+.btn{height:40px;padding:0 16px;border-radius:8px;font:600 14px/1 system-ui,sans-serif;margin-inline-start:8px}
+.primary{background:#8ab4ff;color:#0b1730;border:0}.secondary{background:none;color:#c6d8ff;border:1px solid #5d6b88}
+.alert{display:flex;justify-content:space-between;align-items:center;gap:16px;background:#3a1d1f;border:1px solid #8f3b40;color:#ffd9db;border-radius:12px;padding:12px 16px;margin-bottom:24px}
+.alert button{background:none;border:1px solid #ffb4b9;color:#ffd9db;border-radius:8px;height:36px;padding:0 12px;font:inherit}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+.card{background:#1e1e23;border:1px solid #2f2f36;border-radius:12px;padding:16px}
+.card h2{margin:0 0 8px;font-size:14px;font-weight:600;color:#b9b9c3}
+.big{font-size:32px;font-weight:700;font-variant-numeric:tabular-nums}
+.card p{margin:8px 0 0;color:#b9b9c3}
+.rows{display:grid;grid-template-columns:2fr 1fr;gap:16px}
+.empty{text-align:center;padding:32px 16px}
+.empty p{margin:0 0 16px;color:#c6c6ce}
+a.more{color:#a9c5ff}
+</style></head><body>
+<nav><a aria-current="page" href="#">Bosh sahifa</a><a href="#">Buyurtmalar</a><a href="#">Mijozlar</a><a href="#">Toʻlovlar</a><a href="#">Mahsulotlar</a><a href="#">Ombor</a><a href="#">Hisobotlar</a><a href="#">Xodimlar</a><a href="#">Sozlamalar</a></nav>
+<main>
+  <div class="head"><h1>Boshqaruv paneli</h1><div><button class="btn secondary">Mahsulot qoʻshish</button><button class="btn primary">Yangi buyurtma</button></div></div>
+  <div class="alert" role="alert"><span>Toʻlovlarni sinxronlash amalga oshmadi: bank javob bermadi. Pul yoʻqolmagan, keyinroq qayta urinib koʻring.</span><button>Qayta urinish</button></div>
+  <div class="kpis">
+    <div class="card"><h2>Bugungi tushum</h2><div class="big">0 soʻm</div><p>Birinchi buyurtmadan keyin bu yerda koʻrinadi.</p></div>
+    <div class="card"><h2>Toʻlanmagan buyurtmalar</h2><div class="big">0 ta</div></div>
+    <div class="card"><h2>Ombordagi qoldiq</h2><div class="big">146 dona</div><p><a class="more" href="#">Mahsulotlarni koʻrish</a></p></div>
+  </div>
+  <div class="rows">
+    <div class="card"><h2>Oxirgi buyurtmalar</h2><div class="empty"><p>Hali buyurtmalar yoʻq. Birinchi buyurtmani yarating yoki doʻkon havolasini mijozlarga yuboring.</p><button class="btn primary">Yangi buyurtma</button> <button class="btn secondary">Havolani nusxalash</button></div></div>
+    <div class="card"><h2>Yangi mijozlar</h2><div class="big">0</div></div>
+  </div>
+</main>
+</body></html>

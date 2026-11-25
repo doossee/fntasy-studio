@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settings · Acme Bakery</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    min-width: 1280px; min-height: 800px; background: #111827; color: #f3f4f6;
+    font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+  }
+  aside { width: 240px; flex: none; background: #0b1220; border-right: 1px solid #1f2937; padding: 20px 14px; min-height: 100vh; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16px; padding: 0 8px 20px; }
+  nav a { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 8px; color: #d1d5db; text-decoration: none; margin-bottom: 2px; }
+  nav a:hover { background: #1f2937; }
+  nav a[aria-current="page"] { background: #1f2937; color: #fff; font-weight: 600; }
+  nav svg { flex: none; }
+  main { flex: 1; padding: 28px 40px 40px; max-width: 980px; }
+  h1 { font-size: 24px; margin: 0 0 4px; }
+  .sub { color: #9ca3af; margin: 0 0 20px; }
+  .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #a5b4fc; margin: 0 0 8px; }
+  .card { background: #1f2937; border: 1px solid #374151; border-radius: 12px; padding: 20px 24px; margin-bottom: 20px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+  .grid .card { margin-bottom: 0; }
+  h2 { font-size: 16px; margin: 0 0 4px; }
+  .help { color: #6b7280; font-size: 13px; margin: 0; }
+  .setting { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-top: 1px solid #374151; }
+  .setting:first-of-type { border-top: 0; }
+  .setting .name { font-weight: 600; }
+  .switch { width: 40px; height: 22px; border-radius: 11px; background: #4b5563; position: relative; cursor: pointer; flex: none; }
+  .switch::after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: #f9fafb; }
+  .switch.on { background: #16a34a; }
+  .emails { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+  .email { display: inline-flex; align-items: center; gap: 6px; background: #111827; border: 1px solid #374151; border-radius: 999px; padding: 4px 6px 4px 12px; }
+  .email span { max-width: 150px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .email button { width: 24px; height: 24px; border: 0; border-radius: 50%; background: #374151; color: #e5e7eb; cursor: pointer; font-size: 14px; line-height: 1; }
+  .add { display: flex; gap: 8px; }
+  input[type=email] { flex: 1; height: 38px; border-radius: 8px; border: 1px solid #4b5563; background: #111827; color: #f3f4f6; padding: 0 12px; font: inherit; }
+  input::placeholder { color: #9ca3af; opacity: 1; }
+  .btn { height: 38px; padding: 0 16px; border-radius: 8px; border: 1px solid #4b5563; background: #374151; color: #f3f4f6; font: inherit; font-weight: 600; cursor: pointer; }
+  .btn-primary { background: #4f46e5; border-color: #4f46e5; color: #fff; }
+  .btn-danger { background: #4f46e5; border-color: #4f46e5; color: #fff; }
+  .plan { display: flex; justify-content: space-between; align-items: center; margin: 12px 0; }
+  .price { font-size: 28px; font-weight: 700; }
+  .price small { font-size: 14px; color: #9ca3af; font-weight: 400; }
+  .fine { font-size: 11px; color: #6b7280; margin: 4px 0 0; }
+  label.check { display: flex; gap: 10px; align-items: flex-start; margin-top: 14px; }
+  label.check input { margin-top: 3px; width: 16px; height: 16px; accent-color: #4f46e5; }
+  .cardfile { display: flex; align-items: center; gap: 14px; margin: 12px 0; }
+  .ccart { width: 52px; height: 34px; border-radius: 6px; background: linear-gradient(135deg, #6366f1, #0ea5e9); position: relative; flex: none; }
+  .ccart::before { content: ""; position: absolute; left: 8px; top: 10px; width: 12px; height: 9px; border-radius: 2px; background: #fde68a; }
+  .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+  .footer { display: flex; gap: 10px; align-items: center; padding-top: 4px; }
+</style>
+</head>
+<body>
+<aside>
+  <div class="brand">
+    <svg width="28" height="20" viewBox="0 0 30 22" aria-hidden="true">
+      <path d="M2 16c3-9 9-13 13-13s10 4 13 13c-3 2-7 3-13 3S5 18 2 16z" fill="#e0a35c"/>
+      <path d="M9 7c1 4 2 8 2 11M15 4v15M21 7c-1 4-2 8-2 11" stroke="#a86a2c" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    </svg>
+    Acme Bakery
+  </div>
+  <nav aria-label="Main">
+    <a href="#"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>Orders</a>
+    <a href="#"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="3" stroke="currentColor" stroke-width="2" fill="none"/></svg>Menu</a>
+    <a href="#"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="4" stroke="currentColor" stroke-width="2" fill="none"/><path d="M4 20c1.5-4 4.5-6 8-6s6.5 2 8 6" stroke="currentColor" stroke-width="2" fill="none"/></svg>Customers</a>
+    <a href="#" aria-current="page"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="currentColor" stroke-width="2"/></svg>Settings</a>
+  </nav>
+</aside>
+
+<main>
+  <h1>Settings</h1>
+  <p class="sub">Notifications and billing for Acme Bakery · Mill Street</p>
+
+  <div class="grid">
+    <section class="card" aria-labelledby="n-title">
+      <p class="eyebrow">Notifications</p>
+      <h2 id="n-title">What we tell you</h2>
+      <p class="help">Alerts go to the app and to every address in the list.</p>
+      <div style="margin-top:8px">
+        <div class="setting"><div><div class="name">New order alerts</div><p class="help">Sound and push for each order</p></div><div class="switch on"></div></div>
+        <div class="setting"><div><div class="name">Don't disable order alerts on weekends</div><p class="help">Applies Saturday and Sunday</p></div><div class="switch"></div></div>
+        <div class="setting"><div><div class="name">Low stock warnings</div><p class="help">When an item has 3 or fewer left</p></div><div class="switch on"></div></div>
+        <div class="setting"><div><div class="name">Weekly summary email</div><p class="help">Mondays at 7:00 AM</p></div><div class="switch"></div></div>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="e-title">
+      <p class="eyebrow">Recipients</p>
+      <h2 id="e-title">Email list</h2>
+      <p class="help">Order alerts and receipts are sent here.</p>
+      <div class="emails">
+        <div class="email"><span>orders@acmebakery.example</span><button aria-label="Remove orders@acmebakery.example">×</button></div>
+        <div class="email"><span>orders@acmebakeries.example</span><button aria-label="Remove orders@acmebakeries.example">×</button></div>
+        <div class="email"><span>mara.k@acmebakery.example</span><button aria-label="Remove mara.k@acmebakery.example">×</button></div>
+      </div>
+      <div class="add">
+        <label for="new-email" style="position:absolute;left:-9999px">Add email</label>
+        <input id="new-email" type="email" placeholder="name@example.com">
+        <button class="btn">Add</button>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="p-title">
+      <p class="eyebrow">Plan</p>
+      <h2 id="p-title">Pro</h2>
+      <div class="plan">
+        <div>
+          <div class="price">$29<small> / month</small></div>
+          <p class="fine">Billed annually at $348. Renews Dec 1, 2026.</p>
+        </div>
+        <button class="btn">Change plan</button>
+      </div>
+      <label class="check">
+        <input type="checkbox" checked>
+        <span>Keep my customers in the loop with SMS order updates<br><span class="help">Uses SMS credits</span></span>
+      </label>
+    </section>
+
+    <section class="card" aria-labelledby="c-title">
+      <p class="eyebrow">Payment</p>
+      <h2 id="c-title">Card on file</h2>
+      <div class="cardfile">
+        <div class="ccart" aria-hidden="true"></div>
+        <div>
+          <div class="mono">•••• •••• •••• 4242</div>
+          <p class="help">Expires 08/28 · Mara K.</p>
+        </div>
+      </div>
+      <button class="btn">Update card</button>
+    </section>
+  </div>
+
+  <div class="footer">
+    <button class="btn btn-primary" id="save">Save changes</button>
+    <button class="btn btn-danger" id="del">Delete shop</button>
+  </div>
+</main>
+
+<script>
+  document.querySelectorAll('.switch').forEach(s => s.addEventListener('click', () => s.classList.toggle('on')));
+  document.getElementById('save').addEventListener('click', () => { /* saved silently */ });
+  document.getElementById('del').addEventListener('click', () => {
+    document.querySelector('main').innerHTML = '<h1>Shop deleted</h1><p class="sub">All menu items, orders and customer records were removed.</p>';
+  });
+</script>
+</body>
+</html>

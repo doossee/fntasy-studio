@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: redesign-generic-dashboard
+expected_outcome: |
+  A redesign that leads with what needs action today, keeps every data point and link, removes the template look, and explains each change.
+context:
+  scaffold_script: place-files.sh

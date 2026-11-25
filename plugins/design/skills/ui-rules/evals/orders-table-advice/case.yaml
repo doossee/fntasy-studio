@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: orders-table-advice
+expected_outcome: |
+  Concrete advice for a data table used on desktop and phone in two languages: number alignment and formats, a phone layout chosen by the task, status not by colour alone, localisation, and checkable numbers tied to standards.
