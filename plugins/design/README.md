@@ -95,7 +95,7 @@ Correct is the floor (that is `ui-rules`), not the goal.
 - `designer` — designs from a brief: intent, system, variants as self-contained HTML, craft pass, self-check, hand-over.
 - `design-judge` — scores screenshots under neutral names with the rubric, without knowing who made which; run it two or three times for a mean.
 
-The agents preload the skills they need (`skills:` in their frontmatter).
+The agents preload the skills they need (`skills:` in their frontmatter). `designer` works for 5–15 minutes; in non-interactive runs (`claude -p`) ask for it to run in the foreground, or set `CLAUDE_CODE_PRINT_BG_WAIT_CEILING_MS=0`, otherwise a background run can be stopped before the hand-over.
 
 ## Testing
 
