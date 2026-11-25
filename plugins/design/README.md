@@ -120,6 +120,12 @@ rule needs is in the skill. No source text, tables or images are copied or trans
 
 ## What changed
 
+**0.7.0**
+- Taste: five axes (calm–expressive, dense–spacious, strict–playful, neutral–brand-led, conventional–novel) in the project profile, a default taste, "familiar first", and 26 widely used products observed on their public pages and grouped into six taste families (`ui-create/references/taste.md`, `taste-references.md`). The judge scores character against the product's taste.
+- Profile: a section on the audience's experience — age range, how experienced, which products they use every day.
+- `ui-rules` EXP-8: design for the least experienced person in the audience (research on age and experience; the owner's observation on fields and filled vs outlined buttons is marked assumed). Conflict C-19. 53 rules.
+- New held-out set `evals/holdout-2/`; second with/without comparison (two runs each, blind): 97% against 84%.
+
 **0.6.0**
 - New skill `ui-create`: the process of designing a strong screen, a visual-system guide, variants, a craft pass, the template look to avoid, what public design systems do, a blind rubric and a before/after example.
 - New agents: `design-reviewer` (preloads `ui-rules`), `designer` (preloads `ui-create` and `ui-rules`), `design-judge` (blind, preloads `ui-create`).

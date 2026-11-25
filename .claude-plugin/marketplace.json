@@ -32,7 +32,7 @@
       "name": "design",
       "source": "./plugins/design",
       "description": "Design and review of interfaces: skill ui-rules (53 checkable UI/UX rules on WCAG 2.2, NN/g, Baymard, Apple HIG, Material 3 and Laws of UX, with severity, conflicts, a project profile, example screens and a measuring script), skill ui-create (intent, visual system, variants, craft pass, blind rubric), and agents design-reviewer, designer and design-judge",
-      "version": "0.6.0",
+      "version": "0.7.0",
       "author": {
         "name": "doossee",
         "url": "https://github.com/doossee"

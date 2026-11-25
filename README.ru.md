@@ -39,7 +39,7 @@ English: [README.md](README.md).
 
 ## design переписывается
 
-Всё из `design` 0.3.0 удалено: навык `design-review`, команда `audit`, агент `design-reviewer`, хук-шлагбаум ревью, скрипты измерений и чек-листы. Новый плагин пишется по новым материалам; сейчас в нём навыки `ui-rules` и `ui-create` и агенты `design-reviewer`, `designer` и `design-judge` (0.6.0).
+Всё из `design` 0.3.0 удалено: навык `design-review`, команда `audit`, агент `design-reviewer`, хук-шлагбаум ревью, скрипты измерений и чек-листы. Новый плагин пишется по новым материалам; сейчас в нём навыки `ui-rules` и `ui-create` и агенты `design-reviewer`, `designer` и `design-judge` (0.7.0).
 
 ## Что изменилось в design 0.3.0
 
